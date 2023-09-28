@@ -94,7 +94,7 @@
                 <div class="row">
                     <div class="col-sm-12 mt-3">
                         <label for="name" class="form-label">Nome do Aluno:</label>
-                        <input type="text" class="form-control" id="name" name="name">
+                        <input type="text" class="form-control" id="name" name="name" placeholder="Digite o nome">
                     </div>
 
                     <fieldset class="row mb-0 mt-0">
@@ -138,44 +138,44 @@
 
                     <div class="col-sm-6  mt-3">
                         <label for="email" class="form-label">Email:</label>
-                        <input type="text" class="form-control" id="email" name="email">
+                        <input type="email" class="form-control" id="email" name="email" placeholder="Digite o email">
                     </div>
 
                     <div class="col-sm-6  mt-3">
                         <label for="responsiblefeminine" class="form-label">Nome da Responsável (Feminino):</label>
-                        <input type="text" class="form-control" id="responsiblefeminine" name="responsiblefeminine">
+                        <input type="text" class="form-control" id="responsiblefeminine" name="responsiblefeminine" placeholder="Digite o responsavel (Feminino)">
                     </div>
 
                     <div class="col-sm-6  mt-3">
                         <label for="responsibleMale" class="form-label">Nome do Responsável (Masculino):</label>
-                        <input type="text" class="form-control" id="responsibleMale" name="responsibleMale">
+                        <input type="text" class="form-control" id="responsibleMale" name="responsibleMale" placeholder="Digite o nome do responsavel (Masculino)">
                     </div>
 
 
                     <div class="col-sm-12 mt-3">
                         <br><br>
                         <label for="address" class="form-label">Endereço:</label>
-                        <input type="text" class="form-control" id="address" name="address">
+                        <input type="text" class="form-control" id="address" name="address" placeholder="Digite o endereço">
                     </div>
 
                     <div class="col-sm-4  mt-3">
                         <label for="bairro" class="form-label">Bairro:</label>
-                        <input type="text" class="form-control" id="neighborhood" name="neighborhood">
+                        <input type="text" class="form-control" id="neighborhood" name="neighborhood" placeholder="Digite o bairro">
                     </div>
 
                     <div class="col-sm-4  mt-3">
                         <label for="residentialNumber" class="form-label">Numero de rezidência:</label>
-                        <input type="text" class="form-control" id="residentialNumber" name="residentialNumber">
+                        <input type="text" class="form-control" id="residentialNumber" name="residentialNumber" placeholder="Digite o numero de rezidência">
                     </div>
 
                     <div class="col-sm-4  mt-3">
                         <label for="telephone" class="form-label">telefone:</label>
-                        <input type="text" class="form-control" id="telephone" name="telephone">
+                        <input type="text" class="form-control" id="telephone" name="telephone" placeholder="Digite o telefone">
                     </div>
 
                     <div class="col-sm-12 mt-3">
                         <label for="activitylocation" class="form-label">Local de Atividade:</label>
-                        <input type="text" class="form-control" id="activitylocation" name="activitylocation">
+                        <input type="text" class="form-control" id="activitylocation" name="activitylocation" placeholder="Digite o local de atividade">
                     </div>
 
                     <div class="col-sm-6  mt-3">
@@ -197,42 +197,42 @@
 
                     <div class="col-sm-4 mt-3">
                         <label for="renach" class="form-label">RENACH SP:</label>
-                        <input type="text" class="form-control" id="renach" name="renach">
+                        <input type="text" class="form-control" id="renach" name="renach" placeholder="Digite o renach sp">
                     </div>
 
                     <div class="col-sm-4  mt-3">
                         <label for="rg" class="form-label">RG:</label>
-                        <input type="text" class="form-control" id="rg" name="rg">
+                        <input type="text" class="form-control" id="rg" name="rg" placeholder="Digite o rg">
                     </div>
 
                     <div class="col-sm-4  mt-3">
                         <label for="uf" class="form-label">UF:</label>
-                        <input type="text" class="form-control" id="uf" name="uf">
+                        <input type="text" class="form-control" id="uf" name="uf" placeholder="Digite o uf">
                     </div>
 
                     <div class="col-sm-6  mt-3">
                         <label for="dateOfBirth" class="form-label">Data de nascimento:</label>
-                        <input type="text" class="form-control" id="dateOfBirth" name="dateOfBirth">
+                        <input type="date" class="form-control" id="dateOfBirth" name="dateOfBirth">
                     </div>
 
                     <div class="col-sm-6  mt-3">
                         <label for="cpf" class="form-label">CPF:</label>
-                        <input type="text" class="form-control" id="cpf" name="cpf">
+                        <input type="text" class="form-control" id="cpf" name="cpf" placeholder="Digite o cpf">
                     </div>
 
                     <div class="col-sm-4 mt-3">
                         <label for="rgExpedition" class="form-label">RG-Espedição:</label>
-                        <input type="text" class="form-control" id="rgExpedition" name="rgExpedition">
+                        <input type="text" class="form-control" id="rgExpedition" name="rgExpedition" placeholder="Digite o rg-espedição">
                     </div>
 
                     <div class="col-sm-4  mt-3">
                         <label for="registrationNumber" class="form-label">Numero de registro:</label>
-                        <input type="text" class="form-control" id="registrationNumber" name="registrationNumber">
+                        <input type="text" class="form-control" id="registrationNumber" name="registrationNumber" placeholder="Digite o numero de registro">
                     </div>
 
                     <div class="col-sm-4  mt-3">
                         <label for="naturalness" class="form-label">Naturalidade:</label>
-                        <input type="text" class="form-control" id="naturalness" name="naturalness">
+                        <input type="text" class="form-control" id="naturalness" name="naturalness" placeholder="Digite a naturalidade">
                     </div>
 
                     <p class="fs-1 text-center mt-5">Pagamento</p>
@@ -277,7 +277,7 @@
                                 <td>
                                     <input type="text" class="form-control" id="ValueOfFirstInstallment"
                                         name="ValueOfFirstInstallment" step="0.01"
-                                        placeholder="Digite o valor da primeira parcela">
+                                        placeholder="Digite o valor avista">
                                 </td>
                             </tr>
                             <tr>
