@@ -36,7 +36,7 @@
                     
                     $_SESSION['nome'] = $rowAdministrador['nome'];
 
-                    header(("location:../administrador/controleDeAluno.php"));
+                    header(("location:../administrador/cadastroDeAluno.php"));
                 }
     
                 if($totalRowAluno > 0 ){
