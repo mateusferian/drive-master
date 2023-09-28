@@ -8,12 +8,12 @@
 
     <link rel="stylesheet" href="../bootstrap/css/bootstrap.min.css">
     <script src="../bootstrap/js/bootstrap.min.js"></script>
-    <link href="css/cadastro.css" rel="stylesheet">
+    <link href="css/studentRegistration.css" rel="stylesheet">
 </head>
 
 <body>
 
-    <nav class="navbar navbar-expand-lg navbar-dark fixed-top custom-navbar">
+    <nav class="navbar navbar-expand-lg navbar-dark fixed-top customNavbar">
         <div class="container-fluid">
             <a class="navbar-brand" href="#"><img src="imagens/logo.png" alt="ETEC Games"></a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup"
@@ -32,7 +32,7 @@
     </nav>
 
     <?php
-    $pastaImagens = 'imagensDoSite/';
+    $pastaImagens = 'carouselImage/';
     $extensoesPermitidas = array('jpg', 'jpeg', 'png', 'gif');
     $imagens = array();
 
@@ -48,15 +48,16 @@
     <div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="carousel">
         <div class="carousel-indicators">
             <?php foreach ($imagens as $index => $imagem) : ?>
-                <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="<?= $index; ?>"
-                    <?= $index === 0 ? 'class="active"' : '' ?> aria-label="Slide <?= ($index + 1); ?>"></button>
+            <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="<?= $index; ?>"
+                <?= $index === 0 ? 'class="active"' : '' ?> aria-label="Slide <?= ($index + 1); ?>"></button>
             <?php endforeach; ?>
         </div>
         <div class="carousel-inner">
             <?php foreach ($imagens as $index => $imagem) : ?>
-                <div class="carousel-item <?= $index === 0 ? 'active' : '' ?>">
-                    <img src="<?= $pastaImagens . $imagem; ?>" class="d-block w-100 imagem-carrossel" alt="banner <?= ($index + 1); ?>">
-                </div>
+            <div class="carousel-item <?= $index === 0 ? 'active' : '' ?>">
+                <img src="<?= $pastaImagens . $imagem; ?>" class="d-block w-100 imagem-carrossel"
+                    alt="banner <?= ($index + 1); ?>">
+            </div>
             <?php endforeach; ?>
         </div>
         <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators"
@@ -75,12 +76,12 @@
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.min.js"></script>
     <script>
-        $(document).ready(function () {
-            // Intervalo para trocar automaticamente as imagens a cada 3 segundos (3000 ms)
-            setInterval(function () {
-                $('#carouselExampleIndicators').carousel('next');
-            }, 9000);
-        });
+    $(document).ready(function() {
+        // Intervalo para trocar automaticamente as imagens a cada 3 segundos (3000 ms)
+        setInterval(function() {
+            $('#carouselExampleIndicators').carousel('next');
+        }, 9000);
+    });
     </script>
 
     <div class="container">
@@ -88,35 +89,35 @@
 
         <div class="container">
 
-            <form name="form1" method="post" action="adm2.php" enctype="multipart/form-data">
+            <form name="form1" method="post" action="studentRegistration.php" enctype="multipart/form-data">
 
                 <div class="row">
                     <div class="col-sm-12 mt-3">
-                        <label for="nome" class="form-label">Nome do Aluno:</label>
-                        <input type="text" class="form-control" id="nome" name="nome">
+                        <label for="name" class="form-label">Nome do Aluno:</label>
+                        <input type="text" class="form-control" id="name" name="name">
                     </div>
 
                     <fieldset class="row mb-0 mt-0">
                         <div class="col-sm-10 mx-auto text-center">
                             <br>
                             <div class="form-check form-check-inline ml-4 mr-4">
-                                <input class="form-check-input" type="radio" name="gridRadios" id="gridRadios1"
-                                    value="option1" checked>
-                                <label class="form-check-label" for="gridRadios1">
+                                <input class="form-check-input" type="radio" name="course" id="firstLicense"
+                                    value="firstLicense" checked>
+                                <label class="form-check-label" for="firstLicense">
                                     1 Habilitação
                                 </label>
                             </div>
                             <div class="form-check form-check-inline ml-4 mr-4">
-                                <input class="form-check-input" type="radio" name="gridRadios" id="gridRadios2"
-                                    value="option2">
-                                <label class="form-check-label" for="gridRadios2">
+                                <input class="form-check-input" type="radio" name="course" id="categoryAddition"
+                                    value="categoryAddition">
+                                <label class="form-check-label" for="categoryAddition">
                                     Adição de categoria
                                 </label>
                             </div>
                             <div class="form-check form-check-inline ml-4 mr-4">
-                                <input class="form-check-input" type="radio" name="gridRadios" id="gridRadios3"
-                                    value="option3">
-                                <label class="form-check-label" for="gridRadios3">
+                                <input class="form-check-input" type="radio" name="course" id="rehabilitation"
+                                    value="rehabilitation">
+                                <label class="form-check-label" for="rehabilitation">
                                     Reabilitação
                                 </label>
                             </div>
@@ -125,8 +126,8 @@
 
 
                     <div class="col-sm-6 mt-3">
-                        <label for="categoria" class="form-label">Categoria</label>
-                        <select id="categoria" name="categoria" class="form-select">
+                        <label for="category" class="form-label">Categoria</label>
+                        <select id="category" name="category" class="form-select">
                             <option selected>Informe qual categoria o aluno irá fazer</option>
                             <option>A</option>
                             <option>B</option>
@@ -141,57 +142,57 @@
                     </div>
 
                     <div class="col-sm-6  mt-3">
-                        <label for="responsavelfeminino" class="form-label">Nome da Responsável (Feminino):</label>
-                        <input type="text" class="form-control" id="responsavelfeminino" name="responsavelfeminino">
+                        <label for="responsiblefeminine" class="form-label">Nome da Responsável (Feminino):</label>
+                        <input type="text" class="form-control" id="responsiblefeminine" name="responsiblefeminine">
                     </div>
 
                     <div class="col-sm-6  mt-3">
-                        <label for="responsavelMasculino" class="form-label">Nome do Responsável (Masculino):</label>
-                        <input type="text" class="form-control" id="responsavelMasculino" name="responsavelMasculino">
+                        <label for="responsibleMale" class="form-label">Nome do Responsável (Masculino):</label>
+                        <input type="text" class="form-control" id="responsibleMale" name="responsibleMale">
                     </div>
 
 
                     <div class="col-sm-12 mt-3">
                         <br><br>
-                        <label for="endereco" class="form-label">Endereço:</label>
-                        <input type="text" class="form-control" id="endereco" name="endereco">
+                        <label for="address" class="form-label">Endereço:</label>
+                        <input type="text" class="form-control" id="address" name="address">
                     </div>
 
                     <div class="col-sm-4  mt-3">
                         <label for="bairro" class="form-label">Bairro:</label>
-                        <input type="text" class="form-control" id="bairro" name="bairro">
+                        <input type="text" class="form-control" id="neighborhood" name="neighborhood">
                     </div>
 
                     <div class="col-sm-4  mt-3">
-                        <label for="numeroDeRezidencia" class="form-label">Numero de rezidência:</label>
-                        <input type="text" class="form-control" id="numeroDeRezidencia" name="numeroDeRezidencia">
+                        <label for="residentialNumber" class="form-label">Numero de rezidência:</label>
+                        <input type="text" class="form-control" id="residentialNumber" name="residentialNumber">
                     </div>
 
                     <div class="col-sm-4  mt-3">
-                        <label for="telefone" class="form-label">telefone:</label>
-                        <input type="text" class="form-control" id="telefone" name="telefone">
+                        <label for="telephone" class="form-label">telefone:</label>
+                        <input type="text" class="form-control" id="telephone" name="telephone">
                     </div>
 
                     <div class="col-sm-12 mt-3">
-                        <label for="localDeAtividade" class="form-label">Local de Atividade:</label>
-                        <input type="text" class="form-control" id="localDeAtividade" name="localDeAtividade">
+                        <label for="activitylocation" class="form-label">Local de Atividade:</label>
+                        <input type="text" class="form-control" id="activitylocation" name="activitylocation">
                     </div>
 
                     <div class="col-sm-6  mt-3">
-                        <label for="dataDoExameMedico" class="form-label">Data do exame médico:</label>
-                        <input type="text" class="form-control" id="dataDoExameMedico" name="dataDoExameMedico">
+                        <label for="dateOfMedicExam" class="form-label">Data do exame médico:</label>
+                        <input type="date" class="form-control" id="dateOfMedicExam" name="dateOfMedicExam">
                     </div>
 
                     <div class="col-sm-6  mt-3">
-                        <label for="atualizacaoBiometrica" class="form-label">Atualização:</label>
-                        <input type="text" class="form-control" id="atualizacaoBiometrica" name="atualizacaoBiometrica">
+                        <label for="biometricUpdate" class="form-label">Atualização:</label>
+                        <input type="date" class="form-control" id="biometricUpdate" name="biometricUpdate">
                     </div>
 
 
                     <div class="col-md-12  mt-3">
                         <br><br>
-                        <label for="fotoDePerfil" class="form-label">Selecione a foto de perfil:</label>
-                        <input type="file" class="form-control" id="fotoDePerfil" name="fotoDePerfil">
+                        <label for="profilePicture" class="form-label">Selecione a foto de perfil:</label>
+                        <input type="file" class="form-control" id="profilePicture" name="profilePicture">
                     </div>
 
                     <div class="col-sm-4 mt-3">
@@ -206,12 +207,12 @@
 
                     <div class="col-sm-4  mt-3">
                         <label for="uf" class="form-label">UF:</label>
-                        <input type="text" class="form-control" id="responsavelMasufculino" name="uf">
+                        <input type="text" class="form-control" id="uf" name="uf">
                     </div>
 
                     <div class="col-sm-6  mt-3">
-                        <label for="dataDeNascimento" class="form-label">Data de nascimento:</label>
-                        <input type="text" class="form-control" id="dataDeNascimento" name="dataDeNascimento">
+                        <label for="dateOfBirth" class="form-label">Data de nascimento:</label>
+                        <input type="text" class="form-control" id="dateOfBirth" name="dateOfBirth">
                     </div>
 
                     <div class="col-sm-6  mt-3">
@@ -220,188 +221,220 @@
                     </div>
 
                     <div class="col-sm-4 mt-3">
-                        <label for="rgEspedicao" class="form-label">RG-Espedição:</label>
-                        <input type="text" class="form-control" id="rgEspedicao" name="rgEspedicao">
+                        <label for="rgExpedition" class="form-label">RG-Espedição:</label>
+                        <input type="text" class="form-control" id="rgExpedition" name="rgExpedition">
                     </div>
 
                     <div class="col-sm-4  mt-3">
-                        <label for="numeroDeRegistro" class="form-label">Numero de registro:</label>
-                        <input type="text" class="form-control" id="numeroDeRegistro" name="numeroDeRegistro">
+                        <label for="registrationNumber" class="form-label">Numero de registro:</label>
+                        <input type="text" class="form-control" id="registrationNumber" name="registrationNumber">
                     </div>
 
                     <div class="col-sm-4  mt-3">
-                        <label for="naturalidade" class="form-label">Naturalidade:</label>
-                        <input type="text" class="form-control" id="naturalidade" name="naturalidade">
+                        <label for="naturalness" class="form-label">Naturalidade:</label>
+                        <input type="text" class="form-control" id="naturalness" name="naturalness">
                     </div>
 
                     <p class="fs-1 text-center mt-5">Pagamento</p>
 
-                        <div class="col-sm-6  mt-3">
-                        <label for="vista" class="form-label">A vista:</label>
-                        <input type="text" class="form-control" id="vista" name="vista">
+
+                    <div class="col-md-3 mt-3">
+                        <div class="form-check">
+                            <input class="form-check-input" type="checkbox" value="" id="flexCheckCash"
+                                name="installmentType">
+                            <label class="form-check-label" for="flexCheckCash">A vista:</label>
+                        </div>
+                    </div>
+                    <div class="col-md-3 mt-3">
+                        <div class="form-check">
+                            <input class="form-check-input" type="checkbox" value="" id="flexCheckCarnet"
+                                name="installmentType">
+                            <label class="form-check-label" for="flexCheckCarnet">Parcelado no carnê:</label>
+                        </div>
+                    </div>
+                    <div class="col-md-3 mt-3">
+                        <div class="form-check">
+                            <input class="form-check-input" type="checkbox" value="" id="flexCheckCard"
+                                name="installmentType">
+                            <label class="form-check-label" for="flexCheckCard">Parcelado no cartão:</label>
+                        </div>
+                    </div>
+                    <div class="col-md-3 mt-3">
+                        <div class="form-check">
+                            <input class="form-check-input" type="checkbox" value="" id="flexCheckCourse"
+                                name="installmentType">
+                            <label class="form-check-label" for="flexCheckCourse">Curso a vista:</label>
+                        </div>
                     </div>
 
 
-                    <div class="col-sm-6 mt-3">
-                        <label for="parceladoNoCarne" class="form-label">Parcelado no carnê:</label>
-                        <input type="text" class="form-control" id="parceladoNoCarne" name="parceladoNoCarne">
+                    <div class="col-sm-12 mt-3" id="advancePayment" style="display: none;">
+                        <table class="table">
+                            <tr>
+                                <td>Pagamento Avista:</td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <input type="text" class="form-control" id="ValueOfFirstInstallment"
+                                        name="ValueOfFirstInstallment" step="0.01"
+                                        placeholder="Digite o valor da primeira parcela">
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <input type="date" class="form-control" id="DateOfFirstInstallment"
+                                        name="DateOfFirstInstallment">
+                                </td>
+                            </tr>
+                        </table>
                     </div>
 
-                    <div class="col-sm-6 mt-3">
-                        <label for="parceladoNoCartao" class="form-label">Parcelado no cartão:</label>
-                        <input type="text" class="form-control" id="parceladoNoCartao" name="parceladoNoCartao">
-                    </div>
-
-                    <div class="col-sm-6 mt-3">
-                        <label for="parceladoNoCartao" class="form-label">Curso a vista:</label>
-                        <input type="text" class="form-control" id="parceladoNoCartao" name="parceladoNoCartao">
-                    </div>
-
-                    <div class="col-sm-6 mt-3" id="parcela1" style="display: none;">
+                    <div class="col-sm-6 mt-3" id="firstPaymentInstallment" style="display: none;">
                         <table class="table">
                             <tr>
                                 <td>1º Parcela:</td>
                             </tr>
                             <tr>
                                 <td>
-                                    <input type="text" class="form-control" id="valorPrimeiraParcela"
-                                        name="valorPrimeiraParcela" step="0.01"
+                                    <input type="text" class="form-control" id="ValueOfFirstInstallment"
+                                        name="ValueOfFirstInstallment" step="0.01"
                                         placeholder="Digite o valor da primeira parcela">
                                 </td>
                             </tr>
                             <tr>
                                 <td>
-                                    <input type="date" class="form-control" id="dataPrimeiraParcela"
-                                        name="dataPrimeiraParcela">
+                                    <input type="date" class="form-control" id="DateOfFirstInstallment"
+                                        name="DateOfFirstInstallment">
                                 </td>
                             </tr>
                         </table>
                     </div>
 
-                    <div class="col-sm-6 mt-3" id="parcela2" style="display: none;">
+                    <div class="col-sm-6 mt-3" id="secondPaymentInstallment" style="display: none;">
                         <table class="table">
                             <tr>
                                 <td>2º Parcela:</td>
                             </tr>
                             <tr>
                                 <td>
-                                    <input type="text" class="form-control" id="valorSegundaParcela"
-                                        name="valorSegundaParcela" step="0.01"
+                                    <input type="text" class="form-control" id="ValueOfSecondInstallment"
+                                        name="ValueOfSecondInstallment" step="0.01"
                                         placeholder="Digite o valor da segunda parcela">
                                 </td>
                             </tr>
                             <tr>
                                 <td>
-                                    <input type="date" class="form-control" id="dataSegundaParcela"
-                                        name="dataSegundaParcela">
+                                    <input type="date" class="form-control" id="DateOfSecondInstallment"
+                                        name="DateOfSecondInstallment">
                                 </td>
                             </tr>
                         </table>
                     </div>
 
-                    <div class="col-sm-6 mt-3" id="parcela3" style="display: none;">
+                    <div class="col-sm-6 mt-3" id="thirdPaymentInstallment" style="display: none;">
                         <table class="table">
                             <tr>
                                 <td>3º Parcela:</td>
                             </tr>
                             <tr>
                                 <td>
-                                    <input type="text" class="form-control" id="valorTerceiraParcela"
-                                        name="valorTerceiraParcela" step="0.01"
+                                    <input type="text" class="form-control" id="ValueOfThirdInstallment"
+                                        name="ValueOfThirdInstallment" step="0.01"
                                         placeholder="Digite o valor da terceira parcela">
                                 </td>
                             </tr>
                             <tr>
                                 <td>
-                                    <input type="date" class="form-control" id="dataTerceiraParcela"
-                                        name="dataTerceiraParcela">
+                                    <input type="date" class="form-control" id="DateOfThirdInstallment"
+                                        name="DateOfThirdInstallment">
                                 </td>
                             </tr>
                         </table>
                     </div>
 
-                    <div class="col-sm-6 mt-3" id="parcela4" style="display: none;">
+                    <div class="col-sm-6 mt-3" id="fourthPaymentInstallment" style="display: none;">
                         <table class="table">
                             <tr>
                                 <td>4º Parcela:</td>
                             </tr>
                             <tr>
                                 <td>
-                                    <input type="text" class="form-control" id="valorQuartaParcela"
-                                        name="valorQuartaParcela" step="0.01"
+                                    <input type="text" class="form-control" id="ValueOfFourthInstallment"
+                                        name="ValueOfFourthInstallment" step="0.01"
                                         placeholder="Digite o valor da quarta parcela">
                                 </td>
                             </tr>
                             <tr>
                                 <td>
-                                    <input type="date" class="form-control" id="dataQuartaParcela"
-                                        name="dataQuartaParcela">
+                                    <input type="date" class="form-control" id="DateOfFourthInstallment"
+                                        name="DateOfFourthInstallment">
                                 </td>
                             </tr>
                         </table>
                     </div>
 
-                    <div class="col-sm-6 mt-3" id="parcela5" style="display: none;">
+                    <div class="col-sm-6 mt-3" id="fifthPaymentInstallment" style="display: none;">
                         <table class="table">
                             <tr>
                                 <td>5º Parcela:</td>
                             </tr>
                             <tr>
                                 <td>
-                                    <input type="text" class="form-control" id="valorQuintaParcela"
-                                        name="valorQuintaParcela" step="0.01"
+                                    <input type="text" class="form-control" id="ValueOfFifthInstallment"
+                                        name="ValueOfFifthInstallment" step="0.01"
                                         placeholder="Digite o valor da quinta parcela">
                                 </td>
                             </tr>
                             <tr>
                                 <td>
-                                    <input type="date" class="form-control" id="dataQuintaParcela"
-                                        name="dataQuintaParcela">
+                                    <input type="date" class="form-control" id="DateOfFifthInstallment"
+                                        name="DateOfFifthInstallment">
                                 </td>
                             </tr>
                         </table>
                     </div>
 
-                    <div class="col-sm-6 mt-3" id="parcela6" style="display: none;">
+                    <div class="col-sm-6 mt-3" id="sixthPaymentInstallment" style="display: none;">
                         <table class="table">
                             <tr>
                                 <td>6º Parcela:</td>
                             </tr>
                             <tr>
                                 <td>
-                                    <input type="text" class="form-control" id="valorSextaParcela"
-                                        name="valorSextaParcela" step="0.01"
+                                    <input type="text" class="form-control" id="ValueOfSixthInstallment"
+                                        name="ValueOfSixthInstallment" step="0.01"
                                         placeholder="Digite o valor da sexta parcela">
                                 </td>
                             </tr>
                             <tr>
                                 <td>
-                                    <input type="date" class="form-control" id="dataSextaParcela"
-                                        name="dataSextaParcela">
+                                    <input type="date" class="form-control" id="DateOfSixthInstallment"
+                                        name="DateOfSixthInstallment">
                                 </td>
                             </tr>
                         </table>
                     </div>
 
-                    <script src="js/parcela.js"></script>
+
+                    <script src="js/installmentPayment.js"></script>
 
 
 
 
 
                     <div class="col-sm-3 mt-3">
-                        <label for="teorico" class="form-label">Teorico:</label>
-                        <input type="date" class="form-control" id="teorico" name="teorico">
+                        <label for="theoretical" class="form-label">Teórico:</label>
+                        <input type="date" class="form-control" id="theoretical" name="theoretical">
                     </div>
 
                     <div class="col-sm-3 mt-3">
-                        <label for="pratico1" class="form-label">Pratico:</label>
-                        <input type="date" class="form-control" id="pratico1" name="pratico1">
+                        <label for="practiceCar" class="form-label">Pratico de Carro:</label>
+                        <input type="date" class="form-control" id="practiceCar" name="practiceCar">
                     </div>
 
                     <div class="col-sm-3  mt-3">
-                        <label for="pratico2" class="form-label">Pratico:</label>
-                        <input type="date" class="form-control" id="pratico2" name="pratico2">
+                        <label for="practicalMotorcycle" class="form-label">Pratico de Moto:</label>
+                        <input type="date" class="form-control" id="practicalMotorcycle" name="practicalMotorcycle">
                     </div>
 
                     <div class="col-sm-3  mt-3">
@@ -415,21 +448,21 @@
                     </div>
 
                     <div class="col-sm-3  mt-3">
-                        <label for="dataExameA" class="form-label">Data Exame A:</label>
-                        <input type="date" class="form-control" id="dataExameA" name="dataExameA">
+                        <label for="dateExameA" class="form-label">Data Exame A:</label>
+                        <input type="date" class="form-control" id="dateExameA" name="dateExameA">
                     </div>
 
                     <div class="col-sm-3  mt-3">
-                        <label for="udataExameBf" class="form-label">Data Exame B:</label>
-                        <input type="date" class="form-control" id="dataExameB" name="dataExameB">
+                        <label for="dateExameB" class="form-label">Data Exame B:</label>
+                        <input type="date" class="form-control" id="dateExameB" name="dateExameB">
                     </div>
 
                     <div class="col-sm-3  mt-3">
-                        <label for="dataExameD" class="form-label">Data Exame D:</label>
-                        <input type="date" class="form-control" id="dataExameD" name="dataExameD">
+                        <label for="dateExameD" class="form-label">Data Exame D:</label>
+                        <input type="date" class="form-control" id="dateExameD" name="dateExameD">
                     </div>
                     <div class="col-12 mt-3">
-                        <button type="date" name="cadastrar" class="btn custom-button">Cadastrar</button>
+                        <button type="date" name="cadastrar" class="btn customButton">Cadastrar</button>
                     </div>
 
                 </div>
@@ -438,7 +471,7 @@
     </div>
 
     <br><br>
-    <footer id="footer" class="footer custom-footer">
+    <footer id="footer" class="customFooter">
 
         <div class="container">
             <div class="row gy-4">
@@ -498,15 +531,11 @@
                 &copy; Copyright <strong><span>Impact</span></strong>. All Rights Reserved
             </div>
             <div class="credits">
-                <!-- All the links in the footer should remain intact. -->
-                <!-- You can delete the links only if you purchased the pro version. -->
-                <!-- Licensing information: https://bootstrapmade.com/license/ -->
-                <!-- Purchase the pro version with working PHP/AJAX contact form: https://bootstrapmade.com/impact-bootstrap-business-website-template/ -->
                 Designed by <a href="https://bootstrapmade.com/">BootstrapMade</a>
             </div>
         </div>
 
-    </footer><!-- End Footer -->
+    </footer>
 </body>
 
 </html>
