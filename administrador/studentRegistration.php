@@ -15,7 +15,7 @@
 
     <nav class="navbar navbar-expand-lg navbar-dark fixed-top customNavbar">
         <div class="container-fluid">
-            <a class="navbar-brand" href="#"><img src="imagens/logo.png" alt="ETEC Games"></a>
+            <a class="navbar-brand" href="#"><img src="image/logo.png" alt="ETEC Games"></a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup"
                 aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
@@ -32,30 +32,30 @@
     </nav>
 
     <?php
-    $pastaImagens = 'carouselImage/';
-    $extensoesPermitidas = array('jpg', 'jpeg', 'png', 'gif');
-    $imagens = array();
+    $folderImages = 'carouselImage/';
+    $extensoesPermitidas = array('jpg', 'jpeg', 'png');
+    $image = array();
 
-    if (is_dir($pastaImagens)) {
-        $arquivos = glob($pastaImagens . '*.{jpg,jpeg,png,gif}', GLOB_BRACE);
-        shuffle($arquivos);
-        $imagens = array_map(function($arquivo) use ($pastaImagens) {
-            return str_replace($pastaImagens, '', $arquivo);
-        }, $arquivos);
+    if (is_dir($folderImages)) {
+        $files = glob($folderImages . '*.{jpg,jpeg,png}', GLOB_BRACE);
+        shuffle($files);
+        $image = array_map(function($file) use ($folderImages) {
+            return str_replace($folderImages, '', $file);
+        }, $files);
     }
     ?>
 
     <div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="carousel">
         <div class="carousel-indicators">
-            <?php foreach ($imagens as $index => $imagem) : ?>
+            <?php foreach ($image as $index => $imagem) : ?>
             <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="<?= $index; ?>"
                 <?= $index === 0 ? 'class="active"' : '' ?> aria-label="Slide <?= ($index + 1); ?>"></button>
             <?php endforeach; ?>
         </div>
         <div class="carousel-inner">
-            <?php foreach ($imagens as $index => $imagem) : ?>
+            <?php foreach ($image as $index => $imagem) : ?>
             <div class="carousel-item <?= $index === 0 ? 'active' : '' ?>">
-                <img src="<?= $pastaImagens . $imagem; ?>" class="d-block w-100 imagem-carrossel"
+                <img src="<?= $folderImages . $imagem; ?>" class="d-block w-100 imagem-carrossel"
                     alt="banner <?= ($index + 1); ?>">
             </div>
             <?php endforeach; ?>
@@ -72,12 +72,12 @@
         </button>
     </div>
 
-    <!-- Inclua o jQuery e os arquivos JavaScript do Bootstrap -->
+    <!-- Inclua o jQuery e os files JavaScript do Bootstrap -->
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.min.js"></script>
     <script>
     $(document).ready(function() {
-        // Intervalo para trocar automaticamente as imagens a cada 3 segundos (3000 ms)
+        // Intervalo para trocar automaticamente as image a cada 3 segundos (3000 ms)
         setInterval(function() {
             $('#carouselExampleIndicators').carousel('next');
         }, 9000);
