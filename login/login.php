@@ -5,53 +5,40 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>login</title>
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-    <link rel="stylesheet" href="css/loginEstilo.css">
+    <link rel="stylesheet" href="css/loginStyle.css">
 </head>
 <body>
   <?php
-    require_once "../conexao.php";
+    require_once "../connection.php";
 
     try{
-        if (isset($_REQUEST["acessar"])) {
+        if (isset($_REQUEST["access"])) {
 
             $email = $_REQUEST['email'];
-            $senhas = $_REQUEST['senha'];
+            $passwords = $_REQUEST['password'];
 
-            $consultaAdministrador = $conn->prepare("SELECT * FROM  tbl_administrador WHERE email=:email;");
+            $queryAdministrator = $conn->prepare("SELECT * FROM  adminTable WHERE email=:email;");
 
-            $consultaAdministrador->bindValue(':email' , $email);
-            $consultaAdministrador->execute();
-            $rowAdministrador = $consultaAdministrador->fetch(PDO::FETCH_ASSOC);
-            $totalRowAdministrador = $consultaAdministrador ->rowCount();
+            $queryAdministrator->bindValue(':email' , $email);
+            $queryAdministrator->execute();
+            $rowAdministrator = $queryAdministrator->fetch(PDO::FETCH_ASSOC);
+            $totalRowAdministrator = $queryAdministrator ->rowCount();
 
          
-            if((password_verify($senhas, $rowAdministrador['senha'])) || (password_verify($senhas, $rowAluno['senha']))){
+            if((password_verify($passwords, $rowAdministrator['password'])) || (password_verify($passwords, $rowAluno['password']))){
                 
-                if($totalRowAdministrador > 0 ){
+                if($totalRowAdministrator > 0 ){
                     session_start();
 
-                    $_SESSION['email'] = $rowAdministrador['email'];
+                    $_SESSION['email'] = $rowAdministrator['email'];
                     
-                    $_SESSION['senha'] = $rowAdministrador['senha'];
+                    $_SESSION['password'] = $rowAdministrator['password'];
                     
-                    $_SESSION['nome'] = $rowAdministrador['nome'];
+                    $_SESSION['nome'] = $rowAdministrator['nome'];
 
-                    header(("location:../administrador/cadastroDeAluno.php"));
+                    header(("location:../administrador/studentRegistration.php"));
                 }
     
-                if($totalRowAluno > 0 ){
-
-                    // session_start();
-
-                    // $_SESSION['email'] = $rowAluno['email'];
-                    
-                    // $_SESSION['senha'] = $rowAluno['senha'];
-                    
-                    // $_SESSION['nome'] = $rowAluno['nome'];
-
-                    header(("location: ../usuario/home.php"));
-                }
-                
             } else{
                 echo "<script>
                 Swal.fire({

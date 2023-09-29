@@ -1,15 +1,15 @@
 
-.custom-navbar {
+.customNavbar {
     background-color: #5AAEE6;
     color: #FFF;
 }
 
-.custom-footer {
+.customFooter {
     background-color: #5AAEE6; 
     color: #FFF; 
 }
 
-.custom-button {
+.customButton {
     background-color: #5AAEE6; 
     color: white; 
     border: none;
@@ -18,12 +18,12 @@
     transition: background-color 0.3s, color 0.3s; 
 }
 
-.custom-button:hover {
+.customButton:hover {
     background-color: #3C7499; 
     color: white; 
 }
 
-.custom-button:active {
+.customButton:active {
     background-color: #234459 !important; 
     color: white !important; 
 }
