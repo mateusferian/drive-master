@@ -290,8 +290,8 @@
                             </tr>
                             <tr>
                                 <td>
-                                    <input type="date" class="form-control" id="DateOfFirstInstallment"
-                                        name="DateOfFirstInstallment">
+                                    <input type="date" class="form-control" id="dateOfFirstInstallment"
+                                        name="dateOfFirstInstallment">
                                 </td>
                             </tr>
                             <tr>
@@ -320,15 +320,15 @@
                             </tr>
                             <tr>
                                 <td>
-                                    <input type="text" class="form-control" id="ValueOfFirstInstallment"
-                                        name="ValueOfFirstInstallment" step="0.01"
+                                    <input type="text" class="form-control" id="valueOfFirstInstallment"
+                                        name="valueOfFirstInstallment" step="0.01"
                                         placeholder="Digite o valor da primeira parcela">
                                 </td>
                             </tr>
                             <tr>
                                 <td>
-                                    <input type="date" class="form-control" id="DateOfFirstInstallment"
-                                        name="DateOfFirstInstallment">
+                                    <input type="date" class="form-control" id="dateOfFirstInstallment"
+                                        name="dateOfFirstInstallment">
                                 </td>
                             </tr>
 
@@ -361,15 +361,15 @@
                             </tr>
                             <tr>
                                 <td>
-                                    <input type="text" class="form-control" id="ValueOfSecondInstallment"
-                                        name="ValueOfSecondInstallment" step="0.01"
+                                    <input type="text" class="form-control" id="valueOfSecondInstallment"
+                                        name="valueOfSecondInstallment" step="0.01"
                                         placeholder="Digite o valor da segunda parcela">
                                 </td>
                             </tr>
                             <tr>
                                 <td>
-                                    <input type="date" class="form-control" id="DateOfSecondInstallment"
-                                        name="DateOfSecondInstallment">
+                                    <input type="date" class="form-control" id="dateOfSecondInstallment"
+                                        name="dateOfSecondInstallment">
                                 </td>
                             </tr>
                             <tr>
@@ -401,15 +401,15 @@
                             </tr>
                             <tr>
                                 <td>
-                                    <input type="text" class="form-control" id="ValueOfThirdInstallment"
-                                        name="ValueOfThirdInstallment" step="0.01"
+                                    <input type="text" class="form-control" id="valueOfThirdInstallment"
+                                        name="valueOfThirdInstallment" step="0.01"
                                         placeholder="Digite o valor da terceira parcela">
                                 </td>
                             </tr>
                             <tr>
                                 <td>
-                                    <input type="date" class="form-control" id="DateOfThirdInstallment"
-                                        name="DateOfThirdInstallment">
+                                    <input type="date" class="form-control" id="dateOfThirdInstallment"
+                                        name="dateOfThirdInstallment">
                                 </td>
                             </tr>
                             <tr>
@@ -441,15 +441,15 @@
                             </tr>
                             <tr>
                                 <td>
-                                    <input type="text" class="form-control" id="ValueOfFourthInstallment"
-                                        name="ValueOfFourthInstallment" step="0.01"
+                                    <input type="text" class="form-control" id="valueOfFourthInstallment"
+                                        name="valueOfFourthInstallment" step="0.01"
                                         placeholder="Digite o valor da quarta parcela">
                                 </td>
                             </tr>
                             <tr>
                                 <td>
-                                    <input type="date" class="form-control" id="DateOfFourthInstallment"
-                                        name="DateOfFourthInstallment">
+                                    <input type="date" class="form-control" id="dateOfFourthInstallment"
+                                        name="dateOfFourthInstallment">
                                 </td>
                             </tr>
                             <tr>
@@ -481,15 +481,15 @@
                             </tr>
                             <tr>
                                 <td>
-                                    <input type="text" class="form-control" id="ValueOfFifthInstallment"
-                                        name="ValueOfFifthInstallment" step="0.01"
+                                    <input type="text" class="form-control" id="valueOfFifthInstallment"
+                                        name="valueOfFifthInstallment" step="0.01"
                                         placeholder="Digite o valor da quinta parcela">
                                 </td>
                             </tr>
                             <tr>
                                 <td>
-                                    <input type="date" class="form-control" id="DateOfFifthInstallment"
-                                        name="DateOfFifthInstallment">
+                                    <input type="date" class="form-control" id="dateOfFifthInstallment"
+                                        name="dateOfFifthInstallment">
                                 </td>
                             </tr>
                             <tr>
@@ -521,15 +521,15 @@
                             </tr>
                             <tr>
                                 <td>
-                                    <input type="text" class="form-control" id="ValueOfSixthInstallment"
-                                        name="ValueOfSixthInstallment" step="0.01"
+                                    <input type="text" class="form-control" id="valueOfSixthInstallment"
+                                        name="valueOfSixthInstallment" step="0.01"
                                         placeholder="Digite o valor da sexta parcela">
                                 </td>
                             </tr>
                             <tr>
                                 <td>
-                                    <input type="date" class="form-control" id="DateOfSixthInstallment"
-                                        name="DateOfSixthInstallment">
+                                    <input type="date" class="form-control" id="dateOfSixthInstallment"
+                                        name="dateOfSixthInstallment">
                                 </td>
                             </tr>
                             <td>
@@ -582,8 +582,8 @@
                     </div>
 
                     <div class="col-sm-3  mt-3">
-                        <label for="reprova" class="form-label">Reprova:</label>
-                        <input type="date" class="form-control" id="reprova" name="reprova">
+                        <label for="disapprove" class="form-label">Reprova:</label>
+                        <input type="date" class="form-control" id="disapprove" name="disapprove">
                     </div>
 
                     <div class="col-sm-3  mt-3">
