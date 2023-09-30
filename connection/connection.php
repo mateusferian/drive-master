@@ -1,10 +1,10 @@
 <?php
 
-    class Conexao
+    class Connection
     {
         public static $instance;
 
-        public static function getConexao()
+        public static function getConnection()
         {
 
             $servername = "localhost";
