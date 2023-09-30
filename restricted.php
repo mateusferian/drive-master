@@ -8,10 +8,10 @@
 <body>
     <?php
         session_start();
-        if((!isset($_SESSION['nome'])) and (!isset($_SESSION['email']))){
+        if((!isset($_SESSION['name'])) and (!isset($_SESSION['email']))){
             echo "<script language=javascript>
             alert('ALERTA, VOCÊ NÃO TEM PERMISSÃO!');
-            location.href = '../index.php';
+            location.href = 'index.php';
             </script>";
             
         }

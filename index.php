@@ -10,21 +10,19 @@
     <link href="bootstrap/css/bootstrap.min.css" rel="stylesheet">
     <script src="bootstrap/js/bootstrap.min.js"> </script>
 
-    <link rel="stylesheet" href="login/css/loginStyle.css">
-    <!-- <link rel="stylesheet" href="css/index.css"> -->
+    <link rel="stylesheet" href="css/loginStyle.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css">
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-    <script src="login/js/backgroundImage.js"></script>
 </head>
 
-<body style="background-image: url('login/backgroundImage.php');">
+<body style="background-image: url('backgroundImage.php');">
 
     <div id="myDiv" class="d-flex align-items-center" style="min-height: 100vh;" data-aos="zoom-out"
         data-aos-delay="100">
         <div class="container mt-4">
             <div class="col-md-6 offset-md-7">
 
-                <form class="form" action="login/login.php" method="POST" name="formulario">
+                <form class="form" action="login.php" method="POST" name="formulario">
                     <br><br>
                     <h1 class="text-center">Login</h1>
                     <br><br>
