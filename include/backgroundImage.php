@@ -1,6 +1,6 @@
 <?php
 // Caminho para a pasta de imagens
-$folderPath = 'img/imgLogin/';
+$folderPath = '../img/imgLogin/';
 
 // Lista de extensões de imagem suportadas
 $supportedExtensions = ['jpg', 'jpeg', 'png', 'gif'];

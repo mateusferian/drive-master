@@ -18,7 +18,7 @@
 include_once('include/header.php');
 ?>
 
-<body style="background-image: url('backgroundImage.php');">
+<body style="background-image: url('include/backgroundImage.php');">
 
     <div id="myDiv" class="d-flex align-items-center" style="min-height: 100vh;" data-aos="zoom-out"
         data-aos-delay="100">
