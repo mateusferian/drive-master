@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 5.1.1deb5ubuntu1
+-- version 5.2.1
 -- https://www.phpmyadmin.net/
 --
--- Host: localhost:3306
--- Tempo de geração: 29-Set-2023 às 09:09
+-- Host: localhost
+-- Tempo de geração: 30/09/2023 às 09:05
 -- Versão do servidor: 8.0.34-0ubuntu0.22.04.1
--- versão do PHP: 8.1.2-1ubuntu2.14
+-- Versão do PHP: 8.1.2-1ubuntu2.14
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -18,105 +18,106 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Banco de dados: `bd_lider`
+-- Banco de dados: `db_lider`
 --
-CREATE DATABASE IF NOT EXISTS `bd_lider` DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci;
-USE `bd_lider`;
+DROP DATABASE IF EXISTS `db_lider`;
+CREATE DATABASE IF NOT EXISTS `db_lider` DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci;
+USE `db_lider`;
 
 -- --------------------------------------------------------
 
 --
--- Estrutura da tabela `tb_administrador`
+-- Estrutura para tabela `tb_administrator`
 --
 
-CREATE TABLE `tb_administrador` (
+CREATE TABLE `tb_administrator` (
   `id` int NOT NULL,
-  `nome` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL,
+  `name` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL,
   `email` varchar(60) NOT NULL,
-  `senha` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL,
-  `tipo` int NOT NULL,
-  `data_cadastro` date DEFAULT NULL
+  `password` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL,
+  `type` int NOT NULL,
+  `register_date` date DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 -- --------------------------------------------------------
 
 --
--- Estrutura da tabela `tb_aluno`
+-- Estrutura para tabela `tb_client`
 --
 
-CREATE TABLE `tb_aluno` (
-  `idaluno` int NOT NULL,
-  `nome` varchar(100) DEFAULT NULL,
-  `pai` varchar(100) DEFAULT NULL,
-  `mae` varchar(100) DEFAULT NULL,
+CREATE TABLE `tb_client` (
+  `idclient` int NOT NULL,
+  `name` varchar(100) DEFAULT NULL,
+  `father` varchar(100) DEFAULT NULL,
+  `mother` varchar(100) DEFAULT NULL,
   `rg` varchar(12) DEFAULT NULL,
-  `rg_expedicao` varchar(45) DEFAULT NULL,
+  `rg_expedition` varchar(45) DEFAULT NULL,
   `cpf` varchar(15) DEFAULT NULL,
-  `data_nascimento` date DEFAULT NULL,
+  `birth_date` date DEFAULT NULL,
   `email` varchar(100) NOT NULL,
-  `celular` varchar(15) DEFAULT NULL,
-  `telefone` varchar(15) DEFAULT NULL,
-  `naturalidade` varchar(45) DEFAULT NULL,
-  `endereco` varchar(100) DEFAULT NULL,
-  `numero` varchar(45) DEFAULT NULL,
-  `bairro` varchar(100) DEFAULT NULL,
+  `celphone` varchar(15) DEFAULT NULL,
+  `telephone` varchar(15) DEFAULT NULL,
+  `naturalness` varchar(45) DEFAULT NULL,
+  `address` varchar(100) DEFAULT NULL,
+  `number` varchar(45) DEFAULT NULL,
+  `neighborhood` varchar(100) DEFAULT NULL,
   `uf` char(2) DEFAULT NULL,
-  `local_atividade` varchar(100) DEFAULT NULL,
-  `foto` varchar(100) DEFAULT NULL,
+  `activity_location` varchar(100) DEFAULT NULL,
+  `photo` varchar(100) DEFAULT NULL,
   `renach` varchar(45) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 -- --------------------------------------------------------
 
 --
--- Estrutura da tabela `tb_cnh`
+-- Estrutura para tabela `tb_cnh`
 --
 
 CREATE TABLE `tb_cnh` (
   `idcnh` int NOT NULL,
-  `categoria` char(3) DEFAULT NULL,
-  `tipo` varchar(45) DEFAULT NULL,
-  `matricula` date DEFAULT NULL,
-  `exame_medico` date DEFAULT NULL,
-  `numero_registro` int DEFAULT NULL,
-  `atualizacao_biometrica` varchar(45) DEFAULT NULL,
-  `idaluno` int NOT NULL
+  `categoru` char(3) DEFAULT NULL,
+  `type` varchar(45) DEFAULT NULL,
+  `registration` date DEFAULT NULL,
+  `medical_exam` date DEFAULT NULL,
+  `registration_number` int DEFAULT NULL,
+  `biometric_update` varchar(45) DEFAULT NULL,
+  `idclient` int NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 -- --------------------------------------------------------
 
 --
--- Estrutura da tabela `tb_pagamento`
+-- Estrutura para tabela `tb_payment`
 --
 
-CREATE TABLE `tb_pagamento` (
-  `idpagamento` int NOT NULL,
-  `valor_total` double DEFAULT NULL,
-  `forma_pagto` varchar(45) DEFAULT NULL,
-  `curso_teorio` varchar(45) DEFAULT NULL,
-  `data_parcela` date DEFAULT NULL,
-  `valor_parcela` double DEFAULT NULL,
-  `situacao` varchar(45) DEFAULT NULL,
-  `idaluno` int NOT NULL
+CREATE TABLE `tb_payment` (
+  `idpayment` int NOT NULL,
+  `amount` double DEFAULT NULL,
+  `payment_form` varchar(45) DEFAULT NULL,
+  `theoretic_course` varchar(45) DEFAULT NULL,
+  `installment_date` date DEFAULT NULL,
+  `installment_value` double DEFAULT NULL,
+  `situation` varchar(45) DEFAULT NULL,
+  `idclient` int NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 -- --------------------------------------------------------
 
 --
--- Estrutura da tabela `tb_taxas`
+-- Estrutura para tabela `tb_rates`
 --
 
-CREATE TABLE `tb_taxas` (
-  `idtaxas` int NOT NULL,
-  `teorico` date DEFAULT NULL,
-  `pratico1` date DEFAULT NULL,
-  `pratico2` date DEFAULT NULL,
-  `emissao_cnh` date DEFAULT NULL,
-  `reprova` date DEFAULT NULL,
-  `exame_a` date DEFAULT NULL,
-  `exame_b` date DEFAULT NULL,
-  `exame_d` date DEFAULT NULL,
-  `idaluno` int NOT NULL
+CREATE TABLE `tb_rates` (
+  `idrates` int NOT NULL,
+  `theoretic` date DEFAULT NULL,
+  `practice1` date DEFAULT NULL,
+  `practice2` date DEFAULT NULL,
+  `emission_cnh` date DEFAULT NULL,
+  `disapprove` date DEFAULT NULL,
+  `exam_a` date DEFAULT NULL,
+  `exam_b` date DEFAULT NULL,
+  `exam_d` date DEFAULT NULL,
+  `idclient` int NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 COMMIT;
 
