@@ -1,6 +1,7 @@
 <?php
     // session_start();
 ?>
+
 <header id="header" class="header d-flex align-items-center">
 
     <div class="container-fluid container-xl d-flex align-items-center justify-content-between">
@@ -12,26 +13,25 @@
                 <li class="dropdown"><a href="#"><span>Controle</span> <i
                             class="bi bi-chevron-down dropdown-indicator"></i></a>
                     <ul>
-                        <li><a href="#">Controle de Aluno</a></li>
-                        <li><a href="#">Controle de Aula extra</a></li>
+                    <li><a href="controle-de-aluno.php">Controle de Aluno</a></li>
+                        <li><a href="controle-de-aula-extra.php">Controle de Aula extra</a></li>
                     </ul>
                 </li>
 
                 <li class="dropdown"><a href="#"><span>Cadastro</span> <i
                             class="bi bi-chevron-down dropdown-indicator"></i></a>
                     <ul>
-                        <li><a href="#">Cadastro de Aluno</a></li>
+                        <li><a href="cadastro-alunos.php">Cadastro de Aluno</a></li>
                         <li><a href="#">Cadastro de Aula extra</a></li>
                     </ul>
                 </li>
-                <li><a href="#contact">Graficos</a></li>
-                <li><a href="#contact">Notificações</a></li>
-                <li><a href="#contact">Conta</a></li>
+                <li><a href="graficos.php">Graficos</a></li>
+                <li><a href="#">Notificações</a></li>
+                <li><a href="conta.php" >Conta</a></li>
             </ul>
-        </nav><!-- .navbar -->
+        </nav>
 
         <i class="mobile-nav-toggle mobile-nav-show bi bi-list"></i>
         <i class="mobile-nav-toggle mobile-nav-hide d-none bi bi-x"></i>
-
     </div>
-</header><!-- End Header -->
+</header>

@@ -7,7 +7,7 @@
     
     <link rel="stylesheet" href="bootstrap/css/bootstrap.min.css">
     <script src="bootstrap/js/bootstrap.min.js"></script>
-    <link href="css/studentRegistration.css" rel="stylesheet">
+    <link href="css/button.css" rel="stylesheet">
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -24,7 +24,6 @@
 include_once('include/header.php');
 include_once('include/topbar.php');
 include_once('include/navbar.php');
-include_once('include/carousel.php');
 ?>
     <?php
     $folderImages = 'img/carouselImage/';
@@ -40,7 +39,7 @@ include_once('include/carousel.php');
     }
     ?>
 
-    <div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="carousel">
+    <div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="carousel"> 
         <div class="carousel-indicators">
             <?php foreach ($image as $index => $imagem) : ?>
             <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="<?= $index; ?>"
@@ -594,10 +593,10 @@ include_once('include/carousel.php');
                     <div class="col-sm-3  mt-3">
                         <label for="dateExameD" class="form-label">Data Exame D:</label>
                         <input type="date" class="form-control" id="dateExameD" name="dateExameD">
-                    </div>
+                    </div> <br><br>
                     <div class="col-12 mt-3">
-                        <button type="date" name="cadastrar" class="btn customButton">Cadastrar</button>
-                    </div>
+                    <button type="submit" name="register" class="btn customButton">Cadastrar</button>
+                </div>
 
                 </div>
             </form>
