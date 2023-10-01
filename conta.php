@@ -16,10 +16,6 @@
 
 </head>
 
-<?php
-include_once('include/header.php');
-?>
-
 <body style="background-image: url('include/backgroundImage.php');">
 
     <div id="myDiv" class="d-flex align-items-center" style="min-height: 100vh;" data-aos="zoom-out"
@@ -39,7 +35,6 @@ include_once('include/header.php');
         </div>
     </div>
 
-    <script src="js/bootstrap.min.js"></script>
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.0.7/dist/umd/popper.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
