@@ -8,15 +8,10 @@
 
     <link href="bootstrap/css/bootstrap.min.css" rel="stylesheet">
     <script src="bootstrap/js/bootstrap.min.js"> </script>
-
     <link rel="stylesheet" href="css/form.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css">
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 </head>
-
-<?php
-include_once('include/header.php');
-?>
 
 <body style="background-image: url('include/backgroundImage.php');">
 
