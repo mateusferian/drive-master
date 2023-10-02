@@ -1,0 +1,124 @@
+:root {
+    --color-default: #222222;
+    --color-primary: #5AAEE6;
+    --color-secondary: #e8eb32;
+    --color-third: #55A4D9;
+    --color-fourth: #3C7499;
+    --color-fifth: #aad9f8;
+    --color-seventh: #ffffff;
+    --color-octave: #99cdc7;
+  }
+
+
+body {
+    width: 100%;
+    height: 100vh;
+    font-size: 1rem;
+    color: var(--color-seventh);
+    background-size: cover;
+    background-position: center;
+}
+
+.form{
+    background-color: var(--color-primary);
+    border-radius: 20px;
+    box-shadow: 2px 2px 6px var(--color-fourth);
+}
+
+.formGroup label {
+    font-size: 0.9rem;
+    font-weight: 600;
+    text-transform: uppercase;
+}
+
+.formGroup {
+    margin-bottom: .9rem;
+}
+
+form .formGroup input {
+    color: var(--color-seventh);
+    width: 100%;
+    font-size: .9rem;
+    padding: .5rem;
+    margin-top: .3rem;
+    height: 30px;
+    background-color: var(--color-fourth);
+    box-sizing: border-box;
+    outline: none;
+    border: none;
+    border-radius: 5px;
+}
+
+::placeholder {
+  color: var(--color-fifth); 
+}
+
+input[type="text"]::placeholder {
+  color: var(--color-fifth); 
+}
+
+.btn-primary:hover {
+    background-color: var(--color-fifth); 
+}
+
+.formLink {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    text-align: center;
+    color: var(--color-fifth);
+    gap: .3rem;
+    text-decoration: none;
+    font-size: .9rem;
+    transition: .3s;
+}
+
+#formButton:active {
+    background-color: var(--color-fourth);
+}
+
+.formControl {
+    background-color: var(--color-fourth); 
+    color: var(--color-seventh);
+    box-shadow: none; 
+}
+
+input[name="password"]::placeholder {
+    color: var(--color-fifth);
+}
+
+.formControl:focus {
+    background-color: var(--color-fourth); 
+    color: var(--color-seventh);
+    box-shadow: none;
+    box-shadow: 0px 0px 5px 0px var(--color-octave);
+}
+
+.swalFireLogin {
+    background-color:var(--color-primary);
+    border: 2px solid var(--color-seventh);
+    color: var(--color-seventh);
+    border-radius: 10px;
+    border-radius: 10px;
+   
+    @media screen and (max-width: 768px) {
+        width: 100%; 
+    }
+}
+
+.align-vertical {
+    display: flex;
+    align-items: center;
+  }
+
+
+
+
+
+
+
+  
+
+  
+
+  
