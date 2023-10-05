@@ -9,13 +9,13 @@
                     :categoru, :type, :registration, :medical_exam, :registration_number, :biometric_update, :idclient)";
     
                 $p_sql = Conexao::getConexao()->prepare($sql);
-                $p_sql->bindValue(":categoru", $rates->getCategoru());
-                $p_sql->bindValue(":type", $rates->getType());
-                $p_sql->bindValue(":registration", $rates->getRegistration());
-                $p_sql->bindValue(":medical_exam", $rates->getMedicalExam());
-                $p_sql->bindValue(":registration_number", $rates->getRegistrationNumber());
-                $p_sql->bindValue(":biometric_update", $rates->getBiometricUpdate());
-                $p_sql->bindValue(":idclient", $rates->getIdClient());
+                $p_sql->bindValue(":categoru", $cnh->getCategoru());
+                $p_sql->bindValue(":type", $cnh->getType());
+                $p_sql->bindValue(":registration", $cnh->getRegistration());
+                $p_sql->bindValue(":medical_exam", $cnh->getMedicalExam());
+                $p_sql->bindValue(":registration_number", $cnh->getRegistrationNumber());
+                $p_sql->bindValue(":biometric_update", $cnh->getBiometricUpdate());
+                $p_sql->bindValue(":idclient", $cnh->getIdClient());
 
                 return $p_sql->execute();
 
@@ -25,24 +25,24 @@
         }
 
         private function listaCnh($row) {
-            $rates = new Cnh();
-            $rates->setIdCnh($row['idcnh']);
-            $rates->setCategoru($row['categoru']);
-            $rates->setType($row['type']);
-            $rates->setRegistration($row['registration']);
-            $rates->setMedicalExam($row['medical_exam']);
-            $rates->setRegistrationNumber($row['registration_number']);
-            $rates->setBiometricUpdate($row['biometric_update']);
-            $rates->setIdClient($row['idclient']);
+            $cnh = new Cnh();
+            $cnh->setIdCnh($row['idcnh']);
+            $cnh->setCategoru($row['categoru']);
+            $cnh->setType($row['type']);
+            $cnh->setRegistration($row['registration']);
+            $cnh->setMedicalExam($row['medical_exam']);
+            $cnh->setRegistrationNumber($row['registration_number']);
+            $cnh->setBiometricUpdate($row['biometric_update']);
+            $cnh->setIdClient($row['idclient']);
             
-            return $rates;
+            return $cnh;
         }
         
-        public function delete(Cnh $client){
+        public function delete(Cnh $cnh){
             try {
-                $sql = "DELETE FROM tb_client WHERE idclient  = :idclient ";
+                $sql = "DELETE FROM tb_cnh WHERE idcnh  = :idcnh ";
                 $p_sql = Conexao::getConexao()->prepare($sql);
-                $p_sql->bindValue(":idclient ", $client->getIdClient ());
+                $p_sql->bindValue(":idcnh ", $cnh->getIdClient ());
                 return $p_sql->execute();
             } catch (Exception $e) {
                 echo "Erro ao Excluir cnh <br> $e <br>";
