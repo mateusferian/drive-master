@@ -5,26 +5,25 @@
         private $id;
         private $name;
         private $email;
-        private $password;
-        private $type;
+        private $passwordAdministrator;
         private $registerDate;
 
-        function getId()
+        function getIdAdministrator()
         { 
             return $this->id; 
         }
 
-        function setId($id)
+        function setIdAdministrator($id)
         { 
             $this->id = $id; 
         }
 
-        function getName()
+        function getNameAdministrator()
         { 
             return $this->name; 
         }
 
-        function setName($name)
+        function setNameAdministrator($name)
         { 
             $this->name = $name; 
         }
@@ -39,24 +38,14 @@
             $this->email = $email; 
         }
 
-        function getPassword()
+        function getPasswordAdministrator()
         { 
             return $this->password; 
         }
 
-        function setPassword($password)
+        function setPasswordAdministrator($password)
         { 
             $this->password = $password; 
-        }
-
-        function getType()
-        { 
-            return $this->type; 
-        }
-
-        function setType($type)
-        { 
-            $this->type = $type; 
         }
 
         function getRegisterDate()
