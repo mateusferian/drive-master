@@ -1,6 +1,6 @@
 <?php
 
-    class administrator
+    class Administrator
     {
         private $id;
         private $nameAdministrator;

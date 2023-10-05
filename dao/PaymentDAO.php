@@ -1,7 +1,7 @@
 <?php
-    class paymentDAO
+    class PaymentDAO
     {
-        public function create(payment $payment){
+        public function create(Payment $payment){
             try{
                 $sql = "INSERT INTO tb_payment (
                     amount, payment_form, theoretic_course, installment_date, installment_value, situation, idclient)
@@ -24,7 +24,7 @@
         }
 
         private function listaPayment($row) {
-            $payment = new payment();
+            $payment = new Payment();
             $payment->setAmount($row['amount']);
             $payment->setPaymentForm($row['payment_form']);
             $payment->setTheoreticCourse($row['theoretic_course']);
@@ -36,7 +36,7 @@
             return $payment;
         }
 
-        public function delete(payment $payment){
+        public function delete(Payment $payment){
             try {
                 $sql = "DELETE FROM tb_payment WHERE idpayment  = :idpayment ";
                 $p_sql = Conexao::getConexao()->prepare($sql);
@@ -47,7 +47,7 @@
             }
         }
 
-        public function update(payment $payment)
+        public function update(Payment $payment)
         {
             try {
                 $sql = "UPDATE tb_payment set

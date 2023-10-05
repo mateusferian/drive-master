@@ -1,7 +1,7 @@
 <?php
     class administratorDAO
     {
-        public function create(administrator $administrator){
+        public function create(Administrator $administrator){
             try{
                 $sql = "INSERT INTO tb_administrator (
                     name_administrator, email,password_administrator, register_date)
@@ -21,7 +21,7 @@
         }
         
         private function listaAdministrator($row) {
-            $administrator = new administrator();
+            $administrator = new Administrator();
             $administrator->setAdministrator($row['idAdministrator']);
             $administrator->setNameAdministrator($row['name_administrator']);
             $administrator->setEmail($row['email']);
@@ -31,7 +31,7 @@
             return $administrator;
         }
 
-        public function delete(administrator $administrator){
+        public function delete(Administrator $administrator){
             try {
                 $sql = "DELETE FROM tb_administrator WHERE idAdministrator  = :idAdministrator ";
                 $p_sql = Conexao::getConexao()->prepare($sql);
@@ -42,7 +42,7 @@
             }
         }
 
-        public function update(administrator $administrator)
+        public function update(Administrator $administrator)
         {
             try {
                 $sql = "UPDATE tb_administrator set

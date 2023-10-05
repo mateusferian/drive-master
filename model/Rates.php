@@ -1,6 +1,6 @@
 <?php
 
-class payment
+class Rates
 {
     private $idRates;
     private $theoretic;
