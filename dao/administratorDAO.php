@@ -19,8 +19,8 @@
                 print "Erro ao Inserir administrador <br>" . $e . '<br>';
             }      
         }
-
-        private function listaAdministratorDAO($row) {
+        
+        private function listaAdministrator($row) {
             $administrator = new administrator();
             $administrator->setAdministrator($row['idAdministrator']);
             $administrator->setNameAdministrator($row['name_administrator']);
@@ -41,4 +41,29 @@
                 echo "Erro ao Excluir Administrador <br> $e <br>";
             }
         }
+
+        public function update(administrator $administrator)
+        {
+            try {
+                $sql = "UPDATE tb_administrator set
+                    
+                    idAdministrator=:idAdministrator,
+                    name_administrator=:name_administrator,
+                    email=:email,
+                    password_administrator=:password_administrator,
+                    register_date=:register_date,
+                                    
+                      WHERE idAdministrator = :idAdministrator";
+                $p_sql = Conexao::getConexao()->prepare($sql);
+                $p_sql->bindValue(":idAdministrator", $administrator->getIdAdministrator());
+                $p_sql->bindValue(":name_administrator", $administrator->getNameAdministrator());
+                $p_sql->bindValue(":email", $administrator->getEmail());
+                $p_sql->bindValue(":password_administrator", $administrator->getPasswordAdministrator());
+                $p_sql->bindValue(":register_date", $administrator->getRegisterDate());
+
+                return $p_sql->execute();
+            } catch (Exception $e) {
+                print "Ocorreu um erro ao tentar fazer Update<br> $e <br>";
+            }
     }
+}
