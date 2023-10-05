@@ -4,12 +4,11 @@
         public function create(Client $client){
             try{
                 $sql = "INSERT INTO tb_client (
-                    idclient, name, father, mother, rg, rg_expedition, cpf, birth_date, email, celphone, telephone, naturalness, address, number, neighborhood, uf, activity_location, photo, renach)
+                    :name, father, mother, rg, rg_expedition, cpf, birth_date, email, celphone, telephone, naturalness, address, number, neighborhood, uf, activity_location, photo, renach)
                     VALUES (
-                    :idclient, :name, :father, :mother, :rg, :rg_expedition, :cpf, :birth_date, :email, :celphone, :telephone, :naturalness, :address, :number, :neighborhood, :uf, :activity_location, :photo, :renach)";
+                    :name, :father, :mother, :rg, :rg_expedition, :cpf, :birth_date, :email, :celphone, :telephone, :naturalness, :address, :number, :neighborhood, :uf, :activity_location, :photo, :renach)";
                 
                 $p_sql = Conexao::getConexao()->prepare($sql);
-                $p_sql->bindValue(":idclient", $client->getIdClient());
                 $p_sql->bindValue(":name", $client->getName());
                 $p_sql->bindValue(":father", $client->getFather());
                 $p_sql->bindValue(":mother", $client->getMother());
@@ -77,6 +76,7 @@
         {
             try {
                 $sql = "UPDATE tb_client SET
+                    idclient = :idclient,
                     name = :name,
                     father = :father,
                     mother = :mother,

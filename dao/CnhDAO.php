@@ -1,7 +1,7 @@
 <?php
     class CnhDAO
     {
-        public function create(Cnh $rates){
+        public function create(Cnh $cnh){
             try{
                 $sql = "INSERT INTO tb_cnh (
                      categoru, type, registration, medical_exam, registration_number, biometric_update, idclient)
@@ -38,6 +38,17 @@
             return $rates;
         }
         
+        public function delete(Cnh $client){
+            try {
+                $sql = "DELETE FROM tb_client WHERE idclient  = :idclient ";
+                $p_sql = Conexao::getConexao()->prepare($sql);
+                $p_sql->bindValue(":idclient ", $client->getIdClient ());
+                return $p_sql->execute();
+            } catch (Exception $e) {
+                echo "Erro ao Excluir cnh <br> $e <br>";
+            }
+        }
+
         public function update(Cnh $rates)
         {
             try {
