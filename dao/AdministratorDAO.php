@@ -6,7 +6,7 @@
                 $sql = "INSERT INTO tb_administrator (
                     name_administrator, email,password_administrator, register_date)
                     VALUES (
-                    :name_administrator, :email, :'password_administrator', :register_date,)";
+                    :name_administrator, :email, :password_administrator, :register_date,)";
 
                 $p_sql = Conexao::getConexao()->prepare($sql);
                 $p_sql->bindValue(":name_administrator", $administrator->getNameAdministrator());
