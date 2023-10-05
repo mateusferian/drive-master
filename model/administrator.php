@@ -3,7 +3,7 @@
     class administrator
     {
         private $id;
-        private $name;
+        private $nameAdministrator;
         private $email;
         private $passwordAdministrator;
         private $registerDate;
@@ -20,12 +20,12 @@
 
         function getNameAdministrator()
         { 
-            return $this->name; 
+            return $this->nameAdministrator; 
         }
 
-        function setNameAdministrator($name)
+        function setNameAdministrator($nameAdministrator)
         { 
-            $this->name = $name; 
+            $this->nameAdministrator = $nameAdministrator; 
         }
 
         function getEmail()
@@ -40,12 +40,12 @@
 
         function getPasswordAdministrator()
         { 
-            return $this->password; 
+            return $this->passwordAdministrator; 
         }
 
-        function setPasswordAdministrator($password)
+        function setPasswordAdministrator($passwordAdministrator)
         { 
-            $this->password = $password; 
+            $this->passwordAdministrator = $passwordAdministrator; 
         }
 
         function getRegisterDate()
