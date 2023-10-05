@@ -38,7 +38,7 @@
             return $rates;
         }
         
-        public function update(Rates $rates)
+        public function update(Cnh $rates)
         {
             try {
                 $sql = "UPDATE tb_cnh SET
