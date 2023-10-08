@@ -1,0 +1,18 @@
+.butonRegister {
+    background-color: #3C7499 !important; ; 
+    color: white !important; ; 
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    transition: background-color 0.3s, color 0.3s; 
+  }
+  
+  .butonRegister:hover {
+    background-color: #234459 !important; ; 
+    color: white !important; ; 
+  }
+  
+  .butonRegister:active {
+    background-color: #234459 !important; 
+    color: white !important; 
+  }
