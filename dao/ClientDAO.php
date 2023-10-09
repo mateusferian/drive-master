@@ -4,12 +4,12 @@
         public function create(Client $client){
             try{
                 $sql = "INSERT INTO tb_client (
-                    :name, father, mother, rg, rg_expedition, cpf, birth_date, email, celphone, telephone, naturalness, address, number, neighborhood, uf, activity_location, photo, renach)
+                    :name_client, father, mother, rg, rg_expedition, cpf, birth_date, email, celphone, telephone, naturalness, address_client, number_client, neighborhood, uf, activity_location, photo, renach)
                     VALUES (
-                    :name, :father, :mother, :rg, :rg_expedition, :cpf, :birth_date, :email, :celphone, :telephone, :naturalness, :address, :number, :neighborhood, :uf, :activity_location, :photo, :renach)";
+                    :name_client, :father, :mother, :rg, :rg_expedition, :cpf, :birth_date, :email, :celphone, :telephone, :naturalness, :address_client, :number_client, :neighborhood, :uf, :activity_location, :photo, :renach)";
                 
                 $p_sql = Conexao::getConexao()->prepare($sql);
-                $p_sql->bindValue(":name", $client->getName());
+                $p_sql->bindValue(":name_client", $client->getName());
                 $p_sql->bindValue(":father", $client->getFather());
                 $p_sql->bindValue(":mother", $client->getMother());
                 $p_sql->bindValue(":rg", $client->getRg());
@@ -20,8 +20,8 @@
                 $p_sql->bindValue(":celphone", $client->getCelphone());
                 $p_sql->bindValue(":telephone", $client->getTelephone());
                 $p_sql->bindValue(":naturalness", $client->getNaturalness());
-                $p_sql->bindValue(":address", $client->getAddress());
-                $p_sql->bindValue(":number", $client->getNumber());
+                $p_sql->bindValue(":address_client", $client->getAddress());
+                $p_sql->bindValue(":number_client", $client->getNumber());
                 $p_sql->bindValue(":neighborhood", $client->getNeighborhood());
                 $p_sql->bindValue(":uf", $client->getUf());
                 $p_sql->bindValue(":activity_location", $client->getActivityLocation());
@@ -39,7 +39,7 @@
         private function listaCnh($row) {
             $client = new Client();
             $client->setIdClient($row['idclient']);
-            $client->setName($row['name']);
+            $client->setName($row['name_client']);
             $client->setFather($row['father']);
             $client->setMother($row['mother']);
             $client->setRg($row['rg']);
@@ -50,8 +50,8 @@
             $client->setCelphone($row['celphone']);
             $client->setTelephone($row['telephone']);
             $client->setNaturalness($row['naturalness']);
-            $client->setAddress($row['address']);
-            $client->setNumber($row['number']);
+            $client->setAddress($row['address_client']);
+            $client->setNumber($row['number_client']);
             $client->setNeighborhood($row['neighborhood']);
             $client->setUf($row['uf']);
             $client->setActivityLocation($row['activity_location']);
@@ -77,7 +77,7 @@
             try {
                 $sql = "UPDATE tb_client SET
                     idclient = :idclient,
-                    name = :name,
+                    name_client = :name_client,
                     father = :father,
                     mother = :mother,
                     rg = :rg,
@@ -88,8 +88,8 @@
                     celphone = :celphone,
                     telephone = :telephone,
                     naturalness = :naturalness,
-                    address = :address,
-                    number = :number,
+                    address_client = :address_client,
+                    number_client = :number_client,
                     neighborhood = :neighborhood,
                     uf = :uf,
                     activity_location = :activity_location,
@@ -99,7 +99,7 @@
         
                 $p_sql = Conexao::getConexao()->prepare($sql);
                 $p_sql->bindValue(":idclient", $client->getIdClient());
-                $p_sql->bindValue(":name", $client->getName());
+                $p_sql->bindValue(":name_client", $client->getName());
                 $p_sql->bindValue(":father", $client->getFather());
                 $p_sql->bindValue(":mother", $client->getMother());
                 $p_sql->bindValue(":rg", $client->getRg());
@@ -110,8 +110,8 @@
                 $p_sql->bindValue(":celphone", $client->getCelphone());
                 $p_sql->bindValue(":telephone", $client->getTelephone());
                 $p_sql->bindValue(":naturalness", $client->getNaturalness());
-                $p_sql->bindValue(":address", $client->getAddress());
-                $p_sql->bindValue(":number", $client->getNumber());
+                $p_sql->bindValue(":address_client", $client->getAddress());
+                $p_sql->bindValue(":number_client", $client->getNumber());
                 $p_sql->bindValue(":neighborhood", $client->getNeighborhood());
                 $p_sql->bindValue(":uf", $client->getUf());
                 $p_sql->bindValue(":activity_location", $client->getActivityLocation());

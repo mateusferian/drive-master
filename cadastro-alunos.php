@@ -87,21 +87,27 @@ include_once('include/carousel.php');
                             placeholder="Digite o endereço">
                     </div>
 
-                    <div class="col-sm-4  mt-3">
+                    <div class="col-sm-6  mt-3">
                         <label for="bairro" class="form-label">Bairro:</label>
                         <input type="text" class="form-control" id="neighborhood" name="neighborhood"
                             placeholder="Digite o bairro">
                     </div>
 
-                    <div class="col-sm-4  mt-3">
+                    <div class="col-sm-6  mt-3">
                         <label for="residentialNumber" class="form-label">Numero de rezidência:</label>
                         <input type="text" class="form-control" id="residentialNumber" name="residentialNumber"
                             placeholder="Digite o numero de rezidência">
                     </div>
 
-                    <div class="col-sm-4  mt-3">
-                        <label for="telephone" class="form-label">telefone:</label>
+                    <div class="col-sm-6  mt-3">
+                        <label for="telephone" class="form-label">Celular:</label>
                         <input type="text" class="form-control" id="telephone" name="telephone"
+                            placeholder="Digite o celular">
+                    </div>
+
+                    <div class="col-sm-6  mt-3">
+                        <label for="celphone" class="form-label">telefone:</label>
+                        <input type="text" class="form-control" id="celphone" name="celphone"
                             placeholder="Digite o telefone">
                     </div>
 
