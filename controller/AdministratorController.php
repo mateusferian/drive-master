@@ -10,10 +10,11 @@
 
     if(isset($_POST['salvar'])){
         $registerDate =  date("Y-m-d");
+        $hash = password_hash(($d['passwordAdministrator']), PASSWORD_DEFAULT);
         $administrator->setIdAdministrator((null));
         $administrator->setNameAdministrator(($d['name']));
         $administrator->setEmail(($d['email']));
-        $administrator->setPasswordAdministrator(($d['passwordAdministrator']));
+        $administrator->setPasswordAdministrator(($hash));
         $administrator->setRegisterDate(($registerDate));
         
         $administratorDAO->create($administrator);
