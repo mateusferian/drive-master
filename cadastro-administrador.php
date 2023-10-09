@@ -24,34 +24,34 @@ include_once "controller/AdministratorController.php";
                     <br><br>
                     <h1 class="text-center">Cadastro</h1>
                     <br><br>
-                    <div class="form-group">
+                    <div class="formGroup">
                         <div class="col-md-6 offset-md-3">
                             <label>E-mail: </label>
-                            <input type="email" name="email" class="form-control" placeholder="digite o seu e-mail "
+                            <input type="email" name="email" class="formControl" placeholder="digite o seu e-mail "
                                 required="">
                         </div>
                     </div>
 
-                    <div class="form-group">
+                    <div class="formGroup">
                         <div class="col-md-6 offset-md-3">
                             <label>Nome completo:</label>
-                            <input type="text" name="name" class="form-control" placeholder="digite o seu nome"
+                            <input type="text" name="name" class="formControl" placeholder="digite o seu nome"
                                 required="">
                         </div>
                     </div>
 
-                    <div class="form-group">
+                    <div class="formGroup">
                         <div class="col-md-6 offset-md-3">
                             <label>Senha</label>
-                            <input type="password" name="passwordAdministrator" class="form-control" required="">
+                            <input type="password" name="passwordAdministrator" class="formControl" required="">
                         </div>
                     </div>
                     <a class="form-links" href="index.php">Já tenho uma conta</a>
                     <br><br>
 
-                    <div class="form-group">
-                        <div class="col-md-5 offset-md-5">
-                            <input type="submit" value="salvar" class="btn butonRegister" name="salvar">
+                    <div class="formGroup">
+                        <div class="col-md-4 offset-md-4">
+                            <input type="submit" value="salvar" class="btn btn-primary" name="salvar" id="formButton">
                         </div>
                         <br><br>
                     </div>
