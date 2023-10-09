@@ -1,21 +1,24 @@
 <!DOCTYPE html>
 <html lang="en">
+    
 <?php
 include_once('include/header.php');
-?>
-<body>
-<?php
 include_once('include/topbar.php');
 include_once('include/navbar.php');
 include_once('include/carousel.php');
-?>
+include_once('./model/Client.php');
+include_once('./dao/ClientDAO.php');
 
+$client = new Client();
+$clientdao = new ClientDAO();
+?>
+<body>
     <div class="container">
         <p class="fs-1 text-center mt-5">Cadastro do Aluno</p>
 
         <div class="container">
 
-            <form name="form1" method="post" action="studentRegistration.php" enctype="multipart/form-data">
+            <form name="form1" method="POST" action="controller/ClientController.php" enctype="multipart/form-data">
 
                 <div class="row">
                     <div class="col-sm-12 mt-3">

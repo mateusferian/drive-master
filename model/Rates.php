@@ -11,7 +11,7 @@ class Rates
     private $examA;
     private $examB;
     private $examD;
-    private $idclient;
+    private $idClient;
 
     function getIdRates()
     { 
@@ -103,12 +103,12 @@ class Rates
         $this->examD = $examD;
     }
 
-    function getIdclient()
+    function getIdClient()
     {
         return $this->idClient;
     }
 
-    function setIdclient($idClient)
+    function setIdClient($idClient)
     {
         $this->idClient = $idClient;
     }

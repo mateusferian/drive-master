@@ -22,6 +22,8 @@
         $rates->setExamB(($d['dateExameB']));
         $rates->setExamD(($d['dateExameD']));
 
+        $rates->setIdClient(($d['idClient']));
+
         $ratesDAO->create($rates);
 
         header("Location: ../cadastro-alunos.php");
@@ -49,7 +51,7 @@
 
     else if(isset($_GET['del'])){
 
-        $rates->setIdAdministrator($_GET['del']);
+        $rates->setIdRates($_GET['del']);
 
         $ratesDAO->delete($rates);
 

@@ -10,7 +10,7 @@
 
     if(isset($_POST['salvar'])){
 
-        $client->setIdClient((null));
+        // $client->setIdClient((null));
         $client->setName(($d['name']));
         $client->setFather(($d['responsibleMale']));
 
@@ -77,7 +77,7 @@
 
     else if(isset($_GET['del'])){
 
-        $client->setIdAdministrator($_GET['del']);
+        $client->setIdClient($_GET['del']);
 
         $clientDAO->delete($client);
 
