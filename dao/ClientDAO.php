@@ -4,39 +4,39 @@
         public function create(Client $client){
             try{
                 $sql = "INSERT INTO tb_client (
-                    :name_client, father, mother, rg, rg_expedition, cpf, birth_date, email, celphone, telephone, naturalness, address_client, number_client, neighborhood, uf, activity_location, photo, renach)
+                    name_client, father, mother, rg, rg_expedition, cpf, birth_date, email, celphone, telephone, naturalness, address_client, number_client, neighborhood, uf, activity_location, photo, renach)
                     VALUES (
-                    :name_client, :father, :mother, :rg, :rg_expedition, :cpf, :birth_date, :email, :celphone, :telephone, :naturalness, :address_client, :number_client, :neighborhood, :uf, :activity_location, :photo, :renach)";
+                    :name_client, :responsibleMale, :responsiblefeminine, :rg, :rgExpedition, :cpf, :dateOfBirth, :email, :celphone, :telephone, :naturalness, :address_client, :residentialNumber, :neighborhood, :uf, :activitylocation, :profilePicture, :renach)";
                 
                 $p_sql = Conexao::getConexao()->prepare($sql);
                 $p_sql->bindValue(":name_client", $client->getName());
-                $p_sql->bindValue(":father", $client->getFather());
-                $p_sql->bindValue(":mother", $client->getMother());
+                $p_sql->bindValue(":responsibleMale", $client->getFather());
+                $p_sql->bindValue(":responsiblefeminine", $client->getMother());
                 $p_sql->bindValue(":rg", $client->getRg());
-                $p_sql->bindValue(":rg_expedition", $client->getRgExpedition());
+                $p_sql->bindValue(":rgExpedition", $client->getRgExpedition());
                 $p_sql->bindValue(":cpf", $client->getCpf());
-                $p_sql->bindValue(":birth_date", $client->getBirthDate());
+                $p_sql->bindValue(":dateOfBirth", $client->getBirthDate());
                 $p_sql->bindValue(":email", $client->getEmail());
                 $p_sql->bindValue(":celphone", $client->getCelphone());
                 $p_sql->bindValue(":telephone", $client->getTelephone());
                 $p_sql->bindValue(":naturalness", $client->getNaturalness());
                 $p_sql->bindValue(":address_client", $client->getAddress());
-                $p_sql->bindValue(":number_client", $client->getNumber());
+                $p_sql->bindValue(":residentialNumber", $client->getNumber());
                 $p_sql->bindValue(":neighborhood", $client->getNeighborhood());
                 $p_sql->bindValue(":uf", $client->getUf());
-                $p_sql->bindValue(":activity_location", $client->getActivityLocation());
-                $p_sql->bindValue(":photo", $client->getPhoto());
+                $p_sql->bindValue(":activitylocation", $client->getActivityLocation());
+                $p_sql->bindValue(":profilePicture", $client->getPhoto());
                 $p_sql->bindValue(":renach", $client->getRenach());
                 
                 $p_sql->execute();
                 
 
             } catch (Exception $e) {
-                print "Erro ao Inserir cnh <br>" . $e . '<br>';
+                print "Erro ao Inserir Cliente <br>" . $e . '<br>';
             }      
         }
 
-        private function listaCnh($row) {
+        private function clientList($row) {
             $client = new Client();
             $client->setIdClient($row['idclient']);
             $client->setName($row['name_client']);
@@ -78,44 +78,44 @@
                 $sql = "UPDATE tb_client SET
                     idclient = :idclient,
                     name_client = :name_client,
-                    father = :father,
-                    mother = :mother,
+                    father = :responsibleMale,
+                    mother = :responsiblefeminine,
                     rg = :rg,
-                    rg_expedition = :rg_expedition,
+                    rg_expedition = :rgExpedition,
                     cpf = :cpf,
-                    birth_date = :birth_date,
+                    birth_date = :dateOfBirth,
                     email = :email,
                     celphone = :celphone,
                     telephone = :telephone,
                     naturalness = :naturalness,
                     address_client = :address_client,
-                    number_client = :number_client,
+                    number_client = :residentialNumber,
                     neighborhood = :neighborhood,
                     uf = :uf,
-                    activity_location = :activity_location,
-                    photo = :photo,
+                    activity_location = :activitylocation,
+                    photo = :profilePicture,
                     renach = :renach
                     WHERE idclient = :idclient";
         
                 $p_sql = Conexao::getConexao()->prepare($sql);
                 $p_sql->bindValue(":idclient", $client->getIdClient());
                 $p_sql->bindValue(":name_client", $client->getName());
-                $p_sql->bindValue(":father", $client->getFather());
-                $p_sql->bindValue(":mother", $client->getMother());
+                $p_sql->bindValue(":responsibleMale", $client->getFather());
+                $p_sql->bindValue(":responsiblefeminine", $client->getMother());
                 $p_sql->bindValue(":rg", $client->getRg());
-                $p_sql->bindValue(":rg_expedition", $client->getRgExpedition());
+                $p_sql->bindValue(":rgExpedition", $client->getRgExpedition());
                 $p_sql->bindValue(":cpf", $client->getCpf());
-                $p_sql->bindValue(":birth_date", $client->getBirthDate());
+                $p_sql->bindValue(":dateOfBirth", $client->getBirthDate());
                 $p_sql->bindValue(":email", $client->getEmail());
                 $p_sql->bindValue(":celphone", $client->getCelphone());
                 $p_sql->bindValue(":telephone", $client->getTelephone());
                 $p_sql->bindValue(":naturalness", $client->getNaturalness());
                 $p_sql->bindValue(":address_client", $client->getAddress());
-                $p_sql->bindValue(":number_client", $client->getNumber());
+                $p_sql->bindValue(":residentialNumber", $client->getNumber());
                 $p_sql->bindValue(":neighborhood", $client->getNeighborhood());
                 $p_sql->bindValue(":uf", $client->getUf());
-                $p_sql->bindValue(":activity_location", $client->getActivityLocation());
-                $p_sql->bindValue(":photo", $client->getPhoto());
+                $p_sql->bindValue(":activitylocation", $client->getActivityLocation());
+                $p_sql->bindValue(":profilePicture", $client->getPhoto());
                 $p_sql->bindValue(":renach", $client->getRenach());
         
                 return $p_sql->execute();
@@ -123,5 +123,36 @@
                 print "Ocorreu um erro ao tentar fazer Update<br> $e <br>";
             }
         }
+
+        public function read() {
+            try {
+                $sql = "SELECT * FROM tb_client ORDER BY idclient ASC";
+                $result = Conexao::getConexao()->query($sql);
+                $lista = $result->fetchAll(PDO::FETCH_ASSOC);
+                $f_lista = array();
+                foreach ($lista as $l) {
+                    $f_lista[] = $this->clientList($l);
+                } 
+                return $f_lista;
+            } catch (Exception $e) {
+                print "Ocorreu um erro ao tentar Buscar Todos." . $e;
+            }
+        }
+
+        public function lastClient() {
+            try {
+                $sql = "SELECT idclient FROM tb_client ORDER BY idclient DESC LIMIT 1";
+                $result = Conexao::getConexao()->query($sql);
+                $lista = $result->fetchAll(PDO::FETCH_ASSOC);
+                $f_lista = array();
+                foreach ($lista as $l) {
+                    $f_lista[] = $this->clientList($l);
+                } 
+                return $f_lista;
+            } catch (Exception $e) {
+                print "Ocorreu um erro ao tentar Buscar Todos." . $e;
+            }
+        }
+
     }
 ?>

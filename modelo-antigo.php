@@ -536,7 +536,7 @@ $clientdao = new ClientDAO();
                         <input type="date" class="form-control" id="dateExameD" name="dateExameD">
                     </div> <br><br>
                     <div class="col-12 mt-3">
-                    <button type="submit" name="register" class="btn customButton">Avançar</button>
+                    <button type="submit" name="register" class="btn customButton">Cadastrar</button>
                 </div>
 
                 </div>
