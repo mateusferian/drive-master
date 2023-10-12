@@ -186,7 +186,7 @@ $clientdao = new ClientDAO();
 
                                     <br><br>
                                     <div class="mt-4 mb-0 d-flex justify-content-end">
-                                        <button type="submit" id="avancar-button" class="btn customButton btn-lg" name="save">Avançar</button>
+                                        <button type="submit"  class="btn customButton btn-lg" name="save">Avançar</button>
                                     </div>
                                 </div>
                             </form>
@@ -662,10 +662,12 @@ $clientdao = new ClientDAO();
         </div>
 
         <!-- Adicione o código JavaScript para alternar a visibilidade dos formulários -->
+        <script src="js/clickButton.js"></script>
         <script src="js/studentRegistrationFormVisibility.js"></script>
     </main>
     <br><br>
     <?php
+    include_once('automaticButton.php');
 include_once('include/footer.php');
 include_once('include/scrollTop.php');
 ?>

@@ -37,7 +37,8 @@
 
         $clientDAO->create($client);
 
-        header("Location: ../cadastro-de-aluno.php");
+        $valueParam = "dados-de-cnh";
+        header("Location: ../cadastro-de-aluno.php?etapa=" . urlencode($valueParam));
     }
 
     else if(isset($_POST['edit'])) {
