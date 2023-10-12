@@ -8,7 +8,7 @@
 
     $d = filter_input_array(INPUT_POST);
 
-    if(isset($_POST['salvar'])){
+    if(isset($_POST['save'])){
 
         $cnh->setCategory(($d['category']));
         $cnh->setType(($d['type']));
@@ -22,7 +22,7 @@
 
         $cnhDAO->create($cnh);
 
-        header("Location: ../#.php");
+        header("Location: ../cadastro-de-taxa.php");
     }
 
     else if(isset($_POST['editar'])) {

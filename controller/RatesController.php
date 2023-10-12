@@ -8,7 +8,7 @@
 
     $d = filter_input_array(INPUT_POST);
 
-    if(isset($_POST['salvar'])){
+    if(isset($_POST['save'])){
 
         $rates->setIdRates((null));
         $rates->setTheoretic(($d['theoretical']));
@@ -26,7 +26,7 @@
 
         $ratesDAO->create($rates);
 
-        header("Location: ../cadastro-alunos.php");
+        header("Location: ../cadastro-de-pagamento.php");
     }
 
     else if(isset($_POST['editar'])) {

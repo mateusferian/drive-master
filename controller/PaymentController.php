@@ -8,7 +8,7 @@
 
     $d = filter_input_array(INPUT_POST);
 
-    if(isset($_POST['salvar'])){
+    if(isset($_POST['save'])){
 
         $payment->setAmount(($d['amount']));
         $payment->setPaymentForm(($d['paymentForm']));
