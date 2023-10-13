@@ -6,11 +6,11 @@ include_once('include/header.php');
 include_once('include/topbar.php');
 include_once('include/navbar.php');
 // include_once('include/carousel.php');
-include_once('./model/Client.php');
-include_once('./dao/ClientDAO.php');
+include_once('./model/Rates.php');
+include_once('./dao/RatesDAO.php');
 
-$client = new Client();
-$clientdao = new ClientDAO();
+$rates = new Rates();
+$ratesDAO = new RatesDAO();
 ?>
 <link rel="stylesheet" href="css/registrationProcesses.css">
 

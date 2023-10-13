@@ -3,11 +3,11 @@
     {
         public function create(Rates $rates){
             try{
-                $sql = "INSERT INTO tb_administrator (
-                    theoretic, practice1,practice2, emission_cnh, disapprove, exam_a, exam_b, exam_d, idclient)
+                $sql = "INSERT INTO tb_rates (
+                    theoretic, practice1, practice2, emission_cnh, disapprove, exam_a, exam_b, exam_d, idclient)
                     VALUES (
-                    :theoretic, :practice1, practice2, :emission_cnh, disapprove, :exam_a, exam_b, :exam_d, :idclient)";
-
+                    :theoretic, :practice1, :practice2, :emission_cnh, :disapprove, :exam_a, :exam_b, :exam_d, :idclient)";
+    
                 $p_sql = Conexao::getConexao()->prepare($sql);
                 $p_sql->bindValue(":theoretic", $rates->getTheoretic());
                 $p_sql->bindValue(":practice1", $rates->getPractice1());
