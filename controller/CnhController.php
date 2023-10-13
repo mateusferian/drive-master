@@ -11,10 +11,10 @@
     if(isset($_POST['save'])){
 
         $cnh->setCategory(($d['category']));
-        $cnh->setType(($d['type']));
+        $cnh->setType(($d['course']));
 
         $cnh->setRegistration(($d['registration']));
-        $cnh->setMedicalExam(($d['medicalExam']));
+        $cnh->setMedicalExam(($d['dateOfMedicExam']));
 
         $cnh->setRegistrationNumber(($d['registrationNumber']));
         $cnh->setBiometricUpdate(($d['biometricUpdate']));
@@ -29,7 +29,7 @@
 
         $cnh->setIdCnh(($d['idCnh']));
         $cnh->setCategory(($d['category']));
-        $cnh->setType(($d['type']));
+        $cnh->setType(($d['course']));
 
         $cnh->setRegistration(($d['registration']));
         $cnh->setMedicalExam(($d['medicalExam']));

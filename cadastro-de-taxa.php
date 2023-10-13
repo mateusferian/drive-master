@@ -21,8 +21,11 @@ $clientdao = new ClientDAO();
                 <div class="col-lg-10">
                     <div class="card shadow-lg border-0 rounded-lg mt-5">
 
-                        <div class="card-header">
-                            <h3 class="text-center font-weight-light my-4">CADASTRAR NOVO ALUNO</h3>
+                    <div class="card-header">
+                            <h4 class="text-center font-weight-light my-4">
+                                <span class="h3">Cadastro de Aluno</span>
+                                <small class="d-block">Dados de taxas</small>
+                            </h4>
                         </div>
 
                         <?php

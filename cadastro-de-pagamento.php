@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
-<script src="js/progressBar.js"></script> 
+<script src="js/progressBar.js"></script>
 <?php
 include_once('include/header.php');
 include_once('include/topbar.php');
@@ -22,7 +22,10 @@ $clientdao = new ClientDAO();
                     <div class="card shadow-lg border-0 rounded-lg mt-5">
 
                         <div class="card-header">
-                            <h3 class="text-center font-weight-light my-4">CADASTRAR NOVO ALUNO</h3>
+                            <h4 class="text-center font-weight-light my-4">
+                                <span class="h3">Cadastro de Aluno</span>
+                                <small class="d-block">Dados de pagamento</small>
+                            </h4>
                         </div>
 
                         <?php
@@ -30,7 +33,7 @@ $clientdao = new ClientDAO();
                         ?>
 
                         <div class="card-body">
-                            <form id="form4" action="controller/PaymentController.php" method="POST" >
+                            <form id="form4" action="controller/PaymentController.php" method="POST">
                                 <div class="row">
                                     <div class="col-sm-10 mx-auto text-center">
                                         <br>
@@ -353,7 +356,8 @@ $clientdao = new ClientDAO();
                                     <script src="js/installment.js"></script>
                                     <br><br>
                                     <div class="mt-4 mb-0 d-flex justify-content-end">
-                                        <button type="submit" class="btn customButton btn-lg" name="save">Avançar</button>
+                                        <button type="submit" class="btn customButton btn-lg"
+                                            name="save">Avançar</button>
                                     </div>
                                 </div>
                             </form>

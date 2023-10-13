@@ -4,14 +4,13 @@
         public function create(Cnh $cnh){
             try{
                 $sql = "INSERT INTO tb_cnh (
-                     categoru, type, registration, medical_exam, registration_number, biometric_update, idclient)
+                     category, type_cnh, medical_exam, registration_number, biometric_update, idclient)
                     VALUES (
-                    :categoru, :type, :registration, :medical_exam, :registration_number, :biometric_update, :idclient)";
+                    :category, :type_cnh,  :medical_exam, :registration_number, :biometric_update, :idclient)";
     
                 $p_sql = Conexao::getConexao()->prepare($sql);
-                $p_sql->bindValue(":categoru", $cnh->getCategoru());
-                $p_sql->bindValue(":type", $cnh->getType());
-                $p_sql->bindValue(":registration", $cnh->getRegistration());
+                $p_sql->bindValue(":category", $cnh->getCategory());
+                $p_sql->bindValue(":type_cnh", $cnh->getType());
                 $p_sql->bindValue(":medical_exam", $cnh->getMedicalExam());
                 $p_sql->bindValue(":registration_number", $cnh->getRegistrationNumber());
                 $p_sql->bindValue(":biometric_update", $cnh->getBiometricUpdate());
@@ -27,8 +26,8 @@
         private function listaCnh($row) {
             $cnh = new Cnh();
             $cnh->setIdCnh($row['idcnh']);
-            $cnh->setCategoru($row['categoru']);
-            $cnh->setType($row['type']);
+            $cnh->setCategory($row['category']);
+            $cnh->setType($row['type_cnh']);
             $cnh->setRegistration($row['registration']);
             $cnh->setMedicalExam($row['medical_exam']);
             $cnh->setRegistrationNumber($row['registration_number']);

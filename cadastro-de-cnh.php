@@ -6,11 +6,11 @@ include_once('include/header.php');
 include_once('include/topbar.php');
 include_once('include/navbar.php');
 // include_once('include/carousel.php');
-include_once('./model/Client.php');
-include_once('./dao/ClientDAO.php');
+include_once('./model/Cnh.php');
+include_once('./dao/CnhDAO.php');
 
-$client = new Client();
-$clientdao = new ClientDAO();
+$Cnh = new Cnh();
+$CnhDAO = new CnhDAO();
 ?>
 <link rel="stylesheet" href="css/registrationProcesses.css">
 
@@ -22,7 +22,10 @@ $clientdao = new ClientDAO();
                     <div class="card shadow-lg border-0 rounded-lg mt-5">
 
                         <div class="card-header">
-                            <h3 class="text-center font-weight-light my-4">CADASTRAR NOVO ALUNO</h3>
+                            <h4 class="text-center font-weight-light my-4">
+                                <span class="h3">Cadastro de Aluno</span>
+                                <small class="d-block">Dados da CNH</small>
+                            </h4>
                         </div>
 
 
@@ -33,52 +36,58 @@ $clientdao = new ClientDAO();
                         <div class="card-body">
                             <form id="form2" action="controller/CnhController.php" method="POST">
                                 <div class="row">
+
                                     <fieldset class="row mb-0 mt-0">
                                         <div class="col-sm-10 mx-auto text-center">
                                             <br>
                                             <div class="form-check form-check-inline ml-4 mr-4">
                                                 <input class="form-check-input" type="radio" name="course"
-                                                    id="firstLicense" value="firstLicense" checked>
-                                                <label class="form-check-label" for="firstLicense">
+                                                    id="1 Habilitação" value="1 Habilitação" checked>
+                                                <label class="form-check-label" for="1 Habilitação">
                                                     1 Habilitação
                                                 </label>
                                             </div>
                                             <div class="form-check form-check-inline ml-4 mr-4">
                                                 <input class="form-check-input" type="radio" name="course"
-                                                    id="categoryAddition" value="categoryAddition">
-                                                <label class="form-check-label" for="categoryAddition">
+                                                    id="Adição de categoria" value="adição de categoria">
+                                                <label class="form-check-label" for="Adição de categoria">
                                                     Adição de categoria
                                                 </label>
                                             </div>
                                             <div class="form-check form-check-inline ml-4 mr-4">
                                                 <input class="form-check-input" type="radio" name="course"
-                                                    id="rehabilitation" value="rehabilitation">
-                                                <label class="form-check-label" for="rehabilitation">
+                                                    id="Reabilitação" value="Reabilitação">
+                                                <label class="form-check-label" for="Reabilitação">
                                                     Reabilitação
                                                 </label>
                                             </div>
                                         </div>
                                     </fieldset>
 
+                                    <div class="col-sm-12  mt-3">
+                                        <label for="registrationNumber" class="form-label">Numero de registro:</label>
+                                        <input type="text" class="form-control" id="registrationNumber"
+                                            name="registrationNumber" placeholder="Digite o numero de registro">
+                                    </div>
 
-                                    <div class="col-sm-12 mt-3">
+                                    <div class="col-sm-4 mt-3">
                                         <label for="category" class="form-label">Categoria</label>
                                         <select id="category" name="category" class="form-select">
                                             <option selected>Informe qual categoria o aluno irá fazer</option>
-                                            <option>A</option>
-                                            <option>B</option>
-                                            <option>AB</option>
-                                            <option>C</option>
+                                            <option value="A">A</option>
+                                            <option value="B">B</option>
+                                            <option value="AB">AB</option>
+                                            <option value="C">C</option>
                                         </select>
                                     </div>
 
-                                    <div class="col-sm-6  mt-3">
+                                    <div class="col-sm-4  mt-3">
                                         <label for="dateOfMedicExam" class="form-label">Data do exame médico:</label>
                                         <input type="date" class="form-control" id="dateOfMedicExam"
                                             name="dateOfMedicExam">
                                     </div>
 
-                                    <div class="col-sm-6  mt-3">
+                                    <div class="col-sm-4  mt-3">
                                         <label for="biometricUpdate" class="form-label">Atualização Biometrica:</label>
                                         <input type="date" class="form-control" id="biometricUpdate"
                                             name="biometricUpdate">
