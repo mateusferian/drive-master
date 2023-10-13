@@ -22,7 +22,7 @@
         
         private function listaAdministrator($row) {
             $administrator = new Administrator();
-            $administrator->setAdministrator($row['idAdministrator']);
+            $administrator->setIdAdministrator($row['idAdministrator']);
             $administrator->setNameAdministrator($row['name_administrator']);
             $administrator->setEmail($row['email']);
             $administrator->setPasswordAdministrator($row['password_administrator']);

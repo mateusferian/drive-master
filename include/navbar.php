@@ -21,7 +21,7 @@
                 <li class="dropdown"><a href="#"><span>Cadastro</span> <i
                             class="bi bi-chevron-down dropdown-indicator"></i></a>
                     <ul>
-                        <li><a href="cadastro-alunos.php">Cadastro de Aluno</a></li>
+                        <li><a href="cadastro-de-aluno.php">Cadastro de Aluno</a></li>
                         <li><a href="#">Cadastro de Aula extra</a></li>
                     </ul>
                 </li>

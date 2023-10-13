@@ -3,7 +3,7 @@
 class Cnh
 {
     private $idCnh;
-    private $categoru;
+    private $category;
     private $type;
     private $registration;
     private $medicalExam;
@@ -21,14 +21,14 @@ class Cnh
         $this->idCnh = $idCnh; 
     }
  
-    function getCategoru()
+    function getCategory()
     { 
-       return $this->categoru; 
+       return $this->category; 
     }
 
-    function setcategoru($categoru)
+    function setCategory($category)
     {    
-        $this->categoru = $categoru; 
+        $this->category = $category; 
     }
 
     function getType()

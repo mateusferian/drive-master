@@ -8,7 +8,7 @@
 
     $d = filter_input_array(INPUT_POST);
 
-    if(isset($_POST['salvar'])){
+    if(isset($_POST['save'])){
 
         $rates->setIdRates((null));
         $rates->setTheoretic(($d['theoretical']));
@@ -22,9 +22,11 @@
         $rates->setExamB(($d['dateExameB']));
         $rates->setExamD(($d['dateExameD']));
 
+        $rates->setIdClient(($d['idClient']));
+
         $ratesDAO->create($rates);
 
-        header("Location: ../cadastro-alunos.php");
+        header("Location: ../cadastro-de-pagamento.php");
     }
 
     else if(isset($_POST['editar'])) {
@@ -49,7 +51,7 @@
 
     else if(isset($_GET['del'])){
 
-        $rates->setIdAdministrator($_GET['del']);
+        $rates->setIdRates($_GET['del']);
 
         $ratesDAO->delete($rates);
 
