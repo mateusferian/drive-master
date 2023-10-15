@@ -75,7 +75,7 @@ $clientDAO = new ClientDAO();
                     <th>email</th>
                     <th>rg</th>
                     <th>cpf</th>
-                    <th colspan="3" scope="col">AÇÕES</th>
+                    <th colspan="4" scope="col">AÇÕES</th>
                 </tr>
             </thead>
             <tbody>
@@ -102,6 +102,12 @@ $clientDAO = new ClientDAO();
                     <td width="57" heigh="94">
                         <a href="controller/ClientController.php?del=<?= $client->getIdClient() ?>">
                         <center> <img src="img/buttonImage/documento.png" height="25" width="25" title="Conultar"></center>
+                        </a>
+                    </td>
+
+                    <td width="57" heigh="94">
+                        <a href="controller/ClientController.php?del=<?= $client->getIdClient() ?>">
+                        <center> <img src="img/buttonImage/pdf.png" height="25" width="25" title="baixar pdf"></center>
                         </a>
                     </td>
 
