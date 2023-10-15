@@ -5,8 +5,8 @@
 <header id="header" class="header d-flex align-items-center">
 
     <div class="container-fluid container-xl d-flex align-items-center justify-content-between">
-        <a href="index.html" class="logo d-flex align-items-center">
-            <h1>Autoescola Líder<span>.</span></h1>
+        <a href="controle-de-aluno.php" class="logo d-flex align-items-center">
+            <h1 href= >Autoescola Líder<span>.</span></h1>
         </a>
         <nav id="navbar" class="navbar">
             <ul>
@@ -27,7 +27,13 @@
                 </li>
                 <li><a href="graficos.php">Graficos</a></li>
                 <li><a href="#">Notificações</a></li>
-                <li><a href="conta.php" >Conta</a></li>
+                <li class="dropdown"><a href="#"><span>Conta</span> <i
+                            class="bi bi-chevron-down dropdown-indicator"></i></a>
+                    <ul>
+                    <li><a href="conta.php">Dados da conta</a></li>
+                        <li><a href="logout.php">sair</a></li>
+                    </ul>
+                </li>
             </ul>
         </nav>
 

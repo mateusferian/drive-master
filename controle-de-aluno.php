@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <?php
+include_once('restrito.php');
 include_once('include/header.php');
 include_once('include/topbar.php');
 include_once('include/navbar.php');

@@ -51,12 +51,6 @@
 
                         </div>
                         <div class="align-vertical">
-                            <div class="form-check">
-                                <input type="checkbox" class="form-check-input" id="rememberMe">
-                                <label class="form-check-label" for="rememberMe">Lembre de mim</label>
-                            </div>
-                        </div>
-                        <div class="align-vertical">
                             <a href="login/recuperarSenha/esqueciSenha.php" class="formLink">Esqueci minha senha</a>
                         </div>
                         <div class="align-vertical">
