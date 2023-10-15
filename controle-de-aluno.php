@@ -2,14 +2,11 @@
 <html lang="en">
 <?php
 include_once('include/header.php');
-?>
-<body>
-<?php
 include_once('include/topbar.php');
 include_once('include/navbar.php');
 include_once('include/carousel.php');
 ?>
-
+<body>
     <script src="js/filter.js"></script>
     <div class="container">
         <div class="row">

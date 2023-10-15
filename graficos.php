@@ -2,16 +2,14 @@
 <html lang="en">
 <?php
 include_once('include/header.php');
+include_once('include/topbar.php');
+include_once('include/navbar.php');
+include_once('include/carousel.php');
 ?>
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 
 <body>
-    <?php
-include_once('include/topbar.php');
-include_once('include/navbar.php');
-include_once('include/carousel.php');
-?>
     <div class="container mt-5">
         <h1 class="text-center">Relatórios de Alunos</h1>
         <div class="row">
