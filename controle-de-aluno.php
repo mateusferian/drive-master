@@ -6,7 +6,15 @@ include_once('include/header.php');
 include_once('include/topbar.php');
 include_once('include/navbar.php');
 include_once('include/carousel.php');
+include_once('./conexao/Conexao.php');
+include_once('./model/Client.php');
+include_once('./dao/ClientDAO.php');
+
+
+$client = new Client();
+$clientDAO = new ClientDAO();
 ?>
+
 <body>
     <script src="js/filter.js"></script>
     <div class="container">
@@ -58,9 +66,50 @@ include_once('include/carousel.php');
     </div>
 
     <p class="fs-2 text-center mt-5">Controle De alunos</p>
+    <div class="container">
+        <table class="table table-bordered text-center">
+            <thead>
+                <tr>
+                    <th>Id</th>
+                    <th>Nome</th>
+                    <th>email</th>
+                    <th>rg</th>
+                    <th>cpf</th>
+                    <th colspan="3" scope="col">AÇÕES</th>
+                </tr>
+            </thead>
+            <tbody>
+                <?php foreach ($clientDAO->read() as $client) : ?>
+                <tr>
+                    <td><?= $client->getIdClient() ?></td>
+                    <td><?= $client->getName() ?></td>
+                    <td><?= $client->getEmail() ?></td>
+                    <td><?= $client->getRg() ?></td>
+                    <td><?= $client->getCpf() ?></td>
 
+                    <td width="25" heigh="94">
+                    <a href="controller/ClientController.php?del=<?= $client->getIdClient() ?>">
+                            <center> <img src="img/buttonImage/update.ico" height="25" width="25" title="Alterar"></center>
+                        </a>
+                    </td>
 
+                    <td width="57" heigh="94">
+                    <a href="controller/ClientController.php?del=<?= $client->getIdClient() ?>">
+                            <center> <img src="img/buttonImage/lixeira.png" height="25" width="25" title="Excluir"></center>
+                        </a>
+                    </td>
 
+                    <td width="57" heigh="94">
+                        <a href="controller/ClientController.php?del=<?= $client->getIdClient() ?>">
+                        <center> <img src="img/buttonImage/documento.png" height="25" width="25" title="Conultar"></center>
+                        </a>
+                    </td>
+
+                </tr>
+                <?php endforeach ?>
+            </tbody>
+        </table>
+    </div>
 
     <br><br>
     <?php
