@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <?php
-include_once('restrito.php');
+
 include_once('include/header.php');
 include_once('include/topbar.php');
 include_once('include/navbar.php');
@@ -100,7 +100,7 @@ $clientDAO = new ClientDAO();
                     </td>
 
                     <td width="57" heigh="94">
-                        <a href="controller/ClientController.php?del=<?= $client->getIdClient() ?>">
+                        <a href="formulario-de-conmsulta.php?consult=<?= $client->getIdClient() ?>">
                         <center> <img src="img/buttonImage/documento.png" height="25" width="25" title="Conultar"></center>
                         </a>
                     </td>
