@@ -5,7 +5,6 @@ include_once('include/header.php');
 include_once "conexao/Conexao.php";
 include_once "model/Administrator.php";
 include_once "dao/AdministratorDAO.php";
-include_once "controller/AdministratorController.php";
 ?>
     <link rel="stylesheet" href="css/form.css">
     <link rel="stylesheet" href="css/buttonRegister.css">

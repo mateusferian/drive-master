@@ -154,5 +154,24 @@
             }
         }
 
+        public function findById($idClient) {
+            try {
+                $sql = "SELECT * FROM tb_client WHERE idclient = :idclient";
+                $p_sql = Conexao::getConexao()->prepare($sql);
+                $p_sql->bindValue(":idclient", $idClient);
+                $p_sql->execute();
+                $row = $p_sql->fetch(PDO::FETCH_ASSOC);
+        
+                if ($row) {
+                    return $this->clientList($row);
+                } else {
+                    return null; // Cliente não encontrado
+                }
+            } catch (Exception $e) {
+                print "Ocorreu um erro ao tentar Buscar Cliente por ID: " . $e;
+            }
+        }
+        
+
     }
 ?>

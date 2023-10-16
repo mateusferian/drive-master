@@ -2,6 +2,7 @@
 <html lang="en">
 <script src="js/progressBar.js"></script>
 <?php
+include_once('restrito.php');
 include_once('include/header.php');
 include_once('include/topbar.php');
 include_once('include/navbar.php');
