@@ -11,51 +11,142 @@ include_once('./dao/ClientDAO.php');
 $client = new Client();
 $clientDAO = new ClientDAO();
 ?>
+
 <body>
-        <main>
+    <main>
         <?php
     if (isset($_GET["consult"])) {
         $idClient = $_GET["consult"];
         $client = $clientDAO->findById($idClient); 
         if ($client) {
     ?>
-            <div class="container">
-                <div class="row justify-content-center">
-                    <div class="col-lg-10">
-                        <div class="card shadow-lg border-0 rounded-lg mt-5">
-                            <div class="card-header">
-                                <h4 class="text-center font-weight-light my-4">
-                                    <span class="h3">Dados do Aluno</span>
-                                </h4>
-                            </div>
-                            <div class="card-body">
-                                <div class="row">
-                                    <div class="col-sm-6 mt-3">
-                                        <label for="name" class="form-label">Nome de Aluno:</label>
-                                        <p class='form-control'><?php echo $client->getName(); ?></p>
-                                    </div>
-
-                                    <div class="col-sm-6 mt-3">
-                                        <label for="name" class="form-label">Nome de Aluno:</label>
-                                        <?php
-                                        $getEmail = $client->getEmail();
-                                        echo "<p class='form-control'>$getEmail</p>";
-                                        ?>
-                                    </div>
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-lg-10">
+                    <div class="card shadow-lg border-0 rounded-lg mt-5">
+                        <div class="card-header">
+                            <h4 class="text-center font-weight-light my-4">
+                                <span class="h3">Dados do Aluno</span>
+                            </h4>
+                        </div>
+                        <div class="card-body">
+                            <div class="row">
+                                <div class="col-sm-6 mt-3">
+                                    <label for="name" class="form-label">Nome de Aluno:</label>
+                                    <p class='form-control'><?php echo $client->getName(); ?></p>
                                 </div>
+
+                                <div class="col-sm-6 mt-3">
+                                    <label for="name" class="form-label">Email::</label>
+                                    <p class='form-control'><?php echo $client->getEmail(); ?></p>
+                                </div>
+
+                                <div class="col-sm-6  mt-3">
+                                    <label for="responsiblefeminine" class="form-label">Nome da Responsável
+                                        (Feminino):</label>
+                                        <p class='form-control'><?php echo $client->getMother(); ?></p>
+                                </div>
+
+                                <div class="col-sm-6  mt-3">
+                                    <label for="responsibleMale" class="form-label">Nome do Responsável
+                                        (Masculino):</label>
+                                        <p class='form-control'><?php echo $client->getFather(); ?></p>
+                                </div>
+
+                                <div class="col-md-12  mt-3">
+                                    <br><br>
+                                    <label for="profilePicture" class="form-label">Selecione a foto de
+                                        perfil:</label>
+                                        <p class='form-control'><?php echo $client->getPhoto(); ?></p>
+                                </div>
+
+                                <div class="col-sm-4  mt-3">
+                                    <label for="rg" class="form-label">RG:</label>
+                                    <p class='form-control'><?php echo $client->getRg(); ?></p>
+                                </div>
+
+                                <div class="col-sm-4 mt-3">
+                                    <label for="rgExpedition" class="form-label">RG-Expedição:</label>
+                                    <p class='form-control'><?php echo $client->getRgExpedition(); ?></p>
+                                </div>
+
+                                <div class="col-sm-4  mt-3">
+                                    <label for="uf" class="form-label">UF:</label>
+                                    <p class='form-control'><?php echo $client->getUf(); ?></p>
+                                </div>
+
+                                <div class="col-sm-6  mt-3">
+                                    <label for="dateOfBirth" class="form-label">Data de nascimento:</label>
+                                    <p class='form-control'><?php echo $client->getBirthDate(); ?></p>
+                                </div>
+
+                                <div class="col-sm-6  mt-3">
+                                    <label for="cpf" class="form-label">CPF:</label>
+                                    <p class='form-control'><?php echo $client->getCpf(); ?></p>
+                                </div>
+
+                                <div class="col-sm-4 mt-3">
+                                    <label for="renach" class="form-label">RENACH SP:</label>
+                                    <p class='form-control'><?php echo $client->getRenach(); ?></p>
+                                </div>
+
+                                <!-- <div class="col-sm-4  mt-3">
+                                        <label for="registrationNumber" class="form-label">Numero de registro:</label>
+                                        <input type="text" class="form-control" id="registrationNumber"
+                                            name="registrationNumber" placeholder="Digite o numero de registro">
+                                    </div> -->
+
+                                <div class="col-sm-4  mt-3">
+                                    <label for="naturalness" class="form-label">Naturalidade:</label>
+                                    <p class='form-control'><?php echo $client->getNaturalness(); ?></p>
+                                </div>
+
+
+                                <div class="col-sm-12 mt-3">
+                                    <br><br>
+                                    <label for="address" class="form-label">Endereço:</label>
+                                    <p class='form-control'><?php echo $client->getAddress(); ?></p>
+                                </div>
+
+                                <div class="col-sm-6  mt-3">
+                                    <label for="bairro" class="form-label">Bairro:</label>
+                                    <p class='form-control'><?php echo $client->getNeighborhood(); ?></p>
+                                </div>
+
+                                <div class="col-sm-6  mt-3">
+                                    <label for="residentialNumber" class="form-label">Numero de residência:</label>
+                                    <p class='form-control'><?php echo $client->getNumber(); ?></p>
+                                </div>
+
+                                <div class="col-sm-6  mt-3">
+                                    <label for="telephone" class="form-label">Celular:</label>
+                                    <p class='form-control'><?php echo $client->getCelphone(); ?></p>
+                                </div>
+
+                                <div class="col-sm-6  mt-3">
+                                    <label for="celphone" class="form-label">Telefone:</label>
+                                    <p class='form-control'><?php echo $client->getTelephone(); ?></p>
+                                </div>
+
+                                <div class="col-sm-12 mt-3">
+                                    <label for="activitylocation" class="form-label">Local de Atividade:</label>
+                                    <p class='form-control'><?php echo $client->getActivityLocation(); ?></p>
+                                </div>
+
                             </div>
                         </div>
-                        <div class="card-footer text-center py-3"></div>
                     </div>
+                    <div class="card-footer text-center py-3"></div>
                 </div>
             </div>
-            <?php
+        </div>
+        <?php
         } else {
             echo "Cliente não encontrado";
         }
     }
     ?>
-        </main>
+    </main>
     <br><br>
     <?php
     include_once('include/footer.php');
