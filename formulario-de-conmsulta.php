@@ -33,7 +33,7 @@ $ratesDAO = new RatesDAO();
         $cnh = $cnhDAO->findByClientId($idClient);
         $rates = $ratesDAO->findByClientId($idClient);
 
-        if ($client) {
+        if ($client  and $cnh and $rates) {
     ?>
         <div class="container">
             <div class="row justify-content-center">
@@ -239,7 +239,10 @@ $ratesDAO = new RatesDAO();
         </div>
         <?php
         } else {
-            echo "Cliente não encontrado";
+            echo "<script language=javascript>
+            alert('ERRO: alguma informção do aluno não foi não encontrado!!!');
+            location.href = 'controle-de-aluno.php';
+            </script>";
         }
     }
     ?>
