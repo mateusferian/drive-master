@@ -36,10 +36,10 @@ $dados .= "<html lang='pt-br'>";
 $dados .= "<head>";
 $dados .= "<meta charset='UTF-8'>";
 $dados .= "<link rel='stylesheet' href='http://localhost/celke/css/custom.css'";
-$dados .= "<title>Celke - Gerar PDF</title>";
+$dados .= "<title>Autoescola Lider - Gerar PDF</title>";
 $dados .= "</head>";
 $dados .= "<body>";
-$dados .= "<h1>Listar os Usuários " . strtoupper($client->getName()) . "</h1>";
+$dados .= "<h1> Dados do aluno: " . strtoupper($client->getName()) . "</h1>";
 
 
 
