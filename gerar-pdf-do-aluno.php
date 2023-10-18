@@ -1,6 +1,4 @@
 <?php
-
-// Carregar o Composer
 require './assets/pdf/autoload.php';
 include_once('./conexao/Conexao.php');
 include_once('./model/Client.php');
@@ -41,8 +39,6 @@ $dados .= "</head>";
 $dados .= "<body>";
 $dados .= "<h1> Dados do aluno: " . strtoupper($client->getName()) . "</h1>";
 
-
-
     $dados .= "ID: jose <br>";
     $dados .= "Nome de Aluno: " . $client->getName() . "<br>";
     $dados .= "Email: " . $client->getEmail() . "<br>";
@@ -78,28 +74,15 @@ $dados .= "<h1> Dados do aluno: " . strtoupper($client->getName()) . "</h1>";
     $dados .= "Data Exame D: " . $rates->getExamD() . "<br>";
     
     $dados .= "<hr>";   
-
 $dados .= "</body>";
 $dados .= "</html>";
 
-// Referenciar o namespace Dompdf
-
-// Instanciar e usar a classe dompdf
 $dompdf = new Dompdf(['enable_remote' => true]);
 
-// Instanciar o metodo loadHtml e enviar o conteudo do PDF
 $dompdf->loadHtml($dados);
 
-// Configurar o tamanho e a orientacao do papel
-// landscape - Imprimir no formato paisagem
-//$dompdf->setPaper('A4', 'landscape');
-// portrait - Imprimir no formato retrato
 $dompdf->setPaper('A4', 'portrait');
-
-// Renderizar o HTML como PDF
 $dompdf->render();
-
-// Gerar o PDF
 $dompdf->stream();
 
 } else {
