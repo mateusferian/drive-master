@@ -89,5 +89,24 @@
                 print "Ocorreu um erro ao tentar fazer Update<br> $e <br>";
             }
     }
+
+    public function findByClientId($idClient) {
+        try {
+            $sql = "SELECT * FROM tb_rates WHERE idclient = :idclient";
+            $p_sql = Conexao::getConexao()->prepare($sql);
+            $p_sql->bindValue(":idclient", $idClient);
+            $p_sql->execute();
+            $row = $p_sql->fetch(PDO::FETCH_ASSOC);
+    
+            if ($row) {
+                return $this->listaRates($row);
+            } else {
+                return null;                
+            }
+        } catch (Exception $e) {
+            print "Ocorreu um erro ao tentar buscar a taxas por ID do Cliente: " . $e;
+        }
+    }
+    
     }
     ?>
