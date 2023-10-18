@@ -106,7 +106,7 @@ $clientDAO = new ClientDAO();
                     </td>
 
                     <td width="57" heigh="94">
-                        <a href="controller/ClientController.php?del=<?= $client->getIdClient() ?>">
+                    <a href="gerar-pdf-do-aluno.php?pdf=<?= $client->getIdClient() ?>">
                         <center> <img src="img/buttonImage/pdf.png" height="25" width="25" title="baixar pdf"></center>
                         </a>
                     </td>

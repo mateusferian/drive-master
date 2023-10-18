@@ -223,8 +223,9 @@ $ratesDAO = new RatesDAO();
 
                                     <div class="col-4">
                                     <br><br>
+                                    <a href="gerar-pdf-do-aluno.php?pdf=<?= $client->getIdClient() ?>">
                                         <button type="button" name="voltar" class="btn customButton"
-                                            onclick="window.location.href = 'seu_pdf.pdf';">Baixar PDF dos dados do
+                                            onclick="window.location.href = 'gerar-pdf-do-aluno.php?pdf=<?= $client->getIdClient() ?>'">Baixar PDF dos dados do
                                             aluno</button>
                                             <br><br>
                                     </div>
