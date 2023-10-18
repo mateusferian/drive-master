@@ -68,150 +68,179 @@ $dados = "<style>
 
   </style>
 
-          <h1>Ficha do aluno</h1>
-          <h2>" . $client->getName() ."</h2>
+          <h1>". $client->getName() ."</h1>
+          <h2>Ficha do aluno</h2>
           <br>
 
           <table>
-         <tr>
-            <td colspan='2'><strong>Dados do aluno</strong></td>
-         </tr>
-
           <tr>
-            <td class='formField'>Nome:</td>
-            <td class='formField'><strong>" . $client->getName() . "</strong></td>
+              <td colspan='2'><strong>Dados do aluno</strong></td>
           </tr>
-
-           <tr>
-            <td class='formField'>Email:</td>
-            <td class='formField'><strong>" . $client->getEmail() . "</strong></td>
+  
+          <tr>
+              <td class='formField'><strong>Nome:</strong></td>
+              <td class='formField'>" . $client->getName() . "</td>
           </tr>
+  
           <tr>
-            <td class='formField'>Nome da Responsável (Feminino):</td>
-            <td class='formField'><strong>" . $client->getMother() . "</strong></td>
+              <td class='formField'><strong>Email:</strong></td>
+              <td class='formField'>" . $client->getEmail() . "</td>
           </tr>
+  
           <tr>
-            <td class='formField'>Nome do Responsável (Masculino):</td>
-            <td class='formField'><strong>" . $client->getFather() . "</strong></td>
+              <td class='formField'><strong>Nome da Responsável (Feminino):</strong></td>
+              <td class='formField'>" . $client->getMother() . "</td>
           </tr>
+  
           <tr>
-            <td class='formField'>RG:</td>
-            <td class='formField'><strong>" . $client->getRg() . "</strong></td>
+              <td class='formField'><strong>Nome do Responsável (Masculino):</strong></td>
+              <td class='formField'>" . $client->getFather() . "</td>
           </tr>
+  
           <tr>
-            <td class='formField'>RG-Expedição:</td>
-            <td class='formField'><strong>" . $client->getRgExpedition() . "</strong></td>
+              <td class='formField'><strong>RG:</strong></td>
+              <td class='formField'>" . $client->getRg() . "</td>
           </tr>
+  
           <tr>
-            <td class='formField'>UF:</td>
-            <td class='formField'><strong>" . $client->getUf() . "</strong></td>
+              <td class='formField'><strong>RG-Expedição:</strong></td>
+              <td class='formField'>" . $client->getRgExpedition() . "</td>
           </tr>
+  
           <tr>
-            <td class='formField'>Data de nascimento:</td>
-            <td class='formField'><strong>" . $client->getBirthDate() . "</strong></td>
+              <td class='formField'><strong>UF:</strong></td>
+              <td class='formField'>" . $client->getUf() . "</td>
           </tr>
+  
           <tr>
-            <td class='formField'>CPF:</td>
-            <td class='formField'><strong>" . $client->getCpf() . "</strong></td>
+              <td class='formField'><strong>Data de nascimento:</strong></td>
+              <td class='formField'>" . $client->getBirthDate() . "</td>
           </tr>
+  
           <tr>
-            <td class='formField'>RENACH SP:</td>
-            <td class='formField'><strong>" . $client->getRenach() . "</strong></td>
+              <td class='formField'><strong>CPF:</strong></td>
+              <td class='formField'>" . $client->getCpf() . "</td>
           </tr>
+  
           <tr>
-            <td class='formField'>Naturalidade:</td>
-            <td class='formField'><strong>" . $client->getNaturalness() . "</strong></td>
+              <td class='formField'><strong>RENACH SP:</strong></td>
+              <td class='formField'>" . $client->getRenach() . "</td>
           </tr>
+  
           <tr>
-            <td class='formField'>Endereço:</td>
-            <td class='formField'><strong>" . $client->getAddress() . "</strong></td>
+              <td class='formField'><strong>Naturalidade:</strong></td>
+              <td class='formField'>" . $client->getNaturalness() . "</td>
           </tr>
+  
           <tr>
-          <td class='formField'>Bairro:</td>
-          <td class='formField'><strong>" . $client->getNeighborhood() . "</strong></td>
-        </tr>
-          <tr>
-            <td class='formField'>Numero de residência:</td>
-            <td class='formField'><strong>" . $client->getNumber() . "</strong></td>
+              <td class='formField'><strong>Endereço:</strong></td>
+              <td class='formField'>" . $client->getAddress() . "</td>
           </tr>
+  
           <tr>
-            <td class='formField'>Celular:</td>
-            <td class='formField'><strong>" . $client->getCelphone() . "</strong></td>
+              <td class='formField'><strong>Bairro:</strong></td>
+              <td class='formField'>" . $client->getNeighborhood() . "</td>
           </tr>
+  
           <tr>
-            <td class='formField'>Telefone:</td>
-            <td class='formField'><strong>" . $client->getTelephone() . "</strong></td>
+              <td class='formField'><strong>Numero de residência:</strong></td>
+              <td class='formField'>" . $client->getNumber() . "</td>
           </tr>
+  
           <tr>
-            <td class='formField'>Local de Atividade:</td>
-            <td class='formField'><strong>" . $client->getActivityLocation() . "</strong></td>
-          </tr>
-          </table>
-          <br><br>
-
-          <table>
-          <tr>
-          <td colspan='2'><strong>Dados da CNH</strong></td>
-            </tr>
-
-            <td class='formField'>Curso:</td>
-            <td class='formField'><strong>" . $cnh->getCategory() . "</strong></td>
-          </tr>
-          <tr>
-            <td class='formField'>Categoria:</td>
-            <td class='formField'><strong>" . $cnh->getType() . "</strong></td>
-          </tr>
-          <tr>
-            <td class='formField'>Data do exame médico:</td>
-            <td class='formField'><strong>" . $cnh->getMedicalExam() . "</strong></td>
-          </tr>
-          <tr>
-            <td class='formField'>Numero de registro:</td>
-            <td class='formField'><strong>" . $cnh->getRegistrationNumber() . "</strong></td>
-          </tr>
-          <tr>
-            <td class='formField'>Atualização Biometrica:</td>
-            <td class='formField'><strong>" . $cnh->getBiometricUpdate() . "</strong></td>
-          </tr> </table>
-          <br><br>
-
-
-          <table>
-          <tr>
-          <td colspan='2'><strong>Dados de taxas</strong></td>
+          <td class='formField'><strong>Celular:</strong></td>
+          <td class='formField'>" . $client->getCelphone() . "</td>
       </tr>
-            <td class='formField'>Teórico:</td>
-            <td class='formField'><strong>" . $rates->getTheoretic() . "</strong></td>
-          </tr>
+  
           <tr>
-            <td class='formField'>Pratico de Carro:</td>
-            <td class='formField'><strong>" . $rates->getPractice1() . "</strong></td>
+              <td class='formField'><strong>Telefone:</strong></td>
+              <td class='formField'>" . $client->getTelephone() . "</td>
           </tr>
+  
           <tr>
-            <td class='formField'>Pratico de Moto:</td>
-            <td class='formField'><strong>" . $rates->getPractice2() . "</strong></td>
+              <td class='formField'><strong>Local de Atividade:</strong></td>
+              <td class='formField'>" . $client->getActivityLocation() . "</td>
           </tr>
+      </table>
+      <br><br>
+  
+      <table>
           <tr>
-            <td class='formField'>Emissão CNH:</td>
-            <td class='formField'><strong>" . $rates->getEmissionCnh() . "</strong></td>
+              <td colspan='2'><strong>Dados da CNH</strong></td>
           </tr>
+  
           <tr>
-            <td class='formField'>Reprova:</td>
-            <td class='formField'><strong>" . $rates->getDisapprove() . "</strong></td>
+              <td class='formField'><strong>Curso:</strong></td>
+              <td class='formField'>" . $cnh->getCategory() . "</td>
           </tr>
+  
           <tr>
-            <td class='formField'>Data Exame A:</td>
-            <td class='formField'><strong>" . $rates->getExamA() . "</strong></td>
+              <td class='formField'><strong>Categoria:</strong></td>
+              <td class='formField'>" . $cnh->getType() . "</td>
           </tr>
+  
           <tr>
-            <td class='formField'>Data Exame B:</td>
-            <td class='formField'><strong>" . $rates->getExamB() . "</strong></td>
+              <td class='formField'><strong>Data do exame médico:</strong></td>
+              <td class='formField'>" . $cnh->getMedicalExam() . "</td>
           </tr>
+  
           <tr>
-            <td class='formField'>Data Exame D:</td>
-            <td class='formField'><strong>" . $rates->getExamD() . "</strong></td>
+              <td class='formField'><strong>Numero de registro:</strong></td>
+              <td class='formField'>" . $cnh->getRegistrationNumber() . "</td>
           </tr>
-          </table>
+  
+          <tr>
+              <td class='formField'><strong>Atualização Biometrica:</strong></td>
+              <td class='formField'>" . $cnh->getBiometricUpdate() . "</td>
+          </tr>
+      </table>
+      <br><br>
+  
+      <table>
+          <tr>
+              <td colspan='2'><strong>Dados de taxas</strong></td>
+          </tr>
+  
+          <tr>
+              <td class='formField'><strong>Teórico:</strong></td>
+              <td class='formField'>" . $rates->getTheoretic() . "</td>
+          </tr>
+  
+          <tr>
+              <td class='formField'><strong>Pratico de Carro:</strong></td>
+              <td class='formField'>" . $rates->getPractice1() . "</td>
+          </tr>
+  
+          <tr>
+              <td class='formField'><strong>Pratico de Moto:</strong></td>
+              <td class='formField'>" . $rates->getPractice2() . "</td>
+          </tr>
+  
+          <tr>
+              <td class='formField'><strong>Emissão CNH:</strong></td>
+              <td class='formField'>" . $rates->getEmissionCnh() . "</td>
+          </tr>
+  
+          <tr>
+              <td class='formField'><strong>Reprova:</strong></td>
+              <td class='formField'>" . $rates->getDisapprove() . "</td>
+          </tr>
+  
+          <tr>
+              <td class='formField'><strong>Data Exame A:</strong></td>
+              <td class='formField'>" . $rates->getExamA() . "</td>
+          </tr>
+  
+          <tr>
+              <td class='formField'><strong>Data Exame B:</strong></td>
+              <td class='formField'>" . $rates->getExamB() . "</td>
+          </tr>
+  
+          <tr>
+              <td class='formField'><strong>Data Exame D:</strong></td>
+              <td class='formField'>" . $rates->getExamD() . "</td>
+          </tr>
+      </table>
           <br><br>
           <h2 style='text-align: right;'>Auto Escola Lider</h2>";
 

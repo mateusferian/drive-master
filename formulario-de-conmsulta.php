@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+<link href="css/consult.css" rel="stylesheet">
 <?php
 include_once('include/header.php');
 include_once('include/topbar.php');
@@ -43,199 +44,190 @@ $ratesDAO = new RatesDAO();
                         <div class="card-header">
                             <h4 class="text-center font-weight-light my-4">
                                 <span class="h3"><?php echo strtoupper($client->getName()); ?></span>
-                                <small class="d-block">Dados do aluno</small>
+                                <small class="d-block">Fixa do aluno</small>
                             </h4>
                         </div>
 
-                        <div class="card-body">
-                            <div class="row">
-                                <div class="col-sm-12 mt-3">
-                                    <label for="name" class="form-label">Nome de Aluno:</label>
-                                    <p class='form-control'><?php echo $client->getName(); ?></p>
-                                </div>
 
-                                <div class="col-sm-6 mt-3">
-                                    <label for="name" class="form-label">Email::</label>
-                                    <p class='form-control'><?php echo $client->getEmail(); ?></p>
-                                </div>
+                        <table class="table table-bordered mt-4">
+                            <tr>
+                                <td colspan='2' class="h4"><strong>Dados do aluno</strong></td>
+                            </tr>
 
-                                <div class="col-sm-6  mt-3">
-                                    <label for="responsiblefeminine" class="form-label">Nome da Responsável
-                                        (Feminino):</label>
-                                    <p class='form-control'><?php echo $client->getMother(); ?></p>
-                                </div>
+                            <tr>
+                                <th class="col-6">Nome de Aluno:</th>
+                                <td class="col-6"><?php echo $client->getName(); ?></td>
+                            <tr>
+                                <th class="col-sm-6">Email:</th>
+                                <td><?php echo $client->getEmail(); ?></td>
+                            </tr>
+                            <tr>
+                                <th class="col-sm-6">Nome da Responsável (Feminino):</th>
+                                <td><?php echo $client->getMother(); ?></td>
+                            </tr>
+                            <tr>
+                                <th class="col-sm-6">Nome do Responsável (Masculino):</th>
+                                <td><?php echo $client->getFather(); ?></td>
+                            </tr>
+                            <tr>
+                                <th class="col-sm-6">RG:</th>
+                                <td><?php echo $client->getRg(); ?></td>
+                            </tr>
+                            <tr>
+                                <th class="col-sm-6">RG-Expedição:</th>
+                                <td><?php echo $client->getRgExpedition(); ?></td>
+                            </tr>
+                            <tr>
+                                <th class="col-sm-6">UF:</th>
+                                <td><?php echo $client->getUf(); ?></td>
+                            </tr>
+                            <tr>
+                                <th class="col-sm-6">Data de nascimento:</th>
+                                <td><?php echo $client->getBirthDate(); ?></td>
+                            </tr>
+                            <tr>
+                                <th class="col-sm-6">CPF:</th>
+                                <td><?php echo $client->getCpf(); ?></td>
+                            </tr>
+                            <tr>
+                                <th class="col-sm-6">RENACH SP:</th>
+                                <td><?php echo $client->getRenach(); ?></td>
+                            </tr>
+                            <tr>
+                                <th class="col-sm-6">Naturalidade:</th>
+                                <td><?php echo $client->getNaturalness(); ?></td>
+                            </tr>
+                            <tr>
+                                <th class="col-sm-6">Endereço:</th>
+                                <td><?php echo $client->getAddress(); ?></td>
+                            </tr>
+                            <tr>
+                                <th class="col-sm-6">Bairro:</th>
+                                <td><?php echo $client->getNeighborhood(); ?></td>
+                            </tr>
+                            <tr>
+                                <th class="col-sm-6">Numero de residência:</th>
+                                <td><?php echo $client->getNumber(); ?></td>
+                            </tr>
+                            <tr>
+                                <th class="col-sm-6">Celular:</th>
+                                <td><?php echo $client->getCelphone(); ?></td>
+                            </tr>
+                            <tr>
+                                <th class="col-sm-6">Telefone:</th>
+                                <td><?php echo $client->getTelephone(); ?></td>
+                            </tr>
+                            <tr>
+                                <th class="col-sm-6">Local de Atividade:</th>
+                                <td><?php echo $client->getActivityLocation(); ?></td>
+                            </tr>
+                        </table>
 
-                                <div class="col-sm-6  mt-3">
-                                    <label for="responsibleMale" class="form-label">Nome do Responsável
-                                        (Masculino):</label>
-                                    <p class='form-control'><?php echo $client->getFather(); ?></p>
-                                </div>
+                        <br><br>
 
-                                <div class="col-sm-6  mt-3">
-                                    <label for="rg" class="form-label">RG:</label>
-                                    <p class='form-control'><?php echo $client->getRg(); ?></p>
-                                </div>
-
-                                <div class="col-sm-6 mt-3">
-                                    <label for="rgExpedition" class="form-label">RG-Expedição:</label>
-                                    <p class='form-control'><?php echo $client->getRgExpedition(); ?></p>
-                                </div>
-
-                                <div class="col-sm-6  mt-3">
-                                    <label for="uf" class="form-label">UF:</label>
-                                    <p class='form-control'><?php echo $client->getUf(); ?></p>
-                                </div>
-
-                                <div class="col-sm-6  mt-3">
-                                    <label for="dateOfBirth" class="form-label">Data de nascimento:</label>
-                                    <p class='form-control'><?php echo $client->getBirthDate(); ?></p>
-                                </div>
-
-                                <div class="col-sm-6  mt-3">
-                                    <label for="cpf" class="form-label">CPF:</label>
-                                    <p class='form-control'><?php echo $client->getCpf(); ?></p>
-                                </div>
-
-                                <div class="col-sm-6 mt-3">
-                                    <label for="renach" class="form-label">RENACH SP:</label>
-                                    <p class='form-control'><?php echo $client->getRenach(); ?></p>
-                                </div>
-
-                                <!-- <div class="col-sm-4  mt-3">
-                                        <label for="registrationNumber" class="form-label">Numero de registro:</label>
-                                        <input type="text" class="form-control" id="registrationNumber"
-                                            name="registrationNumber" placeholder="Digite o numero de registro">
-                                    </div> -->
-
-                                <div class="col-sm-6  mt-3">
-                                    <label for="naturalness" class="form-label">Naturalidade:</label>
-                                    <p class='form-control'><?php echo $client->getNaturalness(); ?></p>
-                                </div>
-
-
-                                <div class="col-sm-12 mt-3">
-                                    <label for="address" class="form-label">Endereço:</label>
-                                    <p class='form-control'><?php echo $client->getAddress(); ?></p>
-                                </div>
-
-                                <div class="col-sm-6  mt-3">
-                                    <label for="bairro" class="form-label">Bairro:</label>
-                                    <p class='form-control'><?php echo $client->getNeighborhood(); ?></p>
-                                </div>
-
-                                <div class="col-sm-6  mt-3">
-                                    <label for="residentialNumber" class="form-label">Numero de residência:</label>
-                                    <p class='form-control'><?php echo $client->getNumber(); ?></p>
-                                </div>
-
-                                <div class="col-sm-4  mt-3">
-                                    <label for="telephone" class="form-label">Celular:</label>
-                                    <p class='form-control'><?php echo $client->getCelphone(); ?></p>
-                                </div>
-
-                                <div class="col-sm-4  mt-3">
-                                    <label for="celphone" class="form-label">Telefone:</label>
-                                    <p class='form-control'><?php echo $client->getTelephone(); ?></p>
-                                </div>
-
-                                <div class="col-sm-4 mt-3">
-                                    <label for="activitylocation" class="form-label">Local de Atividade:</label>
-                                    <p class='form-control'><?php echo $client->getActivityLocation(); ?></p>
-                                </div>
-
-
-
-                                <div class="col-sm-12 mt-3">
-                                    <label for="activitylocation" class="form-label">Curso:</label>
-                                    <p class='form-control'><?php echo $cnh->getCategory(); ?></p>
-                                </div>
-
-                                <div class="col-sm-6 mt-3">
-                                    <label for="activitylocation" class="form-label">Categoria:</label>
-                                    <p class='form-control'><?php echo $cnh->getType(); ?></p>
-                                </div>
-
-                                <div class="col-sm-6 mt-3">
-                                    <label for="activitylocation" class="form-label">Data do exame médico:</label>
-                                    <p class='form-control'><?php echo $cnh->getMedicalExam(); ?></p>
-                                </div>
-
-                                <div class="col-sm-6 mt-3">
-                                    <label for="activitylocation" class="form-label">Numero de registro:</label>
-                                    <p class='form-control'><?php echo $cnh->getRegistrationNumber(); ?></p>
-                                </div>
-
-                                <div class="col-sm-6 mt-3">
-                                    <label for="activitylocation" class="form-label">Atualização Biometrica:</label>
-                                    <p class='form-control'><?php echo $cnh->getBiometricUpdate(); ?></p>
-                                </div>
+                        <table class="table table-bordered mt-4">
+                            <tr>
+                                <td colspan='2' class="h4"><strong>Dados da CNH</strong></td>
+                            </tr>
+                            <tr>
+                                <th class="col-sm-6">Curso:</th>
+                                <td><?php echo $cnh->getCategory(); ?></td>
+                            </tr>
+                            <tr>
+                                <th class="col-sm-6">Categoria:</th>
+                                <td><?php echo $cnh->getType(); ?></td>
+                            </tr>
+                            <tr>
+                                <th class="col-sm-6">Data do exame médico:</th>
+                                <td><?php echo $cnh->getMedicalExam(); ?></td>
+                            </tr>
+                            <tr>
+                                <th class="col-sm-6">Numero de registro:</th>
+                                <td><?php echo $cnh->getRegistrationNumber(); ?></td>
+                            </tr>
+                            <tr>
+                                <th class="col-sm-6">Atualização Biometrica:</th>
+                                <td><?php echo $cnh->getBiometricUpdate(); ?></td>
+                            </tr>
+                        </table>
 
 
 
-                                <div class="col-sm-12 mt-3">
-                                    <label for="theoretical" class="form-label">Teórico:</label>
-                                    <p class='form-control'><?php echo $rates->getTheoretic(); ?></p>
-                                </div>
+                        <table class="table table-bordered mt-4">
+                            <br><br><br><br>
+                            <tr>
+                                <td colspan='2' class="h4"><strong>Dados de taxas</strong></td>
+                            </tr>
 
-                                <div class="col-sm-6 mt-3">
-                                    <label for="practiceCar" class="form-label">Pratico de Carro:</label>
-                                    <p class='form-control'><?php echo $rates->getPractice1(); ?></p>
-                                </div>
+                            <tr>
+                                <th class="col-sm-6">Teórico:</th>
+                                <td><?php echo $rates->getTheoretic(); ?></td>
+                            </tr>
+                            <tr>
+                                <th class="col-sm-6">Pratico de Carro:</th>
+                                <td><?php echo $rates->getPractice1(); ?></td>
+                            </tr>
+                            <tr>
+                                <th class="col-sm-6">Pratico de Moto:</th>
+                                <td><?php echo $rates->getPractice2(); ?></td>
+                            </tr>
+                            <tr>
+                                <th class="col-sm-6">emissão CNH:</th>
+                                <td><?php echo $rates->getEmissionCnh(); ?></td>
+                            </tr>
+                            <tr>
+                                <th class="col-sm-6">Reprova:</th>
+                                <td><?php echo $rates->getDisapprove(); ?></td>
+                            </tr>
+                            <tr>
+                                <th class="col-sm-6">Data Exame A:</th>
+                                <td><?php echo $rates->getExamA(); ?></td>
+                            </tr>
+                            <tr>
+                                <th class="col-sm-6">Data Exame B:</th>
+                                <td><?php echo $rates->getExamB(); ?></td>
+                            </tr>
+                            <tr>
+                                <th class="col-sm-6">Data Exame D:</th>
+                                <td><?php echo $rates->getExamD(); ?></td>
+                            </tr>
+                        </table>
+                        <div class="row justify-content-between mt-8 text-center">
+                            <div class="col-4">
+                                <br><br>
+                                <button type="button" name="voltar" class="btn customButton"
+                                    onclick="window.location.href = 'controle-de-aluno.php';">Voltar para controle de
+                                    aluno</button>
+                                <br><br>
+                            </div>
 
-                                <div class="col-sm-6 mt-3">
-                                    <label for="practicalMotorcycle" class="form-label">Pratico de Moto:</label>
-                                    <p class='form-control'><?php echo $rates->getPractice2(); ?></p>
-                                </div>
-
-                                <div class="col-sm-6 mt-3">
-                                    <label for="cnh" class="form-label"> emissão CNH:</label>
-                                    <p class='form-control'><?php echo $rates->getEmissionCnh(); ?></p>
-                                </div>
-
-                                <div class="col-sm-6 mt-3">
-                                    <label for="disapprove" class="form-label">Reprova:</label>
-                                    <p class='form-control'><?php echo $rates->getDisapprove(); ?></p>
-                                </div>
-
-                                <div class="col-sm-4 mt-3">
-                                    <label for="dateExameA" class="form-label">Data Exame A:</label>
-                                    <p class='form-control'><?php echo $rates->getExamA(); ?></p>
-                                </div>
-
-                                <div class="col-sm-4 mt-3">
-                                    <label for="dateExameB" class="form-label">Data Exame B:</label>
-                                    <p class='form-control'><?php echo $rates->getExamB(); ?></p>
-                                </div>
-
-                                <div class="col-sm-4 mt-3">
-                                    <label for="dateExameD" class="form-label">Data Exame D:</label>
-                                    <p class='form-control'><?php echo $rates->getExamD(); ?></p>
-                                </div>
-
-                                <div class="row justify-content-center mt-8 text-center">
-                                    <div class="col-4">
+                            <div class="col-4">
+                                <br><br>
+                                <a href="gerar-pdf-do-aluno.php?pdf=<?= $client->getIdClient() ?>">
+                                    <button type="button" name="voltar" class="btn customButton"
+                                        onclick="window.location.href = 'gerar-pdf-do-aluno.php?pdf=<?= $client->getIdClient() ?>'">Alterar
+                                        dados do aluno</button>
                                     <br><br>
-                                        <button type="button" name="voltar" class="btn customButton"
-                                            onclick="window.location.href = 'controle-de-aluno.php';">Voltar para
-                                            controle de aluno</button>
-                                            <br><br>
-                                    </div>
+                                </a>
+                            </div>
 
-                                    <div class="col-4">
+                            <div class="col-4">
+                                <br><br>
+                                <a href="gerar-pdf-do-aluno.php?pdf=<?= $client->getIdClient() ?>">
+                                    <button type="button" name="voltar" class="btn customButton"
+                                        onclick="window.location.href = 'gerar-pdf-do-aluno.php?pdf=<?= $client->getIdClient() ?>'">Baixar
+                                        PDF dos dados do aluno</button>
                                     <br><br>
-                                    <a href="gerar-pdf-do-aluno.php?pdf=<?= $client->getIdClient() ?>">
-                                        <button type="button" name="voltar" class="btn customButton"
-                                            onclick="window.location.href = 'gerar-pdf-do-aluno.php?pdf=<?= $client->getIdClient() ?>'">Baixar PDF dos dados do
-                                            aluno</button>
-                                            <br><br>
-                                    </div>
-                                </div>
+                                </a>
                             </div>
                         </div>
                     </div>
-                    <div class="card-footer text-center py-3"></div>
                 </div>
             </div>
+        </div>
+        <div class="card-footer text-center py-3"></div>
+        </div>
+        </div>
         </div>
         <?php
         } else {
