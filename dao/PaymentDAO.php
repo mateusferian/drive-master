@@ -6,7 +6,7 @@
                 $sql = "INSERT INTO tb_payment (
                     amount, payment_form, theoretic_course, installment_date, installment_value, situation, idclient)
                     VALUES (
-                    :amount, :payment_form, :'theoretic_course',:installment_date, :installment_value, :situation, :idclient)";
+                    :amount, :payment_form, :theoretic_course,:installment_date, :installment_value, :situation, :idclient)";
 
                 $p_sql = Conexao::getConexao()->prepare($sql);
                 $p_sql->bindValue(":amount", $payment->getAmount());
