@@ -1,94 +1,84 @@
 <?php
 
-class Cnh
-{
-    private $idCnh;
-    private $category;
-    private $type;
-    private $registration;
-    private $medicalExam;
-    private $registrationNumber;
-    private $biometricUpdate;
-    private $idClient;
+    class Cnh
+    {
+        private $idCnh;
+        private $category;
+        private $type;
+        private $medicalExam;
+        private $registrationNumber;
+        private $biometricUpdate;
+        private $idClient;
 
-    function getIdCnh()
-    { 
-        return $this->idCnh; 
-    }
+        function getIdCnh()
+        { 
+            return $this->idCnh; 
+        }
+        
+        function setIdCnh($idCnh)
+        { 
+            $this->idCnh = $idCnh; 
+        }
     
-    function setIdCnh($idCnh)
-    { 
-        $this->idCnh = $idCnh; 
-    }
- 
-    function getCategory()
-    { 
-       return $this->category; 
-    }
+        function getCategory()
+        { 
+        return $this->category; 
+        }
 
-    function setCategory($category)
-    {    
-        $this->category = $category; 
-    }
+        function setCategory($category)
+        {    
+            $this->category = $category; 
+        }
 
-    function getType()
-    { 
-       return $this->type; 
-    }
+        function getType()
+        { 
+        return $this->type; 
+        }
 
-    function setType($type)
-    {    
-        $this->type = $type; 
-    }
+        function setType($type)
+        {    
+            $this->type = $type; 
+        } 
 
-    function getRegistration()
-    { 
-       return $this->registration; 
-    }
+        function getMedicalExam()
+        { 
+        return $this->medicalExam; 
+        }
 
-    function setRegistration($registration)
-    {    
-        $this->registration = $registration; 
-    }    
+        function setMedicalExam($medicalExam)
+        {    
+            $this->medicalExam = $medicalExam; 
+        }   
+        
+        function getRegistrationNumber()
+        { 
+        return $this->registrationNumber; 
+        }
 
-    function getMedicalExam()
-    { 
-       return $this->medicalExam; 
-    }
+        function setRegistrationNumber($registrationNumber)
+        {    
+            $this->registrationNumber = $registrationNumber; 
+        }       
 
-    function setMedicalExam($medicalExam)
-    {    
-        $this->medicalExam = $medicalExam; 
-    }   
-    
-    function getRegistrationNumber()
-    { 
-       return $this->registrationNumber; 
-    }
+        function getBiometricUpdate()
+        { 
+        return $this->biometricUpdate; 
+        }
 
-    function setRegistrationNumber($registrationNumber)
-    {    
-        $this->registrationNumber = $registrationNumber; 
-    }       
+        function setBiometricUpdate($biometricUpdate)
+        {    
+            $this->biometricUpdate = $biometricUpdate; 
+        }
+        
+        function getIdClient()
+        { 
+        return $this->idClient; 
+        }
 
-    function getBiometricUpdate()
-    { 
-       return $this->biometricUpdate; 
-    }
+        function setIdClient($idClient)
+        {    
+            $this->idClient = $idClient; 
+        }
+    }  
 
-    function setBiometricUpdate($biometricUpdate)
-    {    
-        $this->biometricUpdate = $biometricUpdate; 
-    }
-    
-    function getIdClient()
-    { 
-       return $this->idClient; 
-    }
-
-    function setIdClient($idClient)
-    {    
-        $this->idClient = $idClient; 
-    }
-}        
 ?>
