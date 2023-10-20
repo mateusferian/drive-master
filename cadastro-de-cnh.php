@@ -41,15 +41,11 @@ $clientdao = new ClientDAO();
 
                         <div class="card-body">
                         <form action="controller/CnhController.php" method="POST">
-                                <div class="row mb-3 ml-1">
+                                <div class="row mb-3 ml-1" hidden>
                                     <?php foreach ($clientdao->lastClient() as $client) : ?>
                                         <div class="col-sm-2  mt-3">
-                                            <label for="id_client" class="form-label">Id Cliente:</label>
-                                            <input type="text" class="form-control" id="id_client" name="idclient" value="<?= $client->getIdClient() ?>" readonly>
-                                        </div>
-                                        <div class="col-sm-4  mt-3">
-                                            <label for="id_client" class="form-label">Nome Cliente:</label>
-                                            <input type="text" class="form-control" id="id_client" name="idclient" value="<?= $client->getName() ?>" readonly>
+                                            <label for="idclient" class="form-label">Id Cliente:</label>
+                                            <input type="number" class="form-control" id="idclient" name="idclient" value="<?= $client->getIdClient() ?>" readonly>
                                         </div>
                                     <?php endforeach ?>
                                 </div>

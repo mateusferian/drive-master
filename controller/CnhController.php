@@ -4,7 +4,7 @@
     include_once "../dao/CnhDAO.php";
 
     $cnh = new Cnh();
-    $cnhDAO = new CnhDAO();
+    $cnhdao = new CnhDAO();
 
     $d = filter_input_array(INPUT_POST);
 
@@ -13,14 +13,13 @@
         $cnh->setCategory(($d['category']));
         $cnh->setType(($d['type_cnh']));
         $cnh->setMedicalExam(($d['medical_exam']));
-
         $cnh->setRegistrationNumber(($d['registration_number']));
         $cnh->setBiometricUpdate(($d['biometric_update']));
         $cnh->setIdClient(($d['idclient']));
 
-        $cnhDAO->create($cnh);
+        $cnhdao->create($cnh);
 
-       // header("Location: ../cadastro-de-taxa.php");
+        header("Location: ../cadastro-de-taxa.php");
     }
 
     else if(isset($_POST['editar'])) {

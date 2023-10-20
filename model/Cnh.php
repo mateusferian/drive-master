@@ -8,7 +8,7 @@
         private $medicalExam;
         private $registrationNumber;
         private $biometricUpdate;
-        private $idClient;
+        private $idclient;
 
         function getIdCnh()
         { 
@@ -72,12 +72,12 @@
         
         function getIdClient()
         { 
-        return $this->idClient; 
+        return $this->idclient; 
         }
 
-        function setIdClient($idClient)
+        function setIdClient($idclient)
         {    
-            $this->idClient = $idClient; 
+            $this->idclient = $idclient; 
         }
     }  
 

@@ -19,7 +19,7 @@
                 return $p_sql->execute();
 
             } catch (Exception $e) {
-                print "Erro ao Inserir taxas <br>" . $e . '<br>';
+                print "Erro ao Inserir CNH <br>" . $e . '<br>';
             }      
         }
 
@@ -53,9 +53,8 @@
                 $sql = "UPDATE tb_cnh SET
 
                     idcnh = :idcnh,
-                    categoru = :categoru,
+                    category = :category,
                     type_cnh = :type_cnh,
-                    registration = :registration,
                     medical_exam = :medical_exam,
                     registration_number = :registration_number,
                     biometric_update = :biometric_update,
