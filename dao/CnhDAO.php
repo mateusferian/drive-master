@@ -19,7 +19,7 @@
                 return $p_sql->execute();
 
             } catch (Exception $e) {
-                print "Erro ao Inserir taxas <br>" . $e . '<br>';
+                print "Erro ao Inserir CNH <br>" . $e . '<br>';
             }      
         }
 
@@ -28,7 +28,6 @@
             $cnh->setIdCnh($row['idcnh']);
             $cnh->setCategory($row['category']);
             $cnh->setType($row['type_cnh']);
-            $cnh->setRegistration($row['registration']);
             $cnh->setMedicalExam($row['medical_exam']);
             $cnh->setRegistrationNumber($row['registration_number']);
             $cnh->setBiometricUpdate($row['biometric_update']);
@@ -54,9 +53,8 @@
                 $sql = "UPDATE tb_cnh SET
 
                     idcnh = :idcnh,
-                    categoru = :categoru,
-                    type = :type,
-                    registration = :registration,
+                    category = :category,
+                    type_cnh = :type_cnh,
                     medical_exam = :medical_exam,
                     registration_number = :registration_number,
                     biometric_update = :biometric_update,
@@ -65,9 +63,8 @@
 
         $p_sql = Conexao::getConexao()->prepare($sql);
         $p_sql->bindValue(":idcnh", $rates->getIdCnh());
-        $p_sql->bindValue(":categoru", $rates->getCategoru());
-        $p_sql->bindValue(":type", $rates->getType());
-        $p_sql->bindValue(":registration", $rates->getRegistration());
+        $p_sql->bindValue(":category", $rates->getCategory());
+        $p_sql->bindValue(":type_cnh", $rates->getType());
         $p_sql->bindValue(":medical_exam", $rates->getMedicalExam());
         $p_sql->bindValue(":registration_number", $rates->getRegistrationNumber());
         $p_sql->bindValue(":biometric_update", $rates->getBiometricUpdate());

@@ -141,7 +141,7 @@
 
         public function lastClient() {
             try {
-                $sql = "SELECT idclient FROM tb_client ORDER BY idclient DESC LIMIT 1";
+                $sql = "SELECT idclient, name_client FROM tb_client ORDER BY idclient DESC LIMIT 1";
                 $result = Conexao::getConexao()->query($sql);
                 $lista = $result->fetchAll(PDO::FETCH_ASSOC);
                 $f_lista = array();

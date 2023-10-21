@@ -7,11 +7,16 @@ include_once('include/header.php');
 include_once('include/topbar.php');
 include_once('include/navbar.php');
 // include_once('include/carousel.php');
+include_once('./conexao/Conexao.php');
+include_once('./model/Payment.php');
+include_once('./dao/PaymentDAO.php');
 include_once('./model/Client.php');
 include_once('./dao/ClientDAO.php');
 
 $client = new Client();
 $clientdao = new ClientDAO();
+$payment = new Payment();
+$paymentdao = new PaymentDAO();
 ?>
 <link rel="stylesheet" href="css/registrationProcesses.css">
 
@@ -35,6 +40,14 @@ $clientdao = new ClientDAO();
 
                         <div class="card-body">
                             <form id="form4" action="controller/PaymentController.php" method="POST">
+                                <div class="row mb-3 ml-1" hidden>
+                                    <?php foreach ($clientdao->lastClient() as $client) : ?>
+                                        <div class="col-sm-2  mt-3">
+                                            <label for="idclient" class="form-label">Id Cliente:</label>
+                                            <input type="number" class="form-control" id="idclient" name="idclient" value="<?= $client->getIdClient() ?>" readonly>
+                                        </div>
+                                    <?php endforeach ?>
+                                </div>
                                 <div class="row">
                                     <div class="col-sm-10 mx-auto text-center">
                                         <br>

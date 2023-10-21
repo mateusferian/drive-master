@@ -10,19 +10,18 @@
 
     if(isset($_POST['save'])){
 
-        $rates->setIdRates((null));
-        $rates->setTheoretic(($d['theoretical']));
-        $rates->setPractice1(($d['practiceCar']));
-        $rates->setPractice2(($d['practicalMotorcycle']));
+        $rates->setTheoretic(($d['theoretic']));
+        $rates->setPractice1(($d['practice1']));
+        $rates->setPractice2(($d['practice2']));
 
-        $rates->setEmissionCnh(($d['cnh']));
+        $rates->setEmissionCnh(($d['emission_cnh']));
         $rates->setDisapprove(($d['disapprove']));
-        $rates->setExamA(($d['dateExameA']));
+        $rates->setExamA(($d['exam_a']));
 
-        $rates->setExamB(($d['dateExameB']));
-        $rates->setExamD(($d['dateExameD']));
+        $rates->setExamB(($d['exam_b']));
+        $rates->setExamD(($d['exam_d']));
 
-        $rates->setIdClient(($d['idClient']));
+        $rates->setIdClient(($d['idclient']));
 
         $ratesDAO->create($rates);
 

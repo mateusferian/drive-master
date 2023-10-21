@@ -11,14 +11,14 @@
     if(isset($_POST['save'])){
 
         $payment->setAmount(($d['amount']));
-        $payment->setPaymentForm(($d['paymentForm']));
+        $payment->setPaymentForm(($d['payment_form']));
 
-        $payment->setTheoreticCourse(($d['theoreticCourse']));
-        $payment->setInstallmentDate(($d['installmentDate']));
+        $payment->setTheoreticCourse(($d['theoretic_course']));
+        $payment->setInstallmentDate(($d['installment_date']));
 
-        $payment->setInstallmentValue(($d['installmentValue']));
+        $payment->setInstallmentValue(($d['installment_value']));
         $payment->setSituation(($d['situation']));
-        $payment->setIdclient(($d['idClient']));
+        $payment->setIdclient(($d['idclient']));
 
         $paymentDAO->create($payment);
 
@@ -27,19 +27,19 @@
 
     else if(isset($_POST['editar'])) {
 
-        $payment->setIdPayment(($d['idPayment']));
+        $payment->setIdPayment(($d['idpayment']));
         $payment->setAmount(($d['amount']));
-        $payment->setPaymentForm(($d['paymentForm']));
+        $payment->setPaymentForm(($d['payment_form']));
 
-        $payment->setTheoreticCourse(($d['theoreticCourse']));
-        $payment->setInstallmentDate(($d['installmentDate']));
+        $payment->setTheoreticCourse(($d['theoretic_course']));
+        $payment->setInstallmentDate(($d['installment_date']));
 
-        $payment->setInstallmentValue(($d['installmentValue']));
+        $payment->setInstallmentValue(($d['installment_value']));
         $payment->setSituation(($d['situation']));
-        $payment->setIdclient(($d['idClient']));
-    
-        $paymentDAO->update($payment);
-    
+        $payment->setIdclient(($d['idclient']));
+
+        $paymentDAO->create($payment);
+
         header("Location: ../#.php");
     }
 
