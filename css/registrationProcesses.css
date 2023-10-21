@@ -1,0 +1,74 @@
+:root {
+    --color-default: #222222;
+    --color-primary: #5AAEE6;
+    --color-secondary: #e8eb32;
+    --color-third: #55A4D9;
+    --color-fourth: #3C7499;
+    --color-fifth: #aad9f8;
+    --color-seventh: #ffffff;
+    --color-black: rgba(0, 0, 0, 0.5);
+  }
+
+.hidden {
+    display: none;
+}
+
+.step-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    /* Alinhe os círculos na parte superior */
+    margin-bottom: 20px;
+}
+
+.step {
+    width: 35px;
+    /* Largura igual à dos círculos */
+    height: 35px;
+    /* Altura igual à dos círculos */
+    background-color: var(--color-seventh);
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-weight: bold;
+    /* Estilo do número dentro do círculo */
+    font-size: 16px;
+    /* Tamanho do número dentro do círculo */
+    color: var(--color-primary);
+    /* Cor do número no círculo quando não estiver na etapa */
+    box-shadow: 0px 0px 5px var(--color-black);
+    /* Sombra sempre presente */
+}
+
+.step.active-step {
+    background-color: var(--color-primary);
+    color: var(--color-seventh);
+    /* Cor do número no círculo quando estiver na etapa */
+    border: 2px solid var(--color-seventh);
+    /* Adicione a borda branca apenas quando estiver na etapa */
+    box-shadow: 0px 0px 5px var(--color-black);
+    /* Sombra sempre presente */
+}
+
+.step:not(.active-step) {
+    background-color: var(--color-seventh);
+    /* Cor de fundo branca quando não estiver na etapa */
+    color: var(--color-primary);
+    /* Cor do número no círculo quando não estiver na etapa */
+}
+
+.step-text {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    text-align: center;
+    /* Centralize o texto abaixo dos círculos */
+    font-size: 12px;
+    /* Tamanho do texto abaixo dos círculos */
+}
+
+.step-text>div {
+    width: 50px;
+    /* Largura igual à dos círculos */
+}
