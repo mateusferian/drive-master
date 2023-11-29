@@ -10,8 +10,7 @@
             $res = $conn->query($sql);
 
             if(mysqli_num_rows($res) < 1){
-                print "<script>alert('Email e/ou senha incorretos');</script>";
-                print "<script>location.href='index.php';</script>"; 
+                     header("Location: index.php?erro=1111");
 
             } 
             else if(mysqli_num_rows($res) >= 1){{
