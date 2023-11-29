@@ -18,8 +18,10 @@ document.addEventListener("DOMContentLoaded", function() {
         "cadastro-de-aluno.php": 1,
         "cadastro-de-cnh.php": 2,
         "cadastro-de-taxa.php": 3,
-        "cadastro-de-pagamento.php": 4
+        "cadastro-de-pagamento.php": 4,
+        "cadastro-pagamento-avista.php": 5  // Adicione a extensão .php aqui
     };
+    
 
 
     const stepNumber = fileToStepMapping[currentFileName];

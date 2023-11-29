@@ -9,49 +9,15 @@
     $d = filter_input_array(INPUT_POST);
 
     if(isset($_POST['save'])){
-
-        $payment->setAmount(($d['amount']));
-        $payment->setPaymentForm(($d['payment_form']));
-
-        $payment->setTheoreticCourse(($d['theoretic_course']));
-        $payment->setInstallmentDate(($d['installment_date']));
-
-        $payment->setInstallmentValue(($d['installment_value']));
-        $payment->setSituation(($d['situation']));
-        $payment->setIdclient(($d['idclient']));
-
-        $paymentDAO->create($payment);
-
-        header("Location: ../#.php");
+        $selectedValue = isset($_POST['installmentType']) ? $_POST['installmentType'] : '';
+    
+        if($selectedValue == "cashPayment"){
+            header("Location: ../cadastro-pagamento-avista.php");
+        } else if($selectedValue == "installment"){
+            header("Location: ../cadastro-curso-avista.php");
+        } else if($selectedValue == "courseToView"){
+            header("Location: ../courseToView.php");
+        }
     }
-
-    else if(isset($_POST['editar'])) {
-
-        $payment->setIdPayment(($d['idpayment']));
-        $payment->setAmount(($d['amount']));
-        $payment->setPaymentForm(($d['payment_form']));
-
-        $payment->setTheoreticCourse(($d['theoretic_course']));
-        $payment->setInstallmentDate(($d['installment_date']));
-
-        $payment->setInstallmentValue(($d['installment_value']));
-        $payment->setSituation(($d['situation']));
-        $payment->setIdclient(($d['idclient']));
-
-        $paymentDAO->create($payment);
-
-        header("Location: ../#.php");
-    }
-
-
-    else if(isset($_GET['del'])){
-
-        $payment->setIdPayment($_GET['del']);
-
-        $paymentDAO->delete($payment);
-
-        header("Location: ../#.php");
-
-    } 
-
+    
 ?>
