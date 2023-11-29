@@ -8,15 +8,11 @@ include_once('include/topbar.php');
 include_once('include/navbar.php');
 // include_once('include/carousel.php');
 include_once('./conexao/Conexao.php');
-include_once('./model/Payment.php');
-include_once('./dao/PaymentDAO.php');
 include_once('./model/Client.php');
 include_once('./dao/ClientDAO.php');
 
 $client = new Client();
 $clientdao = new ClientDAO();
-$payment = new Payment();
-$paymentdao = new PaymentDAO();
 ?>
 <link rel="stylesheet" href="css/registrationProcesses.css">
 

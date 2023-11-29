@@ -8,15 +8,16 @@ include_once('include/topbar.php');
 include_once('include/navbar.php');
 // include_once('include/carousel.php');
 include_once('./conexao/Conexao.php');
-include_once('./model/CashPayment.php');
-include_once('./dao/CashPaymentDAO.php');
+include_once('./model/CourseOnSight.php');
+include_once('./dao/CourseOnSightDAO.php');
 include_once('./model/Client.php');
 include_once('./dao/ClientDAO.php');
 
 $client = new Client();
 $clientdao = new ClientDAO();
-$cashPayment = new CashPayment();
-$cashPaymentDAO = new CashPaymentDAO();
+
+$courseOnSight = new CourseOnSight();
+$courseOnSightDAO = new CourseOnSightDAO();
 ?>
 <link rel="stylesheet" href="css/registrationProcesses.css">
 
@@ -30,7 +31,7 @@ $cashPaymentDAO = new CashPaymentDAO();
                         <div class="card-header">
                             <h4 class="text-center font-weight-light my-4">
                                 <span class="h3">Cadastro de Aluno</span>
-                                <small class="d-block">Dados de pagamento a vista</small>
+                                <small class="d-block">Dados de curso a vista</small>
                             </h4>
                         </div>
 
@@ -39,7 +40,7 @@ $cashPaymentDAO = new CashPaymentDAO();
                         ?>
 
                         <div class="card-body">
-                            <form id="form4" action="controller/CashPaymentController.php" method="POST">
+                            <form id="form4" action="controller/CourseOnSightController.php" method="POST">
                                 <div class="row mb-3 ml-1" hidden>
                                     <?php foreach ($clientdao->lastClient() as $client) : ?>
                                         <div class="col-sm-2  mt-3">
@@ -53,11 +54,11 @@ $cashPaymentDAO = new CashPaymentDAO();
                                     <div class="col-sm-12 mt-3">
                                         <table class="table">
                                             <tr>
-                                                <td>Pagamento Avista:</td>
+                                                <td>Curso a vista:</td>
                                             </tr>
                                             <tr>
                                             <td>
-                                                <input type="text" class="form-control" id="value_cash_payment" name="value_cash_payment" 
+                                                <input type="text" class="form-control" id="value_course_on_sight" name="value_course_on_sight" 
                                                     step="0.01" placeholder="Digite o valor à vista" 
                                                     pattern="^\d{1,3}(,\d{3})*(\.\d{1,2})?$" title="Por favor, insira um valor válido. Exemplo: 1.000,00">
                                             </td>
@@ -65,8 +66,8 @@ $cashPaymentDAO = new CashPaymentDAO();
                                             </tr>
                                             <tr>
                                                 <td>
-                                                    <input type="date" class="form-control" id="date_cash_payment"
-                                                        name="date_cash_payment">
+                                                    <input type="date" class="form-control" id="date_course_on_sight"
+                                                        name="date_course_on_sight">
                                                 </td>
                                             </tr>
 

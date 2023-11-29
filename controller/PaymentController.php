@@ -1,10 +1,5 @@
 <?php
     include_once "../conexao/Conexao.php";
-    include_once "../model/Payment.php";
-    include_once "../dao/PaymentDAO.php";
-
-    $payment = new Payment();
-    $paymentdao = new PaymentDAO();
 
     $d = filter_input_array(INPUT_POST);
 
@@ -14,10 +9,9 @@
         if($selectedValue == "cashPayment"){
             header("Location: ../cadastro-pagamento-avista.php");
         } else if($selectedValue == "installment"){
-            header("Location: ../cadastro-curso-avista.php");
+            header("Location: ../parcelado.php");
         } else if($selectedValue == "courseToView"){
-            header("Location: ../courseToView.php");
+            header("Location: ../cadastro-curso-avista.php");
         }
     }
-    
 ?>
