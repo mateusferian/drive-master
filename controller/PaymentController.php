@@ -9,7 +9,7 @@
         if($selectedValue == "cashPayment"){
             header("Location: ../cadastro-pagamento-avista.php");
         } else if($selectedValue == "installment"){
-            header("Location: ../parcelado.php");
+            header("Location: ../cadastro-pagamento-parcelado.php");
         } else if($selectedValue == "courseToView"){
             header("Location: ../cadastro-curso-avista.php");
         }
