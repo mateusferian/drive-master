@@ -19,7 +19,7 @@
         
         $administratorDAO->create($administrator);
 
-        header("Location: ../cadastro-administrador.php");
+        header("Location: ../cadastro-administrador.php?sucess=1111");
     }
 
     else if(isset($_POST['editar'])) {

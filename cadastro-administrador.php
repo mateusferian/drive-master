@@ -42,7 +42,7 @@ include_once "dao/AdministratorDAO.php";
                     <div class="formGroup">
                         <div class="col-md-6 offset-md-3">
                             <label>Senha</label>
-                            <input type="password" name="passwordAdministrator" class="formControl" required="">
+                            <input type="password" name="passwordAdministrator" class="formControl" placeholder="digite a sua senha" required="">
                         </div>
                     </div>
                     <a class="form-links" href="index.php">Já tenho uma conta</a>
@@ -58,6 +58,29 @@ include_once "dao/AdministratorDAO.php";
             </div>
         </div>
     </div>
+
+    <?php
+
+if (isset($_GET["sucess"])) { 
+
+            echo "<script>
+            Swal.fire({
+                icon: 'success',
+                title: 'Cadastro realizado com sucesso!',
+                customClass: {
+                    popup: 'swalFire',
+                    icon: 'swalIcon'
+                },
+                showConfirmButton: false,
+                allowOutsideClick: false  
+            });
+    
+            setTimeout(function() {
+                window.location.href = 'index.php';
+            }, 4000);
+        </script>";
+}
+?>
 </body>
 
 </html>
