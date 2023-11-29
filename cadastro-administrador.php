@@ -45,7 +45,9 @@ include_once "dao/AdministratorDAO.php";
                             <input type="password" name="passwordAdministrator" class="formControl" placeholder="digite a sua senha" required="">
                         </div>
                     </div>
-                    <a class="form-links" href="index.php">Já tenho uma conta</a>
+
+                    <a class="formLink" href="index.php">Já tenho uma conta</a>
+
                     <br><br>
 
                     <div class="formGroup">
