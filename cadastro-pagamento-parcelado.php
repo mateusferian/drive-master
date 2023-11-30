@@ -8,8 +8,11 @@ include_once('include/topbar.php');
 include_once('include/navbar.php');
 // include_once('include/carousel.php');
 include_once('./conexao/Conexao.php');
+
 include_once('./model/PaymentInInstallments.php');
 include_once('./dao/FirstPaymentInInstallmentsDAO.php');
+include_once('./dao/SecondPaymentInInstallmentsDAO.php');
+
 include_once('./model/Client.php');
 include_once('./dao/ClientDAO.php');
 
@@ -17,6 +20,7 @@ $client = new Client();
 $clientdao = new ClientDAO();
 $paymentInInstallments = new PaymentInInstallments();
 $FirstPaymentInInstallmentsDAO = new FirstPaymentInInstallmentsDAO();
+$secondPaymentInInstallmentsDAO = new SecondPaymentInInstallmentsDAO();
 ?>
 <link rel="stylesheet" href="css/registrationProcesses.css">
 
@@ -53,7 +57,7 @@ $FirstPaymentInInstallmentsDAO = new FirstPaymentInInstallmentsDAO();
                                 <div class="row">
 
                                     <div class="col-sm-12 mt-3" id="paymentInstallments">
-                                        <?php for ($i = 1; $i <= 1; $i++) : ?>
+                                        <?php for ($i = 1; $i <= 2; $i++) : ?>
                                         <table class="table">
                                             <tr>
                                                 <td><?= $i ?>º Parcela:</td>
