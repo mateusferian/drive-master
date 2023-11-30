@@ -14,27 +14,38 @@ document.addEventListener("DOMContentLoaded", function() {
             "step5-container",
             "step6-container",
             "step7-container",
+            "step8-container",
         ];
+
+        const currentFileName = window.location.pathname.split("/").pop();
 
         fifthElementContainers.forEach(function(container, index) {
             const containerElement = document.getElementById(container);
             if (containerElement) {
-                if (index + 5 === stepNumber) { // Adapta o número do passo para corresponder ao índice correto
+                if (index + 5 === stepNumber) {
                     containerElement.style.display = "block";
                 } else {
                     containerElement.style.display = "none";
                 }
             }
         });
-    }
 
-    const currentFileName = window.location.pathname.split("/").pop();
+        // Verifica se o arquivo não está na lista dos quinto elemento e exibe a nova div "Pagamento"
+        if (fifthElementFiles.indexOf(currentFileName) === -1) {
+            const pagamentoContainer = document.getElementById("step5-container");
+            if (pagamentoContainer) {
+                pagamentoContainer.style.display = "block";
+            }
+        }
+    }
 
     const fifthElementFiles = [
         "cadastro-curso-avista.php",
         "cadastro-pagamento-avista.php",
         "cadastro-pagamento-parcelado.php",
     ];
+
+    const currentFileName = window.location.pathname.split("/").pop();
 
     const fileToStepMapping = {
         "cadastro-de-aluno.php": 1,
