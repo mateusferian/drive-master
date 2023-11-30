@@ -12,6 +12,11 @@ include_once('./conexao/Conexao.php');
 include_once('./model/PaymentInInstallments.php');
 include_once('./dao/FirstPaymentInInstallmentsDAO.php');
 include_once('./dao/SecondPaymentInInstallmentsDAO.php');
+include_once "./dao/ThirdPaymentInInstallmentsDAO.php";
+include_once "./dao/FourthPaymentInInstallmentsDAO.php";
+include_once "./dao/FifthPaymentInInstallmentsDAO.php";
+include_once "./dao/SixthPaymentInInstallmentsDAO.php";
+
 
 include_once('./model/Client.php');
 include_once('./dao/ClientDAO.php');
@@ -21,7 +26,13 @@ $clientdao = new ClientDAO();
 $paymentInInstallments = new PaymentInInstallments();
 $FirstPaymentInInstallmentsDAO = new FirstPaymentInInstallmentsDAO();
 $secondPaymentInInstallmentsDAO = new SecondPaymentInInstallmentsDAO();
+$thirdPaymentInInstallmentsDAO = new ThirdPaymentInInstallmentsDAO();
+
+$fourthPaymentInInstallmentsDAO = new FourthPaymentInInstallmentsDAO();
+$fifthPaymentInInstallmentsDAO = new FifthPaymentInInstallmentsDAO();
+$sixthPaymentInInstallmentsDAO = new SixthPaymentInInstallmentsDAO();
 ?>
+
 <link rel="stylesheet" href="css/registrationProcesses.css">
 
 <body>
@@ -57,7 +68,7 @@ $secondPaymentInInstallmentsDAO = new SecondPaymentInInstallmentsDAO();
                                 <div class="row">
 
                                     <div class="col-sm-12 mt-3" id="paymentInstallments">
-                                        <?php for ($i = 1; $i <= 2; $i++) : ?>
+                                        <?php for ($i = 1; $i <= 6; $i++) : ?>
                                         <table class="table">
                                             <tr>
                                                 <td><?= $i ?>º Parcela:</td>
