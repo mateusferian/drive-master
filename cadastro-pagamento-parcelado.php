@@ -113,7 +113,7 @@ $cashPaymentDAO = new CashPaymentDAO();
                                             </tr>
                                             <tr>
                                                 <td>
-                                                    <select id="installmentMode" name="installmentMode"
+                                                    <select id="installmentModeSecondInstallment" name="installmentModeSecondInstallment"
                                                         class="form-select">
                                                         <option selected>forma de pagamento dessa parcela</option>
                                                         <option>Parcelado no cartão</option>
@@ -124,7 +124,7 @@ $cashPaymentDAO = new CashPaymentDAO();
                                             </tr>
                                             <tr>
                                                 <td>
-                                                    <select id="paymentStatus" name="paymentStatus" class="form-select">
+                                                    <select id="paymentStatusSecondInstallment" name="paymentStatusSecondInstallment" class="form-select">
                                                         <option selected>Situação de pagamento</option>
                                                         <option>Pagamento realizado</option>
                                                         <option>Em aberto</option>
@@ -154,7 +154,7 @@ $cashPaymentDAO = new CashPaymentDAO();
                                             </tr>
                                             <tr>
                                                 <td>
-                                                    <select id="installmentMode" name="installmentMode"
+                                                    <select id="installmentModeThirdInstallment" name="installmentModeThirdInstallment"
                                                         class="form-select">
                                                         <option selected>forma de pagamento dessa parcela</option>
                                                         <option>Parcelado no cartão</option>
@@ -165,7 +165,7 @@ $cashPaymentDAO = new CashPaymentDAO();
                                             </tr>
                                             <tr>
                                                 <td>
-                                                    <select id="paymentStatus" name="paymentStatus" class="form-select">
+                                                    <select id="paymentStatusThirdInstallment" name="paymentStatusThirdInstallment" class="form-select">
                                                         <option selected>Situação de pagamento</option>
                                                         <option>Pagamento realizado</option>
                                                         <option>Em aberto</option>
@@ -195,7 +195,7 @@ $cashPaymentDAO = new CashPaymentDAO();
                                             </tr>
                                             <tr>
                                                 <td>
-                                                    <select id="installmentMode" name="installmentMode"
+                                                    <select id="installmentModeFourthInstallment" name="installmentModeFourthInstallment"
                                                         class="form-select">
                                                         <option selected>forma de pagamento dessa parcela</option>
                                                         <option>Parcelado no cartão</option>
@@ -206,7 +206,7 @@ $cashPaymentDAO = new CashPaymentDAO();
                                             </tr>
                                             <tr>
                                                 <td>
-                                                    <select id="paymentStatus" name="paymentStatus" class="form-select">
+                                                    <select id="paymentStatusFourthInstallment" name="paymentStatusFourthInstallment" class="form-select">
                                                         <option selected>Situação de pagamento</option>
                                                         <option>Pagamento realizado</option>
                                                         <option>Em aberto</option>
@@ -236,7 +236,7 @@ $cashPaymentDAO = new CashPaymentDAO();
                                             </tr>
                                             <tr>
                                                 <td>
-                                                    <select id="installmentMode" name="installmentMode"
+                                                    <select id="installmentModeFifthInstallment" name="installmentModeFifthInstallment"
                                                         class="form-select">
                                                         <option selected>forma de pagamento dessa parcela</option>
                                                         <option>Parcelado no cartão</option>
@@ -247,7 +247,7 @@ $cashPaymentDAO = new CashPaymentDAO();
                                             </tr>
                                             <tr>
                                                 <td>
-                                                    <select id="paymentStatus" name="paymentStatus" class="form-select">
+                                                    <select id="paymentStatusFifthInstallment" name="paymentStatusFifthInstallment" class="form-select">
                                                         <option selected>Situação de pagamento</option>
                                                         <option>Pagamento realizado</option>
                                                         <option>Em aberto</option>
@@ -276,7 +276,7 @@ $cashPaymentDAO = new CashPaymentDAO();
                                                 </td>
                                             </tr>
                                             <td>
-                                                <select id="installmentMode" name="installmentMode" class="form-select">
+                                                <select id="installmentModeSixthInstallment" name="installmentModeSixthInstallment" class="form-select">
                                                     <option selected>Informe qual a forma de pagamento dessa parcela
                                                     </option>
                                                     <option>Parcelado no cartão</option>
@@ -287,7 +287,7 @@ $cashPaymentDAO = new CashPaymentDAO();
                                             </tr>
                                             <tr>
                                                 <td>
-                                                    <select id="paymentStatus" name="paymentStatus" class="form-select">
+                                                    <select id="paymentStatusSixthInstallment" name="paymentStatusSixthInstallment" class="form-select">
                                                         <option selected>Situação de pagamento</option>
                                                         <option>Pagamento realizado</option>
                                                         <option>Em aberto</option>
