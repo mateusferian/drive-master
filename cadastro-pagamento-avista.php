@@ -37,6 +37,7 @@ $cashPaymentDAO = new CashPaymentDAO();
                         <?php
                             include_once('include/progressBar.php');
                         ?>
+                        <script src="js/displayPaymentMethods.js"></script>
 
 
                         <div class="card-body">
