@@ -9,14 +9,14 @@ include_once('include/navbar.php');
 // include_once('include/carousel.php');
 include_once('./conexao/Conexao.php');
 include_once('./model/PaymentInInstallments.php');
-include_once('./dao/PaymentInInstallmentsDAO.php');
+include_once('./dao/FirstPaymentInInstallmentsDAO.php');
 include_once('./model/Client.php');
 include_once('./dao/ClientDAO.php');
 
 $client = new Client();
 $clientdao = new ClientDAO();
 $paymentInInstallments = new PaymentInInstallments();
-$paymentInInstallmentsDAO = new PaymentInInstallmentsDAO();
+$FirstPaymentInInstallmentsDAO = new FirstPaymentInInstallmentsDAO();
 ?>
 <link rel="stylesheet" href="css/registrationProcesses.css">
 
@@ -43,61 +43,62 @@ $paymentInInstallmentsDAO = new PaymentInInstallmentsDAO();
                             <form id="form4" action="controller/PaymentInInstallmentsController.php" method="POST">
                                 <div class="row mb-3 ml-1" hidden>
                                     <?php foreach ($clientdao->lastClient() as $client) : ?>
-                                        <div class="col-sm-2  mt-3">
-                                            <label for="idclient" class="form-label">Id Cliente:</label>
-                                            <input type="number" class="form-control" id="idclient" name="idclient" value="<?= $client->getIdClient() ?>" readonly>
-                                        </div>
+                                    <div class="col-sm-2  mt-3">
+                                        <label for="idclient" class="form-label">Id Cliente:</label>
+                                        <input type="number" class="form-control" id="idclient" name="idclient"
+                                            value="<?= $client->getIdClient() ?>" readonly>
+                                    </div>
                                     <?php endforeach ?>
                                 </div>
                                 <div class="row">
 
-                                <div class="col-sm-6 mt-3" id="firstPaymentInstallment">
+                                    <div class="col-sm-12 mt-3" id="paymentInstallments">
+                                        <?php for ($i = 1; $i <= 1; $i++) : ?>
                                         <table class="table">
                                             <tr>
-                                                <td>1º Parcela:</td>
+                                                <td><?= $i ?>º Parcela:</td>
                                             </tr>
                                             <tr>
                                                 <td>
-                                                    <input type="text" class="form-control" id="valueOfFirstInstallment" name="valueOfFirstInstallment" 
-                                                    step="0.01" placeholder="Digite o valor à vista" 
-                                                    pattern="^\d{1,3}(,\d{3})*(\.\d{1,2})?$" title="Por favor, insira um valor válido. Exemplo: 1.000,00">
+                                                    <input type="text" class="form-control"
+                                                        name="valueOfInstallment<?= $i ?>" step="0.01"
+                                                        placeholder="Digite o valor da <?= $i ?>ª parcela">
                                                 </td>
                                             </tr>
                                             <tr>
                                                 <td>
-                                                    <input type="date" class="form-control" id="dateOfFirstInstallment"
-                                                        name="dateOfFirstInstallment">
+                                                    <input type="date" class="form-control"
+                                                        name="dateOfInstallment<?= $i ?>">
                                                 </td>
                                             </tr>
-
                                             <tr>
                                                 <td>
-                                                    <select id="installmentMode" name="installmentMode"
-                                                        class="form-select">
+                                                    <select name="installmentMode<?= $i ?>" class="form-select">
                                                         <option selected>forma de pagamento dessa parcela</option>
-                                                        <option value = "Parcelado no cartao">Parcelado no cartão</option>
-                                                        <option value = "Parcelado no carne">Parcelado no carnê</option>
+                                                        <option>Parcelado no cartão</option>
+                                                        <option>Parcelado no carnê</option>
                                                     </select>
                                                 </td>
                                             </tr>
-
                                             <tr>
                                                 <td>
-                                                    <select id="paymentStatus" name="paymentStatus" class="form-select">
+                                                    <select name="paymentStatus<?= $i ?>" class="form-select">
                                                         <option selected>Situação de pagamento</option>
-                                                        <option value = "Pagamento realizado" >Pagamento realizado</option>
-                                                        <option value = "Em aberto">Em aberto</option>
+                                                        <option>Pagamento realizado</option>
+                                                        <option>Em aberto</option>
                                                     </select>
                                                 </td>
                                             </tr>
                                         </table>
+                                        <?php endfor; ?>
                                     </div>
+
 
                                     <script src="js/installment.js"></script>
                                     <br><br>
                                     <div class="mt-4 mb-0 d-flex justify-content-end">
                                         <button type="submit" class="btn customButton btn-lg"
-                                            name="save">finalizar</button>
+                                            name="save">Finalziar</button>
                                     </div>
                                 </div>
                             </form>

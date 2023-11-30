@@ -1,10 +1,10 @@
 <?php
-class PaymentInInstallmentsDAO
+class FirstPaymentInInstallmentsDAO
 {
     public function create(PaymentInInstallments $paymentInInstallments)
     {
         try {
-            $sql = "INSERT INTO tbl_payment_in_installments (
+            $sql = "INSERT INTO tbl_first_installment (
                  installment_value, installment_date, installment_mode, installment_status, idclient)
                 VALUES (
                 :installment_value, :installment_date, :installment_mode, :installment_status, :idclient)";
