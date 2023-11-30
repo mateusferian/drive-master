@@ -100,7 +100,7 @@ $clientDAO = new ClientDAO();
                     </td>
 
                     <td width="57" heigh="94">
-                        <a href="formulario-de-conmsulta.php?consult=<?= $client->getIdClient() ?>">
+                        <a href="formulario-de-consulta.php?consulta=<?= $client->getIdClient() ?>">
                         <center> <img src="img/buttonImage/documento.png" height="25" width="25" title="Conultar"></center>
                         </a>
                     </td>

@@ -8,15 +8,15 @@ include_once('include/topbar.php');
 include_once('include/navbar.php');
 // include_once('include/carousel.php');
 include_once('./conexao/Conexao.php');
-include_once('./model/CashPayment.php');
-include_once('./dao/CashPaymentDAO.php');
+include_once('./model/PaymentInInstallments.php');
+include_once('./dao/PaymentInInstallmentsDAO.php');
 include_once('./model/Client.php');
 include_once('./dao/ClientDAO.php');
 
 $client = new Client();
 $clientdao = new ClientDAO();
-$cashPayment = new CashPayment();
-$cashPaymentDAO = new CashPaymentDAO();
+$paymentInInstallments = new PaymentInInstallments();
+$paymentInInstallmentsDAO = new PaymentInInstallmentsDAO();
 ?>
 <link rel="stylesheet" href="css/registrationProcesses.css">
 
@@ -40,7 +40,7 @@ $cashPaymentDAO = new CashPaymentDAO();
                         <script src="js/displayPaymentMethods.js"></script>
 
                         <div class="card-body">
-                            <form id="form4" action="controller/CashPaymentController.php" method="POST">
+                            <form id="form4" action="controller/PaymentInInstallmentsController.php" method="POST">
                                 <div class="row mb-3 ml-1" hidden>
                                     <?php foreach ($clientdao->lastClient() as $client) : ?>
                                         <div class="col-sm-2  mt-3">
@@ -58,9 +58,9 @@ $cashPaymentDAO = new CashPaymentDAO();
                                             </tr>
                                             <tr>
                                                 <td>
-                                                    <input type="text" class="form-control" id="valueOfFirstInstallment"
-                                                        name="valueOfFirstInstallment" step="0.01"
-                                                        placeholder="Digite o valor da primeira parcela">
+                                                    <input type="text" class="form-control" id="valueOfFirstInstallment" name="valueOfFirstInstallment" 
+                                                    step="0.01" placeholder="Digite o valor à vista" 
+                                                    pattern="^\d{1,3}(,\d{3})*(\.\d{1,2})?$" title="Por favor, insira um valor válido. Exemplo: 1.000,00">
                                                 </td>
                                             </tr>
                                             <tr>
@@ -75,8 +75,8 @@ $cashPaymentDAO = new CashPaymentDAO();
                                                     <select id="installmentMode" name="installmentMode"
                                                         class="form-select">
                                                         <option selected>forma de pagamento dessa parcela</option>
-                                                        <option>Parcelado no cartão</option>
-                                                        <option>Parcelado no carnê</option>
+                                                        <option value = "Parcelado no cartao">Parcelado no cartão</option>
+                                                        <option value = "Parcelado no carne">Parcelado no carnê</option>
                                                     </select>
                                                 </td>
                                             </tr>
@@ -85,212 +85,8 @@ $cashPaymentDAO = new CashPaymentDAO();
                                                 <td>
                                                     <select id="paymentStatus" name="paymentStatus" class="form-select">
                                                         <option selected>Situação de pagamento</option>
-                                                        <option>Pagamento realizado</option>
-                                                        <option>Em aberto</option>
-                                                    </select>
-                                                </td>
-                                            </tr>
-                                        </table>
-                                    </div>
-
-                                    <div class="col-sm-6 mt-3" id="secondPaymentInstallment">
-                                        <table class="table">
-                                            <tr>
-                                                <td>2º Parcela:</td>
-                                            </tr>
-                                            <tr>
-                                                <td>
-                                                    <input type="text" class="form-control"
-                                                        id="valueOfSecondInstallment" name="valueOfSecondInstallment"
-                                                        step="0.01" placeholder="Digite o valor da segunda parcela">
-                                                </td>
-                                            </tr>
-                                            <tr>
-                                                <td>
-                                                    <input type="date" class="form-control" id="dateOfSecondInstallment"
-                                                        name="dateOfSecondInstallment">
-                                                </td>
-                                            </tr>
-                                            <tr>
-                                                <td>
-                                                    <select id="installmentModeSecondInstallment" name="installmentModeSecondInstallment"
-                                                        class="form-select">
-                                                        <option selected>forma de pagamento dessa parcela</option>
-                                                        <option>Parcelado no cartão</option>
-                                                        <option>Parcelado no carnê</option>
-                                                    </select>
-
-                                                </td>
-                                            </tr>
-                                            <tr>
-                                                <td>
-                                                    <select id="paymentStatusSecondInstallment" name="paymentStatusSecondInstallment" class="form-select">
-                                                        <option selected>Situação de pagamento</option>
-                                                        <option>Pagamento realizado</option>
-                                                        <option>Em aberto</option>
-                                                    </select>
-                                                </td>
-                                            </tr>
-                                        </table>
-                                    </div>
-
-                                    <div class="col-sm-6 mt-3" id="thirdPaymentInstallment">
-                                        <table class="table">
-                                            <tr>
-                                                <td>3º Parcela:</td>
-                                            </tr>
-                                            <tr>
-                                                <td>
-                                                    <input type="text" class="form-control" id="valueOfThirdInstallment"
-                                                        name="valueOfThirdInstallment" step="0.01"
-                                                        placeholder="Digite o valor da terceira parcela">
-                                                </td>
-                                            </tr>
-                                            <tr>
-                                                <td>
-                                                    <input type="date" class="form-control" id="dateOfThirdInstallment"
-                                                        name="dateOfThirdInstallment">
-                                                </td>
-                                            </tr>
-                                            <tr>
-                                                <td>
-                                                    <select id="installmentModeThirdInstallment" name="installmentModeThirdInstallment"
-                                                        class="form-select">
-                                                        <option selected>forma de pagamento dessa parcela</option>
-                                                        <option>Parcelado no cartão</option>
-                                                        <option>Parcelado no carnê</option>
-                                                    </select>
-
-                                                </td>
-                                            </tr>
-                                            <tr>
-                                                <td>
-                                                    <select id="paymentStatusThirdInstallment" name="paymentStatusThirdInstallment" class="form-select">
-                                                        <option selected>Situação de pagamento</option>
-                                                        <option>Pagamento realizado</option>
-                                                        <option>Em aberto</option>
-                                                    </select>
-                                                </td>
-                                            </tr>
-                                        </table>
-                                    </div>
-
-                                    <div class="col-sm-6 mt-3" id="fourthPaymentInstallment">
-                                        <table class="table">
-                                            <tr>
-                                                <td>4º Parcela:</td>
-                                            </tr>
-                                            <tr>
-                                                <td>
-                                                    <input type="text" class="form-control"
-                                                        id="valueOfFourthInstallment" name="valueOfFourthInstallment"
-                                                        step="0.01" placeholder="Digite o valor da quarta parcela">
-                                                </td>
-                                            </tr>
-                                            <tr>
-                                                <td>
-                                                    <input type="date" class="form-control" id="dateOfFourthInstallment"
-                                                        name="dateOfFourthInstallment">
-                                                </td>
-                                            </tr>
-                                            <tr>
-                                                <td>
-                                                    <select id="installmentModeFourthInstallment" name="installmentModeFourthInstallment"
-                                                        class="form-select">
-                                                        <option selected>forma de pagamento dessa parcela</option>
-                                                        <option>Parcelado no cartão</option>
-                                                        <option>Parcelado no carnê</option>
-                                                    </select>
-
-                                                </td>
-                                            </tr>
-                                            <tr>
-                                                <td>
-                                                    <select id="paymentStatusFourthInstallment" name="paymentStatusFourthInstallment" class="form-select">
-                                                        <option selected>Situação de pagamento</option>
-                                                        <option>Pagamento realizado</option>
-                                                        <option>Em aberto</option>
-                                                    </select>
-                                                </td>
-                                            </tr>
-                                        </table>
-                                    </div>
-
-                                    <div class="col-sm-6 mt-3" id="fifthPaymentInstallment" >
-                                        <table class="table">
-                                            <tr>
-                                                <td>5º Parcela:</td>
-                                            </tr>
-                                            <tr>
-                                                <td>
-                                                    <input type="text" class="form-control" id="valueOfFifthInstallment"
-                                                        name="valueOfFifthInstallment" step="0.01"
-                                                        placeholder="Digite o valor da quinta parcela">
-                                                </td>
-                                            </tr>
-                                            <tr>
-                                                <td>
-                                                    <input type="date" class="form-control" id="dateOfFifthInstallment"
-                                                        name="dateOfFifthInstallment">
-                                                </td>
-                                            </tr>
-                                            <tr>
-                                                <td>
-                                                    <select id="installmentModeFifthInstallment" name="installmentModeFifthInstallment"
-                                                        class="form-select">
-                                                        <option selected>forma de pagamento dessa parcela</option>
-                                                        <option>Parcelado no cartão</option>
-                                                        <option>Parcelado no carnê</option>
-                                                    </select>
-
-                                                </td>
-                                            </tr>
-                                            <tr>
-                                                <td>
-                                                    <select id="paymentStatusFifthInstallment" name="paymentStatusFifthInstallment" class="form-select">
-                                                        <option selected>Situação de pagamento</option>
-                                                        <option>Pagamento realizado</option>
-                                                        <option>Em aberto</option>
-                                                    </select>
-                                                </td>
-                                            </tr>
-                                        </table>
-                                    </div>
-
-                                    <div class="col-sm-6 mt-3" id="sixthPaymentInstallment" >
-                                        <table class="table">
-                                            <tr>
-                                                <td>6º Parcela:</td>
-                                            </tr>
-                                            <tr>
-                                                <td>
-                                                    <input type="text" class="form-control" id="valueOfSixthInstallment"
-                                                        name="valueOfSixthInstallment" step="0.01"
-                                                        placeholder="Digite o valor da sexta parcela">
-                                                </td>
-                                            </tr>
-                                            <tr>
-                                                <td>
-                                                    <input type="date" class="form-control" id="dateOfSixthInstallment"
-                                                        name="dateOfSixthInstallment">
-                                                </td>
-                                            </tr>
-                                            <td>
-                                                <select id="installmentModeSixthInstallment" name="installmentModeSixthInstallment" class="form-select">
-                                                    <option selected>Informe qual a forma de pagamento dessa parcela
-                                                    </option>
-                                                    <option>Parcelado no cartão</option>
-                                                    <option>Parcelado no carnê</option>
-                                                </select>
-
-                                            </td>
-                                            </tr>
-                                            <tr>
-                                                <td>
-                                                    <select id="paymentStatusSixthInstallment" name="paymentStatusSixthInstallment" class="form-select">
-                                                        <option selected>Situação de pagamento</option>
-                                                        <option>Pagamento realizado</option>
-                                                        <option>Em aberto</option>
+                                                        <option value = "Pagamento realizado" >Pagamento realizado</option>
+                                                        <option value = "Em aberto">Em aberto</option>
                                                     </select>
                                                 </td>
                                             </tr>
@@ -301,7 +97,7 @@ $cashPaymentDAO = new CashPaymentDAO();
                                     <br><br>
                                     <div class="mt-4 mb-0 d-flex justify-content-end">
                                         <button type="submit" class="btn customButton btn-lg"
-                                            name="save">Avançar</button>
+                                            name="save">finalizar</button>
                                     </div>
                                 </div>
                             </form>

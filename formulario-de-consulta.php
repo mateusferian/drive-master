@@ -26,8 +26,9 @@ $ratesDAO = new RatesDAO();
 <body>
     <main>
         <?php
-    if (isset($_GET["consult"])) {
-        $idClient = $_GET["consult"];
+    if ((isset($_GET["consulta"])) || (isset($_GET["fixa-do-aluno"]))) {
+        $idClient = isset($_GET["consulta"]) ? $_GET["consulta"] : (isset($_GET["fixa-do-aluno"]) ? $_GET["fixa-do-aluno"] : null);
+
 
         $client = $clientDAO->findById($idClient);
 
@@ -196,7 +197,7 @@ $ratesDAO = new RatesDAO();
                             <div class="col-4">
                                 <br><br>
                                 <button type="button" name="voltar" class="btn customButton"
-                                    onclick="window.location.href = 'controle-de-aluno.php';">Voltar para controle de
+                                    onclick="window.location.href = 'controle-de-aluno.php';">Ir para controle de
                                     aluno</button>
                                 <br><br>
                             </div>
@@ -237,7 +238,9 @@ $ratesDAO = new RatesDAO();
             </script>";
         }
     }
+    include_once('include/studentRecordButtons.php');
     ?>
+    
     </main>
     <br><br>
     <?php
