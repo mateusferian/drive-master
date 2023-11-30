@@ -39,6 +39,7 @@ $courseOnSightDAO = new CourseOnSightDAO();
                             include_once('include/progressBar.php');
                         ?>
 
+
                         <div class="card-body">
                             <form id="form4" action="controller/CourseOnSightController.php" method="POST">
                                 <div class="row mb-3 ml-1" hidden>

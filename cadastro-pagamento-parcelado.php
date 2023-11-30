@@ -38,6 +38,7 @@ $cashPaymentDAO = new CashPaymentDAO();
                             include_once('include/progressBar.php');
                         ?>
 
+
                         <div class="card-body">
                             <form id="form4" action="controller/CashPaymentController.php" method="POST">
                                 <div class="row mb-3 ml-1" hidden>
