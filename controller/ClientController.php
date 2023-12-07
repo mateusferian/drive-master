@@ -41,10 +41,10 @@
         header("Location: ../cadastro-de-cnh.php");
     }
 
-    else if(isset($_POST['edit'])) {
+    if(isset($_POST['edit'])){
 
-        $client->setIdClient(($d['idclient']));
-        $client->setName(($d['name']));
+        $client->setIdClient(($d['id']));
+        $client->setName(($d['name_client']));
         $client->setFather(($d['responsibleMale']));
 
         $client->setMother(($d['responsiblefeminine']));
@@ -59,20 +59,22 @@
 
         $client->setTelephone(($d['telephone']));
         $client->setNaturalness(($d['naturalness']));
-        $client->setAddress(($d['address']));
+        $client->setAddress(($d['address_client']));
 
         $client->setNumber(($d['residentialNumber']));
         $client->setNeighborhood(($d['neighborhood']));
 
         $client->setUf(($d['uf']));
-        $client->setActivityLocation(($d['activityLocation']));
+        $client->setActivityLocation(($d['activitylocation']));
         $client->setPhoto(($d['profilePicture']));
         $client->setRenach(($d['renach']));
-    
+
         $clientDAO->update($client);
-    
-       // header("Location: ../controle-de-aluno.php");
+
+
+        header("Location: ../cadastro-de-cnh.php");
     }
+
 
 
     else if(isset($_GET['del'])){

@@ -88,7 +88,7 @@ $clientDAO = new ClientDAO();
                     <td><?= $client->getCpf() ?></td>
 
                     <td width="25" heigh="94">
-                    <a href="controller/ClientController.php?del=<?= $client->getIdClient() ?>">
+                    <a href="alterar-aluno.php?al=<?= $client->getIdClient() ?>">
                             <center> <img src="img/buttonImage/update.ico" height="25" width="25" title="Alterar"></center>
                         </a>
                     </td>
