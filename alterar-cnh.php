@@ -52,18 +52,16 @@ $cnhDAO = new CnhDAO();
 
                                             <div class="col-sm-12  mt-3" hidden>
                                                 <label for="id_cnh" class="form-label">Id Cnh:</label>
-                                                <input type="text" class="form-control" id="idcnh"
-                                                    name="idcnh" placeholder="Digite o numero de registro"
-                                                    pattern="[0-9]+"
+                                                <input type="text" class="form-control" id="idcnh" name="idcnh"
+                                                    placeholder="Digite o numero de registro" pattern="[0-9]+"
                                                     value="<?php if(isset($cnh) && $cnh->getIdCnh()) { echo $cnh->getIdCnh(); } ?>"
                                                     readonly="readonly">
                                             </div>
 
                                             <div class="col-sm-12  mt-3" hidden>
                                                 <label for="idclient" class="form-label">Id Aluno:</label>
-                                                <input type="text" class="form-control" id="idclient"
-                                                    name="idclient" placeholder="Digite o numero de registro"
-                                                    pattern="[0-9]+"
+                                                <input type="text" class="form-control" id="idclient" name="idclient"
+                                                    placeholder="Digite o numero de registro" pattern="[0-9]+"
                                                     value="<?php if(isset($cnh) && $cnh->getIdClient()) { echo $cnh->getIdClient(); } ?>"
                                                     readonly="readonly">
                                             </div>
