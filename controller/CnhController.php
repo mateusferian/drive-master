@@ -22,20 +22,21 @@
         header("Location: ../cadastro-de-taxa.php");
     }
 
-    else if(isset($_POST['editar'])) {
+    else if(isset($_POST['edit'])) {
 
         $cnh->setIdCnh(($d['idcnh']));
         $cnh->setCategory(($d['category']));
         $cnh->setType(($d['type_cnh']));
         $cnh->setMedicalExam(($d['medical_exam']));
-
         $cnh->setRegistrationNumber(($d['registration_number']));
         $cnh->setBiometricUpdate(($d['biometric_update']));
         $cnh->setIdClient(($d['idclient']));
+
+        $idclient = $cnh->getIdClient();
+
+        $cnhdao->update($cnh);
     
-        $cnhDAO->update($cnh);
-    
-        header("Location: ../#.php");
+        header("Location: ../alterar-taxa.php?al=$idclient");
     }
 
 
@@ -43,7 +44,7 @@
 
         $cnh->setIdCnh($_GET['del']);
 
-        $cnhDAO->delete($cnh);
+        $cnhdao->delete($cnh);
 
         header("Location: ../#.php");
 

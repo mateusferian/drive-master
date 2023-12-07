@@ -10,59 +10,8 @@ include_once('./conexao/Conexao.php');
 include_once('./model/Client.php');
 include_once('./dao/ClientDAO.php');
 
-include_once('./model/Cnh.php');
-include_once('./dao/CnhDAO.php');
-
-include_once('./model/Rates.php');
-include_once('./dao/RatesDAO.php');
-
-include_once('./model/CourseOnSight.php');
-include_once('./dao/CourseOnSightDAO.php');
-
-include_once('./model/CashPayment.php');
-include_once('./dao/CashPaymentDAO.php');
-
-include_once('./model/PaymentInInstallments.php');
-
-include_once('./dao/FirstPaymentInInstallmentsDAO.php');
-include_once('./dao/SecondPaymentInInstallmentsDAO.php');
-include_once('./dao/ThirdPaymentInInstallmentsDAO.php');
-include_once('./dao/FifthPaymentInInstallmentsDAO.php');
-include_once('./dao/FourthPaymentInInstallmentsDAO.php');
-include_once('./dao/SixthPaymentInInstallmentsDAO.php');
-
 $client = new Client();
 $clientDAO = new ClientDAO();
-
-$cnh = new Cnh();
-$cnhDAO = new CnhDAO();
-
-$rates = new Rates();
-$ratesDAO = new RatesDAO();
-
-$courseOnSight = new CourseOnSight();
-$courseOnSightDAO = new CourseOnSightDAO();
-
-$cashPayment = new CashPayment();
-$cashPaymentDAO = new CashPaymentDAO();
-
-$firstPaymentInInstallments = new PaymentInInstallments();
-$firstPaymentInInstallmentsDAO = new FirstPaymentInInstallmentsDAO();
-
-$secondPaymentInInstallments = new PaymentInInstallments();
-$secondPaymentInInstallmentsDAO = new SecondPaymentInInstallmentsDAO();
-
-$thirdPaymentInInstallments = new PaymentInInstallments();
-$thirdPaymentInInstallmentsDAO = new ThirdPaymentInInstallmentsDAO();
-
-$fifthPaymentInInstallments = new PaymentInInstallments();
-$fifthPaymentInInstallmentsDAO = new FifthPaymentInInstallmentsDAO();
-
-$fourthPaymentInInstallments = new PaymentInInstallments();
-$fourthPaymentInInstallmentsDAO = new FourthPaymentInInstallmentsDAO();
-
-$sixthPaymentInInstallments = new PaymentInInstallments();
-$sixthPaymentInInstallmentsDAO = new SixthPaymentInInstallmentsDAO();
 ?>
 <script src="js/progressionOfChanging.js"></script>
 <link rel="stylesheet" href="css/registrationProcesses.css">
@@ -75,27 +24,6 @@ $sixthPaymentInInstallmentsDAO = new SixthPaymentInInstallmentsDAO();
 
 
         $client = $clientDAO->findById($idClient);
-
-        $cnh = $cnhDAO->findByClientId($idClient);
-        $rates = $ratesDAO->findByClientId($idClient);
-
-        $cashPayment = $cashPaymentDAO->findByClientId($idClient);
-        $courseOnSight = $courseOnSightDAO->findByClientId($idClient);
-
-
-        $firstPaymentInInstallments = $firstPaymentInInstallmentsDAO->findByClientId($idClient);
-        $secondPaymentInInstallments = $secondPaymentInInstallmentsDAO->findByClientId($idClient);
-        $thirdPaymentInInstallments = $thirdPaymentInInstallmentsDAO->findByClientId($idClient);
-
-        $fifthPaymentInInstallments = $fifthPaymentInInstallmentsDAO->findByClientId($idClient);
-        $fourthPaymentInInstallments = $fourthPaymentInInstallmentsDAO->findByClientId($idClient);
-        $sixthPaymentInInstallments = $sixthPaymentInInstallmentsDAO->findByClientId($idClient);
-
-        function displayValueOrPlaceholder($value, $placeholder = 'Campo Em Branco') {
-            echo !is_null($value) ? $value : $placeholder;
-        }
-
-        if ($client  and $cnh and $rates) {
     ?>
         <div class="container">
             <div class="row justify-content-center">
@@ -117,14 +45,14 @@ $sixthPaymentInInstallmentsDAO = new SixthPaymentInInstallmentsDAO();
                             <form id="form1" action="controller/ClientController.php" method="POST">
                                 <div class="row">
 
-                                    <div class="col-sm-12  mt-3">
+                                    <div class="col-sm-12  mt-3" hidden>
                                         <label for="id" class="form-label">Id do Aluno:</label>
                                         <input type="number" class="form-control" id="id" name="id"
                                             value="<?php if(isset($client) && $client->getIdClient()) { echo $client->getIdClient(); } ?>"
                                             readonly="readonly">
                                     </div>
 
-                                    <div class="col-sm-6 mt-3">
+                                    <div class="col-sm-12 mt-3">
                                         <label for="name" class="form-label">Nome de Aluno:</label>
                                         <input type="text" class="form-control" id="name" name="name_client"
                                             placeholder="Digite o nome"
@@ -132,7 +60,7 @@ $sixthPaymentInInstallmentsDAO = new SixthPaymentInInstallmentsDAO();
                                             required>
                                     </div>
 
-                                    <div class="col-sm-6  mt-3">
+                                    <div class="col-sm-12  mt-3">
                                         <label for="email" class="form-label">Email:</label>
                                         <input type="email" class="form-control" id="email" name="email"
                                             value="<?php if(isset($client) && $client->getEmail()) { echo $client->getEmail(); } ?>"
@@ -291,12 +219,6 @@ $sixthPaymentInInstallmentsDAO = new SixthPaymentInInstallmentsDAO();
             </div>
         </div>
         <?php
-        } else {
-            echo "<script language=javascript>
-            alert('ERRO: alguma informção do aluno não foi não encontrado!!!');
-            location.href = 'controle-de-aluno.php';
-            </script>";
-        }
     }
     include_once('include/studentRecordButtons.php');
     ?>

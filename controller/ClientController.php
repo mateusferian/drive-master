@@ -69,10 +69,12 @@
         $client->setPhoto(($d['profilePicture']));
         $client->setRenach(($d['renach']));
 
+        $idclient = $client->getIdClient();
+        
         $clientDAO->update($client);
 
 
-        header("Location: ../cadastro-de-cnh.php");
+        header("Location: ../alterar-cnh.php?al=$idclient");
     }
 
 
