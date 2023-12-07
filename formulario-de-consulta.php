@@ -23,6 +23,7 @@ include_once('./model/CashPayment.php');
 include_once('./dao/CashPaymentDAO.php');
 
 include_once('./model/PaymentInInstallments.php');
+
 include_once('./dao/FirstPaymentInInstallmentsDAO.php');
 include_once('./dao/SecondPaymentInInstallmentsDAO.php');
 include_once('./dao/ThirdPaymentInInstallmentsDAO.php');
@@ -76,8 +77,9 @@ $sixthPaymentInInstallmentsDAO = new SixthPaymentInInstallmentsDAO();
         $cnh = $cnhDAO->findByClientId($idClient);
         $rates = $ratesDAO->findByClientId($idClient);
 
-        $courseOnSight = $courseOnSightDAO->findByClientId($idClient);
         $cashPayment = $cashPaymentDAO->findByClientId($idClient);
+        $courseOnSight = $courseOnSightDAO->findByClientId($idClient);
+
 
         $firstPaymentInInstallments = $firstPaymentInInstallmentsDAO->findByClientId($idClient);
         $secondPaymentInInstallments = $secondPaymentInInstallmentsDAO->findByClientId($idClient);
@@ -86,6 +88,10 @@ $sixthPaymentInInstallmentsDAO = new SixthPaymentInInstallmentsDAO();
         $fifthPaymentInInstallments = $fifthPaymentInInstallmentsDAO->findByClientId($idClient);
         $fourthPaymentInInstallments = $fourthPaymentInInstallmentsDAO->findByClientId($idClient);
         $sixthPaymentInInstallments = $sixthPaymentInInstallmentsDAO->findByClientId($idClient);
+
+        function displayValueOrPlaceholder($value, $placeholder = 'Campo Em Branco') {
+            echo !is_null($value) ? $value : $placeholder;
+        }
 
         if ($client  and $cnh and $rates) {
     ?>
@@ -109,70 +115,70 @@ $sixthPaymentInInstallmentsDAO = new SixthPaymentInInstallmentsDAO();
 
                             <tr>
                                 <th class="col-6">Nome de Aluno:</th>
-                                <td class="col-6"><?php echo $client->getName(); ?></td>
+                                <td class="col-6"><?php echo displayValueOrPlaceholder($client->getName()); ?></td>
                             <tr>
                                 <th class="col-sm-6">Email:</th>
-                                <td><?php echo $client->getEmail(); ?></td>
+                                <td><?php echo displayValueOrPlaceholder($client->getEmail()); ?></td>
                             </tr>
                             <tr>
                                 <th class="col-sm-6">Nome da Responsável (Feminino):</th>
-                                <td><?php echo $client->getMother(); ?></td>
+                                <td><?php echo displayValueOrPlaceholder($client->getMother()); ?></td>
                             </tr>
                             <tr>
                                 <th class="col-sm-6">Nome do Responsável (Masculino):</th>
-                                <td><?php echo $client->getFather(); ?></td>
+                                <td><?php echo displayValueOrPlaceholder($client->getFather()); ?></td>
                             </tr>
                             <tr>
                                 <th class="col-sm-6">RG:</th>
-                                <td><?php echo $client->getRg(); ?></td>
+                                <td><?php echo displayValueOrPlaceholder($client->getRg()); ?></td>
                             </tr>
                             <tr>
                                 <th class="col-sm-6">RG-Expedição:</th>
-                                <td><?php echo $client->getRgExpedition(); ?></td>
+                                <td><?php echo displayValueOrPlaceholder($client->getRgExpedition()); ?></td>
                             </tr>
                             <tr>
                                 <th class="col-sm-6">UF:</th>
-                                <td><?php echo $client->getUf(); ?></td>
+                                <td><?php echo displayValueOrPlaceholder($client->getUf()); ?></td>
                             </tr>
                             <tr>
                                 <th class="col-sm-6">Data de nascimento:</th>
-                                <td><?php echo $client->getBirthDate(); ?></td>
+                                <td><?php echo displayValueOrPlaceholder($client->getBirthDate()); ?></td>
                             </tr>
                             <tr>
                                 <th class="col-sm-6">CPF:</th>
-                                <td><?php echo $client->getCpf(); ?></td>
+                                <td><?php echo displayValueOrPlaceholder($client->getCpf()); ?></td>
                             </tr>
                             <tr>
                                 <th class="col-sm-6">RENACH SP:</th>
-                                <td><?php echo $client->getRenach(); ?></td>
+                                <td><?php echo displayValueOrPlaceholder($client->getRenach()); ?></td>
                             </tr>
                             <tr>
                                 <th class="col-sm-6">Naturalidade:</th>
-                                <td><?php echo $client->getNaturalness(); ?></td>
+                                <td><?php echo displayValueOrPlaceholder($client->getNaturalness()); ?></td>
                             </tr>
                             <tr>
                                 <th class="col-sm-6">Endereço:</th>
-                                <td><?php echo $client->getAddress(); ?></td>
+                                <td><?php echo displayValueOrPlaceholder($client->getAddress()); ?></td>
                             </tr>
                             <tr>
                                 <th class="col-sm-6">Bairro:</th>
-                                <td><?php echo $client->getNeighborhood(); ?></td>
+                                <td><?php echo displayValueOrPlaceholder($client->getNeighborhood()); ?></td>
                             </tr>
                             <tr>
                                 <th class="col-sm-6">Numero de residência:</th>
-                                <td><?php echo $client->getNumber(); ?></td>
+                                <td><?php echo displayValueOrPlaceholder($client->getNumber()); ?></td>
                             </tr>
                             <tr>
                                 <th class="col-sm-6">Celular:</th>
-                                <td><?php echo $client->getCelphone(); ?></td>
+                                <td><?php echo displayValueOrPlaceholder($client->getCelphone()); ?></td>
                             </tr>
                             <tr>
                                 <th class="col-sm-6">Telefone:</th>
-                                <td><?php echo $client->getTelephone(); ?></td>
+                                <td><?php echo displayValueOrPlaceholder($client->getTelephone()); ?></td>
                             </tr>
                             <tr>
                                 <th class="col-sm-6">Local de Atividade:</th>
-                                <td><?php echo $client->getActivityLocation(); ?></td>
+                                <td><?php echo displayValueOrPlaceholder($client->getActivityLocation()); ?></td>
                             </tr>
                         </table>
 
@@ -184,23 +190,23 @@ $sixthPaymentInInstallmentsDAO = new SixthPaymentInInstallmentsDAO();
                             </tr>
                             <tr>
                                 <th class="col-sm-6">Curso:</th>
-                                <td><?php echo $cnh->getCategory(); ?></td>
+                                <td><?php echo displayValueOrPlaceholder($cnh->getCategory()); ?></td>
                             </tr>
                             <tr>
                                 <th class="col-sm-6">Categoria:</th>
-                                <td><?php echo $cnh->getType(); ?></td>
+                                <td><?php echo displayValueOrPlaceholder($cnh->getType()); ?></td>
                             </tr>
                             <tr>
                                 <th class="col-sm-6">Data do exame médico:</th>
-                                <td><?php echo $cnh->getMedicalExam(); ?></td>
+                                <td><?php echo displayValueOrPlaceholder($cnh->getMedicalExam()); ?></td>
                             </tr>
                             <tr>
                                 <th class="col-sm-6">Numero de registro:</th>
-                                <td><?php echo $cnh->getRegistrationNumber(); ?></td>
+                                <td><?php echo displayValueOrPlaceholder($cnh->getRegistrationNumber()); ?></td>
                             </tr>
                             <tr>
                                 <th class="col-sm-6">Atualização Biometrica:</th>
-                                <td><?php echo $cnh->getBiometricUpdate(); ?></td>
+                                <td><?php echo displayValueOrPlaceholder($cnh->getBiometricUpdate()); ?></td>
                             </tr>
                         </table>
 
@@ -214,37 +220,41 @@ $sixthPaymentInInstallmentsDAO = new SixthPaymentInInstallmentsDAO();
 
                             <tr>
                                 <th class="col-sm-6">Teórico:</th>
-                                <td><?php echo $rates->getTheoretic(); ?></td>
+                                <td><?php echo displayValueOrPlaceholder($rates->getTheoretic()); ?></td>
                             </tr>
                             <tr>
                                 <th class="col-sm-6">Pratico de Carro:</th>
-                                <td><?php echo $rates->getPractice1(); ?></td>
+                                <td><?php echo displayValueOrPlaceholder($rates->getPractice1()); ?></td>
                             </tr>
                             <tr>
                                 <th class="col-sm-6">Pratico de Moto:</th>
-                                <td><?php echo $rates->getPractice2(); ?></td>
+                                <td><?php echo displayValueOrPlaceholder($rates->getPractice2()); ?></td>
                             </tr>
                             <tr>
                                 <th class="col-sm-6">emissão CNH:</th>
-                                <td><?php echo $rates->getEmissionCnh(); ?></td>
+                                <td><?php echo displayValueOrPlaceholder($rates->getEmissionCnh()); ?></td>
                             </tr>
                             <tr>
                                 <th class="col-sm-6">Reprova:</th>
-                                <td><?php echo $rates->getDisapprove(); ?></td>
+                                <td><?php echo displayValueOrPlaceholder($rates->getDisapprove()); ?></td>
                             </tr>
                             <tr>
                                 <th class="col-sm-6">Data Exame A:</th>
-                                <td><?php echo $rates->getExamA(); ?></td>
+                                <td><?php echo displayValueOrPlaceholder($rates->getExamA()); ?></td>
                             </tr>
                             <tr>
                                 <th class="col-sm-6">Data Exame B:</th>
-                                <td><?php echo $rates->getExamB(); ?></td>
+                                <td><?php echo displayValueOrPlaceholder($rates->getExamB()); ?></td>
                             </tr>
                             <tr>
                                 <th class="col-sm-6">Data Exame D:</th>
-                                <td><?php echo $rates->getExamD(); ?></td>
+                                <td><?php echo displayValueOrPlaceholder($rates->getExamD()); ?></td>
                             </tr>
                         </table>
+
+                        <?php
+                            if(isset($cashPayment)) {
+                        ?>
 
                         <table class="table table-bordered mt-4">
                             <br><br><br><br>
@@ -254,15 +264,19 @@ $sixthPaymentInInstallmentsDAO = new SixthPaymentInInstallmentsDAO();
 
                             <tr>
                                 <th class="col-sm-6">Valor do Pagamento:</th>
-                                <td><?php echo $cashPayment->getValueCashPayment(); ?></td>
+                                <td><?php echo displayValueOrPlaceholder($cashPayment->getValueCashPayment()); ?></td>
                             </tr>
                             <tr>
                                 <th class="col-sm-6">Data de pagamento:</th>
-                                <td><?php echo $cashPayment->getDateCashPayment(); ?></td>
+                                <td><?php echo displayValueOrPlaceholder($cashPayment->getDateCashPayment()); ?></td>
                             </tr>
 
                         </table>
 
+                        <?php
+                            }
+                            if(isset($courseOnSight)) {
+                        ?>
                         <table class="table table-bordered mt-4">
                             <br><br><br><br>
                             <tr>
@@ -271,15 +285,22 @@ $sixthPaymentInInstallmentsDAO = new SixthPaymentInInstallmentsDAO();
 
                             <tr>
                                 <th class="col-sm-6">Valor do curso:</th>
-                                <td><?php echo $courseOnSight->getValueCourseOnSight(); ?></td>
+                                <td><?php echo displayValueOrPlaceholder($courseOnSight->getValueCourseOnSight()); ?>
+                                </td>
                             </tr>
                             <tr>
                                 <th class="col-sm-6">Data de pagamento do curso:</th>
-                                <td><?php echo $courseOnSight->getDateCourseOnSight(); ?></td>
+                                <td><?php echo displayValueOrPlaceholder($courseOnSight->getDateCourseOnSight()); ?>
+                                </td>
                             </tr>
 
                         </table>
 
+                        <?php
+                            
+                            }
+                            if(isset($firstPaymentInInstallments)) {
+                        ?>
                         <table class="table table-bordered mt-4">
                             <br><br><br><br>
                             <tr>
@@ -288,19 +309,23 @@ $sixthPaymentInInstallmentsDAO = new SixthPaymentInInstallmentsDAO();
 
                             <tr>
                                 <th class="col-sm-6">Valor da parcela:</th>
-                                <td><?php echo $firstPaymentInInstallments->getInstallmentValue(); ?></td>
+                                <td><?php echo displayValueOrPlaceholder($firstPaymentInInstallments->getInstallmentValue()); ?>
+                                </td>
                             </tr>
                             <tr>
                                 <th class="col-sm-6">Data de pagamento da parcela:</th>
-                                <td><?php echo $firstPaymentInInstallments->getInstallmentDate(); ?></td>
+                                <td><?php echo displayValueOrPlaceholder($firstPaymentInInstallments->getInstallmentDate()); ?>
+                                </td>
                             </tr>
                             <tr>
                                 <th class="col-sm-6">Modo de parcelamento</th>
-                                <td><?php echo $firstPaymentInInstallments->getInstallmentMode(); ?></td>
+                                <td><?php echo displayValueOrPlaceholder($firstPaymentInInstallments->getInstallmentMode()); ?>
+                                </td>
                             </tr>
                             <tr>
                                 <th class="col-sm-6">Status de parcela:</th>
-                                <td><?php echo $firstPaymentInInstallments->getInstallmentStatus(); ?></td>
+                                <td><?php echo displayValueOrPlaceholder($firstPaymentInInstallments->getInstallmentStatus()); ?>
+                                </td>
                             </tr>
                         </table>
 
@@ -312,19 +337,23 @@ $sixthPaymentInInstallmentsDAO = new SixthPaymentInInstallmentsDAO();
 
                             <tr>
                                 <th class="col-sm-6">Valor da parcela:</th>
-                                <td><?php echo $secondPaymentInInstallments->getInstallmentValue(); ?></td>
+                                <td><?php echo displayValueOrPlaceholder($secondPaymentInInstallments->getInstallmentValue()); ?>
+                                </td>
                             </tr>
                             <tr>
                                 <th class="col-sm-6">Data de pagamento da parcela:</th>
-                                <td><?php echo $secondPaymentInInstallments->getInstallmentDate(); ?></td>
+                                <td><?php echo displayValueOrPlaceholder($secondPaymentInInstallments->getInstallmentDate()); ?>
+                                </td>
                             </tr>
                             <tr>
                                 <th class="col-sm-6">Modo de parcelamento</th>
-                                <td><?php echo $secondPaymentInInstallments->getInstallmentMode(); ?></td>
+                                <td><?php echo displayValueOrPlaceholder($secondPaymentInInstallments->getInstallmentMode()); ?>
+                                </td>
                             </tr>
                             <tr>
                                 <th class="col-sm-6">Status de parcela:</th>
-                                <td><?php echo $secondPaymentInInstallments->getInstallmentStatus(); ?></td>
+                                <td><?php echo displayValueOrPlaceholder($secondPaymentInInstallments->getInstallmentStatus()); ?>
+                                </td>
                             </tr>
                         </table>
 
@@ -336,19 +365,23 @@ $sixthPaymentInInstallmentsDAO = new SixthPaymentInInstallmentsDAO();
 
                             <tr>
                                 <th class="col-sm-6">Valor da parcela:</th>
-                                <td><?php echo $thirdPaymentInInstallments->getInstallmentValue(); ?></td>
+                                <td><?php echo displayValueOrPlaceholder($thirdPaymentInInstallments->getInstallmentValue()); ?>
+                                </td>
                             </tr>
                             <tr>
                                 <th class="col-sm-6">Data de pagamento da parcela:</th>
-                                <td><?php echo $thirdPaymentInInstallments->getInstallmentDate(); ?></td>
+                                <td><?php echo displayValueOrPlaceholder($thirdPaymentInInstallments->getInstallmentDate()); ?>
+                                </td>
                             </tr>
                             <tr>
                                 <th class="col-sm-6">Modo de parcelamento</th>
-                                <td><?php echo $thirdPaymentInInstallments->getInstallmentMode(); ?></td>
+                                <td><?php echo displayValueOrPlaceholder($thirdPaymentInInstallments->getInstallmentMode()); ?>
+                                </td>
                             </tr>
                             <tr>
                                 <th class="col-sm-6">Status de parcela:</th>
-                                <td><?php echo $thirdPaymentInInstallments->getInstallmentStatus(); ?></td>
+                                <td><?php echo displayValueOrPlaceholder($thirdPaymentInInstallments->getInstallmentStatus()); ?>
+                                </td>
                             </tr>
                         </table>
 
@@ -360,19 +393,23 @@ $sixthPaymentInInstallmentsDAO = new SixthPaymentInInstallmentsDAO();
 
                             <tr>
                                 <th class="col-sm-6">Valor da parcela:</th>
-                                <td><?php echo $fourthPaymentInInstallments->getInstallmentValue(); ?></td>
+                                <td><?php echo displayValueOrPlaceholder($fourthPaymentInInstallments->getInstallmentValue()); ?>
+                                </td>
                             </tr>
                             <tr>
                                 <th class="col-sm-6">Data de pagamento da parcela:</th>
-                                <td><?php echo $fourthPaymentInInstallments->getInstallmentDate(); ?></td>
+                                <td><?php echo displayValueOrPlaceholder($fourthPaymentInInstallments->getInstallmentDate()); ?>
+                                </td>
                             </tr>
                             <tr>
                                 <th class="col-sm-6">Modo de parcelamento</th>
-                                <td><?php echo $fourthPaymentInInstallments->getInstallmentMode(); ?></td>
+                                <td><?php echo displayValueOrPlaceholder($fourthPaymentInInstallments->getInstallmentMode()); ?>
+                                </td>
                             </tr>
                             <tr>
                                 <th class="col-sm-6">Status de parcela:</th>
-                                <td><?php echo $fourthPaymentInInstallments->getInstallmentStatus(); ?></td>
+                                <td><?php echo displayValueOrPlaceholder($fourthPaymentInInstallments->getInstallmentStatus()); ?>
+                                </td>
                             </tr>
                         </table>
 
@@ -384,19 +421,23 @@ $sixthPaymentInInstallmentsDAO = new SixthPaymentInInstallmentsDAO();
 
                             <tr>
                                 <th class="col-sm-6">Valor da parcela:</th>
-                                <td><?php echo $fifthPaymentInInstallments->getInstallmentValue(); ?></td>
+                                <td><?php echo displayValueOrPlaceholder($fifthPaymentInInstallments->getInstallmentValue()); ?>
+                                </td>
                             </tr>
                             <tr>
                                 <th class="col-sm-6">Data de pagamento da parcela:</th>
-                                <td><?php echo $fifthPaymentInInstallments->getInstallmentDate(); ?></td>
+                                <td><?php echo displayValueOrPlaceholder($fifthPaymentInInstallments->getInstallmentDate()); ?>
+                                </td>
                             </tr>
                             <tr>
                                 <th class="col-sm-6">Modo de parcelamento</th>
-                                <td><?php echo $fifthPaymentInInstallments->getInstallmentMode(); ?></td>
+                                <td><?php echo displayValueOrPlaceholder($fifthPaymentInInstallments->getInstallmentMode()); ?>
+                                </td>
                             </tr>
                             <tr>
                                 <th class="col-sm-6">Status de parcela:</th>
-                                <td><?php echo $fifthPaymentInInstallments->getInstallmentStatus(); ?></td>
+                                <td><?php echo displayValueOrPlaceholder($fifthPaymentInInstallments->getInstallmentStatus()); ?>
+                                </td>
                             </tr>
                         </table>
 
@@ -408,21 +449,30 @@ $sixthPaymentInInstallmentsDAO = new SixthPaymentInInstallmentsDAO();
 
                             <tr>
                                 <th class="col-sm-6">Valor da parcela:</th>
-                                <td><?php echo $sixthPaymentInInstallments->getInstallmentValue(); ?></td>
+                                <td><?php echo displayValueOrPlaceholder($sixthPaymentInInstallments->getInstallmentValue()); ?>
+                                </td>
                             </tr>
                             <tr>
                                 <th class="col-sm-6">Data de pagamento da parcela:</th>
-                                <td><?php echo $sixthPaymentInInstallments->getInstallmentDate(); ?></td>
+                                <td><?php echo displayValueOrPlaceholder($sixthPaymentInInstallments->getInstallmentDate()); ?>
+                                </td>
                             </tr>
                             <tr>
                                 <th class="col-sm-6">Modo de parcelamento</th>
-                                <td><?php echo $sixthPaymentInInstallments->getInstallmentMode(); ?></td>
+                                <td><?php echo displayValueOrPlaceholder($sixthPaymentInInstallments->getInstallmentMode()); ?>
+                                </td>
                             </tr>
                             <tr>
                                 <th class="col-sm-6">Status de parcela:</th>
-                                <td><?php echo $sixthPaymentInInstallments->getInstallmentStatus(); ?></td>
+                                <td><?php echo displayValueOrPlaceholder($sixthPaymentInInstallments->getInstallmentStatus()); ?>
+                                </td>
                             </tr>
                         </table>
+
+                        <?php
+                        }
+                    ?>
+
                         <div class="row justify-content-between mt-8 text-center">
                             <div class="col-4">
                                 <br><br>
@@ -470,7 +520,7 @@ $sixthPaymentInInstallmentsDAO = new SixthPaymentInInstallmentsDAO();
     }
     include_once('include/studentRecordButtons.php');
     ?>
-    
+
     </main>
     <br><br>
     <?php

@@ -8,6 +8,21 @@ include_once('./dao/CnhDAO.php');
 include_once('./model/Rates.php');
 include_once('./dao/RatesDAO.php');
 
+include_once('./model/CourseOnSight.php');
+include_once('./dao/CourseOnSightDAO.php');
+
+include_once('./model/CashPayment.php');
+include_once('./dao/CashPaymentDAO.php');
+
+include_once('./model/PaymentInInstallments.php');
+
+include_once('./dao/FirstPaymentInInstallmentsDAO.php');
+include_once('./dao/SecondPaymentInInstallmentsDAO.php');
+include_once('./dao/ThirdPaymentInInstallmentsDAO.php');
+include_once('./dao/FifthPaymentInInstallmentsDAO.php');
+include_once('./dao/FourthPaymentInInstallmentsDAO.php');
+include_once('./dao/SixthPaymentInInstallmentsDAO.php');
+
 $client = new Client();
 $clientDAO = new ClientDAO();
 
@@ -16,6 +31,30 @@ $cnhDAO = new CnhDAO();
 
 $rates = new Rates();
 $ratesDAO = new RatesDAO();
+
+$courseOnSight = new CourseOnSight();
+$courseOnSightDAO = new CourseOnSightDAO();
+
+$cashPayment = new CashPayment();
+$cashPaymentDAO = new CashPaymentDAO();
+
+$firstPaymentInInstallments = new PaymentInInstallments();
+$firstPaymentInInstallmentsDAO = new FirstPaymentInInstallmentsDAO();
+
+$secondPaymentInInstallments = new PaymentInInstallments();
+$secondPaymentInInstallmentsDAO = new SecondPaymentInInstallmentsDAO();
+
+$thirdPaymentInInstallments = new PaymentInInstallments();
+$thirdPaymentInInstallmentsDAO = new ThirdPaymentInInstallmentsDAO();
+
+$fifthPaymentInInstallments = new PaymentInInstallments();
+$fifthPaymentInInstallmentsDAO = new FifthPaymentInInstallmentsDAO();
+
+$fourthPaymentInInstallments = new PaymentInInstallments();
+$fourthPaymentInInstallmentsDAO = new FourthPaymentInInstallmentsDAO();
+
+$sixthPaymentInInstallments = new PaymentInInstallments();
+$sixthPaymentInInstallmentsDAO = new SixthPaymentInInstallmentsDAO();
 
 use Dompdf\Dompdf;
 
@@ -27,6 +66,19 @@ if (isset($_GET["pdf"])) {
     $cnh = $cnhDAO->findByClientId($idClient);
     $rates = $ratesDAO->findByClientId($idClient);
 
+    $cashPayment = $cashPaymentDAO->findByClientId($idClient);
+    $courseOnSight = $courseOnSightDAO->findByClientId($idClient);
+
+
+    $firstPaymentInInstallments = $firstPaymentInInstallmentsDAO->findByClientId($idClient);        
+    $secondPaymentInInstallments = $secondPaymentInInstallmentsDAO->findByClientId($idClient);
+    $thirdPaymentInInstallments = $thirdPaymentInInstallmentsDAO->findByClientId($idClient);
+
+    $fifthPaymentInInstallments = $fifthPaymentInInstallmentsDAO->findByClientId($idClient);
+    $fourthPaymentInInstallments = $fourthPaymentInInstallmentsDAO->findByClientId($idClient);
+    $sixthPaymentInInstallments = $sixthPaymentInInstallmentsDAO->findByClientId($idClient);
+
+    $Email = !empty($client->getEmail()) ? $client->getEmail() : "Campo em branco";
 
     if ($client  and $cnh and $rates) {
 $dados = "<!DOCTYPE html>";
@@ -84,7 +136,7 @@ $dados = "<style>
   
           <tr>
               <td class='formField'><strong>Email:</strong></td>
-              <td class='formField'>" . $client->getEmail() . "</td>
+              <td class='formField'>" . $Email . "</td>
           </tr>
   
           <tr>
@@ -241,7 +293,203 @@ $dados = "<style>
               <td class='formField'>" . $rates->getExamD() . "</td>
           </tr>
       </table>
+      <br><br>
+
+      <table>
+          <tr>
+              <td colspan='2'><strong>Dados de pagamento a vista</strong></td>
+          </tr>
+  
+          <tr>
+              <td class='formField'><strong>Teórico:</strong></td>
+              <td class='formField'>" . $cashPayment->getValueCashPayment() . "</td>
+          </tr>
+  
+          <tr>
+              <td class='formField'><strong>Pratico de Carro:</strong></td>
+              <td class='formField'>" . $cashPayment->getDateCashPayment() . "</td>
+          </tr>
+      </table>
           <br><br>
+
+          <table>
+          <tr>
+              <td colspan='2'><strong>Dados de curso a vista</strong></td>
+          </tr>
+  
+          <tr>
+              <td class='formField'><strong>Valor do curso:</strong></td>
+              <td class='formField'>" . $courseOnSight->getValueCourseOnSight() . "</td>
+          </tr>
+  
+          <tr>
+              <td class='formField'><strong>Data de pagamento do curso:</strong></td>
+              <td class='formField'>" . $courseOnSight->getDateCourseOnSight() . "</td>
+          </tr>
+      </table>
+      <br><br>
+
+      <table>
+      <tr>
+          <td colspan='2'><strong>Primeira Parcela</strong></td>
+      </tr>
+
+      <tr>
+          <td class='formField'><strong>Valor da parcela:</strong></td>
+          <td class='formField'>" . $firstPaymentInInstallments->getInstallmentValue() . "</td>
+      </tr>
+
+      <tr>
+          <td class='formField'><strong>Data de pagamento da parcela:</strong></td>
+          <td class='formField'>" . $firstPaymentInInstallments->getInstallmentDate() . "</td>
+      </tr>
+
+      <tr>
+        <td class='formField'><strong>Modo de parcelamento</strong></td>
+        <td class='formField'>" . $firstPaymentInInstallments->getInstallmentMode() . "</td>
+    </tr>
+
+    <tr>
+        <td class='formField'><strong>Status de parcela:</strong></td>
+        <td class='formField'>" . $firstPaymentInInstallments->getInstallmentStatus() . "</td>
+    </tr>
+  </table>
+  <br><br>
+
+  <table>
+  <tr>
+      <td colspan='2'><strong>Segunda Parcela</strong></td>
+  </tr>
+
+  <tr>
+      <td class='formField'><strong>Valor da parcela:</strong></td>
+      <td class='formField'>" . $secondPaymentInInstallments->getInstallmentValue() . "</td>
+  </tr>
+
+  <tr>
+      <td class='formField'><strong>Data de pagamento da parcela:</strong></td>
+      <td class='formField'>" . $secondPaymentInInstallments->getInstallmentDate() . "</td>
+  </tr>
+
+  <tr>
+    <td class='formField'><strong>Modo de parcelamento</strong></td>
+    <td class='formField'>" . $secondPaymentInInstallments->getInstallmentMode() . "</td>
+</tr>
+
+<tr>
+    <td class='formField'><strong>Status de parcela:</strong></td>
+    <td class='formField'>" . $secondPaymentInInstallments->getInstallmentStatus() . "</td>
+</tr>
+</table>
+<br><br>
+
+<table>
+<tr>
+    <td colspan='2'><strong>Terceira Parcela</strong></td>
+</tr>
+
+<tr>
+    <td class='formField'><strong>Valor da parcela:</strong></td>
+    <td class='formField'>" . $thirdPaymentInInstallments->getInstallmentValue() . "</td>
+</tr>
+
+<tr>
+    <td class='formField'><strong>Data de pagamento da parcela:</strong></td>
+    <td class='formField'>" . $thirdPaymentInInstallments->getInstallmentDate() . "</td>
+</tr>
+
+<tr>
+  <td class='formField'><strong>Modo de parcelamento</strong></td>
+  <td class='formField'>" . $thirdPaymentInInstallments->getInstallmentMode() . "</td>
+</tr>
+
+<tr>
+  <td class='formField'><strong>Status de parcela:</strong></td>
+  <td class='formField'>" . $thirdPaymentInInstallments->getInstallmentStatus() . "</td>
+</tr>
+</table>
+<br><br>
+
+<table>
+<tr>
+    <td colspan='2'><strong>Quarta Parcela</strong></td>
+</tr>
+
+<tr>
+    <td class='formField'><strong>Valor da parcela:</strong></td>
+    <td class='formField'>" . $fourthPaymentInInstallments->getInstallmentValue() . "</td>
+</tr>
+
+<tr>
+    <td class='formField'><strong>Data de pagamento da parcela:</strong></td>
+    <td class='formField'>" . $fourthPaymentInInstallments->getInstallmentDate() . "</td>
+</tr>
+
+<tr>
+  <td class='formField'><strong>Modo de parcelamento</strong></td>
+  <td class='formField'>" . $fourthPaymentInInstallments->getInstallmentMode() . "</td>
+</tr>
+
+<tr>
+  <td class='formField'><strong>Status de parcela:</strong></td>
+  <td class='formField'>" . $fourthPaymentInInstallments->getInstallmentStatus() . "</td>
+</tr>
+</table>
+<br><br>
+
+<table>
+<tr>
+    <td colspan='2'><strong>Quinta Parcela</strong></td>
+</tr>
+
+<tr>
+    <td class='formField'><strong>Valor da parcela:</strong></td>
+    <td class='formField'>" . $fifthPaymentInInstallments->getInstallmentValue() . "</td>
+</tr>
+
+<tr>
+    <td class='formField'><strong>Data de pagamento da parcela:</strong></td>
+    <td class='formField'>" . $fifthPaymentInInstallments->getInstallmentDate() . "</td>
+</tr>
+
+<tr>
+  <td class='formField'><strong>Modo de parcelamento</strong></td>
+  <td class='formField'>" . $fifthPaymentInInstallments->getInstallmentMode() . "</td>
+</tr>
+
+<tr>
+  <td class='formField'><strong>Status de parcela:</strong></td>
+  <td class='formField'>" . $fifthPaymentInInstallments->getInstallmentStatus() . "</td>
+</tr>
+</table><br><br>
+
+<table>
+<tr>
+    <td colspan='2'><strong>Quinta Parcela</strong></td>
+</tr>
+
+<tr>
+    <td class='formField'><strong>Valor da parcela:</strong></td>
+    <td class='formField'>" . $sixthPaymentInInstallments->getInstallmentValue() . "</td>
+</tr>
+
+<tr>
+    <td class='formField'><strong>Data de pagamento da parcela:</strong></td>
+    <td class='formField'>" . $sixthPaymentInInstallments->getInstallmentDate() . "</td>
+</tr>
+
+<tr>
+  <td class='formField'><strong>Modo de parcelamento</strong></td>
+  <td class='formField'>" . $sixthPaymentInInstallments->getInstallmentMode() . "</td>
+</tr>
+
+<tr>
+  <td class='formField'><strong>Status de parcela:</strong></td>
+  <td class='formField'>" . $sixthPaymentInInstallments->getInstallmentStatus() . "</td>
+</tr>
+</table>
+<br><br>
+
           <h2 style='text-align: right;'>Auto Escola Lider</h2>";
 
     $dados .= "<hr>";   
