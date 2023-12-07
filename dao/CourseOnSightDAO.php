@@ -20,5 +20,35 @@ class CourseOnSightDAO
              throw new Exception("Erro ao inserir CashPayment: " . $e->getMessage());
         }
     }
+
+    private function listaCourseOnSight($row) {
+        $courseOnSight = new CourseOnSight();
+        $courseOnSight->setidCourseOnSight($row['idCourseOnSight']);
+        $courseOnSight->setValueCourseOnSight($row['value_course_on_sight']);
+        $courseOnSight->setDateCourseOnSight($row['date_course_on_sight']);
+        $courseOnSight->setIdClient($row['idclient']);
+
+        $courseOnSight->setIdclient($row['idclient']);
+
+        return $courseOnSight;
+    }
+
+    public function findByClientId($idClient) {
+        try {
+            $sql = "SELECT * FROM tb_course_on_sight WHERE idclient = :idclient";
+            $p_sql = Conexao::getConexao()->prepare($sql);
+            $p_sql->bindValue(":idclient", $idClient);
+            $p_sql->execute();
+            $row = $p_sql->fetch(PDO::FETCH_ASSOC);
+    
+            if ($row) {
+                return $this->listaCourseOnSight($row);
+            } else {
+                return null;                
+            }
+        } catch (Exception $e) {
+            print "Ocorreu um erro ao tentar buscar a taxas por ID do Cliente: " . $e;
+        }
+    }
 }
 ?>

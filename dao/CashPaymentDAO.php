@@ -20,5 +20,35 @@ class CashPaymentDAO
              throw new Exception("Erro ao inserir CashPayment: " . $e->getMessage());
         }
     }
+
+    private function listaCashPayment($row) {
+        $cashPayment = new CashPayment();
+        $cashPayment->setidCashPayment($row['idCourseOnSight']);
+        $cashPayment->setValueCashPayment($row['value_cash_payment']);
+        $cashPayment->setDateCashPayment($row['date_cash_payment']);
+        $cashPayment->setIdClient($row['idclient']);
+
+        $cashPayment->setIdclient($row['idclient']);
+
+        return $cashPayment;
+    }
+
+    public function findByClientId($idClient) {
+        try {
+            $sql = "SELECT * FROM tb_cash_payment WHERE idclient = :idclient";
+            $p_sql = Conexao::getConexao()->prepare($sql);
+            $p_sql->bindValue(":idclient", $idClient);
+            $p_sql->execute();
+            $row = $p_sql->fetch(PDO::FETCH_ASSOC);
+    
+            if ($row) {
+                return $this->listaCashPayment($row);
+            } else {
+                return null;                
+            }
+        } catch (Exception $e) {
+            print "Ocorreu um erro ao tentar buscar a taxas por ID do Cliente: " . $e;
+        }
+    }
 }
 ?>

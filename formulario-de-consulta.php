@@ -6,12 +6,29 @@ include_once('include/header.php');
 include_once('include/topbar.php');
 include_once('include/navbar.php');
 include_once('./conexao/Conexao.php');
+
 include_once('./model/Client.php');
 include_once('./dao/ClientDAO.php');
+
 include_once('./model/Cnh.php');
 include_once('./dao/CnhDAO.php');
+
 include_once('./model/Rates.php');
 include_once('./dao/RatesDAO.php');
+
+include_once('./model/CourseOnSight.php');
+include_once('./dao/CourseOnSightDAO.php');
+
+include_once('./model/CashPayment.php');
+include_once('./dao/CashPaymentDAO.php');
+
+include_once('./model/PaymentInInstallments.php');
+include_once('./dao/FirstPaymentInInstallmentsDAO.php');
+include_once('./dao/SecondPaymentInInstallmentsDAO.php');
+include_once('./dao/ThirdPaymentInInstallmentsDAO.php');
+include_once('./dao/FifthPaymentInInstallmentsDAO.php');
+include_once('./dao/FourthPaymentInInstallmentsDAO.php');
+include_once('./dao/SixthPaymentInInstallmentsDAO.php');
 
 $client = new Client();
 $clientDAO = new ClientDAO();
@@ -21,6 +38,30 @@ $cnhDAO = new CnhDAO();
 
 $rates = new Rates();
 $ratesDAO = new RatesDAO();
+
+$courseOnSight = new CourseOnSight();
+$courseOnSightDAO = new CourseOnSightDAO();
+
+$cashPayment = new CashPayment();
+$cashPaymentDAO = new CashPaymentDAO();
+
+$firstPaymentInInstallments = new PaymentInInstallments();
+$firstPaymentInInstallmentsDAO = new FirstPaymentInInstallmentsDAO();
+
+$secondPaymentInInstallments = new PaymentInInstallments();
+$secondPaymentInInstallmentsDAO = new SecondPaymentInInstallmentsDAO();
+
+$thirdPaymentInInstallments = new PaymentInInstallments();
+$thirdPaymentInInstallmentsDAO = new ThirdPaymentInInstallmentsDAO();
+
+$fifthPaymentInInstallments = new PaymentInInstallments();
+$fifthPaymentInInstallmentsDAO = new FifthPaymentInInstallmentsDAO();
+
+$fourthPaymentInInstallments = new PaymentInInstallments();
+$fourthPaymentInInstallmentsDAO = new FourthPaymentInInstallmentsDAO();
+
+$sixthPaymentInInstallments = new PaymentInInstallments();
+$sixthPaymentInInstallmentsDAO = new SixthPaymentInInstallmentsDAO();
 ?>
 
 <body>
@@ -34,6 +75,17 @@ $ratesDAO = new RatesDAO();
 
         $cnh = $cnhDAO->findByClientId($idClient);
         $rates = $ratesDAO->findByClientId($idClient);
+
+        $courseOnSight = $courseOnSightDAO->findByClientId($idClient);
+        $cashPayment = $cashPaymentDAO->findByClientId($idClient);
+
+        $firstPaymentInInstallments = $firstPaymentInInstallmentsDAO->findByClientId($idClient);
+        $secondPaymentInInstallments = $secondPaymentInInstallmentsDAO->findByClientId($idClient);
+        $thirdPaymentInInstallments = $thirdPaymentInInstallmentsDAO->findByClientId($idClient);
+
+        $fifthPaymentInInstallments = $fifthPaymentInInstallmentsDAO->findByClientId($idClient);
+        $fourthPaymentInInstallments = $fourthPaymentInInstallmentsDAO->findByClientId($idClient);
+        $sixthPaymentInInstallments = $sixthPaymentInInstallmentsDAO->findByClientId($idClient);
 
         if ($client  and $cnh and $rates) {
     ?>
@@ -191,6 +243,184 @@ $ratesDAO = new RatesDAO();
                             <tr>
                                 <th class="col-sm-6">Data Exame D:</th>
                                 <td><?php echo $rates->getExamD(); ?></td>
+                            </tr>
+                        </table>
+
+                        <table class="table table-bordered mt-4">
+                            <br><br><br><br>
+                            <tr>
+                                <td colspan='2' class="h4"><strong>Dados de pagamento a vista</strong></td>
+                            </tr>
+
+                            <tr>
+                                <th class="col-sm-6">Valor do Pagamento:</th>
+                                <td><?php echo $cashPayment->getValueCashPayment(); ?></td>
+                            </tr>
+                            <tr>
+                                <th class="col-sm-6">Data de pagamento:</th>
+                                <td><?php echo $cashPayment->getDateCashPayment(); ?></td>
+                            </tr>
+
+                        </table>
+
+                        <table class="table table-bordered mt-4">
+                            <br><br><br><br>
+                            <tr>
+                                <td colspan='2' class="h4"><strong>Dados de curso a vista</strong></td>
+                            </tr>
+
+                            <tr>
+                                <th class="col-sm-6">Valor do curso:</th>
+                                <td><?php echo $courseOnSight->getValueCourseOnSight(); ?></td>
+                            </tr>
+                            <tr>
+                                <th class="col-sm-6">Data de pagamento do curso:</th>
+                                <td><?php echo $courseOnSight->getDateCourseOnSight(); ?></td>
+                            </tr>
+
+                        </table>
+
+                        <table class="table table-bordered mt-4">
+                            <br><br><br><br>
+                            <tr>
+                                <td colspan='2' class="h4"><strong>Primeira Parcela</strong></td>
+                            </tr>
+
+                            <tr>
+                                <th class="col-sm-6">Valor da parcela:</th>
+                                <td><?php echo $firstPaymentInInstallments->getInstallmentValue(); ?></td>
+                            </tr>
+                            <tr>
+                                <th class="col-sm-6">Data de pagamento da parcela:</th>
+                                <td><?php echo $firstPaymentInInstallments->getInstallmentDate(); ?></td>
+                            </tr>
+                            <tr>
+                                <th class="col-sm-6">Modo de parcelamento</th>
+                                <td><?php echo $firstPaymentInInstallments->getInstallmentMode(); ?></td>
+                            </tr>
+                            <tr>
+                                <th class="col-sm-6">Status de parcela:</th>
+                                <td><?php echo $firstPaymentInInstallments->getInstallmentStatus(); ?></td>
+                            </tr>
+                        </table>
+
+                        <table class="table table-bordered mt-4">
+                            <br><br><br><br>
+                            <tr>
+                                <td colspan='2' class="h4"><strong>Segunda Parcela</strong></td>
+                            </tr>
+
+                            <tr>
+                                <th class="col-sm-6">Valor da parcela:</th>
+                                <td><?php echo $secondPaymentInInstallments->getInstallmentValue(); ?></td>
+                            </tr>
+                            <tr>
+                                <th class="col-sm-6">Data de pagamento da parcela:</th>
+                                <td><?php echo $secondPaymentInInstallments->getInstallmentDate(); ?></td>
+                            </tr>
+                            <tr>
+                                <th class="col-sm-6">Modo de parcelamento</th>
+                                <td><?php echo $secondPaymentInInstallments->getInstallmentMode(); ?></td>
+                            </tr>
+                            <tr>
+                                <th class="col-sm-6">Status de parcela:</th>
+                                <td><?php echo $secondPaymentInInstallments->getInstallmentStatus(); ?></td>
+                            </tr>
+                        </table>
+
+                        <table class="table table-bordered mt-4">
+                            <br><br><br><br>
+                            <tr>
+                                <td colspan='2' class="h4"><strong>Terceira Parcela</strong></td>
+                            </tr>
+
+                            <tr>
+                                <th class="col-sm-6">Valor da parcela:</th>
+                                <td><?php echo $thirdPaymentInInstallments->getInstallmentValue(); ?></td>
+                            </tr>
+                            <tr>
+                                <th class="col-sm-6">Data de pagamento da parcela:</th>
+                                <td><?php echo $thirdPaymentInInstallments->getInstallmentDate(); ?></td>
+                            </tr>
+                            <tr>
+                                <th class="col-sm-6">Modo de parcelamento</th>
+                                <td><?php echo $thirdPaymentInInstallments->getInstallmentMode(); ?></td>
+                            </tr>
+                            <tr>
+                                <th class="col-sm-6">Status de parcela:</th>
+                                <td><?php echo $thirdPaymentInInstallments->getInstallmentStatus(); ?></td>
+                            </tr>
+                        </table>
+
+                        <table class="table table-bordered mt-4">
+                            <br><br><br><br>
+                            <tr>
+                                <td colspan='2' class="h4"><strong>Quarta Parcela</strong></td>
+                            </tr>
+
+                            <tr>
+                                <th class="col-sm-6">Valor da parcela:</th>
+                                <td><?php echo $fourthPaymentInInstallments->getInstallmentValue(); ?></td>
+                            </tr>
+                            <tr>
+                                <th class="col-sm-6">Data de pagamento da parcela:</th>
+                                <td><?php echo $fourthPaymentInInstallments->getInstallmentDate(); ?></td>
+                            </tr>
+                            <tr>
+                                <th class="col-sm-6">Modo de parcelamento</th>
+                                <td><?php echo $fourthPaymentInInstallments->getInstallmentMode(); ?></td>
+                            </tr>
+                            <tr>
+                                <th class="col-sm-6">Status de parcela:</th>
+                                <td><?php echo $fourthPaymentInInstallments->getInstallmentStatus(); ?></td>
+                            </tr>
+                        </table>
+
+                        <table class="table table-bordered mt-4">
+                            <br><br><br><br>
+                            <tr>
+                                <td colspan='2' class="h4"><strong>Quinta Parcela</strong></td>
+                            </tr>
+
+                            <tr>
+                                <th class="col-sm-6">Valor da parcela:</th>
+                                <td><?php echo $fifthPaymentInInstallments->getInstallmentValue(); ?></td>
+                            </tr>
+                            <tr>
+                                <th class="col-sm-6">Data de pagamento da parcela:</th>
+                                <td><?php echo $fifthPaymentInInstallments->getInstallmentDate(); ?></td>
+                            </tr>
+                            <tr>
+                                <th class="col-sm-6">Modo de parcelamento</th>
+                                <td><?php echo $fifthPaymentInInstallments->getInstallmentMode(); ?></td>
+                            </tr>
+                            <tr>
+                                <th class="col-sm-6">Status de parcela:</th>
+                                <td><?php echo $fifthPaymentInInstallments->getInstallmentStatus(); ?></td>
+                            </tr>
+                        </table>
+
+                        <table class="table table-bordered mt-4">
+                            <br><br><br><br>
+                            <tr>
+                                <td colspan='2' class="h4"><strong>Sexta Parcela</strong></td>
+                            </tr>
+
+                            <tr>
+                                <th class="col-sm-6">Valor da parcela:</th>
+                                <td><?php echo $sixthPaymentInInstallments->getInstallmentValue(); ?></td>
+                            </tr>
+                            <tr>
+                                <th class="col-sm-6">Data de pagamento da parcela:</th>
+                                <td><?php echo $sixthPaymentInInstallments->getInstallmentDate(); ?></td>
+                            </tr>
+                            <tr>
+                                <th class="col-sm-6">Modo de parcelamento</th>
+                                <td><?php echo $sixthPaymentInInstallments->getInstallmentMode(); ?></td>
+                            </tr>
+                            <tr>
+                                <th class="col-sm-6">Status de parcela:</th>
+                                <td><?php echo $sixthPaymentInInstallments->getInstallmentStatus(); ?></td>
                             </tr>
                         </table>
                         <div class="row justify-content-between mt-8 text-center">
