@@ -14,7 +14,7 @@
         $rates->setPractice1(($d['practice1']));
         $rates->setPractice2(($d['practice2']));
 
-        $rates->setEmissionCnh(($d['emission_cnh']));
+        $rates->setEmissionCnh(($d['emission_rates']));
         $rates->setDisapprove(($d['disapprove']));
         $rates->setExamA(($d['exam_a']));
 
@@ -28,23 +28,28 @@
         header("Location: ../cadastro-de-pagamento.php");
     }
 
-    else if(isset($_POST['editar'])) {
+    else if(isset($_POST['edit'])) {
 
         $rates->setIdRates(($d['idrates']));
-        $rates->setTheoretic(($d['theoretical']));
-        $rates->setPractice1(($d['practiceCar']));
-        $rates->setPractice2(($d['practicalMotorcycle']));
+        $rates->setTheoretic(($d['theoretic']));
+        $rates->setPractice1(($d['practice1']));
 
-        $rates->setEmissionCnh(($d['cnh']));
+        $rates->setPractice2(($d['practice2']));
+        $rates->setEmissionCnh(($d['emission_rates']));
         $rates->setDisapprove(($d['disapprove']));
-        $rates->setExamA(($d['dateExameA']));
 
-        $rates->setExamB(($d['dateExameB']));
-        $rates->setExamD(($d['dateExameD']));
+        $rates->setExamA(($d['exam_a']));
+        $rates->setExamB(($d['exam_b']));
+        $rates->setExamD(($d['exam_d']));
+
+        $rates->setIdClient(($d['idclient']));
     
         $ratesDAO->update($rates);
-    
-        header("Location: ../controle-de-alunos.php");
+
+        $idclient = $rates->getIdClient();
+
+        header("Location: ../alterar-pagamento.phpal=$idclient");
+
     }
 
 

@@ -83,11 +83,11 @@ $clientdao = new ClientDAO();
                                 <div class="row mb-3 ml-1">
                                     <div class="col-sm-6  mt-3">
                                         <label for="dateExameB" class="form-label">Data Exame B:</label>
-                                        <input type="date" class="form-control" id="dateExameB" name="exam_a">
+                                        <input type="date" class="form-control" id="dateExameB" name="exam_b" required>
                                     </div>
                                     <div class="col-sm-6  mt-3">
                                         <label for="dateExameD" class="form-label">Data Exame D:</label>
-                                        <input type="date" class="form-control" id="dateExameD" name="exam_d">
+                                        <input type="date" class="form-control" id="dateExameD" name="exam_d" required>
                                     </div>
                                 </div>
 
