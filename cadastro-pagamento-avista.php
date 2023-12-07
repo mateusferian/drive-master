@@ -61,14 +61,14 @@ $cashPaymentDAO = new CashPaymentDAO();
                                             <td>
                                                 <input type="text" class="form-control" id="value_cash_payment" name="value_cash_payment" 
                                                     step="0.01" placeholder="Digite o valor à vista" 
-                                                    pattern="^\d{1,3}(,\d{3})*(\.\d{1,2})?$" title="Por favor, insira um valor válido. Exemplo: 1.000,00">
+                                                    pattern="^\d{1,3}(,\d{3})*(\.\d{1,2})?$" title="Por favor, insira um valor válido. Exemplo: 1.000,00" required>
                                             </td>
 
                                             </tr>
                                             <tr>
                                                 <td>
                                                     <input type="date" class="form-control" id="date_cash_payment"
-                                                        name="date_cash_payment">
+                                                        name="date_cash_payment" required>
                                                 </td>
                                             </tr>
 

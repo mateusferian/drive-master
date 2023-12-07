@@ -77,18 +77,19 @@ $sixthPaymentInInstallmentsDAO = new SixthPaymentInInstallmentsDAO();
                                                 <td>
                                                     <input type="text" class="form-control"
                                                         name="valueOfInstallment<?= $i ?>" step="0.01"
-                                                        placeholder="Digite o valor da <?= $i ?>ª parcela">
+                                                        placeholder="Digite o valor da <?= $i ?>ª parcela" 
+                                                        pattern="^\d{1,3}(,\d{3})*(\.\d{1,2})?$" title="Por favor, insira um valor válido. Exemplo: 1.000,00" required>
                                                 </td>
                                             </tr>
                                             <tr>
                                                 <td>
                                                     <input type="date" class="form-control"
-                                                        name="dateOfInstallment<?= $i ?>">
+                                                        name="dateOfInstallment<?= $i ?>" required>
                                                 </td>
                                             </tr>
                                             <tr>
                                                 <td>
-                                                    <select name="installmentMode<?= $i ?>" class="form-select">
+                                                    <select name="installmentMode<?= $i ?>" class="form-select" required>
                                                         <option selected>forma de pagamento dessa parcela</option>
                                                         <option>Parcelado no cartão</option>
                                                         <option>Parcelado no carnê</option>
@@ -97,7 +98,7 @@ $sixthPaymentInInstallmentsDAO = new SixthPaymentInInstallmentsDAO();
                                             </tr>
                                             <tr>
                                                 <td>
-                                                    <select name="paymentStatus<?= $i ?>" class="form-select">
+                                                    <select name="paymentStatus<?= $i ?>" class="form-select" required>
                                                         <option selected>Situação de pagamento</option>
                                                         <option>Pagamento realizado</option>
                                                         <option>Em aberto</option>

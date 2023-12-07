@@ -54,7 +54,7 @@ $clientdao = new ClientDAO();
                                         <div class="col-sm-10 mx-auto text-center">
                                             <br>
                                             <div class="form-check form-check-inline ml-4 mr-4">
-                                                <input class="form-check-input" type="radio" name="type_cnh" id="1 Habilitação" value="1 Habilitação" checked>
+                                                <input class="form-check-input" type="radio" name="type_cnh" id="1 Habilitação" value="1 Habilitação" checked required>
                                                 <label class="form-check-label" for="1 Habilitação">
                                                     1 Habilitação
                                                 </label>
@@ -77,14 +77,15 @@ $clientdao = new ClientDAO();
                                 <div class="row ml-1">
                                     <div class="col-sm-5 mt-3">
                                         <label for="registrationNumber" class="form-label">Numero de registro:</label>
-                                        <input type="text" class="form-control" id="registrationNumber" name="registration_number" placeholder="Digite o numero de registro">
+                                        <input type="text" class="form-control" id="registrationNumber" name="registration_number" placeholder="Digite o numero de registro" 
+                                        pattern="[0-9]+" title="Apenas números são permitidos"required>
                                     </div>
                                 </div>
 
                                 <div class="row ml-1">
                                     <div class="col-sm-4 mt-3">
                                         <label for="category" class="form-label">Categoria</label>
-                                        <select id="category" name="category" class="form-select">
+                                        <select id="category" name="category" class="form-select" required>
                                             <option selected>Informe qual categoria o aluno irá fazer</option>
                                             <option value="A">A</option>
                                             <option value="B">B</option>
@@ -94,11 +95,11 @@ $clientdao = new ClientDAO();
                                     </div>
                                     <div class="col-sm-4  mt-3">
                                         <label for="dateOfMedicExam" class="form-label">Data do exame médico:</label>
-                                        <input type="date" class="form-control" id="dateOfMedicExam" name="medical_exam">
+                                        <input type="date" class="form-control" id="dateOfMedicExam" name="medical_exam" required>
                                     </div>
                                     <div class="col-sm-4  mt-3">
                                         <label for="biometricUpdate" class="form-label">Atualização Biometrica:</label>
-                                        <input type="date" class="form-control" id="biometricUpdate" name="biometric_update">
+                                        <input type="date" class="form-control" id="biometricUpdate" name="biometric_update" required>
                                     </div>
                                 </div>
 

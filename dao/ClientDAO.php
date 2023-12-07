@@ -30,10 +30,26 @@
                 
                 $p_sql->execute();
                 
-
-            } catch (Exception $e) {
-                print "Erro ao Inserir Cliente <br>" . $e . '<br>';
-            }      
+                echo "<script>
+                Swal.fire({
+                    icon: 'success',
+                    title: 'Cadastro realizado com sucesso!',
+                    customClass: {
+                        popup: 'swalFire',
+                        icon: 'swalIcon'
+                    },
+                    showConfirmButton: false,
+                    allowOutsideClick: false  
+                });
+        
+                setTimeout(function() {
+                    window.location.href = 'index.php';
+                }, 4000);
+            </script>";
+            
+            } catch (PDOException $erro) {
+        echo $erro->getMessage();
+      }   
         }
 
         private function clientList($row) {

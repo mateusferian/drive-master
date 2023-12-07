@@ -44,7 +44,7 @@ $clientdao = new ClientDAO();
                                                 <div class="form-check">
                                                     <input class="form-check-input" type="radio" value="cashPayment"
                                                         id="flexCheckCash" name="installmentType"
-                                                        data-target="advancePayment">
+                                                        data-target="advancePayment" required>
                                                     <label class="form-check-label" for="flexCheckCash">Modo a
                                                         vista:</label>
                                                 </div>
@@ -54,7 +54,7 @@ $clientdao = new ClientDAO();
                                                 <div class="form-check">
                                                     <input class="form-check-input" type="radio" value="installment"
                                                         id="installment" name="installmentType"
-                                                        data-target="firstPaymentInstallment">
+                                                        data-target="firstPaymentInstallment" required>
                                                     <label class="form-check-label"
                                                         for="installment">Parcelamento</label>
                                                 </div>
@@ -64,7 +64,7 @@ $clientdao = new ClientDAO();
                                                 <div class="form-check">
                                                     <input class="form-check-input" type="radio" value="courseToView"
                                                         id="flexCheckCourse" name="installmentType"
-                                                        data-target="secondPaymentInstallment">
+                                                        data-target="secondPaymentInstallment" required>
                                                     <label class="form-check-label" for="flexCheckCourse">Curso a
                                                         vista:</label>
                                                 </div>
