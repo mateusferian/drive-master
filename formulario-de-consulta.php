@@ -68,10 +68,18 @@ $sixthPaymentInInstallmentsDAO = new SixthPaymentInInstallmentsDAO();
 <body>
     <main>
         <?php
-    if ((isset($_GET["consulta"])) || (isset($_GET["fixa-do-aluno"]))) {
-        $idClient = isset($_GET["consulta"]) ? $_GET["consulta"] : (isset($_GET["fixa-do-aluno"]) ? $_GET["fixa-do-aluno"] : null);
-
-
+    if ((isset($_GET["consulta"])) || (isset($_GET["fixa-do-aluno"])) || (isset($_GET["aluno-alterado"]))) {
+        
+        if (isset($_GET["consulta"])) {
+            $idClient = $_GET["consulta"];
+        } elseif (isset($_GET["fixa-do-aluno"])) {
+            $idClient = $_GET["fixa-do-aluno"];
+        } elseif (isset($_GET["aluno-alterado"])) {
+            $idClient = $_GET["aluno-alterado"];
+        } else {
+            $idClient = null;
+        }
+        
         $client = $clientDAO->findById($idClient);
 
         $cnh = $cnhDAO->findByClientId($idClient);

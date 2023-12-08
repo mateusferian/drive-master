@@ -101,5 +101,5 @@ if (isset($_POST['edit'])) {
         }
     }
 
-    header("Location: ../asasas.php?casa=" . $paymentInInstallments->getIdPaymentInInstallments());
+    header("Location: ../formulario-de-consulta.php?aluno-alterado=" . $idClient);
 }
