@@ -69,7 +69,7 @@ $sixthPaymentInInstallmentsDAO = new SixthPaymentInInstallmentsDAO();
     <main>
         <?php
     if ((isset($_GET["consulta"])) || (isset($_GET["fixa-do-aluno"])) || (isset($_GET["aluno-alterado"]))) {
-        
+
         if (isset($_GET["consulta"])) {
             $idClient = $_GET["consulta"];
         } elseif (isset($_GET["fixa-do-aluno"])) {
@@ -362,9 +362,9 @@ $sixthPaymentInInstallmentsDAO = new SixthPaymentInInstallmentsDAO();
 
                             <div class="col-4">
                                 <br><br>
-                                <a href="gerar-pdf-do-aluno.php?pdf=<?= $client->getIdClient() ?>">
+                                <a href="alterar-aluno.php?al=<?= $client->getIdClient() ?>">
                                     <button type="button" name="voltar" class="btn customButton"
-                                        onclick="window.location.href = 'gerar-pdf-do-aluno.php?pdf=<?= $client->getIdClient() ?>'">Alterar
+                                        onclick="window.location.href = 'alterar-aluno.php?al=<?= $client->getIdClient() ?>'">Alterar
                                         dados do aluno</button>
                                     <br><br>
                                 </a>
