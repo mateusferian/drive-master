@@ -17,4 +17,16 @@
 
         header("Location: ../cadastro-de-taxa.php");
     }
+
+    else if(isset($_POST['edit'])){
+
+        $cashPayment->setidCashPayment(($d['idcash']));
+        $cashPayment->setValueCashPayment(($d['value_cash_payment']));
+        $cashPayment->setDateCashPayment(($d['date_cash_payment']));
+        $cashPayment->setIdClient(($d['idclient']));
+
+        $cashPaymentDAO->update($cashPayment);
+
+        header("Location: ../controle-de-aluno.php");
+    }
 ?>

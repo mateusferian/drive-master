@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
-<script src="js/progressBar.js"></script>
+<script src="js/progressionOfChanging.js"></script>
 <?php
 include_once('restrito.php');
 include_once('include/header.php');
@@ -37,7 +37,7 @@ $clientdao = new ClientDAO();
 
                         <div class="card-header">
                             <h4 class="text-center font-weight-light my-4">
-                                <span class="h3">Cadastro de Aluno</span>
+                                <span class="h3">Alterar Aluno</span>
                                 <small class="d-block">Dados de Taxas</small>
                             </h4>
                         </div>

@@ -48,8 +48,7 @@
 
         $idclient = $rates->getIdClient();
 
-        header("Location: ../alterar-pagamento.phpal=$idclient");
-
+        header("Location: PaymentController.php?al=$idclient");
     }
 
 
