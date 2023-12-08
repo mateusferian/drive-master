@@ -22,6 +22,32 @@ class FifthPaymentInInstallmentsDAO
         }
     }
 
+    public function update(PaymentInInstallments $paymentInInstallments)
+    {
+        try {
+            $sql = "UPDATE tbl_fifth_installment SET
+                idPaymentInInstallments = :idPaymentInInstallments,
+                installment_value = :installment_value,
+                installment_date = :installment_date,
+                installment_mode = :installment_mode,
+                installment_status = :installment_status,
+                idclient = :idclient
+                WHERE idPaymentInInstallments = :idPaymentInInstallments";
+    
+            $p_sql = Conexao::getConexao()->prepare($sql);
+            $p_sql->bindValue(":idPaymentInInstallments", $paymentInInstallments->getIdPaymentInInstallments());
+            $p_sql->bindValue(":installment_value", $paymentInInstallments->getInstallmentValue());
+            $p_sql->bindValue(":installment_date", $paymentInInstallments->getInstallmentDate());
+            $p_sql->bindValue(":installment_mode", $paymentInInstallments->getInstallmentMode());
+            $p_sql->bindValue(":installment_status", $paymentInInstallments->getInstallmentStatus());
+            $p_sql->bindValue(":idclient", $paymentInInstallments->getIdClient());
+    
+            $result = $p_sql->execute();
+        } catch (Exception $e) {
+             print "Ocorreu um erro ao tentar fazer Update<br> $e <br>";
+        }
+    }
+
     private function listPaymentInInstallments($row) {
         $paymentInInstallments = new PaymentInInstallments();
         $paymentInInstallments->setIdPaymentInInstallments($row['idPaymentInInstallments']);

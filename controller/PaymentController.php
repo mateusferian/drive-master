@@ -7,6 +7,9 @@
     include_once('../model/CourseOnSight.php');
     include_once('../dao/CourseOnSightDAO.php');
 
+    include_once('../model/PaymentInInstallments.php');
+    include_once('../dao/FirstPaymentInInstallmentsDAO.php');
+
     $d = filter_input_array(INPUT_POST);
 
     $cashPayment = new CashPayment();
@@ -14,6 +17,9 @@
 
     $courseOnSight = new CourseOnSight();
     $courseOnSightDAO = new CourseOnSightDAO();
+
+    $firstPaymentInInstallments = new PaymentInInstallments();
+    $firstPaymentInInstallmentsDAO = new FirstPaymentInInstallmentsDAO();
 
     if(isset($_POST['save'])){
         $selectedValue = isset($_POST['installmentType']) ? $_POST['installmentType'] : '';
@@ -33,12 +39,17 @@
 
         $cashPayment = $cashPaymentDAO->findByClientId($idclient);
         $courseOnSight = $courseOnSightDAO->findByClientId($idclient);
+        $firstPaymentInInstallments = $firstPaymentInInstallmentsDAO->findByClientId($idclient);
 
         if($cashPayment){
         header("Location: ../alterar-pagamento-avista.php?al=$idclient");
         exit;
         }else if($courseOnSight){
             header("Location: ../alterar-curso-avista.php?al=$idclient");
+            exit;
+        }else if($firstPaymentInInstallments){
+            header("Location: ../alterar-pagamento-parcelado.php?al=$idclient");
+            exit;
         }
     }
 ?>

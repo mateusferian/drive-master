@@ -56,3 +56,50 @@ if (isset($_POST['save'])) {
 
     header("Location: ../formulario-de-consulta.php?fixa-do-aluno=" . $idClient);
 }
+
+if (isset($_POST['edit'])) {
+    $idClient = $_POST['idclient'];
+
+    for ($i = 1; $i <= 6; $i++) {
+
+        $paymentInInstallments = new PaymentInInstallments();
+        $idKey = 'IdPaymentInInstallments' . $i;
+
+        if (isset($_POST[$idKey])) {
+            $idFromForm = $_POST[$idKey];
+            $paymentInInstallments->setIdPaymentInInstallments($idFromForm);
+        }
+
+        $paymentInInstallments->setInstallmentValue($_POST['valueOfInstallment' . $i] ?? 0.00);
+        $paymentInInstallments->setInstallmentDate($_POST['dateOfInstallment' . $i] ?? date('Y-m-d'));
+        $paymentInInstallments->setInstallmentMode($_POST['installmentMode' . $i] ?? 'Parcelado no cartão');
+        $paymentInInstallments->setInstallmentStatus($_POST['paymentStatus' . $i] ?? 'Em aberto');
+        $paymentInInstallments->setIdClient($idClient);
+
+        switch ($i) {
+            case 1:
+                $firstPaymentInInstallmentsDAO->update($paymentInInstallments);
+                break;
+            case 2:
+                $secondPaymentInInstallmentsDAO->update($paymentInInstallments);
+                break;
+            case 3:
+                $thirdPaymentInInstallmentsDAO->update($paymentInInstallments);
+                break;
+            case 4:
+                $fourthPaymentInInstallmentsDAO->update($paymentInInstallments);
+                break;
+            case 5:
+                $fifthPaymentInInstallmentsDAO->update($paymentInInstallments);
+                break;
+            case 6:
+                $sixthPaymentInInstallmentsDAO->update($paymentInInstallments);
+                break;
+            default:
+                // Handle unexpected value
+                break;
+        }
+    }
+
+    header("Location: ../asasas.php?casa=" . $paymentInInstallments->getIdPaymentInInstallments());
+}
