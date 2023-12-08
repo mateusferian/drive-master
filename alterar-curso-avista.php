@@ -23,6 +23,14 @@ $courseOnSightDAO = new CourseOnSightDAO();
 
 <body>
     <main>
+    <?php
+    if (isset($_GET["al"])) {
+        $idClient = $_GET["al"];
+
+        $courseOnSight = $courseOnSightDAO->findByClientId($idClient);
+
+        if ($courseOnSight) {
+    ?>
         <div class="container">
             <div class="row justify-content-center">
                 <div class="col-lg-10">
@@ -30,7 +38,7 @@ $courseOnSightDAO = new CourseOnSightDAO();
 
                         <div class="card-header">
                             <h4 class="text-center font-weight-light my-4">
-                                <span class="h3">Cadastro de Aluno</span>
+                            <span class="h3">Alterar Aluno</span>
                                 <small class="d-block">Dados de curso a vista</small>
                             </h4>
                         </div>
@@ -43,14 +51,21 @@ $courseOnSightDAO = new CourseOnSightDAO();
 
                         <div class="card-body">
                             <form id="form4" action="controller/CourseOnSightController.php" method="POST">
-                                <div class="row mb-3 ml-1" hidden>
-                                    <?php foreach ($clientdao->lastClient() as $client) : ?>
-                                        <div class="col-sm-2  mt-3">
-                                            <label for="idclient" class="form-label">Id Cliente:</label>
-                                            <input type="number" class="form-control" id="idclient" name="idclient" value="<?= $client->getIdClient() ?>" readonly>
-                                        </div>
-                                    <?php endforeach ?>
+                            <div class="col-sm-12  mt-3" hidden>
+                                    <label for="idcourseOnSight" class="form-label">Id do Curso:</label>
+                                    <input type="text" class="form-control" id="idcourseOnSight" name="idcourseOnSight"
+                                        placeholder="Digite o numero de registro" pattern="[0-9]+"
+                                        value="<?php if(isset($courseOnSight) && $courseOnSight->getidCourseOnSight()) { echo $courseOnSight->getidCourseOnSight(); } ?>"
+                                        readonly="readonly">
                                 </div>
+
+                                <div class="col-sm-12  mt-3" hidden>
+                                                <label for="idclient" class="form-label">Id Aluno:</label>
+                                                <input type="text" class="form-control" id="idclient" name="idclient"
+                                                    placeholder="Digite o numero de registro" pattern="[0-9]+"
+                                                    value="<?php if(isset($courseOnSight) && $courseOnSight->getIdClient()) { echo $courseOnSight->getIdClient(); } ?>"
+                                                    readonly="readonly">
+                                            </div>
                                 <div class="row">
 
                                     <div class="col-sm-12 mt-3">
@@ -62,14 +77,16 @@ $courseOnSightDAO = new CourseOnSightDAO();
                                             <td>
                                                 <input type="text" class="form-control" id="value_course_on_sight" name="value_course_on_sight" 
                                                     step="0.01" placeholder="Digite o valor à vista" 
-                                                    pattern="^\d{1,3}(,\d{3})*(\.\d{1,2})?$" title="Por favor, insira um valor válido. Exemplo: 1.000,00" required>
+                                                    pattern="^\d{1,3}(,\d{3})*(\.\d{1,2})?$" title="Por favor, insira um valor válido. Exemplo: 1.000,00"
+                                                    value="<?php if(isset($courseOnSight) && $courseOnSight->getValueCourseOnSight()) { echo $courseOnSight->getValueCourseOnSight(); } ?>" required>
                                             </td>
 
                                             </tr>
                                             <tr>
                                                 <td>
                                                     <input type="date" class="form-control" id="date_course_on_sight"
-                                                        name="date_course_on_sight" required>
+                                                        name="date_course_on_sight"
+                                                        value="<?php if(isset($courseOnSight) && $courseOnSight->getDateCourseOnSight()) { echo $courseOnSight->getDateCourseOnSight(); } ?>" required>
                                                 </td>
                                             </tr>
 
@@ -80,7 +97,7 @@ $courseOnSightDAO = new CourseOnSightDAO();
                                     <br><br>
                                     <div class="mt-4 mb-0 d-flex justify-content-end">
                                         <button type="submit" class="btn customButton btn-lg"
-                                            name="save">Avançar</button>
+                                            name="edit">Avançar</button>
                                     </div>
                                 </div>
                             </form>
@@ -90,6 +107,9 @@ $courseOnSightDAO = new CourseOnSightDAO();
                 </div>
             </div>
         </div>
+        <?php
+        }
+            }?>
     </main>
     <br><br>
     <?php

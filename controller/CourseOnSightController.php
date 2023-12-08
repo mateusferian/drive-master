@@ -17,4 +17,15 @@
 
         header("Location: ../cadastro-de-taxa.php");
     }
+
+    if(isset($_POST['edit'])){
+
+        $courseOnSight->setidCourseOnSight(($d['idcourseOnSight']));
+        $courseOnSight->setValueCourseOnSight(($d['value_course_on_sight']));
+        $courseOnSight->setDateCourseOnSight(($d['date_course_on_sight']));
+        $courseOnSight->setIdClient(($d['idclient']));
+        $courseOnSightDAO->update($courseOnSight);
+
+        header("Location: ../cadastro-de-taxa.php");
+    }
 ?>

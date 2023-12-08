@@ -21,6 +21,29 @@ class CourseOnSightDAO
         }
     }
 
+    public function update(CourseOnSight $courseOnSight)
+    {
+        try {
+            $sql = "UPDATE tb_course_on_sight SET
+
+                idCourseOnSight = :idCourseOnSight,
+                value_course_on_sight = :value_course_on_sight,
+                date_course_on_sight = :date_course_on_sight,
+                idclient = :idclient
+                WHERE idCourseOnSight = :idCourseOnSight";
+
+    $p_sql = Conexao::getConexao()->prepare($sql);
+    $p_sql->bindValue(":idCourseOnSight", $courseOnSight->getidCourseOnSight());
+    $p_sql->bindValue(":value_course_on_sight", $courseOnSight->getValueCourseOnSight());
+    $p_sql->bindValue(":date_course_on_sight", $courseOnSight->getDateCourseOnSight());
+    $p_sql->bindValue(":idclient", $courseOnSight->getIdClient());
+
+        return $p_sql->execute();
+        } catch (Exception $e) {
+             print "Ocorreu um erro ao tentar fazer Update<br> $e <br>";
+        }
+    }
+
     private function listaCourseOnSight($row) {
         $courseOnSight = new CourseOnSight();
         $courseOnSight->setidCourseOnSight($row['idCourseOnSight']);
