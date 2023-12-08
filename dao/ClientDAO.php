@@ -79,9 +79,9 @@
         
         public function delete(Client $client){
             try {
-                $sql = "DELETE FROM tb_client WHERE idclient  = :idclient ";
+                $sql = "DELETE FROM tb_client WHERE idclient = :idclient";
                 $p_sql = Conexao::getConexao()->prepare($sql);
-                $p_sql->bindValue(":idclient ", $client->getIdClient ());
+                $p_sql->bindValue(":idclient", $client->getIdClient());
                 return $p_sql->execute();
             } catch (Exception $e) {
                 echo "Erro ao Excluir cnh <br> $e <br>";

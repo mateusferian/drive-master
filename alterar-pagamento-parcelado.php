@@ -112,7 +112,7 @@ $sixthPaymentInInstallmentsDAO = new SixthPaymentInInstallmentsDAO();
                                                         pattern="^\d{1,3}(,\d{3})*(\.\d{1,2})?$"
                                                         title="Por favor, insira um valor válido. Exemplo: 1.000,00"
                                                         value="<?php if(isset($installments[$i]) && $installments[$i]->getIdPaymentInInstallments()) { echo $installments[$i]->getIdPaymentInInstallments(); } ?>"
-                                                        readonly="readonly">
+                                                        required>
                                                 </td>
                                             </tr>
 

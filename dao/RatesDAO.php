@@ -43,17 +43,6 @@
             return $rates;
         }
 
-        public function delete(Rates $rates){
-            try {
-                $sql = "DELETE FROM tb_rates WHERE idrates  = :idrates ";
-                $p_sql = Conexao::getConexao()->prepare($sql);
-                $p_sql->bindValue(":idrates ", $rates->getIdRates());
-                return $p_sql->execute();
-            } catch (Exception $e) {
-                echo "Erro ao Excluir taxas <br> $e <br>";
-            }
-        }
-
         public function update(Rates $rates)
             {
                 try {

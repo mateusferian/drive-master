@@ -27,6 +27,7 @@
 
         $cashPaymentDAO->update($cashPayment);
 
-        header("Location: ../controle-de-aluno.php");
+        $idClient = $cashPaymentDAO->getIdClient();
+        header("Location: ../formulario-de-consulta.php?aluno-alterado=" . $idClient);
     }
 ?>

@@ -38,16 +38,16 @@
         
         public function delete(Cnh $cnh){
             try {
-                $sql = "DELETE FROM tb_cnh WHERE idcnh  = :idcnh ";
+                $sql = "DELETE FROM tb_cnh WHERE idclient  = :idclient ";
                 $p_sql = Conexao::getConexao()->prepare($sql);
-                $p_sql->bindValue(":idcnh ", $cnh->getIdClient ());
+                $p_sql->bindValue(":idclient ", $cnh->getIdClient ());
                 return $p_sql->execute();
             } catch (Exception $e) {
                 echo "Erro ao Excluir cnh <br> $e <br>";
             }
         }
 
-        public function update(Cnh $rates)
+        public function update(Cnh $cnh)
         {
             try {
                 $sql = "UPDATE tb_cnh SET
@@ -62,13 +62,13 @@
                     WHERE idcnh = :idcnh";
 
         $p_sql = Conexao::getConexao()->prepare($sql);
-        $p_sql->bindValue(":idcnh", $rates->getIdCnh());
-        $p_sql->bindValue(":category", $rates->getCategory());
-        $p_sql->bindValue(":type_cnh", $rates->getType());
-        $p_sql->bindValue(":medical_exam", $rates->getMedicalExam());
-        $p_sql->bindValue(":registration_number", $rates->getRegistrationNumber());
-        $p_sql->bindValue(":biometric_update", $rates->getBiometricUpdate());
-        $p_sql->bindValue(":idclient", $rates->getIdClient());
+        $p_sql->bindValue(":idcnh", $cnh->getIdCnh());
+        $p_sql->bindValue(":category", $cnh->getCategory());
+        $p_sql->bindValue(":type_cnh", $cnh->getType());
+        $p_sql->bindValue(":medical_exam", $cnh->getMedicalExam());
+        $p_sql->bindValue(":registration_number", $cnh->getRegistrationNumber());
+        $p_sql->bindValue(":biometric_update", $cnh->getBiometricUpdate());
+        $p_sql->bindValue(":idclient", $cnh->getIdClient());
 
             return $p_sql->execute();
             } catch (Exception $e) {
