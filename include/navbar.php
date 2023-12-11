@@ -14,7 +14,6 @@
                             class="bi bi-chevron-down dropdown-indicator"></i></a>
                     <ul>
                     <li><a href="controle-de-aluno.php">Controle de Aluno</a></li>
-                        <li><a href="controle-de-aula-extra.php">Controle de Aula extra</a></li>
                     </ul>
                 </li>
 
@@ -22,7 +21,6 @@
                             class="bi bi-chevron-down dropdown-indicator"></i></a>
                     <ul>
                         <li><a href="cadastro-de-aluno.php">Cadastro de Aluno</a></li>
-                        <li><a href="#">Cadastro de Aula extra</a></li>
                     </ul>
                 </li>
                 <li><a href="graficos.php">Graficos</a></li>

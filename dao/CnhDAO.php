@@ -93,6 +93,21 @@
                 print "Ocorreu um erro ao tentar buscar a CNH por ID do Cliente: " . $e;
             }
         }
+
+        public function countByCategory($category) {
+            try {
+                $sql = "SELECT COUNT(*) as total FROM tb_cnh WHERE category = :category";
+                $p_sql = Conexao::getConexao()->prepare($sql);
+                $p_sql->bindValue(":category", $category);
+                $p_sql->execute();
+                $result = $p_sql->fetch(PDO::FETCH_ASSOC);
         
+                return isset($result['total']) ? [(int) $result['total']] : [0];
+            } catch (Exception $e) {
+                print "Ocorreu um erro ao tentar contar as CNHs por categoria: " . $e;
+                return [0];
+            }
+        }
+    
     }
 ?>
