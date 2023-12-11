@@ -64,14 +64,6 @@ $clientdao = new ClientDAO();
                                             placeholder="Digite o nome do responsavel (Masculino)" required>
                                     </div>
 
-                                    <div class="col-md-12  mt-3">
-                                        <br><br>
-                                        <label for="profilePicture" class="form-label">Selecione a foto de
-                                            perfil:</label>
-                                        <input type="file" class="form-control" id="profilePicture"
-                                            name="profilePicture" required>
-                                    </div>
-
                                     <div class="col-sm-4 mt-3">
                                         <label for="rg" class="form-label">RG:</label>
                                         <input type="text" class="form-control" id="rg" name="rg"

@@ -1,0 +1,91 @@
+.chart-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+.chart {
+    width: 100%;
+    margin-bottom: 20px;
+}
+
+.page-item.active .page-link,
+.page-item.active:hover .page-link,
+.page-item.active:active .page-link {
+    background-color: var(--color-primary);
+    border-color: var(--color-third);
+    color: var(--color-seventh);
+}
+
+.page-item .page-link,
+.page-item:hover .page-link,
+.page-item:active .page-link {
+    background-color: var(--color-seventh);
+    border-color: var(--color-third);
+    color: var(--color-primary);
+}
+
+.breadcrumbs {
+    padding: 20px;
+    background-color: var(--color-primary);
+    color: var(--color-seventh);
+    border-bottom: 1px solid var(--color-seventh);
+}
+
+.page-header {
+    background-size: cover;
+    color: var(--color-seventh);
+    padding: 80px 0;
+    text-align: center;
+}
+
+.page-header h2 {
+    font-size: 2.5em;
+    margin-bottom: 20px;
+}
+
+p {
+    font-size: 1.2em;
+    line-height: 1.6;
+}
+
+.container {
+    position: relative;
+}
+
+.row {
+    justify-content: center;
+}
+
+.col-lg-6 {
+    text-align: center;
+}
+
+
+.card {
+    background-color: var(--color-fifth);
+    padding: 10px;
+    border-radius: 0;
+}
+
+.card {
+    background-color: #f2f2f2; /* Cinza Claro */
+    padding: 10px;
+    border: 1px solid #ccc;
+    margin: 20px 0; 
+}
+
+.card-link {
+    text-decoration: none;
+    color: var(--color-primary);
+    font-weight: bold;
+    transition: color 0.3s, background-color 0.3s;
+}
+
+.card-link:hover {
+    color: #55A4D9;
+}
+
+.card-link:active {
+    color: var(--color-third);
+}

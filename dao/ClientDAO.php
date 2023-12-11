@@ -4,9 +4,9 @@
         public function create(Client $client){
             try{
                 $sql = "INSERT INTO tb_client (
-                    name_client, father, mother, rg, rg_expedition, cpf, birth_date, email, celphone, telephone, naturalness, address_client, number_client, neighborhood, uf, activity_location, photo, renach)
+                    name_client, father, mother, rg, rg_expedition, cpf, birth_date, email, celphone, telephone, naturalness, address_client, number_client, neighborhood, uf, activity_location, renach, registration_date)
                     VALUES (
-                    :name_client, :responsibleMale, :responsiblefeminine, :rg, :rgExpedition, :cpf, :dateOfBirth, :email, :celphone, :telephone, :naturalness, :address_client, :residentialNumber, :neighborhood, :uf, :activitylocation, :profilePicture, :renach)";
+                    :name_client, :responsibleMale, :responsiblefeminine, :rg, :rgExpedition, :cpf, :dateOfBirth, :email, :celphone, :telephone, :naturalness, :address_client, :residentialNumber, :neighborhood, :uf, :activitylocation, :renach, :registration_date)";
                 
                 $p_sql = Conexao::getConexao()->prepare($sql);
                 $p_sql->bindValue(":name_client", $client->getName());
@@ -24,34 +24,16 @@
                 $p_sql->bindValue(":residentialNumber", $client->getNumber());
                 $p_sql->bindValue(":neighborhood", $client->getNeighborhood());
                 $p_sql->bindValue(":uf", $client->getUf());
-                $p_sql->bindValue(":activitylocation", $client->getActivityLocation());
-                $p_sql->bindValue(":profilePicture", $client->getPhoto());
+                $p_sql->bindValue(":activitylocation", $client->getActivityLocation());;
                 $p_sql->bindValue(":renach", $client->getRenach());
+                $p_sql->bindValue(":registration_date", $client->getRegistrationDate());
                 
                 $p_sql->execute();
-                
-                echo "<script>
-                Swal.fire({
-                    icon: 'success',
-                    title: 'Cadastro realizado com sucesso!',
-                    customClass: {
-                        popup: 'swalFire',
-                        icon: 'swalIcon'
-                    },
-                    showConfirmButton: false,
-                    allowOutsideClick: false  
-                });
-        
-                setTimeout(function() {
-                    window.location.href = 'index.php';
-                }, 4000);
-            </script>";
-            
-            } catch (PDOException $erro) {
-        echo $erro->getMessage();
-      }   
+        } catch (PDOException $e) {
+            echo "Error: " . $e->getMessage();
         }
-
+        }
+        
         private function clientList($row) {
             $client = new Client();
             $client->setIdClient($row['idclient']);
@@ -71,8 +53,8 @@
             $client->setNeighborhood($row['neighborhood']);
             $client->setUf($row['uf']);
             $client->setActivityLocation($row['activity_location']);
-            $client->setPhoto($row['photo']);
             $client->setRenach($row['renach']);
+            $client->setRegistrationDate($row['registration_date']);
         
             return $client;
         }
@@ -109,7 +91,6 @@
                     neighborhood = :neighborhood,
                     uf = :uf,
                     activity_location = :activitylocation,
-                    photo = :profilePicture,
                     renach = :renach
                     WHERE idclient = :idclient";
         
@@ -131,7 +112,6 @@
                 $p_sql->bindValue(":neighborhood", $client->getNeighborhood());
                 $p_sql->bindValue(":uf", $client->getUf());
                 $p_sql->bindValue(":activitylocation", $client->getActivityLocation());
-                $p_sql->bindValue(":profilePicture", $client->getPhoto());
                 $p_sql->bindValue(":renach", $client->getRenach());
         
                 return $p_sql->execute();
@@ -229,16 +209,18 @@
         }
         
 
-        public function countStudentsByYears($years){
+        public function countStudentsByYears($years)
+        {
             try {
                 $placeholders = implode(',', array_fill(0, count($years), '?'));
         
-                $sql = "SELECT YEAR(birth_date) as year, COALESCE(COUNT(*), 0) as total_students
+                $sql = "SELECT YEAR(registration_date) as year, COALESCE(COUNT(*), 0) as total_students
                         FROM tb_client 
-                        WHERE YEAR(birth_date) IN ($placeholders)
-                        GROUP BY YEAR(birth_date)
+                        WHERE YEAR(registration_date) IN ($placeholders)
+                        GROUP BY YEAR(registration_date)
                         ORDER BY year ASC";
-                              //ASC E DESC
+                //ASC E DESC
+        
                 $p_sql = Conexao::getConexao()->prepare($sql);
                 $p_sql->execute($years);
                 $results = $p_sql->fetchAll(PDO::FETCH_ASSOC);
@@ -260,9 +242,10 @@
             }
         }
         
+        
         public function getDistinctYearsInTable(){
             try {
-                $sql = "SELECT DISTINCT YEAR(birth_date) as year FROM tb_client ORDER BY year ASC";  //ASC E DESC
+                $sql = "SELECT DISTINCT YEAR(registration_date) as year FROM tb_client ORDER BY year ASC";  //ASC E DESC
                 $p_sql = Conexao::getConexao()->prepare($sql);
                 $p_sql->execute();
                 $results = $p_sql->fetchAll(PDO::FETCH_COLUMN);

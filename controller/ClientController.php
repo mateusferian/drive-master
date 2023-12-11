@@ -32,8 +32,8 @@
 
         $client->setUf(($d['uf']));
         $client->setActivityLocation(($d['activitylocation']));
-        $client->setPhoto(($d['profilePicture']));
         $client->setRenach(($d['renach']));
+        $idclient = $client->setRegistrationDate(date("Y-m-d"));
 
         $clientDAO->create($client);
 
@@ -66,7 +66,6 @@
 
         $client->setUf(($d['uf']));
         $client->setActivityLocation(($d['activitylocation']));
-        $client->setPhoto(($d['profilePicture']));
         $client->setRenach(($d['renach']));
 
         $idclient = $client->getIdClient();

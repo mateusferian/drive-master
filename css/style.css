@@ -180,7 +180,7 @@ section {
 }
 
 .topbar .social-links a {
-  color: var(--color-fifth);;
+  color: var(--color-fifth);
   line-height: 0;
   transition: 0.3s;
   margin-left: 20px;
