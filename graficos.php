@@ -49,7 +49,7 @@ include_once('include/navbar.php');
     <nav class="card mt-0">
         <div class="container d-flex">
             <a href="graficos.php#total-alunos" class="card-link">Total de alunos nos últimos anos</a>
-            <!-- Removido o link para "Alunos aprovados e reprovados" -->
+            <a href="graficos.php#total-alunos-categorias" class="card-link">Total de Alunos por Categoria</a>
         </div>
     </nav>
 
@@ -207,7 +207,7 @@ include_once('include/navbar.php');
 
     <div class="container">
         <div class="row">
-            <p id="alunos-categorias" class="fs-2 text-center mt-5">Total de Alunos por Categoria</p>
+            <p id="total-alunos-categorias" class="fs-2 text-center mt-5">Total de Alunos por Categoria</p>
             <div class="chart">
                 <canvas id="studentsCategoriesChart" width="400" height="200"></canvas>
             </div>
