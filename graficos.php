@@ -224,5 +224,4 @@ include_once('include/navbar.php');
     include_once('include/scrollTop.php');
     ?>
 </body>
-
 </html>

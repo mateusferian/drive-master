@@ -26,8 +26,8 @@ $clientDAO = new ClientDAO();
                     <option value="opcao0">CPF</option>
                     <option value="opcao1">RG</option>
                     <option value="opcao2">Nome</option>
-                    <option value="opcao3">Parcelas em aberto</option>
-                    <option value="opcao4">Parcelas realizadas</option>
+                    <!-- <option value="opcao3">Parcelas em aberto</option>
+                    <option value="opcao4">Parcelas realizadas</option> -->
                 </select>
 
                 <div class="filterCpf mt-2">
@@ -48,7 +48,7 @@ $clientDAO = new ClientDAO();
                         placeholder="Digite o nome do aluno que você procura">
                 </div>
 
-                <div class="openParcelFilter mt-2">
+                <!-- <div class="openParcelFilter mt-2">
                     <label for="openParcel">Mês da parcela em aberto:</label>
                     <input type="date" class="form-control" id="openParcel" name="openParcel">
                 </div>
@@ -56,7 +56,7 @@ $clientDAO = new ClientDAO();
                 <div class="filterRealizedParcels mt-2">
                     <label for="RealizedParcels">Mês da parcela realizada:</label>
                     <input type="date" class="form-control" id="RealizedParcels" name="RealizedParcels">
-                </div>
+                </div> -->
 
                 <div class="col-12 mt-3">
                     <button type="submit" name="filter" class="btn customButton">Filtrar</button>
@@ -79,7 +79,16 @@ $clientDAO = new ClientDAO();
                 </tr>
             </thead>
             <tbody>
-                <?php foreach ($clientDAO->read() as $client) : ?>
+                <?php 
+
+                    $filtro = isset($_GET["filtro"]) ? $_GET["filtro"] : "";
+                    $cpf = isset($_GET["cpf"]) ? $_GET["cpf"] : "";
+                    $rg = isset($_GET["rg"]) ? $_GET["rg"] : "";
+                    $name = isset($_GET["name"]) ? $_GET["name"] : "";
+                
+                    $clients = $clientDAO->filters($filtro, $cpf, $rg, $name);
+
+                foreach ($clients as $client) : ?>
                 <tr>
                     <td><?= $client->getIdClient() ?></td>
                     <td><?= $client->getName() ?></td>

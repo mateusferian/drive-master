@@ -155,6 +155,46 @@
             }
         }
 
+        public function filters($filtro, $cpf, $rg, $name) {
+            try {
+                $sql = "SELECT * FROM tb_client WHERE 1";
+        
+                if ($filtro == "opcao0" && $cpf != "") {
+                    $sql .= " AND cpf = :cpf";
+                } elseif ($filtro == "opcao1" && $rg != "") {
+                    $sql .= " AND rg = :rg";
+                } elseif ($filtro == "opcao2" && $name != "") {
+                    $sql .= " AND name_client = :name_client";
+                }
+        
+                $sql .= " ORDER BY idclient ASC";
+        
+                $result = Conexao::getConexao()->prepare($sql);
+        
+                if ($cpf != "") {
+                    $result->bindParam(':cpf', $cpf, PDO::PARAM_INT);
+                } elseif ($rg != "") {
+                    $result->bindParam(':rg', $rg, PDO::PARAM_INT);
+                } elseif ($name != "") {
+                    $result->bindParam(':name_client', $name, PDO::PARAM_STR);
+                }
+        
+                $result->execute();
+        
+                $lista = $result->fetchAll(PDO::FETCH_ASSOC);
+                $f_lista = array();
+        
+                foreach ($lista as $l) {
+                    $f_lista[] = $this->clientList($l);
+                }
+        
+                return $f_lista;
+            } catch (Exception $e) {
+                print "Ocorreu um erro ao tentar buscar os clientes." . $e;
+            }
+        }
+
+        
         public function lastClient() {
             try {
                 $sql = "SELECT idclient, name_client FROM tb_client ORDER BY idclient DESC LIMIT 1";
