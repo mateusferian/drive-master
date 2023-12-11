@@ -189,5 +189,49 @@
         }
         
 
+        public function countStudentsByYears($years){
+            try {
+                $placeholders = implode(',', array_fill(0, count($years), '?'));
+        
+                $sql = "SELECT YEAR(birth_date) as year, COALESCE(COUNT(*), 0) as total_students
+                        FROM tb_client 
+                        WHERE YEAR(birth_date) IN ($placeholders)
+                        GROUP BY YEAR(birth_date)
+                        ORDER BY year ASC";
+                              //ASC E DESC
+                $p_sql = Conexao::getConexao()->prepare($sql);
+                $p_sql->execute($years);
+                $results = $p_sql->fetchAll(PDO::FETCH_ASSOC);
+        
+                $totals = [];
+                foreach ($results as $result) {
+                    $totals[$result['year']] = $result['total_students'];
+                }
+        
+                $orderedTotals = [];
+                foreach ($years as $year) {
+                    $orderedTotals[] = $totals[$year] ?? 0;
+                }
+        
+                return $orderedTotals;
+            } catch (Exception $e) {
+                print "Ocorreu um erro ao tentar contar alunos por ano: " . $e->getMessage();
+                return [];
+            }
+        }
+        
+        public function getDistinctYearsInTable(){
+            try {
+                $sql = "SELECT DISTINCT YEAR(birth_date) as year FROM tb_client ORDER BY year ASC";  //ASC E DESC
+                $p_sql = Conexao::getConexao()->prepare($sql);
+                $p_sql->execute();
+                $results = $p_sql->fetchAll(PDO::FETCH_COLUMN);
+        
+                return $results;
+            } catch (Exception $e) {
+                print "Ocorreu um erro ao tentar obter os anos na tabela: " . $e->getMessage();
+                return [];
+            }
+        }
     }
 ?>
