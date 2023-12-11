@@ -1,4 +1,5 @@
 <?php
+include_once('restrito.php');
 require './assets/pdf/autoload.php';
 include_once('./conexao/Conexao.php');
 include_once('./model/Client.php');
@@ -294,24 +295,6 @@ $dados = "<style>
           </tr>
       </table>
       <br><br>
-
-      <table>
-          <tr>
-              <td colspan='2'><strong>Dados de pagamento a vista</strong></td>
-          </tr>
-  
-          <tr>
-              <td class='formField'><strong>Teórico:</strong></td>
-              <td class='formField'>" . $cashPayment->getValueCashPayment() . "</td>
-          </tr>
-  
-          <tr>
-              <td class='formField'><strong>Pratico de Carro:</strong></td>
-              <td class='formField'>" . $cashPayment->getDateCashPayment() . "</td>
-          </tr>
-      </table>
-          <br><br>
-
           <table>
           <tr>
               <td colspan='2'><strong>Dados de curso a vista</strong></td>
@@ -328,168 +311,6 @@ $dados = "<style>
           </tr>
       </table>
       <br><br>
-
-      <table>
-      <tr>
-          <td colspan='2'><strong>Primeira Parcela</strong></td>
-      </tr>
-
-      <tr>
-          <td class='formField'><strong>Valor da parcela:</strong></td>
-          <td class='formField'>" . $firstPaymentInInstallments->getInstallmentValue() . "</td>
-      </tr>
-
-      <tr>
-          <td class='formField'><strong>Data de pagamento da parcela:</strong></td>
-          <td class='formField'>" . $firstPaymentInInstallments->getInstallmentDate() . "</td>
-      </tr>
-
-      <tr>
-        <td class='formField'><strong>Modo de parcelamento</strong></td>
-        <td class='formField'>" . $firstPaymentInInstallments->getInstallmentMode() . "</td>
-    </tr>
-
-    <tr>
-        <td class='formField'><strong>Status de parcela:</strong></td>
-        <td class='formField'>" . $firstPaymentInInstallments->getInstallmentStatus() . "</td>
-    </tr>
-  </table>
-  <br><br>
-
-  <table>
-  <tr>
-      <td colspan='2'><strong>Segunda Parcela</strong></td>
-  </tr>
-
-  <tr>
-      <td class='formField'><strong>Valor da parcela:</strong></td>
-      <td class='formField'>" . $secondPaymentInInstallments->getInstallmentValue() . "</td>
-  </tr>
-
-  <tr>
-      <td class='formField'><strong>Data de pagamento da parcela:</strong></td>
-      <td class='formField'>" . $secondPaymentInInstallments->getInstallmentDate() . "</td>
-  </tr>
-
-  <tr>
-    <td class='formField'><strong>Modo de parcelamento</strong></td>
-    <td class='formField'>" . $secondPaymentInInstallments->getInstallmentMode() . "</td>
-</tr>
-
-<tr>
-    <td class='formField'><strong>Status de parcela:</strong></td>
-    <td class='formField'>" . $secondPaymentInInstallments->getInstallmentStatus() . "</td>
-</tr>
-</table>
-<br><br>
-
-<table>
-<tr>
-    <td colspan='2'><strong>Terceira Parcela</strong></td>
-</tr>
-
-<tr>
-    <td class='formField'><strong>Valor da parcela:</strong></td>
-    <td class='formField'>" . $thirdPaymentInInstallments->getInstallmentValue() . "</td>
-</tr>
-
-<tr>
-    <td class='formField'><strong>Data de pagamento da parcela:</strong></td>
-    <td class='formField'>" . $thirdPaymentInInstallments->getInstallmentDate() . "</td>
-</tr>
-
-<tr>
-  <td class='formField'><strong>Modo de parcelamento</strong></td>
-  <td class='formField'>" . $thirdPaymentInInstallments->getInstallmentMode() . "</td>
-</tr>
-
-<tr>
-  <td class='formField'><strong>Status de parcela:</strong></td>
-  <td class='formField'>" . $thirdPaymentInInstallments->getInstallmentStatus() . "</td>
-</tr>
-</table>
-<br><br>
-
-<table>
-<tr>
-    <td colspan='2'><strong>Quarta Parcela</strong></td>
-</tr>
-
-<tr>
-    <td class='formField'><strong>Valor da parcela:</strong></td>
-    <td class='formField'>" . $fourthPaymentInInstallments->getInstallmentValue() . "</td>
-</tr>
-
-<tr>
-    <td class='formField'><strong>Data de pagamento da parcela:</strong></td>
-    <td class='formField'>" . $fourthPaymentInInstallments->getInstallmentDate() . "</td>
-</tr>
-
-<tr>
-  <td class='formField'><strong>Modo de parcelamento</strong></td>
-  <td class='formField'>" . $fourthPaymentInInstallments->getInstallmentMode() . "</td>
-</tr>
-
-<tr>
-  <td class='formField'><strong>Status de parcela:</strong></td>
-  <td class='formField'>" . $fourthPaymentInInstallments->getInstallmentStatus() . "</td>
-</tr>
-</table>
-<br><br>
-
-<table>
-<tr>
-    <td colspan='2'><strong>Quinta Parcela</strong></td>
-</tr>
-
-<tr>
-    <td class='formField'><strong>Valor da parcela:</strong></td>
-    <td class='formField'>" . $fifthPaymentInInstallments->getInstallmentValue() . "</td>
-</tr>
-
-<tr>
-    <td class='formField'><strong>Data de pagamento da parcela:</strong></td>
-    <td class='formField'>" . $fifthPaymentInInstallments->getInstallmentDate() . "</td>
-</tr>
-
-<tr>
-  <td class='formField'><strong>Modo de parcelamento</strong></td>
-  <td class='formField'>" . $fifthPaymentInInstallments->getInstallmentMode() . "</td>
-</tr>
-
-<tr>
-  <td class='formField'><strong>Status de parcela:</strong></td>
-  <td class='formField'>" . $fifthPaymentInInstallments->getInstallmentStatus() . "</td>
-</tr>
-</table><br><br>
-
-<table>
-<tr>
-    <td colspan='2'><strong>Quinta Parcela</strong></td>
-</tr>
-
-<tr>
-    <td class='formField'><strong>Valor da parcela:</strong></td>
-    <td class='formField'>" . $sixthPaymentInInstallments->getInstallmentValue() . "</td>
-</tr>
-
-<tr>
-    <td class='formField'><strong>Data de pagamento da parcela:</strong></td>
-    <td class='formField'>" . $sixthPaymentInInstallments->getInstallmentDate() . "</td>
-</tr>
-
-<tr>
-  <td class='formField'><strong>Modo de parcelamento</strong></td>
-  <td class='formField'>" . $sixthPaymentInInstallments->getInstallmentMode() . "</td>
-</tr>
-
-<tr>
-  <td class='formField'><strong>Status de parcela:</strong></td>
-  <td class='formField'>" . $sixthPaymentInInstallments->getInstallmentStatus() . "</td>
-</tr>
-</table>
-<br><br>
-
           <h2 style='text-align: right;'>Auto Escola Lider</h2>";
 
     $dados .= "<hr>";   

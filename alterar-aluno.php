@@ -2,6 +2,7 @@
 <html lang="en">
 <link href="css/consult.css" rel="stylesheet">
 <?php
+include_once('restrito.php');
 include_once('include/header.php');
 include_once('include/topbar.php');
 include_once('include/navbar.php');

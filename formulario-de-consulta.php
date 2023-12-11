@@ -2,6 +2,7 @@
 <html lang="en">
 <link href="css/consult.css" rel="stylesheet">
 <?php
+include_once('restrito.php');
 include_once('include/header.php');
 include_once('include/topbar.php');
 include_once('include/navbar.php');
@@ -372,9 +373,9 @@ $sixthPaymentInInstallmentsDAO = new SixthPaymentInInstallmentsDAO();
 
                             <div class="col-4">
                                 <br><br>
-                                <a href="gerar-pdf-do-aluno.php?pdf=<?= $client->getIdClient() ?>">
+                                <a href="gerar-pdf.php?pdf=<?= $client->getIdClient() ?>">
                                     <button type="button" name="voltar" class="btn customButton"
-                                        onclick="window.location.href = 'gerar-pdf-do-aluno.php?pdf=<?= $client->getIdClient() ?>'">Baixar
+                                        onclick="window.location.href = 'gerar-pdf.php?pdf=<?= $client->getIdClient() ?>'">Baixar
                                         PDF dos dados do aluno</button>
                                     <br><br>
                                 </a>

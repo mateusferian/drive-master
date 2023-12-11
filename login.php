@@ -17,9 +17,8 @@ if (isset($_POST['access']) && !empty($_POST["email"]) && !empty($_POST["passwor
 
         if (password_verify($password, $storedPassword)) {
             session_start();
-            $row = $res->fetch_object(); 
+            $_SESSION["name_administrator"] = $row['name_administrator'];
             $_SESSION["email"] = $email;
-            
             header("Location: controle-de-aluno.php");
             exit();
         } else {
@@ -28,3 +27,4 @@ if (isset($_POST['access']) && !empty($_POST["email"]) && !empty($_POST["passwor
     }
 }
 ?>
+

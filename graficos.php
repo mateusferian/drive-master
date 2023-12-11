@@ -1,56 +1,76 @@
 <!DOCTYPE html>
 <html lang="en">
-<?php
-include_once('restrito.php');
-include_once('include/header.php');
-include_once('include/topbar.php');
-include_once('include/navbar.php');
-include_once('include/carousel.php');
-?>
-<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gráficos em PHP</title>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <style>
+        .chart-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+        }
 
+        .chart {
+            width: 48%; /* Ajuste conforme necessário para o espaçamento desejado entre os gráficos */
+            margin-bottom: 20px;
+        }
+    </style>
+</head>
 <body>
-    <div class="container mt-5">
-        <h1 class="text-center">Relatórios de Alunos</h1>
-        <div class="row">
-            <div class="col-md-6">
-                <h2>Total de Alunos no ano atual</h2>
-                <!-- Elemento Canvas para o gráfico de total de alunos -->
-                <canvas id="totalStudentsChart" width="200" height="200"></canvas>
-            </div>
-            <div class="col-md-6">
-                <h2>Alunos Aprovados e Reprovados</h2>
-                <!-- Elemento Canvas para o gráfico de alunos aprovados/reprovados em Categorias A e B -->
-                <canvas id="passFailCategoriesChart" width="200" height="200"></canvas>
-            </div>
-        </div>
-        <div class="row mt-5">
-            <div class="col-md-12">
-                <h2>Quantidade de alunos nos Últimos Anos</h2>
-                <!-- Elemento Canvas para o gráfico de alunos nos últimos anos -->
-                <canvas id="studentsLastYearsChart" width="400" height="200"></canvas>
-            </div>
-        </div>
+
+<div class="chart-container">
+    <!-- Gráfico 1 -->
+    <div class="chart">
+        <canvas id="totalStudentsChart" width="400" height="200"></canvas>
     </div>
 
-    <script>
-    // Dados de exemplo (substitua pelos seus dados reais)
-    var months = ['Janeiro', 'Fevereiro', 'Março', 'Abril', 'Maio'];
-    var totalStudents = [150, 155, 160, 158, 165];
-    var passCategoryA = [12, 15, 10, 8, 14];
-    var passCategoryB = [10, 8, 12, 9, 11];
-    var failCategoryA = [3, 5, 2, 4, 3];
-    var failCategoryB = [4, 3, 5, 3, 4];
-    var years = ['2018', '2019', '2020', '2021', '2022'];
-    var studentsLastYears = [120, 140, 155, 160, 175];
+    <!-- Gráfico 2 -->
+    <div class="chart">
+        <canvas id="passFailCategoriesChart" width="400" height="200"></canvas>
+    </div>
+</div>
 
-    // Obtenha referências aos elementos dos gráficos
+<!-- Gráfico 3 (maior) -->
+<div class="chart">
+    <canvas id="studentsLastYearsChart" width="800" height="400"></canvas>
+</div>
+
+<?php
+$months = ['Janeiro', 'Fevereiro', 'Março', 'Abril', 'Maio'];
+$totalStudents = [150, 155, 160, 158, 165];
+$passCategoryA = [12, 15, 10, 8, 14];
+$passCategoryB = [10, 8, 12, 9, 11];
+$failCategoryA = [3, 5, 2, 4, 3];
+$failCategoryB = [4, 3, 5, 3, 4];
+$years = ['2018', '2019', '2020', '2021', '2022'];
+$studentsLastYears = [120, 140, 155, 160, 175];
+
+$monthsJSON = json_encode($months);
+$totalStudentsJSON = json_encode($totalStudents);
+$passCategoryAJSON = json_encode($passCategoryA);
+$failCategoryAJSON = json_encode($failCategoryA);
+$passCategoryBJSON = json_encode($passCategoryB);
+$failCategoryBJSON = json_encode($failCategoryB);
+$yearsJSON = json_encode($years);
+$studentsLastYearsJSON = json_encode($studentsLastYears);
+?>
+
+<script>
+    var months = <?php echo $monthsJSON; ?>;
+    var totalStudents = <?php echo $totalStudentsJSON; ?>;
+    var passCategoryA = <?php echo $passCategoryAJSON; ?>;
+    var failCategoryA = <?php echo $failCategoryAJSON; ?>;
+    var passCategoryB = <?php echo $passCategoryBJSON; ?>;
+    var failCategoryB = <?php echo $failCategoryBJSON; ?>;
+    var years = <?php echo $yearsJSON; ?>;
+    var studentsLastYears = <?php echo $studentsLastYearsJSON; ?>;
+
     var totalStudentsCtx = document.getElementById('totalStudentsChart').getContext('2d');
     var passFailCategoriesCtx = document.getElementById('passFailCategoriesChart').getContext('2d');
     var studentsLastYearsCtx = document.getElementById('studentsLastYearsChart').getContext('2d');
 
-    // Configure os dados dos gráficos
     var totalStudentsData = {
         labels: months,
         datasets: [{
@@ -102,7 +122,6 @@ include_once('include/carousel.php');
         }]
     };
 
-    // Configure os gráficos
     var totalStudentsChart = new Chart(totalStudentsCtx, {
         type: 'line',
         data: totalStudentsData
@@ -117,13 +136,7 @@ include_once('include/carousel.php');
         type: 'line',
         data: studentsLastYearsData
     });
-    </script>
+</script>
 
-    <br><br>
-    <?php
-    include_once('include/footer.php');
-    include_once('include/scrollTop.php');
-    ?>
 </body>
-
 </html>
