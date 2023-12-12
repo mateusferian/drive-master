@@ -160,7 +160,7 @@ include_once('include/navbar.php');
                 liClass += i % 5 === 0 ? ' border' : '';
                 var li = $('<li class="' + liClass + '"><a class="page-link btn-pagination" href="#">' + i + '</a></li>');
                 li.click(function() {
-                    currentPage = parseInt($(this).text());
+                    currentPage = parseInt($(this).find('.page-link').text());
                     updateChart();
                     updatePagination();
                 });

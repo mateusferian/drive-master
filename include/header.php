@@ -17,6 +17,7 @@
     <link href="assets/vendor/aos/aos.css" rel="stylesheet">
     <link href="css/style.css" rel="stylesheet">
     <link href="css/swalFire.css" rel="stylesheet">
+    <link href="css/pagination.css" rel="stylesheet">
     
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css">
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>

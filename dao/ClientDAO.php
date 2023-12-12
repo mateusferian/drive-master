@@ -165,6 +165,48 @@
             }
         }
         
+        public function filtersWithPagination($filtro, $cpf, $rg, $name, $limit_start, $results_per_page) {
+            try {
+                $sql = "SELECT * FROM tb_client WHERE 1";
+        
+                if ($filtro == "opcao0" && $cpf != "") {
+                    $sql .= " AND cpf = :cpf";
+                } elseif ($filtro == "opcao1" && $rg != "") {
+                    $sql .= " AND rg = :rg";
+                } elseif ($filtro == "opcao2" && $name != "") {
+                    $sql .= " AND name_client = :name_client";
+                }
+        
+                $sql .= " ORDER BY idclient ASC LIMIT :start, :per_page";
+        
+                $result = Conexao::getConexao()->prepare($sql);
+        
+                if ($cpf != "") {
+                    $result->bindParam(':cpf', $cpf, PDO::PARAM_INT);
+                } elseif ($rg != "") {
+                    $result->bindParam(':rg', $rg, PDO::PARAM_INT);
+                } elseif ($name != "") {
+                    $result->bindParam(':name_client', $name, PDO::PARAM_STR);
+                }
+                
+                $result->bindParam(':start', $limit_start, PDO::PARAM_INT);
+                $result->bindParam(':per_page', $results_per_page, PDO::PARAM_INT);
+        
+                $result->execute();
+        
+                $lista = $result->fetchAll(PDO::FETCH_ASSOC);
+                $f_lista = array();
+        
+                foreach ($lista as $l) {
+                    $f_lista[] = $this->clientList($l);
+                }
+        
+                return $f_lista;
+            } catch (Exception $e) {
+                print "Ocorreu um erro ao tentar buscar os clientes." . $e;
+            }
+        }
+
         public function filters($filtro, $cpf, $rg, $name) {
             try {
                 $sql = "SELECT * FROM tb_client WHERE 1";
