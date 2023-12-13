@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
-<script src="js/progressBar.js"></script>
+<script src="js/progressionOfChanging.js"></script>
 <?php
 include_once('restrito.php');
 include_once('include/header.php');
@@ -43,9 +43,9 @@ $cashPaymentDAO = new CashPaymentDAO();
                         </div>
 
                         <?php
-                            include_once('include/progressBar.php');
+                            include_once('include/teste.php');
                         ?>
-                        <script src="js/displayPaymentMethods.js"></script>
+                        <script src="js/displayPaymentUpdate.js"></script>
 
 
                         <div class="card-body">
@@ -53,7 +53,6 @@ $cashPaymentDAO = new CashPaymentDAO();
                             <div class="col-sm-12  mt-3" hidden>
                                     <label for="idclient" class="form-label">Id Do Cliente:</label>
                                     <input type="text" class="form-control" id="idclient" name="idclient"
-                                        placeholder="Digite o numero de registro" pattern="[0-9]+"
                                         value="<?php if(isset($cashPayment) && $cashPayment->getIdClient()) { echo $cashPayment->getIdClient(); } ?>"
                                         readonly="readonly">
                                 </div>
@@ -61,7 +60,6 @@ $cashPaymentDAO = new CashPaymentDAO();
                                 <div class="col-sm-12  mt-3" hidden>
                                     <label for="idcash" class="form-label">Id Pagamento A vista:</label>
                                     <input type="text" class="form-control" id="idcash" name="idcash"
-                                        placeholder="Digite o numero de registro" pattern="[0-9]+"
                                         value="<?php if(isset($cashPayment) && $cashPayment->getidCashPayment()) { echo $cashPayment->getidCashPayment(); } ?>"
                                         readonly="readonly">
                                 </div>
@@ -77,7 +75,7 @@ $cashPaymentDAO = new CashPaymentDAO();
                                                     <input type="text" class="form-control" id="value_cash_payment"
                                                         name="value_cash_payment" step="0.01"
                                                         placeholder="Digite o valor à vista"
-                                                        pattern="^\d{1,3}(,\d{3})*(\.\d{1,2})?$"
+                                                        pattern="^\d{1,}(\.\d{1,2})?$|^(\d{1,3}(,\d{3})*(\.\d{1,2})?)?$"
                                                         title="Por favor, insira um valor válido. Exemplo: 1.000,00"
                                                         value="<?php if(isset($cashPayment) && $cashPayment->getValueCashPayment()) { echo $cashPayment->getValueCashPayment(); } ?>"
                                                         required>

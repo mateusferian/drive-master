@@ -102,7 +102,7 @@ $sixthPaymentInInstallmentsDAO = new SixthPaymentInInstallmentsDAO();
             echo !is_null($value) ? $value : $placeholder;
         }
 
-        if ($client  and $cnh and $rates) {
+        if ($client  and $cnh and $rates || $cashPayment || $courseOnSight || $firstPaymentInInstallments) {
     ?>
         <div class="container">
             <div class="row justify-content-center">

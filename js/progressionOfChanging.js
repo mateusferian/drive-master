@@ -17,7 +17,7 @@ document.addEventListener("DOMContentLoaded", function() {
         "alterar-aluno.php": 1,
         "alterar-cnh.php": 2,
         "alterar-taxa.php": 3,
-        "alterar-pagamento.php": 4,
+        "cadastro-de-pagamento.php": 4,
         "alterar-pagamento-avista.php": 5,
         "alterar-curso-avista.php": 6,
         "alterar-pagamento-parcelado.php": 7,

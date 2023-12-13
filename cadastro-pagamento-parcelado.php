@@ -32,7 +32,7 @@ $fourthPaymentInInstallmentsDAO = new FourthPaymentInInstallmentsDAO();
 $fifthPaymentInInstallmentsDAO = new FifthPaymentInInstallmentsDAO();
 $sixthPaymentInInstallmentsDAO = new SixthPaymentInInstallmentsDAO();
 ?>
-
+<script src="js/selectValidation.js"></script>
 <link rel="stylesheet" href="css/registrationProcesses.css">
 
 <body>
@@ -78,19 +78,20 @@ $sixthPaymentInInstallmentsDAO = new SixthPaymentInInstallmentsDAO();
                                                     <input type="text" class="form-control"
                                                         name="valueOfInstallment<?= $i ?>" step="0.01"
                                                         placeholder="Digite o valor da <?= $i ?>ª parcela" 
-                                                        pattern="^\d{1,3}(,\d{3})*(\.\d{1,2})?$" title="Por favor, insira um valor válido. Exemplo: 1.000,00" >
+                                                        pattern="^\d{1,}(\.\d{1,2})?$|^(\d{1,3}(,\d{3})*(\.\d{1,2})?)?$" title="Por favor, insira um valor válido. Exemplo: 1.000,00" required>
                                                 </td>
                                             </tr>
                                             <tr>
                                                 <td>
                                                     <input type="date" class="form-control"
-                                                        name="dateOfInstallment<?= $i ?>" >
+                                                        name="dateOfInstallment<?= $i ?>" required>
                                                 </td>
                                             </tr>
                                             <tr>
                                                 <td>
-                                                    <select name="installmentMode<?= $i ?>" class="form-select" >
-                                                        <option selected>forma de pagamento dessa parcela</option>
+                                                    <select name="installmentMode<?= $i ?>" id="installmentMode<?= $i ?>" class="form-select" 
+                                                    onchange="validateinstallmentMode($i)" required>
+                                                        <option value="" disabled selected>forma de pagamento dessa parcela</option>
                                                         <option>Parcelado no cartão</option>
                                                         <option>Parcelado no carnê</option>
                                                     </select>
@@ -98,8 +99,9 @@ $sixthPaymentInInstallmentsDAO = new SixthPaymentInInstallmentsDAO();
                                             </tr>
                                             <tr>
                                                 <td>
-                                                    <select name="paymentStatus<?= $i ?>" class="form-select" >
-                                                        <option selected>Situação de pagamento</option>
+                                                    <select name="paymentStatus<?= $i ?>" id="paymentStatus<?= $i ?>" class="form-select" 
+                                                    onchange="validatePaymentStatus($i)" required>
+                                                        <option value="" disabled selected>Situação de pagamento</option>
                                                         <option>Pagamento realizado</option>
                                                         <option>Em aberto</option>
                                                     </select>

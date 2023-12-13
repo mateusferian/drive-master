@@ -40,13 +40,14 @@ $clientdao = new ClientDAO();
                         ?>
 
                         <div class="card-body">
-                        <form action="controller/CnhController.php" method="POST">
+                            <form action="controller/CnhController.php" method="POST">
                                 <div class="row mb-3 ml-1" hidden>
                                     <?php foreach ($clientdao->lastClient() as $client) : ?>
-                                        <div class="col-sm-2  mt-3">
-                                            <label for="idclient" class="form-label">Id Cliente:</label>
-                                            <input type="number" class="form-control" id="idclient" name="idclient" value="<?= $client->getIdClient() ?>" readonly>
-                                        </div>
+                                    <div class="col-sm-2  mt-3">
+                                        <label for="idclient" class="form-label">Id Cliente:</label>
+                                        <input type="number" class="form-control" id="idclient" name="idclient"
+                                            value="<?= $client->getIdClient() ?>" readonly>
+                                    </div>
                                     <?php endforeach ?>
                                 </div>
                                 <div class="row ml-1">
@@ -54,19 +55,22 @@ $clientdao = new ClientDAO();
                                         <div class="col-sm-10 mx-auto text-center">
                                             <br>
                                             <div class="form-check form-check-inline ml-4 mr-4">
-                                                <input class="form-check-input" type="radio" name="type_cnh" id="1 Habilitação" value="1 Habilitação" checked required>
+                                                <input class="form-check-input" type="radio" name="type_cnh"
+                                                    id="1 Habilitação" value="1 Habilitação" checked required>
                                                 <label class="form-check-label" for="1 Habilitação">
                                                     1 Habilitação
                                                 </label>
                                             </div>
                                             <div class="form-check form-check-inline ml-4 mr-4">
-                                                <input class="form-check-input" type="radio" name="type_cnh" id="Adição de categoria" value="adição de categoria">
+                                                <input class="form-check-input" type="radio" name="type_cnh"
+                                                    id="Adição de categoria" value="adição de categoria">
                                                 <label class="form-check-label" for="Adição de categoria">
                                                     Adição de categoria
                                                 </label>
                                             </div>
                                             <div class="form-check form-check-inline ml-4 mr-4">
-                                                <input class="form-check-input" type="radio" name="type_cnh" id="Reabilitação" value="Reabilitação">
+                                                <input class="form-check-input" type="radio" name="type_cnh"
+                                                    id="Reabilitação" value="Reabilitação">
                                                 <label class="form-check-label" for="Reabilitação">
                                                     Reabilitação
                                                 </label>
@@ -75,37 +79,45 @@ $clientdao = new ClientDAO();
                                     </fieldset>
                                 </div>
                                 <div class="row ml-1">
-                                    <div class="col-sm-5 mt-3">
+                                    <div class="col-sm-12 mt-3">
                                         <label for="registrationNumber" class="form-label">Numero de registro:</label>
-                                        <input type="text" class="form-control" id="registrationNumber" name="registration_number" placeholder="Digite o numero de registro" 
-                                        pattern="[0-9]+" title="Apenas números são permitidos"required>
+                                        <input type="text" class="form-control" id="registrationNumber"
+                                            name="registration_number" placeholder="Digite o numero de registro"
+                                            pattern="[0-9]+" title="Apenas números são permitidos" required>
                                     </div>
                                 </div>
 
                                 <div class="row ml-1">
                                     <div class="col-sm-4 mt-3">
                                         <label for="category" class="form-label">Categoria</label>
-                                        <select id="category" name="category" class="form-select" required>
-                                            <option selected>Informe qual categoria o aluno irá fazer</option>
+                                        <select id="category" name="category" class="form-select" required
+                                            onchange="validateCategory()">
+                                            <option value="" disabled selected>Informe qual categoria o aluno irá fazer
+                                            </option>
                                             <option value="A">A</option>
                                             <option value="B">B</option>
                                             <option value="AB">AB</option>
-                                            <option value="C">C</option>
                                         </select>
+                                        <div id="categoryValidationMessage"></div>
                                     </div>
+                                    <script src="js/selectValidation.js"></script>
+                                    
                                     <div class="col-sm-4  mt-3">
                                         <label for="dateOfMedicExam" class="form-label">Data do exame médico:</label>
-                                        <input type="date" class="form-control" id="dateOfMedicExam" name="medical_exam" required>
+                                        <input type="date" class="form-control" id="dateOfMedicExam" name="medical_exam"
+                                            required>
                                     </div>
                                     <div class="col-sm-4  mt-3">
                                         <label for="biometricUpdate" class="form-label">Atualização Biometrica:</label>
-                                        <input type="date" class="form-control" id="biometricUpdate" name="biometric_update" required>
+                                        <input type="date" class="form-control" id="biometricUpdate"
+                                            name="biometric_update" required>
                                     </div>
                                 </div>
 
                                 <div class="row mt-4 mb-3">
                                     <div class="mt-4 mb-0 d-flex justify-content-end">
-                                        <button type="submit" class="btn customButton btn-lg" name="save">Avançar</button>
+                                        <button type="submit" class="btn customButton btn-lg"
+                                            name="save">Avançar</button>
                                     </div>
                                 </div>
 

@@ -14,7 +14,7 @@
         $rates->setPractice1(($d['practice1']));
         $rates->setPractice2(($d['practice2']));
 
-        $rates->setEmissionCnh(($d['emission_rates']));
+        $rates->setEmissionCnh(($d['emission_cnh']));
         $rates->setDisapprove(($d['disapprove']));
         $rates->setExamA(($d['exam_a']));
 
@@ -35,7 +35,7 @@
         $rates->setPractice1(($d['practice1']));
 
         $rates->setPractice2(($d['practice2']));
-        $rates->setEmissionCnh(($d['emission_rates']));
+        $rates->setEmissionCnh(($d['emission_cnh']));
         $rates->setDisapprove(($d['disapprove']));
 
         $rates->setExamA(($d['exam_a']));

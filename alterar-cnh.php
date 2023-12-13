@@ -40,8 +40,9 @@ $cnhDAO = new CnhDAO();
 
 
                         <?php
-                            include_once('include/progressBar.php');
+                            include_once('include/teste.php');
                         ?>
+                        <script src="js/displayPaymentUpdate.js"></script>
 
                         <div class="card-body">
                             <form action="controller/CnhController.php" method="POST">
@@ -70,7 +71,7 @@ $cnhDAO = new CnhDAO();
                                                 <input class="form-check-input" type="radio" name="type_cnh"
                                                     id="1 Habilitação" value="1 Habilitação"
                                                     <?php if (!isset($cnh) || (isset($cnh) && $cnh->getType() == '1 Habilitação')) { echo 'checked'; } ?>
-                                                    required>
+                                                    >
                                                 <label class="form-check-label" for="1 Habilitação">
                                                     1 Habilitação
                                                 </label>
@@ -78,7 +79,7 @@ $cnhDAO = new CnhDAO();
                                             <div class="form-check form-check-inline ml-4 mr-4">
                                                 <input class="form-check-input" type="radio" name="type_cnh"
                                                     id="Adição de categoria" value="adição de categoria"
-                                                    <?php if (isset($cnh) && $cnh->getType() == 'adição de categoria') { echo 'checked'; } ?>>
+                                                    <?php if (isset($cnh) && $cnh->getType() == 'adição de categoria') { echo 'checked'; } ?> >
                                                 <label class="form-check-label" for="Adição de categoria">
                                                     Adição de categoria
                                                 </label>
@@ -123,6 +124,7 @@ $cnhDAO = new CnhDAO();
                                                 C</option>
 
                                         </select>
+                                        <script src="js/selectValidation.js"></script>
                                     </div>
                                     <div class="col-sm-4  mt-3">
                                         <label for="dateOfMedicExam" class="form-label">Data do exame médico:</label>

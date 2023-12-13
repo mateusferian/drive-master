@@ -1,12 +1,12 @@
 
 $(document).ready(function () {
     // Esconde todos os campos de filtro inicialmente
-    $(".filterCpf, .filterRg, .filterName, .openParcelFilter, .filterRealizedParcels").hide();
+    $(".filterCpf, .filterRg, .filterName").hide();
 
     // Quando o valor do select é alterado
     $("select[name='filtro']").change(function () {
         // Esconde todos os campos de filtro
-        $(".filterCpf, .filterRg, .filterName, .openParcelFilter, .filterRealizedParcels").hide();
+        $(".filterCpf, .filterRg, .filterName").hide();
 
         // Obtém o valor selecionado
         var filtroSelecionado = $(this).val();
@@ -18,10 +18,6 @@ $(document).ready(function () {
             $(".filterRg").show();
         } else if (filtroSelecionado === "opcao2") {
             $(".filterName").show();
-        } else if (filtroSelecionado === "opcao3") {
-            $(".openParcelFilter").show();
-        } else if (filtroSelecionado === "opcao4") {
-            $(".filterRealizedParcels").show();
         }
     });
 })

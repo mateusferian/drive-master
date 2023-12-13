@@ -104,12 +104,6 @@ $clientdao = new ClientDAO();
                                             placeholder="Digite o renach sp" required>
                                     </div>
 
-                                    <!-- <div class="col-sm-4  mt-3">
-                                        <label for="registrationNumber" class="form-label">Numero de registro:</label>
-                                        <input type="text" class="form-control" id="registrationNumber"
-                                            name="registrationNumber" placeholder="Digite o numero de registro">
-                                    </div> -->
-
                                     <div class="col-sm-4  mt-3">
                                         <label for="naturalness" class="form-label">Naturalidade:</label>
                                         <input type="text" class="form-control" id="naturalness" name="naturalness"

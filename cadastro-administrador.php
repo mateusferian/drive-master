@@ -27,7 +27,7 @@ include_once "dao/AdministratorDAO.php";
                         <div class="col-md-6 offset-md-3">
                             <label>E-mail: </label>
                             <input type="email" name="email" class="formControl" placeholder="digite o seu e-mail "
-                                required="">
+                            required>
                         </div>
                     </div>
 
@@ -35,14 +35,14 @@ include_once "dao/AdministratorDAO.php";
                         <div class="col-md-6 offset-md-3">
                             <label>Nome completo:</label>
                             <input type="text" name="name" class="formControl" placeholder="digite o seu nome"
-                                required="">
+                            required>
                         </div>
                     </div>
 
                     <div class="formGroup">
                         <div class="col-md-6 offset-md-3">
                             <label>Senha</label>
-                            <input type="password" name="passwordAdministrator" class="formControl" placeholder="digite a sua senha" required="">
+                            <input type="password" name="passwordAdministrator" class="formControl" placeholder="digite a sua senha" required>
                         </div>
                     </div>
 

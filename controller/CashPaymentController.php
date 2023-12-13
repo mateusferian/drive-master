@@ -15,7 +15,8 @@
         $cashPayment->setIdClient(($d['idclient']));
         $cashPaymentDAO->create($cashPayment);
 
-        header("Location: ../cadastro-de-taxa.php");
+        $idClient = $cashPayment->getIdClient();
+        header("Location: ../formulario-de-consulta.php?fixa-do-aluno=" . $idClient);
     }
 
     else if(isset($_POST['edit'])){
@@ -27,7 +28,7 @@
 
         $cashPaymentDAO->update($cashPayment);
 
-        $idClient = $cashPaymentDAO->getIdClient();
+        $idClient = $cashPayment->getIdClient();
         header("Location: ../formulario-de-consulta.php?aluno-alterado=" . $idClient);
     }
 ?>

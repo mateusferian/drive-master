@@ -66,4 +66,54 @@
                 print "Ocorreu um erro ao tentar fazer Update<br> $e <br>";
             }
     }
+
+    public function countByEmail($email) {
+        try {
+            $sql = "SELECT COUNT(*) AS count FROM tb_administrator WHERE email = :email";
+            $p_sql = Conexao::getConexao()->prepare($sql);
+            $p_sql->bindValue(":email", $email);
+            $p_sql->execute();
+    
+            return (int) $p_sql->fetchColumn();
+    
+        } catch (Exception $e) {
+            print "Erro ao contar administradores por email <br>" . $e . '<br>';
+            return 0;
+        }
+    }
+    
+    public function getUserByEmail($email) {
+        try {
+            $sql = "SELECT * FROM tb_administrator WHERE email = :email";
+            $p_sql = Conexao::getConexao()->prepare($sql);
+            $p_sql->bindValue(":email", $email);
+            $p_sql->execute();
+    
+            return $p_sql->fetch(PDO::FETCH_ASSOC);
+    
+        } catch (Exception $e) {
+            print "Erro ao obter usuário por email <br>" . $e . '<br>';
+            return false;
+        }
+    }
+    
+    public function updateRecoveryKey($idAdministrator, $recoveryKey) {
+        try {
+            $sql = "UPDATE tb_administrator 
+                    SET recuperar_senha = :recuperar_senha 
+                    WHERE idAdministrator = :idAdministrator 
+                    LIMIT 1";
+            $p_sql = Conexao::getConexao()->prepare($sql);
+            $p_sql->bindParam(':recuperar_senha', $recoveryKey, PDO::PARAM_STR);
+            $p_sql->bindParam(':idAdministrator', $idAdministrator, PDO::PARAM_INT);
+            $p_sql->execute();
+    
+            return true;
+    
+        } catch (Exception $e) {
+            print "Erro ao atualizar a chave de recuperação <br>" . $e . '<br>';
+            return false;
+        }
+    }
+    
 }

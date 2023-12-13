@@ -42,9 +42,11 @@ $clientdao = new ClientDAO();
                             </h4>
                         </div>
                         <?php
-                        include_once('include/progressBar.php');
+                            include_once('include/teste.php');
                         ?>
 
+                        <script src="js/displayPaymentUpdate.js"></script>
+                        
                         <div class="card-body">
                             <form action="controller/RatesController.php" method="POST">
 
@@ -89,8 +91,8 @@ $clientdao = new ClientDAO();
                                     </div>
 
                                     <div class="col-sm-6  mt-3">
-                                        <label for="rates" class="form-label"> emissão rates:</label>
-                                        <input type="date" class="form-control" id="rates" name="emission_rates"
+                                        <label for="emission_cnh" class="form-label"> emissão CNH:</label>
+                                        <input type="date" class="form-control" id="emission_cnh" name="emission_cnh"
                                             value="<?php if(isset($rates) && $rates->getEmissionCnh()) { echo $rates->getEmissionCnh(); } ?>"
                                             required>
                                     </div>

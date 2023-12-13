@@ -15,7 +15,8 @@
         $courseOnSight->setIdClient(($d['idclient']));
         $courseOnSightDAO->create($courseOnSight);
 
-        header("Location: ../cadastro-de-taxa.php");
+        $idClient = $courseOnSight->getIdClient();
+        header("Location: ../formulario-de-consulta.php?fixa-do-aluno=" . $idClient);
     }
 
     if(isset($_POST['edit'])){

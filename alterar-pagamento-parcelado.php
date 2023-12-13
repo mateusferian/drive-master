@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
-<script src="js/progressBar.js"></script>
+<script src="js/progressionOfChanging.js"></script>
 <?php
 include_once('restrito.php');
 include_once('include/header.php');
@@ -76,15 +76,15 @@ $sixthPaymentInInstallmentsDAO = new SixthPaymentInInstallmentsDAO();
 
                         <div class="card-header">
                             <h4 class="text-center font-weight-light my-4">
-                                <span class="h3">Cadastro de Aluno</span>
+                                <span class="h3">Alterar Aluno</span>
                                 <small class="d-block">Dados de pagamento a vista</small>
                             </h4>
                         </div>
 
                         <?php
-                            include_once('include/progressBar.php');
+                            include_once('include/teste.php');
                         ?>
-                        <script src="js/displayPaymentMethods.js"></script>
+                        <script src="js/displayPaymentUpdate.js"></script>
 
                         <div class="card-body">
                             <form id="form4" action="controller/PaymentInInstallmentsController.php" method="POST">
@@ -109,8 +109,6 @@ $sixthPaymentInInstallmentsDAO = new SixthPaymentInInstallmentsDAO();
                                                     <input type="text" class="form-control"
                                                         name="IdPaymentInInstallments<?= $i ?>" step="0.01"
                                                         placeholder="Id da <?= $i ?>ª parcela"
-                                                        pattern="^\d{1,3}(,\d{3})*(\.\d{1,2})?$"
-                                                        title="Por favor, insira um valor válido. Exemplo: 1.000,00"
                                                         value="<?php if(isset($installments[$i]) && $installments[$i]->getIdPaymentInInstallments()) { echo $installments[$i]->getIdPaymentInInstallments(); } ?>"
                                                         required>
                                                 </td>
@@ -121,8 +119,7 @@ $sixthPaymentInInstallmentsDAO = new SixthPaymentInInstallmentsDAO();
                                                     <input type="text" class="form-control"
                                                         name="valueOfInstallment<?= $i ?>" step="0.01"
                                                         placeholder="Digite o valor da <?= $i ?>ª parcela"
-                                                        pattern="^\d{1,3}(,\d{3})*(\.\d{1,2})?$"
-                                                        title="Por favor, insira um valor válido. Exemplo: 1.000,00"
+                                                        pattern="^\d{1,}(\.\d{1,2})?$|^(\d{1,3}(,\d{3})*(\.\d{1,2})?)?$" title="Por favor, insira um valor válido. Exemplo: 1.000,00"
                                                         value="<?php if(isset($installments[$i]) && $installments[$i]->getInstallmentValue()) { echo $installments[$i]->getInstallmentValue(); } ?>"
                                                         required>
                                                 </td>

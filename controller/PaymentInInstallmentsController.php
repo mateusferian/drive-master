@@ -21,12 +21,18 @@ $sixthPaymentInInstallmentsDAO = new SixthPaymentInInstallmentsDAO();
 if (isset($_POST['save'])) {
     $idClient = $_POST['idclient'];
 
+    // Set default values if the first installment is filled
+    $defaultInstallmentValue = $_POST['valueOfInstallment1'] ?? 0;
+    $defaultInstallmentDate = $_POST['dateOfInstallment1'] ?? date('Y-m-d');
+    $defaultInstallmentMode = $_POST['installmentMode1'] ?? 'Parcelado no cartão';
+    $defaultPaymentStatus = $_POST['paymentStatus1'] ?? 'Em aberto';
+
     for ($i = 1; $i <= 6; $i++) {
         $paymentInInstallments = new PaymentInInstallments();
-        $paymentInInstallments->setInstallmentValue($_POST['valueOfInstallment' . $i] ?? 0.00);
-        $paymentInInstallments->setInstallmentDate($_POST['dateOfInstallment' . $i] ?? date('Y-m-d'));
-        $paymentInInstallments->setInstallmentMode($_POST['installmentMode' . $i] ?? 'Parcelado no cartão');
-        $paymentInInstallments->setInstallmentStatus($_POST['paymentStatus' . $i] ?? 'Em aberto');
+        $paymentInInstallments->setInstallmentValue($_POST['valueOfInstallment' . $i] ?? $defaultInstallmentValue);
+        $paymentInInstallments->setInstallmentDate($_POST['dateOfInstallment' . $i] ?? $defaultInstallmentDate);
+        $paymentInInstallments->setInstallmentMode($_POST['installmentMode' . $i] ?? $defaultInstallmentMode);
+        $paymentInInstallments->setInstallmentStatus($_POST['paymentStatus' . $i] ?? $defaultPaymentStatus);
         $paymentInInstallments->setIdClient($idClient);
 
         switch ($i) {
@@ -56,6 +62,7 @@ if (isset($_POST['save'])) {
 
     header("Location: ../formulario-de-consulta.php?fixa-do-aluno=" . $idClient);
 }
+
 
 if (isset($_POST['edit'])) {
     $idClient = $_POST['idclient'];

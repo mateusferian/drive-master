@@ -133,17 +133,6 @@ p {
                     <input type="text" class="form-control" id="name" name="name"
                         placeholder="Digite o nome do aluno que você procura">
                 </div>
-
-                <div class="openParcelFilter mt-2">
-                    <label for="openParcel">Mês da parcela em aberto:</label>
-                    <input type="date" class="form-control" id="openParcel" name="openParcel">
-                </div>
-
-                <div class="filterRealizedParcels mt-2">
-                    <label for="RealizedParcels">Mês da parcela realizada:</label>
-                    <input type="date" class="form-control" id="RealizedParcels" name="RealizedParcels">
-                </div>
-
                 <div class="col-12 mt-3">
                     <button type="submit" name="filter" class="btn customButton">Filtrar</button>
                 </div>
