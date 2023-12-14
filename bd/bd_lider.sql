@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Tempo de geração: 13/12/2023 às 22:49
+-- Tempo de geração: 14/12/2023 às 15:41
 -- Versão do servidor: 8.0.35-0ubuntu0.22.04.1
 -- Versão do PHP: 8.1.2-1ubuntu2.14
 
@@ -44,7 +44,8 @@ CREATE TABLE `tbl_fifth_installment` (
 --
 
 INSERT INTO `tbl_fifth_installment` (`idPaymentInInstallments`, `installment_value`, `installment_date`, `installment_mode`, `installment_status`, `idclient`) VALUES
-(26, 345, '2023-12-14', 'Parcelado no cartão', 'Pagamento realizado', 26);
+(26, 345, '2023-12-13', 'Parcelado no cartão', 'Em aberto', 26),
+(27, 23, '2023-12-14', 'Parcelado no carnê', 'Em aberto', 27);
 
 -- --------------------------------------------------------
 
@@ -66,7 +67,8 @@ CREATE TABLE `tbl_first_installment` (
 --
 
 INSERT INTO `tbl_first_installment` (`idPaymentInInstallments`, `installment_value`, `installment_date`, `installment_mode`, `installment_status`, `idclient`) VALUES
-(41, 300, '2023-12-15', 'Parcelado no cartão', 'Em aberto', 26);
+(41, 300, '2023-12-15', 'Parcelado no cartão', 'Pagamento realizado', 26),
+(42, 23, '2023-12-13', 'Parcelado no cartão', 'Em aberto', 24);
 
 -- --------------------------------------------------------
 
@@ -88,7 +90,8 @@ CREATE TABLE `tbl_fourth_installment` (
 --
 
 INSERT INTO `tbl_fourth_installment` (`idPaymentInInstallments`, `installment_value`, `installment_date`, `installment_mode`, `installment_status`, `idclient`) VALUES
-(27, 4355, '2023-12-21', 'Parcelado no carnê', 'Pagamento realizado', 26);
+(27, 4355, '2023-12-21', 'Parcelado no carnê', 'Pagamento realizado', 26),
+(28, 23, '2023-12-15', 'Parcelado no cartão', 'Pagamento realizado', 27);
 
 -- --------------------------------------------------------
 
@@ -110,7 +113,8 @@ CREATE TABLE `tbl_second_installment` (
 --
 
 INSERT INTO `tbl_second_installment` (`idPaymentInInstallments`, `installment_value`, `installment_date`, `installment_mode`, `installment_status`, `idclient`) VALUES
-(28, 1212, '2023-12-14', 'Parcelado no cartão', 'Pagamento realizado', 26);
+(28, 1212, '2023-12-14', 'Parcelado no cartão', 'Pagamento realizado', 26),
+(29, 23, '2023-12-07', 'Parcelado no cartão', 'Pagamento realizado', 24);
 
 -- --------------------------------------------------------
 
@@ -132,7 +136,8 @@ CREATE TABLE `tbl_sixth_installment` (
 --
 
 INSERT INTO `tbl_sixth_installment` (`idPaymentInInstallments`, `installment_value`, `installment_date`, `installment_mode`, `installment_status`, `idclient`) VALUES
-(27, 456, '2023-12-15', 'Parcelado no carnê', 'Pagamento realizado', 26);
+(27, 456, '2023-12-15', 'Parcelado no carnê', 'Pagamento realizado', 26),
+(28, 23, '2023-12-13', 'Parcelado no cartão', 'Pagamento realizado', 27);
 
 -- --------------------------------------------------------
 
@@ -154,7 +159,8 @@ CREATE TABLE `tbl_third_installment` (
 --
 
 INSERT INTO `tbl_third_installment` (`idPaymentInInstallments`, `installment_value`, `installment_date`, `installment_mode`, `installment_status`, `idclient`) VALUES
-(27, 234344, '2023-12-20', 'Parcelado no cartão', 'Pagamento realizado', 26);
+(27, 234344, '2023-12-20', 'Parcelado no cartão', 'Pagamento realizado', 26),
+(28, 23, '2023-12-16', 'Parcelado no cartão', 'Pagamento realizado', 24);
 
 -- --------------------------------------------------------
 
@@ -233,7 +239,8 @@ CREATE TABLE `tb_client` (
 INSERT INTO `tb_client` (`idclient`, `name_client`, `father`, `mother`, `rg`, `rg_expedition`, `cpf`, `birth_date`, `email`, `celphone`, `telephone`, `naturalness`, `address_client`, `number_client`, `neighborhood`, `uf`, `activity_location`, `renach`, `registration_date`) VALUES
 (24, 'Edson Silva', 'Maria José', 'Roberto', '1343434343', '12', '23456787654', '2023-12-08', 'edson@gmail.com', '1212121212', '19887367881', 'Brasil', 'Rua Dez', '123', 'Vila Barro', 'SP', 'casa', '12', '2023-12-13'),
 (25, 'testes', '34', '343', '34', '34', '23434343434343', '2023-12-06', 'testes@gmail.com', '34', '34', '34', '34', '3', '34', '34', '34', '34', '2023-12-13'),
-(26, 'Mateus ', 'yasmim', 'Carlos', '34343434', '34', '333333333', '2023-12-15', 'Mateus@gmail.com', '2222', '2232222', 'Brasil', 'Vila Martin', '123', 'Vila Barro', 'SP', 'casa', '12', '2023-12-13');
+(26, 'Mateus ', 'yasmim', 'Carlos', '34343434', '34', '333333333', '2023-12-15', 'Mateus@gmail.com', '2222', '2232222', 'Brasil', 'Vila Martin', '123', 'Vila Barro', 'SP', 'casa', '12', '2023-12-13'),
+(27, 'cbjdsbc@gmail.com', 'cbjdsbc@gmail.com', 'cbjdsbc@gmail.com', '2323', '23', '23', '2023-12-16', 'cbjdsbc@gmail.com', '23', '23', '23', '23', '23', '23', '23', '12313', '23', '2023-12-14');
 
 -- --------------------------------------------------------
 
@@ -258,7 +265,8 @@ CREATE TABLE `tb_cnh` (
 INSERT INTO `tb_cnh` (`idcnh`, `category`, `type_cnh`, `medical_exam`, `registration_number`, `biometric_update`, `idclient`) VALUES
 (28, 'A', '1 Habilitação', '2023-12-07', 1111, '2023-12-06', 24),
 (30, 'B', '1 Habilitação', '2023-12-15', 33434, '2023-12-06', 25),
-(31, 'AB', 'Reabilitação', '2023-12-05', 6666, '2023-12-14', 26);
+(31, 'AB', 'Reabilitação', '2023-12-05', 6666, '2023-12-14', 26),
+(32, 'B', 'Reabilitação', '2023-12-15', 23, '2023-12-11', 27);
 
 -- --------------------------------------------------------
 
@@ -306,7 +314,8 @@ CREATE TABLE `tb_rates` (
 INSERT INTO `tb_rates` (`idrates`, `theoretic`, `practice1`, `practice2`, `emission_cnh`, `disapprove`, `exam_a`, `exam_b`, `exam_d`, `idclient`) VALUES
 (9, '2023-12-14', '2023-12-14', '2023-12-15', '2023-12-15', '2023-12-15', '2023-12-07', '2023-12-28', '2023-12-22', 24),
 (11, '2023-12-15', '2023-12-14', '2023-12-08', '2023-12-15', '2023-12-16', '2023-12-06', '2023-12-14', '2023-12-19', 25),
-(12, '2023-12-07', '2023-12-11', '2023-12-08', '2023-12-12', '2023-12-09', '2023-12-21', '2023-12-10', '2023-12-22', 26);
+(12, '2023-12-07', '2023-12-11', '2023-12-08', '2023-12-12', '2023-12-09', '2023-12-21', '2023-12-10', '2023-12-22', 26),
+(13, '2023-12-15', '2023-12-06', '2023-12-16', '2023-12-06', '2023-12-08', '2023-12-13', '2023-12-29', '2023-12-18', 27);
 
 --
 -- Índices para tabelas despejadas
@@ -402,37 +411,37 @@ ALTER TABLE `tb_rates`
 -- AUTO_INCREMENT de tabela `tbl_fifth_installment`
 --
 ALTER TABLE `tbl_fifth_installment`
-  MODIFY `idPaymentInInstallments` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=27;
+  MODIFY `idPaymentInInstallments` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=28;
 
 --
 -- AUTO_INCREMENT de tabela `tbl_first_installment`
 --
 ALTER TABLE `tbl_first_installment`
-  MODIFY `idPaymentInInstallments` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=42;
+  MODIFY `idPaymentInInstallments` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=43;
 
 --
 -- AUTO_INCREMENT de tabela `tbl_fourth_installment`
 --
 ALTER TABLE `tbl_fourth_installment`
-  MODIFY `idPaymentInInstallments` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=28;
+  MODIFY `idPaymentInInstallments` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=29;
 
 --
 -- AUTO_INCREMENT de tabela `tbl_second_installment`
 --
 ALTER TABLE `tbl_second_installment`
-  MODIFY `idPaymentInInstallments` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=29;
+  MODIFY `idPaymentInInstallments` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=30;
 
 --
 -- AUTO_INCREMENT de tabela `tbl_sixth_installment`
 --
 ALTER TABLE `tbl_sixth_installment`
-  MODIFY `idPaymentInInstallments` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=28;
+  MODIFY `idPaymentInInstallments` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=29;
 
 --
 -- AUTO_INCREMENT de tabela `tbl_third_installment`
 --
 ALTER TABLE `tbl_third_installment`
-  MODIFY `idPaymentInInstallments` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=28;
+  MODIFY `idPaymentInInstallments` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=29;
 
 --
 -- AUTO_INCREMENT de tabela `tb_administrator`
@@ -450,13 +459,13 @@ ALTER TABLE `tb_cash_payment`
 -- AUTO_INCREMENT de tabela `tb_client`
 --
 ALTER TABLE `tb_client`
-  MODIFY `idclient` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=27;
+  MODIFY `idclient` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=28;
 
 --
 -- AUTO_INCREMENT de tabela `tb_cnh`
 --
 ALTER TABLE `tb_cnh`
-  MODIFY `idcnh` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=32;
+  MODIFY `idcnh` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=33;
 
 --
 -- AUTO_INCREMENT de tabela `tb_course_on_sight`
@@ -468,7 +477,7 @@ ALTER TABLE `tb_course_on_sight`
 -- AUTO_INCREMENT de tabela `tb_rates`
 --
 ALTER TABLE `tb_rates`
-  MODIFY `idrates` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
+  MODIFY `idrates` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
 
 --
 -- Restrições para tabelas despejadas

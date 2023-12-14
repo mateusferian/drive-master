@@ -66,11 +66,13 @@ $(document).ready(function() {
 
     var bellIcon = $('#bell-icon');
     bellIcon.click(exibirModal);
-    
-    var intervalInMilliseconds = 45 * 24 * 60 * 60 * 1000;
 
-    setTimeout(function() {
-        verificarNotificacoes();
+        var intervaloEmMilissegundos = 45 * 24 * 60 * 60 * 1000;
     
-    }, intervalInMilliseconds);
-});
+        setTimeout(function() {
+            verificarNotificacoes();
+            agendarVerificacao();
+        }, intervaloEmMilissegundos);
+    }
+
+);
