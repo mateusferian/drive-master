@@ -77,5 +77,30 @@ class ThirdPaymentInInstallmentsDAO
             print "Ocorreu um erro ao tentar buscar a taxas por ID do Cliente: " . $e;
         }
     }
+
+    public function listOpenInstallment() {
+        try {
+
+            $currentDate = date('Y-m-d');
+    
+            $sql = "SELECT * FROM tbl_third_installment WHERE installment_status = 'Em Aberto' AND installment_date <= '$currentDate' ORDER BY idclient ASC";
+    
+            $result = Conexao::getConexao()->query($sql);
+            $lista = $result->fetchAll(PDO::FETCH_ASSOC);
+            $f_lista = array();
+    
+            foreach ($lista as $l) {
+
+                if (strtotime($l['installment_date']) <= strtotime($currentDate)) {
+                    $f_lista[] = $this->listPaymentInInstallments($l);
+                }
+            } 
+    
+            return $f_lista;
+        } catch (Exception $e) {
+            print "Ocorreu um erro ao tentar Buscar Todos." . $e->getMessage();
+        }
+    }
+
 }
 ?>
