@@ -26,7 +26,7 @@
             $keyRecoverPassword = password_hash($administrator->getIdAdministrator(), PASSWORD_DEFAULT);
 
             if ($administratorDAO->updateRecoveryKey($administrator->getIdAdministrator(), $keyRecoverPassword)) {
-                $link = "http://localhost/lider-management/atualizar-senha.php?chave=$keyRecoverPassword";
+                $link = "http://localhost/drive-master/atualizar-senha.php?chave=$keyRecoverPassword";
 
                 try {
 
