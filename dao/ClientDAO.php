@@ -280,7 +280,28 @@
             }
         }
         
-
+        public function teste($idClient) {
+            try {
+                $sql = "SELECT * FROM tb_client WHERE idclient = :idclient";
+                $p_sql = Conexao::getConexao()->prepare($sql);
+                $p_sql->bindValue(":idclient", $idClient);
+                $p_sql->execute();
+                $row = $p_sql->fetch(PDO::FETCH_ASSOC);
+        
+                if ($row) {
+                    // Retorna a string "notificacao"
+                    return "notificacao";
+                } else {
+                    // Retorna nulo se não houver notificação
+                    return null;
+                }
+            } catch (Exception $e) {
+                // Lida com exceções e retorna nulo em caso de erro
+                print "Ocorreu um erro ao tentar Buscar Cliente por ID: " . $e;
+                return null;
+            }
+        }
+        
         public function countStudentsByYears($years)
         {
             try {

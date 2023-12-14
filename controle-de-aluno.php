@@ -102,43 +102,42 @@ p {
         </div>
     </nav>
 
-    <script src="js/filter.js"></script>
     <div class="container">
-        <div class="row">
-            <form method="get" id="opcoes-de-filtragem">
-                <p class="fs-5 mt-5">Opções de filtragem:</p>
-                <select class="form-control" name="filtro">
-                    <option value="opcao">Sem filtro</option>
-                    <option value="opcao0">CPF</option>
-                    <option value="opcao1">RG</option>
-                    <option value="opcao2">Nome</option>
-                    <option value="opcao3">Parcelas em aberto</option>
-                    <option value="opcao4">Parcelas realizadas</option>
-                </select>
+    <div class="row">
+        <form method="get" id="opcoes-de-filtragem">
+            <p class="fs-5 mt-5">Opções de filtragem:</p>
+            <select class="form-control" name="filtro" id="filtro">
+                <option value="opcao" <?php echo isset($_GET['filtro']) && $_GET['filtro'] == 'opcao' ? 'selected' : ''; ?>>Sem filtro</option>
+                <option value="opcao0" <?php echo isset($_GET['filtro']) && $_GET['filtro'] == 'opcao0' ? 'selected' : ''; ?>>CPF</option>
+                <option value="opcao1" <?php echo isset($_GET['filtro']) && $_GET['filtro'] == 'opcao1' ? 'selected' : ''; ?>>RG</option>
+                <option value="opcao2" <?php echo isset($_GET['filtro']) && $_GET['filtro'] == 'opcao2' ? 'selected' : ''; ?>>Nome</option>
+            </select>
 
-                <div class="filterCpf mt-2">
-                    <label for="cpf">CPF:</label>
-                    <input type="number" class="form-control" id="cpf" name="cpf"
-                        placeholder="Digite o cpf do aluno que você procura">
-                </div>
+            <div class="filterCpf mt-2" <?php echo isset($_GET['filtro']) && $_GET['filtro'] == 'opcao0' ? '' : 'style="display: none;"'; ?>>
+                <label for="cpf">CPF:</label>
+                <input type="number" class="form-control" id="cpf" name="cpf" placeholder="Digite o cpf do aluno que você procura" value="<?php echo isset($_GET['cpf']) ? htmlspecialchars($_GET['cpf']) : ''; ?>">
+            </div>
 
-                <div class="filterRg mt-2">
-                    <label for="rg">RG:</label>
-                    <input type="number" class="form-control" id="rg" name="rg"
-                        placeholder="Digite o rg do aluno que você procura">
-                </div>
+            <div class="filterRg mt-2" <?php echo isset($_GET['filtro']) && $_GET['filtro'] == 'opcao1' ? '' : 'style="display: none;"'; ?>>
+                <label for="rg">RG:</label>
+                <input type="number" class="form-control" id="rg" name="rg" placeholder="Digite o rg do aluno que você procura" value="<?php echo isset($_GET['rg']) ? htmlspecialchars($_GET['rg']) : ''; ?>">
+            </div>
 
-                <div class="filterName mt-2">
-                    <label for="name">Nome:</label>
-                    <input type="text" class="form-control" id="name" name="name"
-                        placeholder="Digite o nome do aluno que você procura">
-                </div>
-                <div class="col-12 mt-3">
-                    <button type="submit" name="filter" class="btn customButton">Filtrar</button>
-                </div>
-            </form>
-        </div>
+            <div class="filterName mt-2" <?php echo isset($_GET['filtro']) && $_GET['filtro'] == 'opcao2' ? '' : 'style="display: none;"'; ?>>
+                <label for="name">Nome:</label>
+                <input type="text" class="form-control" id="name" name="name" placeholder="Digite o nome do aluno que você procura" value="<?php echo isset($_GET['name']) ? htmlspecialchars($_GET['name']) : ''; ?>">
+            </div>
+            <div class="col-12 mt-3">
+                <button type="submit" name="filter" class="btn customButton">Filtrar</button>
+            </div>
+        </form>
     </div>
+</div>
+
+<script src="js/filter.js"></script>
+<script src="js/selected.js"></script>
+<script src="js/updateUrl.js"></script>
+
 <br><br>
     <div class="container" id="tabela-de-aluno">
         <table class="table table-bordered text-center">
@@ -159,9 +158,10 @@ p {
                     $current_page = isset($_GET['page']) ? $_GET['page'] : 1;
 
                     $filtro = isset($_GET["filtro"]) ? $_GET["filtro"] : "";
-                    $cpf = isset($_GET["cpf"]) ? $_GET["cpf"] : "";
-                    $rg = isset($_GET["rg"]) ? $_GET["rg"] : "";
-                    $name = isset($_GET["name"]) ? $_GET["name"] : "";
+                    $cpf = ($filtro == 'opcao0') ? (isset($_GET["cpf"]) ? $_GET["cpf"] : "") : "";
+                    $rg = ($filtro == 'opcao1') ? (isset($_GET["rg"]) ? $_GET["rg"] : "") : "";
+                    $name = ($filtro == 'opcao2') ? (isset($_GET["name"]) ? $_GET["name"] : "") : "";
+                    
                 
 
                     $limit_start = ($current_page - 1) * $results_per_page;
