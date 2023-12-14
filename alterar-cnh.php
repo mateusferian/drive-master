@@ -40,7 +40,7 @@ $cnhDAO = new CnhDAO();
 
 
                         <?php
-                            include_once('include/teste.php');
+                            include_once('include/changeProgressBar.php');
                         ?>
                         <script src="js/displayPaymentUpdate.js"></script>
 

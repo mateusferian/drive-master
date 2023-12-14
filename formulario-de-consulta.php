@@ -69,12 +69,12 @@ $sixthPaymentInInstallmentsDAO = new SixthPaymentInInstallmentsDAO();
 <body>
     <main>
         <?php
-    if ((isset($_GET["consulta"])) || (isset($_GET["fixa-do-aluno"])) || (isset($_GET["aluno-alterado"]))) {
+    if ((isset($_GET["consulta"])) || (isset($_GET["Ficha-do-aluno"])) || (isset($_GET["aluno-alterado"]))) {
 
         if (isset($_GET["consulta"])) {
             $idClient = $_GET["consulta"];
-        } elseif (isset($_GET["fixa-do-aluno"])) {
-            $idClient = $_GET["fixa-do-aluno"];
+        } elseif (isset($_GET["Ficha-do-aluno"])) {
+            $idClient = $_GET["Ficha-do-aluno"];
         } elseif (isset($_GET["aluno-alterado"])) {
             $idClient = $_GET["aluno-alterado"];
         } else {
@@ -112,7 +112,7 @@ $sixthPaymentInInstallmentsDAO = new SixthPaymentInInstallmentsDAO();
                         <div class="card-header">
                             <h4 class="text-center font-weight-light my-4">
                                 <span class="h3"><?php echo strtoupper($client->getName()); ?></span>
-                                <small class="d-block">Fixa do aluno</small>
+                                <small class="d-block">Ficha do aluno</small>
                             </h4>
                         </div>
 

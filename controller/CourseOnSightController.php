@@ -16,7 +16,7 @@
         $courseOnSightDAO->create($courseOnSight);
 
         $idClient = $courseOnSight->getIdClient();
-        header("Location: ../formulario-de-consulta.php?fixa-do-aluno=" . $idClient);
+        header("Location: ../formulario-de-consulta.php?Ficha-do-aluno=" . $idClient);
     }
 
     if(isset($_POST['edit'])){

@@ -1,5 +1,5 @@
     <?php
-    if (isset($_GET["fixa-do-aluno"])) { 
+    if (isset($_GET["Ficha-do-aluno"])) { 
 
 
         echo "<script>
