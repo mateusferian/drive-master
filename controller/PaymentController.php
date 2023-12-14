@@ -1,57 +1,55 @@
 <?php
     include_once "../conexao/Conexao.php";
-    include_once "../model/Payment.php";
-    include_once "../dao/PaymentDAO.php";
 
-    $payment = new Payment();
-    $paymentdao = new PaymentDAO();
+    include_once('../model/CashPayment.php');
+    include_once('../dao/CashPaymentDAO.php');
+
+    include_once('../model/CourseOnSight.php');
+    include_once('../dao/CourseOnSightDAO.php');
+
+    include_once('../model/PaymentInInstallments.php');
+    include_once('../dao/FirstPaymentInInstallmentsDAO.php');
 
     $d = filter_input_array(INPUT_POST);
 
+    $cashPayment = new CashPayment();
+    $cashPaymentDAO = new CashPaymentDAO();
+
+    $courseOnSight = new CourseOnSight();
+    $courseOnSightDAO = new CourseOnSightDAO();
+
+    $firstPaymentInInstallments = new PaymentInInstallments();
+    $firstPaymentInInstallmentsDAO = new FirstPaymentInInstallmentsDAO();
+
     if(isset($_POST['save'])){
-
-        $payment->setAmount(($d['amount']));
-        $payment->setPaymentForm(($d['payment_form']));
-
-        $payment->setTheoreticCourse(($d['theoretic_course']));
-        $payment->setInstallmentDate(($d['installment_date']));
-
-        $payment->setInstallmentValue(($d['installment_value']));
-        $payment->setSituation(($d['situation']));
-        $payment->setIdclient(($d['idclient']));
-
-        $paymentDAO->create($payment);
-
-        header("Location: ../#.php");
+        $selectedValue = isset($_POST['installmentType']) ? $_POST['installmentType'] : '';
+    
+        if($selectedValue == "cashPayment"){
+            header("Location: ../cadastro-pagamento-avista.php");
+        } else if($selectedValue == "installment"){
+            header("Location: ../cadastro-pagamento-parcelado.php");
+        } else if($selectedValue == "courseToView"){
+            header("Location: ../cadastro-curso-avista.php");
+        }
     }
 
-    else if(isset($_POST['editar'])) {
+    if(isset($_GET['al'])){
 
-        $payment->setIdPayment(($d['idpayment']));
-        $payment->setAmount(($d['amount']));
-        $payment->setPaymentForm(($d['payment_form']));
+        $idclient = $_GET['al'];
 
-        $payment->setTheoreticCourse(($d['theoretic_course']));
-        $payment->setInstallmentDate(($d['installment_date']));
+        $cashPayment = $cashPaymentDAO->findByClientId($idclient);
+        $courseOnSight = $courseOnSightDAO->findByClientId($idclient);
+        $firstPaymentInInstallments = $firstPaymentInInstallmentsDAO->findByClientId($idclient);
 
-        $payment->setInstallmentValue(($d['installment_value']));
-        $payment->setSituation(($d['situation']));
-        $payment->setIdclient(($d['idclient']));
-
-        $paymentDAO->create($payment);
-
-        header("Location: ../#.php");
+        if($cashPayment){
+        header("Location: ../alterar-pagamento-avista.php?al=$idclient");
+        exit;
+        }else if($courseOnSight){
+            header("Location: ../alterar-curso-avista.php?al=$idclient");
+            exit;
+        }else if($firstPaymentInInstallments){
+            header("Location: ../alterar-pagamento-parcelado.php?al=$idclient");
+            exit;
+        }
     }
-
-
-    else if(isset($_GET['del'])){
-
-        $payment->setIdPayment($_GET['del']);
-
-        $paymentDAO->delete($payment);
-
-        header("Location: ../#.php");
-
-    } 
-
 ?>

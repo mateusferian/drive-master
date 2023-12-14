@@ -5,9 +5,9 @@
       <div class="row gy-4">
         <div class="col-lg-5 col-md-12 footer-info">
           <a href="controle-de-aluno.php" class="logo d-flex align-items-center">
-            <span>Autoescola Líder</span>
+            <span>Drive Master</span>
           </a>
-          <p>Na Autoescola Líder, entendemos que a estrada para se tornar um motorista seguro e confiante é uma jornada importante. É por isso que nos dedicamos a oferecer o treinamento mais abrangente e experiente. Com instrutores altamente qualificados e um foco na segurança, estamos aqui para ajudá-lo a conquistar a estrada com confiança. Seja você um iniciante ansioso para aprender ou alguém que deseja aprimorar suas habilidades, a Autoescola Líder é o seu parceiro de confiança. Comece sua jornada rumo à condução habilidosa conosco hoje.</p>
+          <p>na Drive Master, entendemos que a estrada para se tornar um motorista seguro e confiante é uma jornada importante. É por isso que nos dedicamos a oferecer o treinamento mais abrangente e experiente. Com instrutores altamente qualificados e um foco na segurança, estamos aqui para ajudá-lo a conquistar a estrada com confiança. Seja você um iniciante ansioso para aprender ou alguém que deseja aprimorar suas habilidades, a Autoescola Líder é o seu parceiro de confiança. Comece sua jornada rumo à condução habilidosa conosco hoje.</p>
         </div>
 
         <div class="col-lg-2 col-6 footer-links">

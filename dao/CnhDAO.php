@@ -38,16 +38,16 @@
         
         public function delete(Cnh $cnh){
             try {
-                $sql = "DELETE FROM tb_cnh WHERE idcnh  = :idcnh ";
+                $sql = "DELETE FROM tb_cnh WHERE idclient  = :idclient ";
                 $p_sql = Conexao::getConexao()->prepare($sql);
-                $p_sql->bindValue(":idcnh ", $cnh->getIdClient ());
+                $p_sql->bindValue(":idclient ", $cnh->getIdClient ());
                 return $p_sql->execute();
             } catch (Exception $e) {
                 echo "Erro ao Excluir cnh <br> $e <br>";
             }
         }
 
-        public function update(Cnh $rates)
+        public function update(Cnh $cnh)
         {
             try {
                 $sql = "UPDATE tb_cnh SET
@@ -62,13 +62,13 @@
                     WHERE idcnh = :idcnh";
 
         $p_sql = Conexao::getConexao()->prepare($sql);
-        $p_sql->bindValue(":idcnh", $rates->getIdCnh());
-        $p_sql->bindValue(":category", $rates->getCategory());
-        $p_sql->bindValue(":type_cnh", $rates->getType());
-        $p_sql->bindValue(":medical_exam", $rates->getMedicalExam());
-        $p_sql->bindValue(":registration_number", $rates->getRegistrationNumber());
-        $p_sql->bindValue(":biometric_update", $rates->getBiometricUpdate());
-        $p_sql->bindValue(":idclient", $rates->getIdClient());
+        $p_sql->bindValue(":idcnh", $cnh->getIdCnh());
+        $p_sql->bindValue(":category", $cnh->getCategory());
+        $p_sql->bindValue(":type_cnh", $cnh->getType());
+        $p_sql->bindValue(":medical_exam", $cnh->getMedicalExam());
+        $p_sql->bindValue(":registration_number", $cnh->getRegistrationNumber());
+        $p_sql->bindValue(":biometric_update", $cnh->getBiometricUpdate());
+        $p_sql->bindValue(":idclient", $cnh->getIdClient());
 
             return $p_sql->execute();
             } catch (Exception $e) {
@@ -93,6 +93,21 @@
                 print "Ocorreu um erro ao tentar buscar a CNH por ID do Cliente: " . $e;
             }
         }
+
+        public function countByCategory($category) {
+            try {
+                $sql = "SELECT COUNT(*) as total FROM tb_cnh WHERE category = :category";
+                $p_sql = Conexao::getConexao()->prepare($sql);
+                $p_sql->bindValue(":category", $category);
+                $p_sql->execute();
+                $result = $p_sql->fetch(PDO::FETCH_ASSOC);
         
+                return isset($result['total']) ? [(int) $result['total']] : [0];
+            } catch (Exception $e) {
+                print "Ocorreu um erro ao tentar contar as CNHs por categoria: " . $e;
+                return [0];
+            }
+        }
+    
     }
 ?>

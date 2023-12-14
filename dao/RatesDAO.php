@@ -43,52 +43,40 @@
             return $rates;
         }
 
-        public function delete(Rates $rates){
-            try {
-                $sql = "DELETE FROM tb_rates WHERE idrates  = :idrates ";
-                $p_sql = Conexao::getConexao()->prepare($sql);
-                $p_sql->bindValue(":idrates ", $rates->getIdRates());
-                return $p_sql->execute();
-            } catch (Exception $e) {
-                echo "Erro ao Excluir taxas <br> $e <br>";
-            }
-        }
-
         public function update(Rates $rates)
-        {
-            try {
-                $sql = "UPDATE tb_rates set
-                    
-                    idrates=:idrates,
-                    theoretic=:theoretic,
-                    practice1=:practice1,
-                    practice2=:practice2,
-                    emission_cnh=:emission_cnh,
-                    disapprove=:disapprove,
-                    exam_a=:exam_a,
-                    exam_b=:exam_b,
-                    exam_d=:exam_d,
-                    idclient=:idclient,
-                                    
-                      WHERE idrates = :idrates";
-                $p_sql = Conexao::getConexao()->prepare($sql);
-                $p_sql->bindValue(":idrates", $rates->getIdRates());
-                $p_sql->bindValue(":theoretic", $rates->getTheoretic());
-                $p_sql->bindValue(":practice1", $rates->getPractice1());
-                $p_sql->bindValue(":practice2", $rates->getPractice2());
-                $p_sql->bindValue(":emission_cnh", $rates->getEmissionCnh());
-                $p_sql->bindValue(":disapprove", $rates->getDisapprove());
+            {
+                try {
+                    $sql = "UPDATE tb_rates SET
+                        idrates = :idrates,
+                        theoretic = :theoretic,
+                        practice1 = :practice1,
+                        practice2 = :practice2,
+                        emission_cnh = :emission_cnh,
+                        disapprove = :disapprove,
+                        exam_a = :exam_a,
+                        exam_b = :exam_b,
+                        exam_d = :exam_d,
+                        idclient = :idclient
+                        WHERE idrates = :idrates";
 
-                $p_sql->bindValue(":exam_a", $rates->getExamA());
-                $p_sql->bindValue(":exam_b", $rates->getExamB());
-                $p_sql->bindValue(":exam_d", $rates->getExamD());
-                $p_sql->bindValue(":idclient", $rates->getIdclient());
+                    $p_sql = Conexao::getConexao()->prepare($sql);
+                    $p_sql->bindValue(":idrates", $rates->getIdRates());
+                    $p_sql->bindValue(":theoretic", $rates->getTheoretic());
+                    $p_sql->bindValue(":practice1", $rates->getPractice1());
+                    $p_sql->bindValue(":practice2", $rates->getPractice2());
+                    $p_sql->bindValue(":emission_cnh", $rates->getEmissionCnh());
+                    $p_sql->bindValue(":disapprove", $rates->getDisapprove());
+                    $p_sql->bindValue(":exam_a", $rates->getExamA());
+                    $p_sql->bindValue(":exam_b", $rates->getExamB());
+                    $p_sql->bindValue(":exam_d", $rates->getExamD());
+                    $p_sql->bindValue(":idclient", $rates->getIdclient());
 
-                return $p_sql->execute();
-            } catch (Exception $e) {
-                print "Ocorreu um erro ao tentar fazer Update<br> $e <br>";
+                    return $p_sql->execute();
+                } catch (Exception $e) {
+                    print "Ocorreu um erro ao tentar fazer Update<br> $e <br>";
+                }
             }
-    }
+
 
     public function findByClientId($idClient) {
         try {

@@ -1,0 +1,35 @@
+.swalFire.swal2-popup {
+    background-color: var(--color-primary);
+    border: 2px solid var(--color-seventh);
+    color: var(--color-seventh);
+    border-radius: 10px;
+    width: 70%;
+
+    @media screen and (max-width: 768px) {
+        width: 100%;
+    }
+}
+
+.swalFire.swal2-confirm,
+.swalFire.swal2-cancel {
+    background-color: var(--color-fourth);
+    color: var(--color-seventh);
+    border: var(--color-primary);
+    box-shadow: none !important;
+    max-width: 100%;
+}
+
+.swalFire.swal2-confirm:hover,
+.swalFire.swal2-cancel:hover,
+.swalFire.swal2-confirm:active,
+.swalFire.swal2-cancel:active {
+    background-color: var(--color-fifth);
+    color: var(--color-seventh);
+    border: 2px solid var(--color-fifth);
+}
+
+.swalIcon {
+    color: green; /* Substitua 'green' pela cor desejada para o ícone */
+}
+
+

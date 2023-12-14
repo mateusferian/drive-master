@@ -19,8 +19,8 @@ class Client
     private $neighborhood;
     private $uf;
     private $activityLocation;
-    private $photo;
     private $renach;
+    private $registrationDate;
 
     public function getIdClient()
     {
@@ -192,16 +192,6 @@ class Client
         $this->activityLocation = $activityLocation;
     }
 
-    public function getPhoto()
-    {
-        return $this->photo;
-    }
-
-    public function setPhoto($photo)
-    {
-        $this->photo = $photo;
-    }
-
     public function getRenach()
     {
         return $this->renach;
@@ -210,6 +200,16 @@ class Client
     public function setRenach($renach)
     {
         $this->renach = $renach;
+    }
+
+    public function getRegistrationDate()
+    {
+        return $this->registrationDate;
+    }
+
+    public function setRegistrationDate($registrationDate)
+    {
+        $this->registrationDate = $registrationDate;
     }
 }
 ?>    
