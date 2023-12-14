@@ -84,7 +84,7 @@
 
         $clientDAO->delete($client);
 
-        header("Location: ../controle-de-aluno.php");
+        header("Location: ../controle-de-aluno.php?deletado=0000");
 
     } 
 

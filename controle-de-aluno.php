@@ -12,6 +12,25 @@ include_once('./dao/ClientDAO.php');
 
 $client = new Client();
 $clientDAO = new ClientDAO();
+
+if (isset($_GET["deletado"])) { 
+    
+    echo "<script>
+        Swal.fire({
+        icon: 'success',
+        title: 'Aluno(a) deletado com sucesso!',
+        customClass: {
+            popup: 'swalFire',
+        },
+        showConfirmButton: false,
+        allowOutsideClick: false  
+    });
+        
+    setTimeout(function() {
+            window.location.href = 'controle-de-aluno.php';
+    }, 5000);
+    </script>";
+}
 ?>
 <style>
     .breadcrumbs {
