@@ -7,6 +7,7 @@
         private $email;
         private $passwordAdministrator;
         private $registerDate;
+        private $recoveryKey;
 
         function getIdAdministrator()
         { 
@@ -58,6 +59,15 @@
             $this->registerDate = $registerDate;
         }
         
+        function getRecoveryKey()
+        {
+            return $this->recoveryKey;
+        }
+
+        function setRecoveryKey($recoveryKey)
+        {
+            $this->recoveryKey = $recoveryKey;
+        }
     }
 
 ?>

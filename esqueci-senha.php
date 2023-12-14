@@ -9,93 +9,153 @@ use PHPMailer\PHPMailer\PHPMailer;
 use PHPMailer\PHPMailer\SMTP;
 use PHPMailer\PHPMailer\Exception;
 
-require './lib/vendor/autoload.php';
+require './assets/libs/PHPMailerLib/vendor/autoload.php';
+
 $mail = new PHPMailer(true);
-    $administrator = new Administrator();
-    $administratorDAO = new AdministratorDAO();
+$administrator = new Administrator();
+$administratorDAO = new AdministratorDAO();
 ?>
-<!DOCTYPE html>
-<html lang="pt-br">
+<link rel="stylesheet" href="css/form.css">
 
-<head>
-    <meta charset="UTF-8">
-    <link rel="shortcut icon" href="images/favicon.ico" type="image/x-ico">
-    <title>Celke - Recuperar Senha</title>
-</head>
+<body style="background-image: url('include/backgroundImage.php');">
 
-<body>
-    <h1>Recuperar Senha</h1>
+
+    <div id="myDiv" class="d-flex align-items-center" style="min-height: 100vh;" data-aos="zoom-out"
+        data-aos-delay="100">
+        <div class="container mt-4">
+            <div class="col-md-6 offset-md-3">
+                <div class="form">
+                    
+                    <br><br>
+                    <h1 class="text-center">Recuperar Senha</h1>
+                    <br><br>
+
+                    <form method="POST" action="controller/EmailController.php">
+
+                        <div class="formGroup">
+                            <div class="col-md-6 offset-md-3">
+                                <label for="usuario">E-mail</label>
+                                <input type="email" id="email" name="email" class="formControl"
+                                    placeholder="Digite o usuário" required>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                        <a href="index.php" class="formLink">Voltar para a area administrativa</a>
+                    </div>
+                        
+                    <br><br>
+                        <div class="formGroup">
+                            <div class="col-md-4 offset-md-4">
+                                <input type="submit" class="btn btn-primary" value="Enviar" name="recoverPassword" id="formButton">
+                            </div>
+                        </div>
+                    <br><br>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
 
     <?php
-    $dados = filter_input_array(INPUT_POST, FILTER_DEFAULT);
-
-    if (!empty($dados['SendRecupSenha'])) {
-        $quantidade = $administratorDAO->countByEmail($dados['usuario']);
-        
-        if ($quantidade !== 0) {
-            $user = $administratorDAO->getUserByEmail($dados['usuario']);
-            $chave_recuperar_senha = password_hash($user['idAdministrator'], PASSWORD_DEFAULT);
-
-            if ($administratorDAO->updateRecoveryKey($user['idAdministrator'], $chave_recuperar_senha)) {
-                $link = "http://localhost/celke/atualizar_senha.php?chave=$chave_recuperar_senha";
-
-                try {
-                    /*$mail->SMTPDebug = SMTP::DEBUG_SERVER;*/
-                    $mail->CharSet = 'UTF-8';
-                    $mail->isSMTP();
-                    $mail->Host       = 'smtp.mailtrap.io';
-                    $mail->SMTPAuth   = true;
-                    $mail->Username   = 'e3efb8755943d1';
-                    $mail->Password   = 'fe84283081bb96';
-                    $mail->SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS;
-                    $mail->Port       = 2525;
-
-                    $mail->setFrom('atendimento@celke.com', 'Atendimento');
-                    $mail->addAddress($row_usuario['usuario'], $row_usuario['nome']);
-
-                    $mail->isHTML(true);                                  //Set email format to HTML
-                    $mail->Subject = 'Recuperar senha';
-                    $mail->Body    = 'Prezado(a) ' . $row_usuario['nome'] .".<br><br>Você solicitou alteração de senha.<br><br>Para continuar o processo de recuperação de sua senha, clique no link abaixo ou cole o endereço no seu navegador: <br><br><a href='" . $link . "'>" . $link . "</a><br><br>Se você não solicitou essa alteração, nenhuma ação é necessária. Sua senha permanecerá a mesma até que você ative este código.<br><br>";
-                    $mail->AltBody = 'Prezado(a) ' . $row_usuario['nome'] ."\n\nVocê solicitou alteração de senha.\n\nPara continuar o processo de recuperação de sua senha, clique no link abaixo ou cole o endereço no seu navegador: \n\n" . $link . "\n\nSe você não solicitou essa alteração, nenhuma ação é necessária. Sua senha permanecerá a mesma até que você ative este código.\n\n";
-
-                    $mail->send();
-
-                    $_SESSION['msg'] = "<p style='color: green'>Enviado e-mail com instruções para recuperar a senha. Acesse a sua caixa de e-mail para recuperar a senha!</p>";
-                    header("Location: index.php");
-                } catch (Exception $e) {
-                    echo "Erro: E-mail não enviado sucesso. Mailer Error: {$mail->ErrorInfo}";
-                }
-            } else {
-                echo  "<p style='color: #ff0000'>Erro: Tente novamente!</p>";
-            }
-        } else {
-            echo "<p style='color: #ff0000'>Erro: Usuário não encontrado!</p>";
-        }
+    if (isset($_GET["link-invalido"])) { 
+    
+        echo "<script>
+            Swal.fire({
+            icon: 'error',
+            title: 'Link inválido!',
+            html: '<p>solicite um novo link para atualizar a senha!!</p>',
+            customClass: {
+                popup: 'swalFire',
+            },
+            showConfirmButton: false,
+            allowOutsideClick: false  
+        });
+            
+        setTimeout(function() {
+                window.location.href = 'esqueci-senha.php';
+        }, 5000);
+        </script>";
     }
 
-    if (isset($_SESSION['msg_rec'])) {
-        echo $_SESSION['msg_rec'];
-        unset($_SESSION['msg_rec']);
+    if (isset($_GET["sucesso"])) { 
+        echo "<script>
+        Swal.fire({
+            icon: 'success',
+            title: 'E-mail enviado com sucesso!',
+            html: '<p>Enviado e-mail com instruções para recuperar a senha. Acesse a sua caixa de e-mail para recuperar a senha!</p>',
+            customClass: {
+                popup: 'swalFire',
+            },
+            showConfirmButton: false,
+            allowOutsideClick: false  
+        });
+
+        setTimeout(function() {
+            window.location.href = 'index.php';
+        }, 4000);
+    </script>";
+    }
+    
+    if (isset($_GET["erro"])) { 
+        echo "<script>
+        Swal.fire({
+            icon: 'error',
+            title: 'Erro Tente novamente!',
+            customClass: {
+                popup: 'swalFire',
+            },
+            showConfirmButton: false,
+            allowOutsideClick: false  
+        });
+
+        setTimeout(function() {
+            window.location.href = 'esqueci-senha.php';
+        }, 4000);
+    </script>";
+    };
+
+    if (isset($_GET["usuario-nao-encontrado"])) { 
+        echo "<script>
+        Swal.fire({
+            icon: 'error',
+            title: 'Usuário não encontrado!',
+            customClass: {
+                popup: 'swalFire',
+            },
+            showConfirmButton: false,
+            allowOutsideClick: false  
+        });
+
+        setTimeout(function() {
+            window.location.href = 'esqueci-senha.php';
+        }, 4000);
+    </script>";
     }
 
+    if (isset($_GET["senha-alterada"])) { 
+        echo "<script>
+        Swal.fire({
+            icon: 'success',
+            title: 'Senha atualizada com sucesso!',
+            customClass: {
+                popup: 'swalFire',
+            },
+            showConfirmButton: false,
+            allowOutsideClick: false  
+        });
+
+        setTimeout(function() {
+            window.location.href = 'index.php';
+        }, 4000);
+    </script>";
+    }
     ?>
-
-    <form method="POST" action="">
-        <?php
-        $usuario = "";
-        if (isset($dados['usuario'])) {
-            $usuario = $dados['usuario'];
-        } ?>
-
-        <label>E-mail</label>
-        <input type="text" name="usuario" placeholder="Digite o usuário" value="<?php echo $usuario; ?>"><br><br>
-
-        <input type="submit" value="Recuperar" name="SendRecupSenha">
-    </form>
-
-    <br>
-    Lembrou? <a href="index.php">clique aqui</a> para logar
-
+    <script>
+    AOS.init();
+    </script>
 </body>
 
 </html>

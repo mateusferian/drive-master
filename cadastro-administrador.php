@@ -6,9 +6,10 @@ include_once "conexao/Conexao.php";
 include_once "model/Administrator.php";
 include_once "dao/AdministratorDAO.php";
 ?>
-    <link rel="stylesheet" href="css/form.css">
-    <link rel="stylesheet" href="css/buttonRegister.css">
-    <body style="background-image: url('include/backgroundImage.php');">
+<link rel="stylesheet" href="css/form.css">
+<link rel="stylesheet" href="css/buttonRegister.css">
+
+<body style="background-image: url('include/backgroundImage.php');">
     <script>
     AOS.init();
     </script>
@@ -27,24 +28,26 @@ include_once "dao/AdministratorDAO.php";
                         <div class="col-md-6 offset-md-3">
                             <label>E-mail: </label>
                             <input type="email" name="email" class="formControl" placeholder="digite o seu e-mail "
-                            required>
+                                required>
                         </div>
                     </div>
 
                     <div class="formGroup">
                         <div class="col-md-6 offset-md-3">
                             <label>Nome completo:</label>
-                            <input type="text" name="name" class="formControl" placeholder="digite o seu nome"
-                            required>
+                            <input type="text" name="name" class="formControl" placeholder="digite o seu nome" required>
                         </div>
                     </div>
 
                     <div class="formGroup">
                         <div class="col-md-6 offset-md-3">
-                            <label>Senha</label>
-                            <input type="password" name="passwordAdministrator" class="formControl" placeholder="digite a sua senha" required>
-                        </div>
+                        <label>Senha:</label>
+                        <input type="password" class="formControl" id="passwordAdministrator" name="passwordAdministrator" placeholder="Digite a sua senha"
+                            pattern="^(?=.*[0-9])(?=.*[^a-zA-Z0-9]).{8,}$"
+                            title="Pelo menos 8 caracteres, 1 número e 1 símbolo são obrigatórios" required>
                     </div>
+
+
 
                     <a class="formLink" href="index.php">Já tenho uma conta</a>
 
@@ -82,6 +85,25 @@ if (isset($_GET["sucess"])) {
             }, 4000);
         </script>";
 }
+
+if (isset($_GET["erro"])) { 
+    echo "<script>
+    Swal.fire({
+        icon: 'error',
+        title: 'O e-mail já está sendo utilizado!',
+        html: '<p>escolha um outro e-mail para se cadastrar</p>',
+        customClass: {
+            popup: 'swalFire',
+        },
+        showConfirmButton: false,
+        allowOutsideClick: false  
+    });
+
+    setTimeout(function() {
+        window.location.href = 'cadastro-administrador.php';
+    }, 4000);
+</script>";
+};
 ?>
 </body>
 

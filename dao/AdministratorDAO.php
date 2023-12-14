@@ -27,6 +27,7 @@
             $administrator->setEmail($row['email']);
             $administrator->setPasswordAdministrator($row['password_administrator']);
             $administrator->setRegisterDate($row['register_date']);
+            $administrator->setRecoveryKey($row['recuperar_senha']);
 
             return $administrator;
         }
@@ -82,29 +83,92 @@
         }
     }
     
-    public function getUserByEmail($email) {
+    public function findByEmail($email) {
         try {
             $sql = "SELECT * FROM tb_administrator WHERE email = :email";
             $p_sql = Conexao::getConexao()->prepare($sql);
             $p_sql->bindValue(":email", $email);
             $p_sql->execute();
+            $row = $p_sql->fetch(PDO::FETCH_ASSOC);
     
-            return $p_sql->fetch(PDO::FETCH_ASSOC);
+            if ($row) {
+                return $this->listaAdministrator($row);
+            } else {
+                return null;
+            }
+        } catch (Exception $e) {
+            print "Ocorreu um erro ao tentar Buscar Cliente por ID: " . $e;
+        }
+    }
+
+    public function countByPasswordKey($key) {
+        try {
+            $sql = "SELECT COUNT(*) AS count FROM tb_administrator WHERE recover_password = :recover_password";
+            $p_sql = Conexao::getConexao()->prepare($sql);
+            $p_sql->bindValue(":recover_password", $key);
+            $p_sql->execute();
+    
+            return (int) $p_sql->fetchColumn();
     
         } catch (Exception $e) {
-            print "Erro ao obter usuário por email <br>" . $e . '<br>';
-            return false;
+            print "Erro ao contar administradores por email <br>" . $e . '<br>';
+            return 0;
         }
     }
     
-    public function updateRecoveryKey($idAdministrator, $recoveryKey) {
+    public function findByPasswordKey($key) {
+        try {
+            $sql = "SELECT * FROM tb_administrator WHERE recover_password = :recover_password";
+            $p_sql = Conexao::getConexao()->prepare($sql);
+            $p_sql->bindValue(":recover_password", $key);
+            $p_sql->execute();
+            $row = $p_sql->fetch(PDO::FETCH_ASSOC);
+    
+            if ($row) {
+                return $this->listaAdministrator($row);
+            } else {
+                return null;
+            }
+        } catch (Exception $e) {
+            print "Ocorreu um erro ao tentar Buscar Cliente por ID: " . $e;
+        }
+    }
+
+    public function teste($idAdministrator, $userPassword) {
+
+        $hash = password_hash(($userPassword), PASSWORD_DEFAULT);
+        $recoveryKey = null;
+
         try {
             $sql = "UPDATE tb_administrator 
-                    SET recuperar_senha = :recuperar_senha 
+                    SET password_administrator = :password_administrator,
+                    recover_password = :recover_password 
                     WHERE idAdministrator = :idAdministrator 
                     LIMIT 1";
             $p_sql = Conexao::getConexao()->prepare($sql);
-            $p_sql->bindParam(':recuperar_senha', $recoveryKey, PDO::PARAM_STR);
+            $p_sql->bindParam(':password_administrator', $hash, PDO::PARAM_STR);
+            $p_sql->bindParam(':recover_password', $recoveryKey);
+            $p_sql->bindParam(':idAdministrator', $idAdministrator, PDO::PARAM_INT);
+            $p_sql->execute();
+    
+            return true;
+    
+        } catch (Exception $e) {
+            print "Erro ao atualizar a chave de recuperação <br>" . $e . '<br>';
+            return false;
+        }
+    }
+
+
+    public function updateRecoveryKey($idAdministrator, $recoveryKey) {
+        
+        try {
+            $sql = "UPDATE tb_administrator 
+                    SET recover_password = :recover_password 
+                    WHERE idAdministrator = :idAdministrator 
+                    LIMIT 1";
+            $p_sql = Conexao::getConexao()->prepare($sql);
+            $p_sql->bindParam(':recover_password', $recoveryKey, PDO::PARAM_STR);
             $p_sql->bindParam(':idAdministrator', $idAdministrator, PDO::PARAM_INT);
             $p_sql->execute();
     
