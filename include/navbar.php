@@ -6,7 +6,7 @@
 
     <div class="container-fluid container-xl d-flex align-items-center justify-content-between">
         <a href="controle-de-aluno.php" class="logo d-flex align-items-center">
-            <h1 href= >Autoescola Líder<span>.</span></h1>
+            <h1 href= >Drive Master<span>.</span></h1>
         </a>
         <nav id="navbar" class="navbar">
             <ul>

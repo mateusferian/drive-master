@@ -1,7 +1,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Auto Escola Lider</title>
+    <title>Drive Master</title>
     <link rel="stylesheet" href="bootstrap/css/bootstrap.min.css">
     <script src="bootstrap/js/bootstrap.min.js"></script>
     <link href="css/button.css" rel="stylesheet">
@@ -25,6 +25,6 @@
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.0.7/dist/umd/popper.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
 
-    <link rel="icon" type="image/png" sizes="16x16" href="assets/imagens/logoSite/logo.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="assets/imagens/logoSite/logoType.png">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.20.0/font/bootstrap-icons.css">
 </head>

@@ -19,13 +19,13 @@ $clientDAO = new ClientDAO();
 
     <link href="bootstrap/css/bootstrap.min.css" rel="stylesheet">
     <script src="bootstrap/js/bootstrap.min.js"> </script>
-    <title>Auto Escola Lider</title>
+    <title>Drive Maste</title>
     <link rel="stylesheet" href="css/form.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css">
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
 
-    <link rel="icon" type="image/png" sizes="16x16" href="assets/imagens/logoSite/logo.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="assets/imagens/logoSite/logoType.png">
     <link href="css/account.css" rel="stylesheet">
 
 </head>
