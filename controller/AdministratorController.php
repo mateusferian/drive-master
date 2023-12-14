@@ -58,7 +58,7 @@
         $bytes = random_bytes(7);
         $valueNumber = bin2hex($bytes);
 
-        $administratorDAO->teste($administrator->getIdAdministrator(), $d['user_password']);
+        $administratorDAO->updatePassword($administrator->getIdAdministrator(), $d['user_password']);
 
         header("Location: ../esqueci-senha.php?senha-alterada=" . urlencode($valueNumber));
         }
