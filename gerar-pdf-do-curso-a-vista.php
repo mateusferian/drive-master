@@ -311,7 +311,7 @@ $dados = "<style>
           </tr>
       </table>
       <br><br>
-          <h2 style='text-align: right;'>Auto Escola Lider</h2>";
+          <h2 style='text-align: right;'>Drive Master</h2>";
 
     $dados .= "<hr>";   
 $dados .= "</body>";

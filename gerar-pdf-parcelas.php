@@ -456,7 +456,7 @@ $dados = "<style>
 </table>
 <br><br>
 
-          <h2 style='text-align: right;'>Drive Maste</h2>";
+          <h2 style='text-align: right;'>Drive Master</h2>";
 
     $dados .= "<hr>";   
 $dados .= "</body>";
