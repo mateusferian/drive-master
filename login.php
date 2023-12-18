@@ -1,26 +1,30 @@
 <?php
-    if(isset($_POST['access']) && !empty($_POST["email"]) && !empty($_POST["password"])){
-        
-        include_once('config.php');
+if (isset($_POST['access']) && !empty($_POST["email"]) && !empty($_POST["password"])) {
 
-        $email = $_POST["email"];
-    	$password = $_POST["password"];
+    include_once('config.php');
 
-            $sql = "SELECT * FROM tb_administrator WHERE email = '$email' AND password_administrator = '$password'";
-            $res = $conn->query($sql);
+    $email = $_POST["email"];
+    $password = $_POST["password"];
 
-            if(mysqli_num_rows($res) < 1){
-                print "<script>alert('Email e/ou senha incorretos');</script>";
-                print "<script>location.href='index.php';</script>"; 
+    $sql = "SELECT * FROM tb_administrator WHERE email = '$email'";
+    $res = $conn->query($sql);
 
-            } 
-            else if(mysqli_num_rows($res) >= 1){{
-                session_start();
-                $row = $res->fetch_object(); 
-                $_SESSION["email"] = $email;
-                $_SESSION["password"] = $password;
-                print "<script>location.href='controle-de-aluno.php';</script>";
-            } 
+    if (mysqli_num_rows($res) < 1) {
+        header("Location: index.php?erro=1111");
+    } else {
+        $row = $res->fetch_assoc();
+        $storedPassword = $row['password_administrator'];
+
+        if (password_verify($password, $storedPassword)) {
+            session_start();
+            $_SESSION["name_administrator"] = $row['name_administrator'];
+            $_SESSION["email"] = $email;
+            header("Location: controle-de-aluno.php");
+            exit();
+        } else {
+            header("Location: index.php?erro=1111");
         }
     }
+}
 ?>
+

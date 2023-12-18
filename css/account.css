@@ -1,0 +1,52 @@
+.custom-text {
+    color: var(--color-seventh);
+    margin: 0;
+}
+
+.custom-card {
+    background-color: var(--color-fourth);
+    border: none;
+    box-shadow: none;
+}
+
+.custom-link {
+    text-decoration: none; 
+    color: inherit;
+}
+
+.buttonCar {
+    width: 100%;
+    height: 100%;
+    border: none;
+}
+
+.accountPageButton {
+    background-color: var(--color-fourth);
+    color: #fff;
+    border: none;
+}
+
+.accountPageButton:active,
+.accountPageButton:focus {
+    background-color: var(--color-fourth);
+    border: none;
+}
+
+.accountPageButton:hover {
+    background-color: var(--color-fifth);
+    border: none;
+}
+
+.formLink {
+    color: var(--color-fourth);
+    text-decoration: none;
+}
+
+.formLink:hover {
+    color: var(--color-fifth);
+}
+
+.formLink:active {
+    color: var(--color-fourth);
+}
+

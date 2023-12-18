@@ -1,0 +1,46 @@
+.page-link {
+    background-color: var(--color-seventh) !important;
+    border-color: var(--color-third) !important;
+    color: var(--color-primary) !important;
+}
+
+.page-link.active {
+    background-color: var(--color-primary) !important;
+    border-color: var(--color-third) !important;
+    color: var(--color-seventh) !important;
+}
+
+.page-link.active:hover {
+    background-color: #aad9f8 !important;
+    color: white !important;
+}
+
+.page-link:hover {
+    background-color: #aad9f8 !important;
+    color: white !important;
+}
+
+/* Graphics */
+.page-item.active .page-link {
+    background-color: var(--color-primary) !important;
+    border-color: var(--color-third) !important;
+    color: var(--color-seventh) !important;
+}
+
+.page-item.active:hover .page-link,
+.page-item.active:active .page-link {
+    background-color: #aad9f8 !important;
+    color: white !important;
+}
+
+
+.page-item:not(.active) .page-link {
+    background-color: var(--color-seventh) !important;
+    border-color: var(--color-third) !important;
+    color: var(--color-primary) !important;
+}
+
+.page-item:not(.active):hover .page-link {
+    background-color: #aad9f8 !important;
+    color: white !important;
+}
