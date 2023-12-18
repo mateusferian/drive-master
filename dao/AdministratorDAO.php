@@ -134,7 +134,7 @@
         }
     }
 
-    public function teste($idAdministrator, $userPassword) {
+    public function updatePassword($idAdministrator, $userPassword) {
 
         $hash = password_hash(($userPassword), PASSWORD_DEFAULT);
         $recoveryKey = null;

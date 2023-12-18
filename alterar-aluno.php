@@ -36,7 +36,7 @@ $clientDAO = new ClientDAO();
                         </div>
 
                         <?php
-                        include_once('include/progressBar.php');
+                        include_once('include/changeProgressBar.php');
                         ?>
 
                         <div class="card-body">
